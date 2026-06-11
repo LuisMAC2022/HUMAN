@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Human STEM: desarrollamos proyectos sociales, ambientales y culturales de alto impacto con una perspectiva científica y tecnológica.">
+  <title>Human STEM — Ciencia y tecnología con impacto social</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Enlace de salto para usuarios de teclado y lector de pantalla -->
+  <a href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header>
+    <p><strong>Human STEM</strong></p>
+
+    <nav aria-label="Navegación principal">
+      <!-- Patrón details/summary: funciona sin JavaScript.
+           En iteraciones futuras puede sustituirse por <button aria-expanded> + JS. -->
+      <details>
+        <summary>Menú</summary>
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#mision-vision">Misión y visión</a></li>
+          <li><a href="#proyecto-superman">Proyecto Superman</a></li>
+          <li><a href="#huertos-urbanos">Huertos urbanos</a></li>
+          <li><a href="#donaciones">Donaciones</a></li>
+        </ul>
+      </details>
+    </nav>
+  </header>
+
+  <main id="contenido-principal">
+
+    <!-- ============ HERO / ESLOGAN ============ -->
+    <section id="inicio" aria-labelledby="titulo-hero">
+      <h1 id="titulo-hero">Desarrollar proyectos sociales, ambientales y culturales de alto impacto con una perspectiva científica y tecnológica</h1>
+    </section>
+
+    <!-- ============ MISIÓN Y VISIÓN ============ -->
+    <section id="mision-vision" aria-labelledby="titulo-mision-vision">
+      <h2 id="titulo-mision-vision">Quiénes somos</h2>
+
+      <!-- Orden de lectura: texto primero, fotografía después.
+           La disposición visual (imagen izquierda / derecha) se resolverá con CSS. -->
+      <article aria-labelledby="titulo-mision">
+        <h3 id="titulo-mision">Misión</h3>
+        <p>
+          <!-- TODO: texto definitivo de la misión -->
+          Texto de la misión de Human STEM. Placeholder pendiente de redacción final.
+        </p>
+        <figure>
+          <img src="img/fundador-jair-alvarez.jpg"
+               alt="Retrato de Jair Álvarez, cofundador de Human STEM"
+               width="400" height="400" loading="lazy">
+          <figcaption>Jair Álvarez, cofundador</figcaption>
+        </figure>
+      </article>
+
+      <article aria-labelledby="titulo-vision">
+        <h3 id="titulo-vision">Visión</h3>
+        <p>
+          <!-- TODO: texto definitivo de la visión -->
+          Texto de la visión de Human STEM. Placeholder pendiente de redacción final.
+        </p>
+        <figure>
+          <img src="img/fundador-jair-inaki.jpg"
+               alt="Retrato de Jair Iñaki, cofundador de Human STEM"
+               width="400" height="400" loading="lazy">
+          <figcaption>Jair Iñaki, cofundador</figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <!-- ============ PROYECTO SUPERMAN ============ -->
+    <section id="proyecto-superman" aria-labelledby="titulo-superman">
+      <h2 id="titulo-superman">Proyecto Superman</h2>
+      <p>Prótesis de mano mioeléctricas: nuestro proyecto ancla une electrónica, manufactura aditiva y diseño centrado en las personas.</p>
+
+      <section aria-labelledby="titulo-patrocinadores">
+        <h3 id="titulo-patrocinadores">Patrocinadores</h3>
+        <ul>
+          <li>
+            <!-- TODO: sustituir por logo enlazado cuando esté disponible -->
+            <h4>Ktronics</h4>
+            <p>Brinda los componentes electrónicos del proyecto.</p>
+          </li>
+          <li>
+            <h4>Laboratorio de Aeronáutica del Instituto Politécnico Nacional</h4>
+            <p>Aporta la infraestructura para realizar las impresiones 3D.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="titulo-colaboradores">
+        <h3 id="titulo-colaboradores">Colaboradores</h3>
+        <p>El músculo técnico y organizacional del proyecto: quienes hacen que las cosas sucedan y no se queden solo en buenas ideas.</p>
+
+        <!-- Dos filas independientes (personas distintas en cada una).
+             El desplazamiento en direcciones contrarias se implementará con CSS;
+             si la animación duplica elementos, los clones deberán llevar aria-hidden="true". -->
+        <ul aria-label="Colaboradores, primera fila">
+          <li>
+            <figure>
+              <img src="img/colaboradores/apis-mellifera.jpg" alt="Retrato de Apis Mellifera" width="200" height="200" loading="lazy">
+              <figcaption>Apis Mellifera<br>Apidae</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="img/colaboradores/bombus-terrestris.jpg" alt="Retrato de Bombus Terrestris" width="200" height="200" loading="lazy">
+              <figcaption>Bombus Terrestris<br>Apidae</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="img/colaboradores/andrena-fulva.jpg" alt="Retrato de Andrena Fulva" width="200" height="200" loading="lazy">
+              <figcaption>Andrena Fulva<br>Andrenidae</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="img/colaboradores/osmia-bicornis.jpg" alt="Retrato de Osmia Bicornis" width="200" height="200" loading="lazy">
+              <figcaption>Osmia Bicornis<br>Megachilidae</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="img/colaboradores/halictus-scabiosae.jpg" alt="Retrato de Halictus Scabiosae" width="200" height="200" loading="lazy">
+              <figcaption>Halictus Scabiosae<br>Halictidae</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="img/colaboradores/colletes-daviesanus.jpg" alt="Retrato de Colletes Daviesanus" width="200" height="200" loading="lazy">
+              <figcaption>Colletes Daviesanus<br>Colletidae</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="img/colaboradores/xylocopa-violacea.jpg" alt="Retrato de Xylocopa Violacea" width="200" height="200" loading="lazy">
+              <figcaption>Xylocopa Violacea<br>Apidae</figcaption>
+            </figure>
+          </li>
+                  <!-- Clones para el bucle infinito de la marquesina (solo CSS). Ocultos a tecnologías de asistencia. -->
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/apis-mellifera.jpg" alt="Retrato de Apis Mellifera" width="200" height="200" loading="lazy">
+              <figcaption>Apis Mellifera<br>Apidae</figcaption>
+            </figure>
+          </li>
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/bombus-terrestris.jpg" alt="Retrato de Bombus Terrestris" width="200" height="200" loading="lazy">
+              <figcaption>Bombus Terrestris<br>Apidae</figcaption>
+            </figure>
+          </li>
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/andrena-fulva.jpg" alt="Retrato de Andrena Fulva" width="200" height="200" loading="lazy">
+              <figcaption>Andrena Fulva<br>Andrenidae</figcaption>
+            </figure>
+          </li>
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/osmia-bicornis.jpg" alt="Retrato de Osmia Bicornis" width="200" height="200" loading="lazy">
+              <figcaption>Osmia Bicornis<br>Megachilidae</figcaption>
+            </figure>
+          </li>
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/halictus-scabiosae.jpg" alt="Retrato de Halictus Scabiosae" width="200" height="200" loading="lazy">
+              <figcaption>Halictus Scabiosae<br>Halictidae</figcaption>
+            </figure>
+          </li>
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/colletes-daviesanus.jpg" alt="Retrato de Colletes Daviesanus" width="200" height="200" loading="lazy">
+              <figcaption>Colletes Daviesanus<br>Colletidae</figcaption>
+            </figure>
+          </li>
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/xylocopa-violacea.jpg" alt="Retrato de Xylocopa Violacea" width="200" height="200" loading="lazy">
+              <figcaption>Xylocopa Violacea<br>Apidae</figcaption>
+            </figure>
+          </li>
+        </ul>
+
+        <ul aria-label="Colaboradores, segunda fila">
+          <li>
+            <figure>
+              <img src="img/colaboradores/melipona-beecheii.jpg" alt="Retrato de Melipona Beecheii" width="200" height="200" loading="lazy">
+              <figcaption>Melipona Beecheii<br>Apidae</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="img/colaboradores/megachile-rotundata.jpg" alt="Retrato de Megachile Rotundata" width="200" height="200" loading="lazy">
+              <figcaption>Megachile Rotundata<br>Megachilidae</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="img/colaboradores/lasioglossum-calceatum.jpg" alt="Retrato de Lasioglossum Calceatum" width="200" height="200" loading="lazy">
+              <figcaption>Lasioglossum Calceatum<br>Halictidae</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="img/colaboradores/hylaeus-communis.jpg" alt="Retrato de Hylaeus Communis" width="200" height="200" loading="lazy">
+              <figcaption>Hylaeus Communis<br>Colletidae</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="img/colaboradores/anthidium-manicatum.jpg" alt="Retrato de Anthidium Manicatum" width="200" height="200" loading="lazy">
+              <figcaption>Anthidium Manicatum<br>Megachilidae</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="img/colaboradores/centris-pallida.jpg" alt="Retrato de Centris Pallida" width="200" height="200" loading="lazy">
+              <figcaption>Centris Pallida<br>Apidae</figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure>
+              <img src="img/colaboradores/nomada-goodeniana.jpg" alt="Retrato de Nomada Goodeniana" width="200" height="200" loading="lazy">
+              <figcaption>Nomada Goodeniana<br>Apidae</figcaption>
+            </figure>
+          </li>
+                  <!-- Clones para el bucle infinito de la marquesina (solo CSS). Ocultos a tecnologías de asistencia. -->
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/melipona-beecheii.jpg" alt="Retrato de Melipona Beecheii" width="200" height="200" loading="lazy">
+              <figcaption>Melipona Beecheii<br>Apidae</figcaption>
+            </figure>
+          </li>
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/megachile-rotundata.jpg" alt="Retrato de Megachile Rotundata" width="200" height="200" loading="lazy">
+              <figcaption>Megachile Rotundata<br>Megachilidae</figcaption>
+            </figure>
+          </li>
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/lasioglossum-calceatum.jpg" alt="Retrato de Lasioglossum Calceatum" width="200" height="200" loading="lazy">
+              <figcaption>Lasioglossum Calceatum<br>Halictidae</figcaption>
+            </figure>
+          </li>
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/hylaeus-communis.jpg" alt="Retrato de Hylaeus Communis" width="200" height="200" loading="lazy">
+              <figcaption>Hylaeus Communis<br>Colletidae</figcaption>
+            </figure>
+          </li>
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/anthidium-manicatum.jpg" alt="Retrato de Anthidium Manicatum" width="200" height="200" loading="lazy">
+              <figcaption>Anthidium Manicatum<br>Megachilidae</figcaption>
+            </figure>
+          </li>
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/centris-pallida.jpg" alt="Retrato de Centris Pallida" width="200" height="200" loading="lazy">
+              <figcaption>Centris Pallida<br>Apidae</figcaption>
+            </figure>
+          </li>
+          <li aria-hidden="true">
+            <figure>
+              <img src="img/colaboradores/nomada-goodeniana.jpg" alt="Retrato de Nomada Goodeniana" width="200" height="200" loading="lazy">
+              <figcaption>Nomada Goodeniana<br>Apidae</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </section>
+    </section>
+
+    <!-- ============ TEASER: HUERTOS URBANOS ============ -->
+    <section id="huertos-urbanos" aria-labelledby="titulo-huertos">
+      <h2 id="titulo-huertos">Próximamente: Huertos urbanos</h2>
+      <p>Nuestro segundo proyecto llevará la agricultura a los espacios de la ciudad. ¿Quieres formar parte?</p>
+      <!-- TODO: enlazar al formulario de reclutamiento cuando exista -->
+      <a href="reclutamiento.html" aria-disabled="true">Únete al equipo (formulario disponible próximamente)</a>
+    </section>
+
+    <!-- ============ DONACIONES ============ -->
+    <section id="donaciones" aria-labelledby="titulo-donaciones">
+      <h2 id="titulo-donaciones">Donaciones</h2>
+      <p>Tu apoyo hace posible que las prótesis lleguen a quienes las necesitan.</p>
+      <p>Cuenta para donativos: <span translate="no">XXXX-XXXX-XXXX-XXXX</span></p>
+      <!-- TODO: en versiones futuras, botón de donación en línea -->
+    </section>
+
+  </main>
+
+  <footer>
+    <nav aria-label="Redes sociales">
+      <ul>
+        <!-- TODO: sustituir # por las URL reales de cada perfil -->
+        <li><a href="#" rel="external noopener">Instagram</a></li>
+        <li><a href="#" rel="external noopener">Facebook</a></li>
+        <li><a href="#" rel="external noopener">TikTok</a></li>
+        <li><a href="#" rel="external noopener">YouTube</a></li>
+      </ul>
+    </nav>
+    <p><small>© 2026 Human STEM. Todos los derechos reservados.</small></p>
+  </footer>
+
+</body>
+</html>
