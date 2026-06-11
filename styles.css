@@ -1,0 +1,524 @@
+/* ============================================================
+   Human STEM — styles.css
+   Mobile-first · vanilla CSS · sin JS · sin webfonts
+   Paleta: rosa mexicano / blanco / negro (confirmada)
+   ============================================================ */
+
+/* ---------- 1. Tokens ---------- */
+:root {
+  /* Color */
+  --rosa: #E4007C;          /* rosa mexicano: secciones de atención */
+  --rosa-profundo: #A30058; /* enlaces y foco sobre blanco (AAA) */
+  --tinta: #121212;         /* texto principal */
+  --papel: #FFFFFF;
+  --papel-suave: #FAF7F9;   /* blanco con una gota de rosa */
+  --linea: #E2DCE0;         /* hairlines */
+
+  /* Tipografía */
+  --fuente-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --fuente-mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, "Liberation Mono", monospace;
+
+  /* Espaciado */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+
+  /* Margen lateral de página (crece en los breakpoints) */
+  --margen-pagina: var(--space-4);
+}
+
+@media (min-width: 720px) {
+  :root { --margen-pagina: var(--space-6); }
+}
+
+@media (min-width: 1024px) {
+  /* Centra el contenido a un máximo de 70rem sin contenedores extra */
+  :root { --margen-pagina: max(var(--space-7), calc((100% - 70rem) / 2)); }
+}
+
+/* ---------- 2. Base ---------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--tinta);
+  background: var(--papel);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1, h2, h3, h4 {
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+::selection {
+  background: var(--rosa);
+  color: var(--papel);
+}
+
+/* Foco visible y consistente en todo elemento interactivo */
+:focus-visible {
+  outline: 3px solid var(--rosa-profundo);
+  outline-offset: 3px;
+}
+
+/* Ancla bajo header sticky: que los títulos no queden tapados */
+main section[id] { scroll-margin-top: 5rem; }
+
+/* ---------- 3. Skip link ---------- */
+body > a[href="#contenido-principal"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  padding: var(--space-3) var(--space-5);
+  background: var(--tinta);
+  color: var(--papel);
+  font-weight: 700;
+  text-decoration: none;
+  /* Oculto hasta recibir foco */
+  transform: translateY(-150%);
+}
+
+body > a[href="#contenido-principal"]:focus-visible {
+  transform: translateY(0);
+  outline-color: var(--rosa);
+  outline-offset: -3px;
+}
+
+/* ---------- 4. Header ---------- */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) var(--margen-pagina);
+  background: var(--papel);
+  border-bottom: 3px solid var(--rosa);
+}
+
+header > p {
+  margin: 0;
+  font-size: 1.125rem;
+  letter-spacing: 0.02em;
+}
+
+/* El <details> ancla el panel desplegable */
+header nav details { position: static; }
+
+header nav summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--tinta);
+  cursor: pointer;
+  list-style: none;               /* sin triángulo nativo */
+  font-family: var(--fuente-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  user-select: none;
+}
+
+header nav summary::-webkit-details-marker { display: none; }
+
+/* Ícono hamburguesa: una barra + dos sombras, sin imágenes */
+header nav summary::before {
+  content: "";
+  display: block;
+  width: 1.1rem;
+  height: 2px;
+  background: currentColor;
+  box-shadow: 0 -5px 0 currentColor, 0 5px 0 currentColor;
+}
+
+header nav details[open] summary {
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+/* Panel: cubre el ancho en móvil, colgado bajo el header */
+header nav details ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: var(--papel);
+  border-bottom: 3px solid var(--rosa);
+  box-shadow: 0 12px 24px rgba(18, 18, 18, 0.12);
+}
+
+header nav details ul li + li { border-top: 1px solid var(--linea); }
+
+header nav details ul a {
+  display: block;
+  padding: var(--space-4) var(--margen-pagina);
+  color: var(--tinta);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+header nav details ul a:hover {
+  background: var(--papel-suave);
+  box-shadow: inset 5px 0 0 var(--rosa);
+}
+
+header nav details ul a:focus-visible { outline-offset: -3px; }
+
+@media (min-width: 720px) {
+  /* En pantallas anchas el panel se vuelve un menú anclado a la derecha */
+  header nav details ul {
+    left: auto;
+    right: var(--margen-pagina);
+    min-width: 18rem;
+    border: 2px solid var(--tinta);
+    border-bottom: 3px solid var(--rosa);
+  }
+
+  header nav details ul a { padding: var(--space-3) var(--space-5); }
+}
+
+/* ---------- 5. Secciones: ritmo y fondos ---------- */
+main > section {
+  padding: var(--space-7) var(--margen-pagina);
+}
+
+main h2 {
+  margin: 0 0 var(--space-5);
+  font-size: clamp(1.6rem, 1.2rem + 2vw, 2.4rem);
+}
+
+/* Regla corta bajo cada h2: marca de sección, no decoración suelta */
+main h2::after {
+  content: "";
+  display: block;
+  width: 3.5rem;
+  height: 0.3rem;
+  margin-top: var(--space-2);
+  background: var(--rosa);
+}
+
+/* ---------- 6. Hero ---------- */
+#inicio {
+  display: grid;
+  place-items: center;
+  min-height: calc(100svh - 4rem); /* ocupa casi todo el viewport inicial */
+  background-color: var(--rosa);
+  /* Cuadrícula de papel milimétrico: lo científico, en voz baja */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 2.75rem 2.75rem;
+}
+
+#inicio h1 {
+  margin: 0;
+  max-width: 24ch;
+  font-size: clamp(1.9rem, 1.3rem + 3.2vw, 3.4rem);
+  font-weight: 800;
+  text-align: center;
+  color: var(--papel); /* texto grande sobre rosa: AA holgado */
+}
+
+/* ---------- 7. Misión y visión ---------- */
+#mision-vision { background: var(--papel); }
+
+#mision-vision article { margin-block: var(--space-7); }
+
+#mision-vision h3 {
+  margin: 0 0 var(--space-3);
+  font-size: clamp(1.3rem, 1.1rem + 1vw, 1.7rem);
+  color: var(--rosa-profundo);
+}
+
+#mision-vision p { margin: 0; max-width: 60ch; }
+
+#mision-vision figure {
+  margin: var(--space-5) 0 0;
+  max-width: 26rem;
+}
+
+#mision-vision img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 3px solid var(--tinta);
+}
+
+#mision-vision figcaption,
+#proyecto-superman figcaption {
+  margin-top: var(--space-2);
+  font-family: var(--fuente-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+@media (min-width: 720px) {
+  /* Filas 1 y 4 en 1fr: el bloque de texto queda centrado
+     verticalmente respecto a la fotografía, que abarca todas las filas */
+  #mision-vision article {
+    display: grid;
+    grid-template-rows: 1fr auto auto 1fr;
+    column-gap: var(--space-7);
+    margin-block: var(--space-8);
+  }
+
+  /* Misión: foto a la IZQUIERDA, texto a la derecha */
+  #mision-vision article:nth-of-type(1) {
+    grid-template-columns: minmax(16rem, 26rem) 1fr;
+  }
+  #mision-vision article:nth-of-type(1) figure { grid-column: 1; }
+  #mision-vision article:nth-of-type(1) h3,
+  #mision-vision article:nth-of-type(1) p   { grid-column: 2; }
+
+  /* Visión: foto a la DERECHA, texto a la izquierda */
+  #mision-vision article:nth-of-type(2) {
+    grid-template-columns: 1fr minmax(16rem, 26rem);
+  }
+  #mision-vision article:nth-of-type(2) figure { grid-column: 2; }
+  #mision-vision article:nth-of-type(2) h3,
+  #mision-vision article:nth-of-type(2) p   { grid-column: 1; }
+
+  #mision-vision article figure {
+    grid-row: 1 / -1;
+    align-self: center;
+    margin: 0;
+  }
+  #mision-vision article h3 { grid-row: 2; }
+  #mision-vision article p  { grid-row: 3; }
+}
+
+/* ---------- 8. Proyecto Superman ---------- */
+#proyecto-superman { background: var(--papel-suave); }
+
+#proyecto-superman > p { max-width: 65ch; }
+
+#proyecto-superman h3 {
+  margin: var(--space-7) 0 var(--space-4);
+  font-size: 1.25rem;
+}
+
+/* Patrocinadores: tarjetas tipo ficha */
+section[aria-labelledby="titulo-patrocinadores"] ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: var(--space-5);
+}
+
+section[aria-labelledby="titulo-patrocinadores"] li {
+  padding: var(--space-5);
+  background: var(--papel);
+  border: 2px solid var(--tinta);
+  box-shadow: 6px 6px 0 var(--rosa);
+}
+
+section[aria-labelledby="titulo-patrocinadores"] h4 {
+  margin: 0 0 var(--space-2);
+  font-size: 1.05rem;
+}
+
+section[aria-labelledby="titulo-patrocinadores"] li p { margin: 0; }
+
+@media (min-width: 720px) {
+  section[aria-labelledby="titulo-patrocinadores"] ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Colaboradores: marquesinas en direcciones contrarias --- */
+
+/* La sección recorta el desbordamiento de las pistas */
+section[aria-labelledby="titulo-colaboradores"] { overflow-x: clip; }
+
+section[aria-labelledby="titulo-colaboradores"] > p { max-width: 65ch; }
+
+section[aria-labelledby="titulo-colaboradores"] ul {
+  display: flex;
+  width: max-content;       /* la pista mide el doble del contenido real */
+  margin: var(--space-6) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* margin-right (no gap) para que el periodo de la animación sea exacto */
+section[aria-labelledby="titulo-colaboradores"] li {
+  margin-right: var(--space-6);
+}
+
+/* Primera fila: hacia la izquierda */
+section[aria-labelledby="titulo-colaboradores"] ul:nth-of-type(1) {
+  animation: marquesina-izquierda 45s linear infinite;
+}
+
+/* Segunda fila: hacia la derecha */
+section[aria-labelledby="titulo-colaboradores"] ul:nth-of-type(2) {
+  animation: marquesina-derecha 55s linear infinite;
+}
+
+/* Pausa al pasar el cursor o al navegar con teclado dentro de la fila */
+section[aria-labelledby="titulo-colaboradores"] ul:hover,
+section[aria-labelledby="titulo-colaboradores"] ul:focus-within {
+  animation-play-state: paused;
+}
+
+@keyframes marquesina-izquierda {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquesina-derecha {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* Ficha de espécimen: foto cuadrada + etiqueta monoespaciada */
+section[aria-labelledby="titulo-colaboradores"] figure {
+  margin: 0;
+  width: 9.5rem;
+  text-align: center;
+}
+
+section[aria-labelledby="titulo-colaboradores"] img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 2px solid var(--tinta);
+}
+
+/* ---------- 9. Teaser: huertos urbanos ---------- */
+#huertos-urbanos {
+  background-color: var(--rosa);
+  color: var(--tinta); /* tinta sobre rosa ≈ 5:1, AA en texto normal */
+}
+
+#huertos-urbanos h2 { color: var(--papel); }
+#huertos-urbanos h2::after { background: var(--papel); }
+
+#huertos-urbanos p {
+  max-width: 55ch;
+  font-weight: 500;
+}
+
+#huertos-urbanos a {
+  display: inline-block;
+  margin-top: var(--space-4);
+  padding: var(--space-3) var(--space-6);
+  background: var(--papel);
+  color: var(--tinta);
+  font-weight: 700;
+  text-decoration: none;
+  border: 2px solid var(--tinta);
+}
+
+/* Apariencia deshabilitada (el formulario aún no existe) */
+#huertos-urbanos a[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  border-style: dashed;
+}
+
+#huertos-urbanos a:focus-visible { outline-color: var(--papel); }
+
+/* ---------- 10. Donaciones ---------- */
+#donaciones { background: var(--papel); }
+
+#donaciones p { max-width: 60ch; }
+
+/* Número de cuenta: monoespaciado, legible, copiable de un vistazo */
+#donaciones span[translate="no"] {
+  display: inline-block;
+  margin-top: var(--space-1);
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--fuente-mono);
+  font-size: 1.15rem;
+  letter-spacing: 0.12em;
+  background: var(--tinta);
+  color: var(--papel);
+}
+
+/* ---------- 11. Footer ---------- */
+footer {
+  padding: var(--space-7) var(--margen-pagina);
+  background: var(--tinta);
+  color: var(--papel);
+  border-top: 4px solid var(--rosa);
+}
+
+footer nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  margin: 0 0 var(--space-5);
+  padding: 0;
+  list-style: none;
+}
+
+footer a {
+  color: var(--papel);
+  font-weight: 600;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25em;
+}
+
+/* El hover cambia el subrayado, no el color del texto: contraste intacto */
+footer a:hover { text-decoration-color: var(--rosa); }
+
+footer a:focus-visible { outline-color: var(--papel); }
+
+footer p { margin: 0; }
+
+/* ---------- 12. Movimiento reducido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html { scroll-behavior: auto; }
+
+  /* Las marquesinas quedan estáticas y desplazables con scroll */
+  section[aria-labelledby="titulo-colaboradores"] ul {
+    animation: none;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: var(--space-2); /* aire para la barra de scroll */
+  }
+
+  /* Los clones del bucle no aportan nada en la versión estática */
+  section[aria-labelledby="titulo-colaboradores"] li[aria-hidden="true"] {
+    display: none;
+  }
+}
