@@ -1,6 +1,6 @@
 /* ============================================================
    Human STEM — styles.css
-   Mobile-first · vanilla CSS · sin JS · sin webfonts
+   Mobile-first · vanilla CSS · sin JS · fuentes del sistema/locales
    Paleta: rosa mexicano / blanco / negro (confirmada)
    ============================================================ */
 
@@ -14,8 +14,10 @@
   --papel-suave: #FAF7F9;   /* blanco con una gota de rosa */
   --linea: #E2DCE0;         /* hairlines */
 
-  /* Tipografía */
-  --fuente-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  /* Tipografía: familias locales con Arial como fallback accesible y estable. */
+  --fuente-marca: "Gill Sans", "Gill Sans MT", Arial, sans-serif;
+  --fuente-tecnica: "Century Gothic", "Apple Gothic", Arial, sans-serif;
+  --fuente-cuerpo: Arial, "Helvetica Neue", Helvetica, sans-serif;
   --fuente-mono: ui-monospace, "Cascadia Code", "SF Mono", Consolas, "Liberation Mono", monospace;
 
   /* Espaciado */
@@ -54,7 +56,7 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  font-family: var(--fuente-sans);
+  font-family: var(--fuente-cuerpo);
   font-size: 1rem;
   line-height: 1.6;
   color: var(--tinta);
@@ -70,6 +72,20 @@ img {
 h1, h2, h3, h4 {
   line-height: 1.15;
   text-wrap: balance;
+}
+
+h1,
+h2,
+header > p strong {
+  font-family: var(--fuente-marca);
+}
+
+h3,
+h4,
+header nav summary,
+#mision-vision figcaption,
+#proyecto-superman figcaption {
+  font-family: var(--fuente-tecnica);
 }
 
 ::selection {
@@ -138,7 +154,6 @@ header nav summary {
   border: 2px solid var(--tinta);
   cursor: pointer;
   list-style: none;               /* sin triángulo nativo */
-  font-family: var(--fuente-mono);
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -276,7 +291,6 @@ main h2::after {
 #mision-vision figcaption,
 #proyecto-superman figcaption {
   margin-top: var(--space-2);
-  font-family: var(--fuente-mono);
   font-size: 0.8rem;
   letter-spacing: 0.02em;
 }
