@@ -422,7 +422,7 @@ section[aria-labelledby="titulo-patrocinadores"] li p { margin: 0; }
 
 @media (min-width: 720px) {
   section[aria-labelledby="titulo-patrocinadores"] ul {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -537,16 +537,10 @@ section[aria-labelledby="titulo-colaboradores"] img {
 
 #donaciones p { max-width: 60ch; }
 
-/* Número de cuenta: monoespaciado, legible, copiable de un vistazo */
-#donaciones span[translate="no"] {
-  display: inline-block;
-  margin-top: var(--space-1);
-  padding: var(--space-2) var(--space-4);
-  font-family: var(--fuente-mono);
-  font-size: 1.15rem;
-  letter-spacing: 0.12em;
-  background: var(--tinta);
-  color: var(--papel);
+#donaciones a {
+  color: inherit;
+  font-weight: 700;
+  text-underline-offset: 0.18em;
 }
 
 /* ---------- 11. Footer ---------- */
