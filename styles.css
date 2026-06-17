@@ -80,8 +80,7 @@ h1, h2, h3, h4 {
 }
 
 h1,
-h2,
-header > p strong {
+h2 {
   font-family: var(--fuente-marca);
 }
 
@@ -142,10 +141,15 @@ header {
   border-bottom: 3px solid var(--cyan);
 }
 
-header > p {
-  margin: 0;
-  font-size: 1.125rem;
-  letter-spacing: 0.02em;
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 1 12rem;
+}
+
+.site-logo img {
+  width: min(12rem, 52vw);
+  height: auto;
 }
 
 /* El <details> ancla el panel desplegable */
