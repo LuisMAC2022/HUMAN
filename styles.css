@@ -280,7 +280,18 @@ main h2::after {
 
 #mision-vision h2::after { background: var(--papel); }
 
-#mision-vision article { margin-block: var(--space-7); }
+#mision-vision > figure {
+  margin: var(--space-6) 0 0;
+  max-width: 26rem;
+}
+
+.mision-vision-textos {
+  display: grid;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+
+#mision-vision article { margin: 0; }
 
 #mision-vision h3 {
   margin: 0 0 var(--space-3);
@@ -289,11 +300,6 @@ main h2::after {
 }
 
 #mision-vision p { margin: 0; max-width: 60ch; }
-
-#mision-vision figure {
-  margin: var(--space-5) 0 0;
-  max-width: 26rem;
-}
 
 #mision-vision img {
   width: 100%;
@@ -310,38 +316,29 @@ main h2::after {
 }
 
 @media (min-width: 720px) {
-  /* Filas 1 y 4 en 1fr: el bloque de texto queda centrado
-     verticalmente respecto a la fotografía, que abarca todas las filas */
-  #mision-vision article {
+  #mision-vision {
     display: grid;
-    grid-template-rows: 1fr auto auto 1fr;
+    grid-template-columns: minmax(16rem, 26rem) minmax(0, 1fr);
+    grid-template-rows: auto 1fr;
+    align-items: center;
     column-gap: var(--space-7);
-    margin-block: var(--space-8);
   }
 
-  /* Misión: foto a la IZQUIERDA, texto a la derecha */
-  #mision-vision article:nth-of-type(1) {
-    grid-template-columns: minmax(16rem, 26rem) 1fr;
-  }
-  #mision-vision article:nth-of-type(1) figure { grid-column: 1; }
-  #mision-vision article:nth-of-type(1) h3,
-  #mision-vision article:nth-of-type(1) p   { grid-column: 2; }
+  #mision-vision h2 { grid-column: 1 / -1; }
 
-  /* Visión: foto a la DERECHA, texto a la izquierda */
-  #mision-vision article:nth-of-type(2) {
-    grid-template-columns: 1fr minmax(16rem, 26rem);
-  }
-  #mision-vision article:nth-of-type(2) figure { grid-column: 2; }
-  #mision-vision article:nth-of-type(2) h3,
-  #mision-vision article:nth-of-type(2) p   { grid-column: 1; }
-
-  #mision-vision article figure {
-    grid-row: 1 / -1;
-    align-self: center;
+  #mision-vision > figure {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: center;
     margin: 0;
   }
-  #mision-vision article h3 { grid-row: 2; }
-  #mision-vision article p  { grid-row: 3; }
+
+  .mision-vision-textos {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    margin-top: 0;
+  }
 }
 
 /* ---------- 8. Proyecto Superman ---------- */
@@ -353,7 +350,40 @@ main h2::after {
 #proyecto-superman h2::after,
 #proyecto-superman h3::after { background: var(--papel); }
 
-#proyecto-superman > p { max-width: 65ch; }
+.superman-intro {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.superman-intro p {
+  margin: 0;
+  max-width: 65ch;
+}
+
+.superman-intro figure {
+  margin: 0;
+  max-width: 26rem;
+}
+
+.superman-intro img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 3px solid var(--papel);
+}
+
+@media (min-width: 720px) {
+  .superman-intro {
+    grid-template-columns: minmax(0, 1fr) minmax(16rem, 26rem);
+    column-gap: var(--space-7);
+  }
+
+  .superman-intro figure {
+    justify-self: center;
+  }
+}
+
 
 #proyecto-superman h3 {
   margin: var(--space-7) 0 var(--space-4);
