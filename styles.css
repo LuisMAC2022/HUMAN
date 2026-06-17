@@ -1,13 +1,18 @@
 /* ============================================================
    Human STEM — styles.css
    Mobile-first · vanilla CSS · sin JS · sin webfonts
-   Paleta: rosa mexicano / blanco / negro (confirmada)
+   Paleta: azul oscuro / azul medio / rojo-rosa / cyan / verde
    ============================================================ */
 
 /* ---------- 1. Tokens ---------- */
 :root {
-  /* Color */
-  --rosa: #E4007C;          /* rosa mexicano: secciones de atención */
+  /* Color — tokens derivados de identidad.md */
+  --azul-oscuro: #081F5C;
+  --azul-medio: #1D5BBF;
+  --rojo-rosa: #E4007C;
+  --cyan: #00A9CE;
+  --verde: #2E7D32;
+  --rosa: var(--rojo-rosa);
   --rosa-profundo: #A30058; /* enlaces y foco sobre blanco (AAA) */
   --tinta: #121212;         /* texto principal */
   --papel: #FFFFFF;
@@ -93,7 +98,7 @@ body > a[href="#contenido-principal"] {
   top: 0;
   z-index: 100;
   padding: var(--space-3) var(--space-5);
-  background: var(--tinta);
+  background: var(--azul-oscuro);
   color: var(--papel);
   font-weight: 700;
   text-decoration: none;
@@ -231,7 +236,7 @@ main h2::after {
   display: grid;
   place-items: center;
   min-height: calc(100svh - 4rem); /* ocupa casi todo el viewport inicial */
-  background-color: var(--rosa);
+  background-color: var(--azul-oscuro);
   /* Cuadrícula de papel milimétrico: lo científico, en voz baja */
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px),
@@ -245,18 +250,23 @@ main h2::after {
   font-size: clamp(1.9rem, 1.3rem + 3.2vw, 3.4rem);
   font-weight: 800;
   text-align: center;
-  color: var(--papel); /* texto grande sobre rosa: AA holgado */
+  color: var(--papel); /* texto grande sobre azul oscuro: AA holgado */
 }
 
 /* ---------- 7. Misión y visión ---------- */
-#mision-vision { background: var(--papel); }
+#mision-vision {
+  background: var(--azul-medio);
+  color: var(--papel);
+}
+
+#mision-vision h2::after { background: var(--papel); }
 
 #mision-vision article { margin-block: var(--space-7); }
 
 #mision-vision h3 {
   margin: 0 0 var(--space-3);
   font-size: clamp(1.3rem, 1.1rem + 1vw, 1.7rem);
-  color: var(--rosa-profundo);
+  color: var(--papel);
 }
 
 #mision-vision p { margin: 0; max-width: 60ch; }
@@ -270,7 +280,7 @@ main h2::after {
   width: 100%;
   aspect-ratio: 1;
   object-fit: cover;
-  border: 3px solid var(--tinta);
+  border: 3px solid var(--papel);
 }
 
 #mision-vision figcaption,
@@ -317,7 +327,13 @@ main h2::after {
 }
 
 /* ---------- 8. Proyecto Superman ---------- */
-#proyecto-superman { background: var(--papel-suave); }
+#proyecto-superman {
+  background: var(--rojo-rosa);
+  color: var(--papel);
+}
+
+#proyecto-superman h2::after,
+#proyecto-superman h3::after { background: var(--papel); }
 
 #proyecto-superman > p { max-width: 65ch; }
 
@@ -327,6 +343,13 @@ main h2::after {
 }
 
 /* Patrocinadores: tarjetas tipo ficha */
+section[aria-labelledby="titulo-patrocinadores"] {
+  margin-inline: calc(var(--margen-pagina) * -1);
+  padding: var(--space-7) var(--margen-pagina);
+  background: var(--cyan);
+  color: var(--tinta);
+}
+
 section[aria-labelledby="titulo-patrocinadores"] ul {
   margin: 0;
   padding: 0;
@@ -339,7 +362,7 @@ section[aria-labelledby="titulo-patrocinadores"] li {
   padding: var(--space-5);
   background: var(--papel);
   border: 2px solid var(--tinta);
-  box-shadow: 6px 6px 0 var(--rosa);
+  box-shadow: 6px 6px 0 var(--azul-oscuro);
 }
 
 section[aria-labelledby="titulo-patrocinadores"] h4 {
@@ -358,7 +381,15 @@ section[aria-labelledby="titulo-patrocinadores"] li p { margin: 0; }
 /* --- Colaboradores: marquesinas en direcciones contrarias --- */
 
 /* La sección recorta el desbordamiento de las pistas */
-section[aria-labelledby="titulo-colaboradores"] { overflow-x: clip; }
+section[aria-labelledby="titulo-colaboradores"] {
+  margin-inline: calc(var(--margen-pagina) * -1);
+  padding: var(--space-7) var(--margen-pagina);
+  background: var(--azul-oscuro);
+  color: var(--papel);
+  overflow-x: clip;
+}
+
+section[aria-labelledby="titulo-colaboradores"] h3 { margin-top: 0; }
 
 section[aria-labelledby="titulo-colaboradores"] > p { max-width: 65ch; }
 
@@ -417,8 +448,8 @@ section[aria-labelledby="titulo-colaboradores"] img {
 
 /* ---------- 9. Teaser: huertos urbanos ---------- */
 #huertos-urbanos {
-  background-color: var(--rosa);
-  color: var(--tinta); /* tinta sobre rosa ≈ 5:1, AA en texto normal */
+  background-color: var(--verde);
+  color: var(--papel);
 }
 
 #huertos-urbanos h2 { color: var(--papel); }
@@ -442,7 +473,6 @@ section[aria-labelledby="titulo-colaboradores"] img {
 
 /* Apariencia deshabilitada (el formulario aún no existe) */
 #huertos-urbanos a[aria-disabled="true"] {
-  opacity: 0.6;
   cursor: not-allowed;
   border-style: dashed;
 }
@@ -450,7 +480,12 @@ section[aria-labelledby="titulo-colaboradores"] img {
 #huertos-urbanos a:focus-visible { outline-color: var(--papel); }
 
 /* ---------- 10. Donaciones ---------- */
-#donaciones { background: var(--papel); }
+#donaciones {
+  background: var(--azul-medio);
+  color: var(--papel);
+}
+
+#donaciones h2::after { background: var(--papel); }
 
 #donaciones p { max-width: 60ch; }
 
@@ -469,9 +504,9 @@ section[aria-labelledby="titulo-colaboradores"] img {
 /* ---------- 11. Footer ---------- */
 footer {
   padding: var(--space-7) var(--margen-pagina);
-  background: var(--tinta);
+  background: var(--azul-oscuro);
   color: var(--papel);
-  border-top: 4px solid var(--rosa);
+  border-top: 4px solid var(--cyan);
 }
 
 footer nav ul {
