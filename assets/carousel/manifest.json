@@ -1,12 +1,59 @@
 {
   "generatedAt": "2026-06-21T19:51:09.693Z",
   "width": 600,
+  "namingPolicy": {
+    "description": "Los archivos locales del carrusel mantienen el prefijo numérico de dos dígitos para indicar el orden de aparición (01, 02, ...), seguido por un nombre científico o descriptivo sin fechas, identificadores numéricos ni otros números no relacionados con el orden.",
+    "orderPrefixFormat": "NN-",
+    "renamedAt": "2026-06-21"
+  },
+  "renamedFiles": [
+    {
+      "from": "assets/carousel/01-20220613-apis-mellifera-01.jpg",
+      "to": "assets/carousel/01-apis-mellifera.jpg"
+    },
+    {
+      "from": "assets/carousel/04-osmia-bicornis-52849455594.jpg",
+      "to": "assets/carousel/04-osmia-bicornis.jpg"
+    },
+    {
+      "from": "assets/carousel/05-halictus-scabiosae-pjt1.jpg",
+      "to": "assets/carousel/05-halictus-scabiosae.jpg"
+    },
+    {
+      "from": "assets/carousel/06-colletes-daviesanus-42188168475.jpg",
+      "to": "assets/carousel/06-colletes-daviesanus.jpg"
+    },
+    {
+      "from": "assets/carousel/07-xylocopa-violacea-1432.jpg",
+      "to": "assets/carousel/07-xylocopa-violacea.jpg"
+    },
+    {
+      "from": "assets/carousel/08-melipona-beecheii-flickr-gailhampshire-2.jpg",
+      "to": "assets/carousel/08-melipona-beecheii-flickr-gailhampshire.jpg"
+    },
+    {
+      "from": "assets/carousel/10-lasioglossum-calceatum-m1.jpg",
+      "to": "assets/carousel/10-lasioglossum-calceatum.jpg"
+    },
+    {
+      "from": "assets/carousel/11-gewohnliche-maskenbiene-hylaeus-communis-20250812-rm-175341.jpg",
+      "to": "assets/carousel/11-gewohnliche-maskenbiene-hylaeus-communis.jpg"
+    },
+    {
+      "from": "assets/carousel/12-anthidium-manicatum-50868517517.jpg",
+      "to": "assets/carousel/12-anthidium-manicatum.jpg"
+    },
+    {
+      "from": "assets/carousel/14-lukas-large-gooden-s-nomad-bee-nomada-goodeniana-52025881754.jpg",
+      "to": "assets/carousel/14-goodens-nomad-bee-nomada-goodeniana.jpg"
+    }
+  ],
   "images": [
     {
       "index": 1,
       "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/20220613_Apis_mellifera_01.jpg",
       "thumbUrl": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2F20220613_Apis_mellifera_01.jpg&width=600",
-      "localPath": "assets/carousel/01-20220613-apis-mellifera-01.jpg",
+      "localPath": "assets/carousel/01-apis-mellifera.jpg",
       "skipped": true
     },
     {
@@ -29,7 +76,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Osmia_bicornis_(52849455594).jpg",
       "thumbUrl": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FOsmia_bicornis_%2852849455594%29.jpg&width=600",
       "finalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Osmia_bicornis_%2852849455594%29.jpg/960px-Osmia_bicornis_%2852849455594%29.jpg",
-      "localPath": "assets/carousel/04-osmia-bicornis-52849455594.jpg",
+      "localPath": "assets/carousel/04-osmia-bicornis.jpg",
       "contentType": "image/jpeg"
     },
     {
@@ -37,7 +84,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Halictus_scabiosae-pjt1.jpg",
       "thumbUrl": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FHalictus_scabiosae-pjt1.jpg&width=600",
       "finalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Halictus_scabiosae-pjt1.jpg/960px-Halictus_scabiosae-pjt1.jpg",
-      "localPath": "assets/carousel/05-halictus-scabiosae-pjt1.jpg",
+      "localPath": "assets/carousel/05-halictus-scabiosae.jpg",
       "contentType": "image/jpeg"
     },
     {
@@ -45,7 +92,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Colletes_daviesanus_(42188168475).jpg",
       "thumbUrl": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FColletes_daviesanus_%2842188168475%29.jpg&width=600",
       "finalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Colletes_daviesanus_%2842188168475%29.jpg/960px-Colletes_daviesanus_%2842188168475%29.jpg",
-      "localPath": "assets/carousel/06-colletes-daviesanus-42188168475.jpg",
+      "localPath": "assets/carousel/06-colletes-daviesanus.jpg",
       "contentType": "image/jpeg"
     },
     {
@@ -53,14 +100,14 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Xylocopa_violacea_1432.jpg",
       "thumbUrl": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FXylocopa_violacea_1432.jpg&width=600",
       "finalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Xylocopa_violacea_1432.jpg/960px-Xylocopa_violacea_1432.jpg",
-      "localPath": "assets/carousel/07-xylocopa-violacea-1432.jpg",
+      "localPath": "assets/carousel/07-xylocopa-violacea.jpg",
       "contentType": "image/jpeg"
     },
     {
       "index": 8,
       "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Melipona_beecheii_-_Flickr_-_gailhampshire_(2).jpg",
       "thumbUrl": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FMelipona_beecheii_-_Flickr_-_gailhampshire_%282%29.jpg&width=600",
-      "localPath": "assets/carousel/08-melipona-beecheii-flickr-gailhampshire-2.jpg",
+      "localPath": "assets/carousel/08-melipona-beecheii-flickr-gailhampshire.jpg",
       "skipped": true
     },
     {
@@ -76,7 +123,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Lasioglossum_calceatum_m1.JPG",
       "thumbUrl": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FLasioglossum_calceatum_m1.JPG&width=600",
       "finalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Lasioglossum_calceatum_m1.JPG/960px-Lasioglossum_calceatum_m1.JPG",
-      "localPath": "assets/carousel/10-lasioglossum-calceatum-m1.jpg",
+      "localPath": "assets/carousel/10-lasioglossum-calceatum.jpg",
       "contentType": "image/jpeg"
     },
     {
@@ -84,7 +131,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Gew%C3%B6hnliche_Maskenbiene_(Hylaeus_communis)-20250812-RM-175341.jpg",
       "thumbUrl": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FGew%C3%B6hnliche_Maskenbiene_%28Hylaeus_communis%29-20250812-RM-175341.jpg&width=600",
       "finalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Gew%C3%B6hnliche_Maskenbiene_%28Hylaeus_communis%29-20250812-RM-175341.jpg/960px-Gew%C3%B6hnliche_Maskenbiene_%28Hylaeus_communis%29-20250812-RM-175341.jpg",
-      "localPath": "assets/carousel/11-gewohnliche-maskenbiene-hylaeus-communis-20250812-rm-175341.jpg",
+      "localPath": "assets/carousel/11-gewohnliche-maskenbiene-hylaeus-communis.jpg",
       "contentType": "image/jpeg"
     },
     {
@@ -92,7 +139,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Anthidium_manicatum_(50868517517).jpg",
       "thumbUrl": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FAnthidium_manicatum_%2850868517517%29.jpg&width=600",
       "finalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Anthidium_manicatum_%2850868517517%29.jpg/960px-Anthidium_manicatum_%2850868517517%29.jpg",
-      "localPath": "assets/carousel/12-anthidium-manicatum-50868517517.jpg",
+      "localPath": "assets/carousel/12-anthidium-manicatum.jpg",
       "contentType": "image/jpeg"
     },
     {
@@ -107,7 +154,7 @@
       "sourceUrl": "https://commons.wikimedia.org/wiki/Special:FilePath/Lukas_Large_-_Gooden%27s_Nomad_Bee_(Nomada_goodeniana)_(52025881754).jpg",
       "thumbUrl": "https://commons.wikimedia.org/w/index.php?title=Special%3ARedirect%2Ffile%2FLukas_Large_-_Gooden%27s_Nomad_Bee_%28Nomada_goodeniana%29_%2852025881754%29.jpg&width=600",
       "finalUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Lukas_Large_-_Gooden%27s_Nomad_Bee_%28Nomada_goodeniana%29_%2852025881754%29.jpg/960px-Lukas_Large_-_Gooden%27s_Nomad_Bee_%28Nomada_goodeniana%29_%2852025881754%29.jpg",
-      "localPath": "assets/carousel/14-lukas-large-gooden-s-nomad-bee-nomada-goodeniana-52025881754.jpg",
+      "localPath": "assets/carousel/14-goodens-nomad-bee-nomada-goodeniana.jpg",
       "contentType": "image/jpeg"
     }
   ]
