@@ -11,308 +11,413 @@
 <body>
 
   <!-- Enlace de salto para usuarios de teclado y lector de pantalla -->
-  <a href="#contenido-principal">Saltar al contenido principal</a>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
-  <header>
-    <a class="site-logo" href="#inicio" aria-label="Human STEM, ir al inicio">
-      <img src="assets/human_stem_logo_vectorizado_transparente.svg"
-           alt="Human STEM"
-           width="1494" height="383" fetchpriority="high">
-    </a>
+  <header class="site-header">
+    <div class="contenedor site-header__inner">
+      <a class="site-logo" href="#inicio" aria-label="Human STEM, ir al inicio">
+        <img src="assets/human_stem_logo_vectorizado_transparente.svg"
+             alt="Human STEM"
+             width="1494" height="383" fetchpriority="high">
+      </a>
 
-    <nav aria-label="Navegación principal">
-      <!-- Patrón details/summary: funciona sin JavaScript.
-           En iteraciones futuras puede sustituirse por <button aria-expanded> + JS. -->
-      <details>
-        <summary>Menú</summary>
-        <ul>
+      <nav class="main-nav" aria-label="Navegación principal" data-open="false">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
+          <span class="nav-toggle__bars" aria-hidden="true"></span>
+          <span>Menú</span>
+        </button>
+        <ul class="nav-list" id="nav-list">
           <li><a href="#inicio">Inicio</a></li>
           <li><a href="#mision-vision">Misión y visión</a></li>
           <li><a href="#proyecto-superman">Proyecto Superman</a></li>
           <li><a href="#huertos-urbanos">Huertos urbanos</a></li>
-          <li><a href="#donaciones">Donaciones</a></li>
+          <li><a class="nav-cta" href="#donaciones">Donar</a></li>
         </ul>
-      </details>
-    </nav>
+      </nav>
+    </div>
   </header>
 
   <main id="contenido-principal">
 
     <!-- ============ HERO / ESLOGAN ============ -->
-    <section id="inicio" aria-labelledby="titulo-hero">
-      <h1 id="titulo-hero">Desarrollar proyectos sociales, ambientales y culturales de alto impacto con una perspectiva científica y tecnológica</h1>
+    <section class="hero" id="inicio" aria-labelledby="titulo-hero">
+      <div class="contenedor hero__inner">
+        <div class="hero__contenido">
+          <p class="hero__kicker">Asociación civil · Sin fines de lucro · Desde 2025</p>
+          <h1 id="titulo-hero">Proyectos de <em>alto impacto</em> con una perspectiva científica y tecnológica</h1>
+          <p class="hero__sub">Desarrollamos iniciativas sociales, ambientales y culturales que ponen el conocimiento al servicio de la comunidad.</p>
+
+          <div class="hero__actions">
+            <a class="btn btn--primario" href="#proyecto-superman">
+              Conoce Proyecto Superman
+              <span class="btn__arrow" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--contorno" href="#donaciones">Apoya nuestra causa</a>
+          </div>
+
+          <ul class="stem-strip" aria-label="Áreas STEM en las que trabajamos">
+            <li><span class="stem-dot stem-dot--ciencia" aria-hidden="true"></span>Ciencia</li>
+            <li><span class="stem-dot stem-dot--tecnologia" aria-hidden="true"></span>Tecnología</li>
+            <li><span class="stem-dot stem-dot--ingenieria" aria-hidden="true"></span>Ingeniería</li>
+            <li><span class="stem-dot stem-dot--matematicas" aria-hidden="true"></span>Matemáticas</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
     <!-- ============ MISIÓN Y VISIÓN ============ -->
-    <section id="mision-vision" aria-labelledby="titulo-mision-vision">
-      <h2 id="titulo-mision-vision">Quiénes somos</h2>
+    <section class="section" id="mision-vision" aria-labelledby="titulo-mision-vision">
+      <div class="contenedor">
+        <div class="quienes__grid">
+          <!-- Orden de lectura: identidad primero, textos después; CSS coloca la foto a la izquierda en pantallas amplias. -->
+          <figure class="retrato">
+            <img src="assets/placeholderbride.png"
+                 alt="Placeholder temporal para el retrato de Jair Iñaki, fundador de Human STEM"
+                 width="1448" height="1086" loading="lazy">
+            <figcaption>Jair Iñaki, fundador</figcaption>
+          </figure>
 
-      <!-- Orden de lectura: identidad primero, textos después; CSS coloca la foto a la izquierda en pantallas amplias. -->
-      <figure>
-        <img src="assets/placeholderbride.png"
-             alt="Placeholder temporal para el retrato de Jair Iñaki, fundador de Human STEM"
-             width="1448" height="1086" loading="lazy">
-        <figcaption>Jair Iñaki, fundador</figcaption>
-      </figure>
+          <div class="mision-vision-textos">
+            <p class="eyebrow">Quiénes somos</p>
+            <h2 class="section-title" id="titulo-mision-vision">Conocimiento al servicio de la comunidad</h2>
 
-      <div class="mision-vision-textos">
-        <article aria-labelledby="titulo-mision">
-          <h3 id="titulo-mision">Misión</h3>
-          <p>
-            <!-- TODO: texto definitivo de la misión -->
-            Poner el conocimiento científico y tecnológico en servicio de la comunidad, afrontando desafíos ambientales, sociales y culturales.
-          </p>
-        </article>
+            <div class="mv-cards">
+              <article class="mv-card" style="--acento: var(--human-cyan);" aria-labelledby="titulo-mision">
+                <h3 id="titulo-mision">Misión</h3>
+                <p>
+                  <!-- TODO: texto definitivo de la misión -->
+                  Poner el conocimiento científico y tecnológico en servicio de la comunidad, afrontando desafíos ambientales, sociales y culturales.
+                </p>
+              </article>
 
-        <article aria-labelledby="titulo-vision">
-          <h3 id="titulo-vision">Visión</h3>
-          <p>
-            <!-- TODO: texto definitivo de la visión -->
-            Desarrollar soluciones sostenibles a largo plazo con alto impacto en el país y sus comunidades.
-          </p>
-        </article>
+              <article class="mv-card" style="--acento: var(--human-verde);" aria-labelledby="titulo-vision">
+                <h3 id="titulo-vision">Visión</h3>
+                <p>
+                  <!-- TODO: texto definitivo de la visión -->
+                  Desarrollar soluciones sostenibles a largo plazo con alto impacto en el país y sus comunidades.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ============ PROYECTO SUPERMAN ============ -->
-    <section id="proyecto-superman" aria-labelledby="titulo-superman">
-      <h2 id="titulo-superman">Proyecto Superman</h2>
-      <div class="superman-intro">
-        <p>Prótesis de mano mioeléctricas: nuestro proyecto ancla une electrónica, manufactura aditiva y diseño centrado en las personas.</p>
-        <figure>
-          <img src="assets/placeholder.png"
-               alt="Placeholder temporal para el retrato de Jair Álvarez, director de Proyecto Superman"
-               width="1448" height="1086" loading="lazy">
-          <figcaption>Jair Álvarez, director de Proyecto Superman</figcaption>
-        </figure>
+    <section class="section section--tinta" id="proyecto-superman" aria-labelledby="titulo-superman">
+      <div class="contenedor">
+        <div class="superman__head">
+          <div class="superman__intro">
+            <p class="eyebrow eyebrow--dot" style="--acento: var(--human-naranja);">Proyecto ancla</p>
+            <h2 class="section-title" id="titulo-superman">Proyecto Superman</h2>
+            <p>Prótesis de mano mioeléctricas: nuestro proyecto ancla une electrónica, manufactura aditiva y diseño centrado en las personas.</p>
+            <ul class="superman__tags">
+              <li>Electrónica</li>
+              <li>Manufactura aditiva</li>
+              <li>Diseño centrado en las personas</li>
+            </ul>
+          </div>
+
+          <figure class="retrato superman__retrato">
+            <img src="assets/placeholder.png"
+                 alt="Placeholder temporal para el retrato de Jair Álvarez, director de Proyecto Superman"
+                 width="1448" height="1086" loading="lazy">
+            <figcaption>Jair Álvarez, director</figcaption>
+          </figure>
+        </div>
+
+        <!-- ---- Patrocinadores ---- -->
+        <section aria-labelledby="titulo-patrocinadores">
+          <div class="sub-head">
+            <h3 id="titulo-patrocinadores">Patrocinadores</h3>
+            <span class="linea" aria-hidden="true"></span>
+          </div>
+          <ul class="patrocinadores">
+            <li>
+              <!-- TODO: sustituir por logo enlazado cuando esté disponible -->
+              <article class="patro-card">
+                <h4>Kronics</h4>
+                <p>Brinda los componentes electrónicos del proyecto.</p>
+              </article>
+            </li>
+          </ul>
+        </section>
+
+        <!-- ---- Colaboradores ---- -->
+        <section aria-labelledby="titulo-colaboradores">
+          <div class="sub-head">
+            <h3 id="titulo-colaboradores">Colaboradores</h3>
+            <span class="linea" aria-hidden="true"></span>
+          </div>
+          <p class="colaboradores__intro">El músculo técnico y organizacional del proyecto: quienes hacen que las cosas sucedan y transforman las buenas ideas en un impacto real medible.</p>
+          <p class="colaboradores__nota">Las imágenes de esta sección son referencias temporales de abejas de Wikimedia Commons mientras integramos las fotografías oficiales de cada integrante.</p>
+
+          <!-- Dos filas independientes que se desplazan en direcciones contrarias.
+               Cada fila se duplica (aria-hidden) para lograr el bucle infinito sólo con CSS. -->
+          <div class="marquesina">
+            <ul class="marquesina__fila marquesina__fila--izq" aria-label="Colaboradores, primera fila">
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/02-bombus-terrestris.jpg" alt="Imagen temporal de abejorro Bombus terrestris" width="200" height="200" loading="lazy">
+                  <figcaption>Bombus Terrestris<span class="familia">Apidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/03-andrena-fulva-ku.jpg" alt="Imagen temporal de abeja Andrena fulva" width="200" height="200" loading="lazy">
+                  <figcaption>Andrena Fulva<span class="familia">Andrenidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/04-osmia-bicornis.jpg" alt="Imagen temporal de abeja Osmia bicornis" width="200" height="200" loading="lazy">
+                  <figcaption>Osmia Bicornis<span class="familia">Megachilidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/05-halictus-scabiosae.jpg" alt="Imagen temporal de abeja Halictus scabiosae" width="200" height="200" loading="lazy">
+                  <figcaption>Halictus Scabiosae<span class="familia">Halictidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/06-colletes-daviesanus.jpg" alt="Imagen temporal de abeja Colletes daviesanus" width="200" height="200" loading="lazy">
+                  <figcaption>Colletes Daviesanus<span class="familia">Colletidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/07-xylocopa-violacea.jpg" alt="Imagen temporal de abeja carpintera Xylocopa violacea" width="200" height="200" loading="lazy">
+                  <figcaption>Xylocopa Violacea<span class="familia">Apidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/08-melipona-beecheii-flickr-gailhampshire.jpg" alt="Imagen temporal de abeja Melipona beecheii" width="200" height="200" loading="lazy">
+                  <figcaption>Melipona Beecheii<span class="familia">Apidae</span></figcaption>
+                </figure>
+              </li>
+              <!-- Clones para el bucle infinito (solo CSS). Ocultos a tecnologías de asistencia. -->
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/02-bombus-terrestris.jpg" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Bombus Terrestris<span class="familia">Apidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/03-andrena-fulva-ku.jpg" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Andrena Fulva<span class="familia">Andrenidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/04-osmia-bicornis.jpg" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Osmia Bicornis<span class="familia">Megachilidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/05-halictus-scabiosae.jpg" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Halictus Scabiosae<span class="familia">Halictidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/06-colletes-daviesanus.jpg" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Colletes Daviesanus<span class="familia">Colletidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/07-xylocopa-violacea.jpg" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Xylocopa Violacea<span class="familia">Apidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/08-melipona-beecheii-flickr-gailhampshire.jpg" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Melipona Beecheii<span class="familia">Apidae</span></figcaption>
+                </figure>
+              </li>
+            </ul>
+
+            <ul class="marquesina__fila marquesina__fila--der" aria-label="Colaboradores, segunda fila">
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/09-megachile-rotundata.jpg" alt="Imagen temporal de abeja Megachile rotundata" width="200" height="200" loading="lazy">
+                  <figcaption>Megachile Rotundata<span class="familia">Megachilidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/10-lasioglossum-calceatum.jpg" alt="Imagen temporal de abeja Lasioglossum calceatum" width="200" height="200" loading="lazy">
+                  <figcaption>Lasioglossum Calceatum<span class="familia">Halictidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/11-gewohnliche-maskenbiene-hylaeus-communis.jpg" alt="Imagen temporal de abeja Hylaeus communis" width="200" height="200" loading="lazy">
+                  <figcaption>Hylaeus Communis<span class="familia">Colletidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/12-anthidium-manicatum.jpg" alt="Imagen temporal de abeja Anthidium manicatum" width="200" height="200" loading="lazy">
+                  <figcaption>Anthidium Manicatum<span class="familia">Megachilidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/13-male-centris-pallida-digging.png" alt="Imagen temporal de abeja Centris pallida" width="200" height="200" loading="lazy">
+                  <figcaption>Centris Pallida<span class="familia">Apidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador">
+                <figure>
+                  <img src="assets/carousel/14-goodens-nomad-bee-nomada-goodeniana.jpg" alt="Imagen temporal de abeja Nomada goodeniana" width="200" height="200" loading="lazy">
+                  <figcaption>Nomada Goodeniana<span class="familia">Apidae</span></figcaption>
+                </figure>
+              </li>
+              <!-- Clones para el bucle infinito (solo CSS). Ocultos a tecnologías de asistencia. -->
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/09-megachile-rotundata.jpg" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Megachile Rotundata<span class="familia">Megachilidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/10-lasioglossum-calceatum.jpg" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Lasioglossum Calceatum<span class="familia">Halictidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/11-gewohnliche-maskenbiene-hylaeus-communis.jpg" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Hylaeus Communis<span class="familia">Colletidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/12-anthidium-manicatum.jpg" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Anthidium Manicatum<span class="familia">Megachilidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/13-male-centris-pallida-digging.png" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Centris Pallida<span class="familia">Apidae</span></figcaption>
+                </figure>
+              </li>
+              <li class="colaborador" aria-hidden="true">
+                <figure>
+                  <img src="assets/carousel/14-goodens-nomad-bee-nomada-goodeniana.jpg" alt="" width="200" height="200" loading="lazy">
+                  <figcaption>Nomada Goodeniana<span class="familia">Apidae</span></figcaption>
+                </figure>
+              </li>
+            </ul>
+          </div>
+        </section>
       </div>
-
-      <section aria-labelledby="titulo-patrocinadores">
-        <h3 id="titulo-patrocinadores">Patrocinadores</h3>
-        <ul>
-          <li>
-            <!-- TODO: sustituir por logo enlazado cuando esté disponible -->
-            <h4>Kronics</h4>
-            <p>Brinda los componentes electrónicos del proyecto.</p>
-          </li>
-        </ul>
-      </section>
-
-      <section aria-labelledby="titulo-colaboradores">
-        <h3 id="titulo-colaboradores">Colaboradores</h3>
-        <p>El músculo técnico y organizacional del proyecto: quienes hacen que las cosas sucedan y transforman las buenas ideas en un impacto real medible.</p>
-        <p>Las imágenes de esta sección son referencias temporales de abejas de Wikimedia Commons mientras integramos las fotografías oficiales de cada integrante.</p>
-
-        <!-- Dos filas independientes (personas distintas en cada una).
-             El desplazamiento en direcciones contrarias se implementará con CSS;
-             si la animación duplica elementos, los clones deberán llevar aria-hidden="true". -->
-        <ul aria-label="Colaboradores, primera fila">
-          <li>
-            <figure>
-              <img src="assets/carousel/01-apis-mellifera.jpg" alt="Imagen temporal de abeja Apis mellifera" width="200" height="200" loading="lazy">
-              <figcaption>Apis Mellifera<br>Apidae</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <img src="assets/carousel/02-bombus-terrestris.jpg" alt="Imagen temporal de abejorro Bombus terrestris" width="200" height="200" loading="lazy">
-              <figcaption>Bombus Terrestris<br>Apidae</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <img src="assets/carousel/03-andrena-fulva-ku.jpg" alt="Imagen temporal de abeja Andrena fulva" width="200" height="200" loading="lazy">
-              <figcaption>Andrena Fulva<br>Andrenidae</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <img src="assets/carousel/04-osmia-bicornis.jpg" alt="Imagen temporal de abeja Osmia bicornis" width="200" height="200" loading="lazy">
-              <figcaption>Osmia Bicornis<br>Megachilidae</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <img src="assets/carousel/05-halictus-scabiosae.jpg" alt="Imagen temporal de abeja Halictus scabiosae" width="200" height="200" loading="lazy">
-              <figcaption>Halictus Scabiosae<br>Halictidae</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <img src="assets/carousel/06-colletes-daviesanus.jpg" alt="Imagen temporal de abeja Colletes daviesanus" width="200" height="200" loading="lazy">
-              <figcaption>Colletes Daviesanus<br>Colletidae</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <img src="assets/carousel/07-xylocopa-violacea.jpg" alt="Imagen temporal de abeja carpintera Xylocopa violacea" width="200" height="200" loading="lazy">
-              <figcaption>Xylocopa Violacea<br>Apidae</figcaption>
-            </figure>
-          </li>
-                  <!-- Clones para el bucle infinito de la marquesina (solo CSS). Ocultos a tecnologías de asistencia. -->
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/01-apis-mellifera.jpg" alt="Imagen temporal de abeja Apis mellifera" width="200" height="200" loading="lazy">
-              <figcaption>Apis Mellifera<br>Apidae</figcaption>
-            </figure>
-          </li>
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/02-bombus-terrestris.jpg" alt="Imagen temporal de abejorro Bombus terrestris" width="200" height="200" loading="lazy">
-              <figcaption>Bombus Terrestris<br>Apidae</figcaption>
-            </figure>
-          </li>
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/03-andrena-fulva-ku.jpg" alt="Imagen temporal de abeja Andrena fulva" width="200" height="200" loading="lazy">
-              <figcaption>Andrena Fulva<br>Andrenidae</figcaption>
-            </figure>
-          </li>
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/04-osmia-bicornis.jpg" alt="Imagen temporal de abeja Osmia bicornis" width="200" height="200" loading="lazy">
-              <figcaption>Osmia Bicornis<br>Megachilidae</figcaption>
-            </figure>
-          </li>
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/05-halictus-scabiosae.jpg" alt="Imagen temporal de abeja Halictus scabiosae" width="200" height="200" loading="lazy">
-              <figcaption>Halictus Scabiosae<br>Halictidae</figcaption>
-            </figure>
-          </li>
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/06-colletes-daviesanus.jpg" alt="Imagen temporal de abeja Colletes daviesanus" width="200" height="200" loading="lazy">
-              <figcaption>Colletes Daviesanus<br>Colletidae</figcaption>
-            </figure>
-          </li>
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/07-xylocopa-violacea.jpg" alt="Imagen temporal de abeja carpintera Xylocopa violacea" width="200" height="200" loading="lazy">
-              <figcaption>Xylocopa Violacea<br>Apidae</figcaption>
-            </figure>
-          </li>
-        </ul>
-
-        <ul aria-label="Colaboradores, segunda fila">
-          <li>
-            <figure>
-              <img src="assets/carousel/08-melipona-beecheii-flickr-gailhampshire.jpg" alt="Imagen temporal de abeja Melipona beecheii" width="200" height="200" loading="lazy">
-              <figcaption>Melipona Beecheii<br>Apidae</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <img src="assets/carousel/09-megachile-rotundata.jpg" alt="Imagen temporal de abeja Megachile rotundata" width="200" height="200" loading="lazy">
-              <figcaption>Megachile Rotundata<br>Megachilidae</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <img src="assets/carousel/10-lasioglossum-calceatum.jpg" alt="Imagen temporal de abeja Lasioglossum calceatum" width="200" height="200" loading="lazy">
-              <figcaption>Lasioglossum Calceatum<br>Halictidae</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <img src="assets/carousel/11-gewohnliche-maskenbiene-hylaeus-communis.jpg" alt="Imagen temporal de abeja Hylaeus communis" width="200" height="200" loading="lazy">
-              <figcaption>Hylaeus Communis<br>Colletidae</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <img src="assets/carousel/12-anthidium-manicatum.jpg" alt="Imagen temporal de abeja Anthidium manicatum" width="200" height="200" loading="lazy">
-              <figcaption>Anthidium Manicatum<br>Megachilidae</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <img src="assets/carousel/13-male-centris-pallida-digging.png" alt="Imagen temporal de abeja Centris pallida" width="200" height="200" loading="lazy">
-              <figcaption>Centris Pallida<br>Apidae</figcaption>
-            </figure>
-          </li>
-          <li>
-            <figure>
-              <img src="assets/carousel/14-goodens-nomad-bee-nomada-goodeniana.jpg" alt="Imagen temporal de abeja Nomada goodeniana" width="200" height="200" loading="lazy">
-              <figcaption>Nomada Goodeniana<br>Apidae</figcaption>
-            </figure>
-          </li>
-                  <!-- Clones para el bucle infinito de la marquesina (solo CSS). Ocultos a tecnologías de asistencia. -->
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/08-melipona-beecheii-flickr-gailhampshire.jpg" alt="Imagen temporal de abeja Melipona beecheii" width="200" height="200" loading="lazy">
-              <figcaption>Melipona Beecheii<br>Apidae</figcaption>
-            </figure>
-          </li>
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/09-megachile-rotundata.jpg" alt="Imagen temporal de abeja Megachile rotundata" width="200" height="200" loading="lazy">
-              <figcaption>Megachile Rotundata<br>Megachilidae</figcaption>
-            </figure>
-          </li>
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/10-lasioglossum-calceatum.jpg" alt="Imagen temporal de abeja Lasioglossum calceatum" width="200" height="200" loading="lazy">
-              <figcaption>Lasioglossum Calceatum<br>Halictidae</figcaption>
-            </figure>
-          </li>
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/11-gewohnliche-maskenbiene-hylaeus-communis.jpg" alt="Imagen temporal de abeja Hylaeus communis" width="200" height="200" loading="lazy">
-              <figcaption>Hylaeus Communis<br>Colletidae</figcaption>
-            </figure>
-          </li>
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/12-anthidium-manicatum.jpg" alt="Imagen temporal de abeja Anthidium manicatum" width="200" height="200" loading="lazy">
-              <figcaption>Anthidium Manicatum<br>Megachilidae</figcaption>
-            </figure>
-          </li>
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/13-male-centris-pallida-digging.png" alt="Imagen temporal de abeja Centris pallida" width="200" height="200" loading="lazy">
-              <figcaption>Centris Pallida<br>Apidae</figcaption>
-            </figure>
-          </li>
-          <li aria-hidden="true">
-            <figure>
-              <img src="assets/carousel/14-goodens-nomad-bee-nomada-goodeniana.jpg" alt="Imagen temporal de abeja Nomada goodeniana" width="200" height="200" loading="lazy">
-              <figcaption>Nomada Goodeniana<br>Apidae</figcaption>
-            </figure>
-          </li>
-        </ul>
-      </section>
     </section>
 
     <!-- ============ TEASER: HUERTOS URBANOS ============ -->
-    <section id="huertos-urbanos" aria-labelledby="titulo-huertos">
-      <h2 id="titulo-huertos">Próximamente: Huertos urbanos</h2>
-      <p>Nuestro segundo proyecto llevará la agricultura a los espacios de la ciudad. ¿Quieres formar parte?</p>
-      <!-- TODO: enlazar al formulario de reclutamiento cuando exista -->
-      <a href="reclutamiento.html" aria-disabled="true">Únete al equipo (formulario disponible próximamente)</a>
+    <section class="section huertos" id="huertos-urbanos" aria-labelledby="titulo-huertos">
+      <div class="contenedor huertos__inner">
+        <span class="huertos__badge">Próximamente</span>
+        <p class="eyebrow eyebrow--dot" style="--acento: var(--human-verde);">Segundo proyecto</p>
+        <h2 class="section-title" id="titulo-huertos">Huertos urbanos</h2>
+        <p>Nuestro segundo proyecto llevará la agricultura a los espacios de la ciudad. ¿Quieres formar parte?</p>
+        <!-- TODO: habilitar cuando exista el formulario de reclutamiento -->
+        <a class="btn btn--verde" href="reclutamiento.html" aria-disabled="true">
+          Únete al equipo
+          <span class="btn__arrow" aria-hidden="true">→</span>
+        </a>
+        <p style="font-size:0.85rem; color:rgba(255,255,255,0.6); margin:0;">Formulario disponible próximamente.</p>
+      </div>
     </section>
 
     <!-- ============ DONACIONES ============ -->
-    <section id="donaciones" aria-labelledby="titulo-donaciones">
-      <h2 id="titulo-donaciones">Donaciones</h2>
-      <p>Tu apoyo hace posible el desarrollo de este ecosistema.</p>
-      <p>Para donativos porfavor contactar al correo <a href="mailto:human.stem.org@gmail.com">human.stem.org@gmail.com</a>.</p>
-      <!-- TODO: en versiones futuras, botón de donación en línea -->
+    <section class="section section--tinta" id="donaciones" aria-labelledby="titulo-donaciones">
+      <div class="contenedor">
+        <div class="donaciones__grid">
+          <div class="donaciones__intro">
+            <p class="eyebrow eyebrow--dot" style="--acento: var(--human-rojo);">Súmate</p>
+            <h2 class="section-title" id="titulo-donaciones">Donaciones</h2>
+            <p>Tu apoyo hace posible el desarrollo de este ecosistema de ciencia, tecnología e impacto social.</p>
+          </div>
+
+          <div class="dona-card">
+            <p class="eyebrow">Contacto para donativos</p>
+            <p>Para realizar un donativo, por favor escríbenos. Te responderemos con los datos necesarios.</p>
+            <a class="dona-card__correo" href="mailto:human.stem.org@gmail.com">human.stem.org@gmail.com</a>
+            <!-- TODO: en versiones futuras, botón de donación en línea -->
+          </div>
+        </div>
+      </div>
     </section>
 
   </main>
 
-  <footer>
-    <nav aria-label="Redes sociales">
-      <ul>
-        <li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li>
-        <!-- <li><a href="#" rel="external noopener">Facebook</a></li> -->
-        <li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li>
-        <!-- <li><a href="#" rel="external noopener">YouTube</a></li> -->
-      </ul>
-    </nav>
-    <p><small>© 2026 Human STEM. Todos los derechos reservados.</small></p>
+  <footer class="site-footer">
+    <div class="contenedor">
+      <div class="site-footer__top">
+        <a class="site-footer__logo" href="#inicio" aria-label="Human STEM, ir al inicio">
+          <img src="assets/human_stem_logo_vectorizado_transparente.svg" alt="Human STEM" width="1494" height="383">
+        </a>
+        <nav aria-label="Redes sociales">
+          <ul class="site-footer__redes">
+            <li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p><small>© 2026 Human STEM. Todos los derechos reservados.</small></p>
+        <p class="lema">Ciencia y tecnología con impacto social.</p>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Navegación móvil: alternar el menú accesible.
+    (function () {
+      var nav = document.querySelector('.main-nav');
+      var toggle = nav && nav.querySelector('.nav-toggle');
+      if (!nav || !toggle) return;
+
+      function setOpen(open) {
+        nav.setAttribute('data-open', String(open));
+        toggle.setAttribute('aria-expanded', String(open));
+      }
+
+      toggle.addEventListener('click', function () {
+        setOpen(nav.getAttribute('data-open') !== 'true');
+      });
+
+      // Cerrar al elegir un destino.
+      nav.querySelectorAll('.nav-list a').forEach(function (link) {
+        link.addEventListener('click', function () { setOpen(false); });
+      });
+
+      // Cerrar con Escape.
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+    })();
+  </script>
+
+  <template id="__bundler_thumbnail">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+      <rect width="100" height="100" fill="#1C2448"/>
+      <circle cx="38" cy="42" r="7" fill="#33CCFF"/>
+      <circle cx="62" cy="42" r="7" fill="#66CC33"/>
+      <text x="50" y="68" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#fff" text-anchor="middle">HUMAN</text>
+      <text x="50" y="82" font-family="Arial, sans-serif" font-size="9" fill="#FF9933" text-anchor="middle" letter-spacing="2">STEM</text>
+    </svg>
+  </template>
 
 </body>
 </html>
