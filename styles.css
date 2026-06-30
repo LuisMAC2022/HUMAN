@@ -688,31 +688,81 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .equipos-colaboradores {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(18px, 4vw, 32px);
+  gap: clamp(20px, 4vw, 36px);
   margin-top: 36px;
 }
+
 .equipos-colaboradores__item {
+  position: relative;
   margin: 0;
   overflow: hidden;
-  border: 1px solid var(--human-gris-borde);
-  border-radius: var(--radio);
+  border-radius: 16px;
+  border: 2px solid var(--human-azul-oscuro);
   background: #fff;
-  box-shadow: var(--sombra-sm);
+  box-shadow:
+    8px 8px 0 0 var(--human-azul-oscuro),
+    0 18px 40px -18px rgba(15, 21, 48, 0.55);
+  transition: transform var(--transicion), box-shadow var(--transicion);
 }
+.equipos-colaboradores__item:hover {
+  transform: translate(-2px, -2px);
+  box-shadow:
+    10px 10px 0 0 var(--human-azul-oscuro),
+    0 24px 50px -18px rgba(15, 21, 48, 0.6);
+}
+
 .equipos-colaboradores__item img {
   display: block;
   width: 100%;
-  aspect-ratio: 3408 / 1576;
+  aspect-ratio: 16 / 9;
   height: auto;
   object-fit: cover;
+  object-position: center 40%;
 }
+
+.equipos-colaboradores__item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(28, 36, 72, 0) 38%,
+    rgba(28, 36, 72, 0.18) 64%,
+    rgba(15, 21, 48, 0.82) 100%
+  );
+}
+
 .equipos-colaboradores__item figcaption {
-  padding: 16px 18px 18px;
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 16px;
+  background: rgba(28, 36, 72, 0.92);
+  color: #fff;
   font-family: var(--font-technical);
-  font-size: 1rem;
+  font-size: clamp(0.82rem, 1.4vw, 0.96rem);
   font-weight: 700;
-  line-height: 1.35;
-  color: var(--human-azul-oscuro);
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  border-radius: 999px;
+  box-shadow: 0 6px 16px rgba(15, 21, 48, 0.35);
+  backdrop-filter: blur(4px);
+}
+.equipos-colaboradores__item figcaption::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--human-cyan);
+  flex-shrink: 0;
+}
+.equipos-colaboradores__item:last-child figcaption::before {
+  background: var(--human-verde);
 }
 
 @media (max-width: 760px) {
@@ -720,6 +770,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
     grid-template-columns: 1fr;
   }
 }
+
 
 /* =====================================================================
    HUERTOS URBANOS (teaser)
