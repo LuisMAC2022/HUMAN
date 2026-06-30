@@ -684,6 +684,43 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   letter-spacing: 0.02em;
 }
 
+
+.equipos-colaboradores {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(18px, 4vw, 32px);
+  margin-top: 36px;
+}
+.equipos-colaboradores__item {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--human-gris-borde);
+  border-radius: var(--radio);
+  background: #fff;
+  box-shadow: var(--sombra-sm);
+}
+.equipos-colaboradores__item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3408 / 1576;
+  height: auto;
+  object-fit: cover;
+}
+.equipos-colaboradores__item figcaption {
+  padding: 16px 18px 18px;
+  font-family: var(--font-technical);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--human-azul-oscuro);
+}
+
+@media (max-width: 760px) {
+  .equipos-colaboradores {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* =====================================================================
    HUERTOS URBANOS (teaser)
    ===================================================================== */
