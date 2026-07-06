@@ -268,6 +268,7 @@
       const images = [{ id: "image", label: "Imagen" }];
       const app = document.querySelector("#app");
       const states = new Map();
+      let destinationDirectoryHandle = null;
       // ============ CREACIÓN DEL EDITOR ============
       function createImageEditor(config) {
         const controlIds = {
@@ -278,6 +279,7 @@
           width: `${config.id}-width`,
           quality: `${config.id}-quality`,
           zoom: `${config.id}-zoom`,
+          destinationStatus: `${config.id}-destination-status`,
         };
         const el = document.createElement("section");
         el.className = "card";
@@ -329,9 +331,13 @@
           </div>
           <div class="actions">
             <button class="secondary" data-role="center">Centrar recorte</button>
+            <button class="secondary" data-role="select-destination" aria-describedby="${controlIds.destinationStatus}">Seleccionar carpeta de destino</button>
             <button class="primary" data-role="download-jpg">Exportar JPG</button>
             <button class="secondary" data-role="download-webp">Exportar WebP</button>
           </div>
+          <p class="hint" id="${controlIds.destinationStatus}" data-role="destination-status" aria-live="polite">
+            Sin carpeta seleccionada. Las exportaciones se descargarán con el navegador.
+          </p>
           <p class="hint">
             El nombre exportado usa el patrón
             <code>NOMBRE-ANCHOxALTO.jpg</code>. Si el archivo seleccionado no
@@ -409,6 +415,12 @@
             resetCropPosition(state);
             zoomInput.value = "1";
             draw(state);
+          },
+        );
+        el.querySelector('[data-role="select-destination"]').addEventListener(
+          "click",
+          () => {
+            selectDestinationDirectory(state);
           },
         );
         el.querySelector('[data-role="download-jpg"]').addEventListener(
@@ -591,14 +603,71 @@
         ctx.lineWidth = 2;
         ctx.strokeRect(1, 1, state.previewW - 2, state.previewH - 2);
       }
-      function exportImage(state, mimeType, extension) {
+      async function selectDestinationDirectory(state) {
         const errorEl = state.root.querySelector('[data-role="error"]');
+        const statusEl = state.root.querySelector(
+          '[data-role="destination-status"]',
+        );
+        errorEl.textContent = "";
+        if (!window.showDirectoryPicker) {
+          destinationDirectoryHandle = null;
+          statusEl.textContent =
+            "Tu navegador no permite seleccionar carpetas. Se mantendrá la descarga normal.";
+          return;
+        }
+        try {
+          destinationDirectoryHandle = await window.showDirectoryPicker();
+          statusEl.textContent =
+            "Carpeta de destino seleccionada. Las próximas exportaciones intentarán guardarse allí.";
+        } catch (error) {
+          destinationDirectoryHandle = null;
+          statusEl.textContent =
+            "No se seleccionó ninguna carpeta. Se mantendrá la descarga normal.";
+        }
+      }
+      function getExportFilename(state, extension) {
+        const { label } = getAspect(state);
+        const safeImageLabel =
+          sanitizeFilenameSegment(state.imageLabel) || "image";
+        return `${safeImageLabel}-${label}.${extension}`;
+      }
+      function downloadBlob(blob, filename) {
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 0);
+      }
+      async function saveBlobToDirectory(blob, filename, directoryHandle) {
+        const fileHandle = await directoryHandle.getFileHandle(filename, {
+          create: true,
+        });
+        const writable = await fileHandle.createWritable();
+        try {
+          await writable.write(blob);
+        } finally {
+          await writable.close();
+        }
+      }
+      function canvasToBlob(canvas, mimeType, quality) {
+        return new Promise((resolve) => {
+          canvas.toBlob(resolve, mimeType, quality);
+        });
+      }
+      async function exportImage(state, mimeType, extension) {
+        const errorEl = state.root.querySelector('[data-role="error"]');
+        const statusEl = state.root.querySelector(
+          '[data-role="destination-status"]',
+        );
         errorEl.textContent = "";
         if (!state.img) {
           errorEl.textContent = "Primero carga una imagen.";
           return;
         }
-        const { w, h, label } = getAspect(state);
+        const { w, h } = getAspect(state);
         const outputWInput = state.root.querySelector('[data-role="width"]');
         const qualityInput = state.root.querySelector('[data-role="quality"]');
         const outputW = Math.max(300, Number(outputWInput.value) || 1200);
@@ -621,21 +690,31 @@
           params.drawW,
           params.drawH,
         );
-        try {
-          const url = out.toDataURL(mimeType, quality);
-          const safeImageLabel =
-            sanitizeFilenameSegment(state.imageLabel) || "image";
-          const filename = `${safeImageLabel}-${label}.${extension}`;
-          const a = document.createElement("a");
-          a.href = url;
-          a.download = filename;
-          document.body.appendChild(a);
-          a.click();
-          a.remove();
-        } catch (error) {
+        const blob = await canvasToBlob(out, mimeType, quality);
+        if (!blob) {
           errorEl.textContent =
-            "No se pudo exportar. Usa el selector de archivo o abre este HTML desde un servidor local.";
+            "No se pudo crear el archivo exportado. Prueba otro formato o vuelve a cargar la imagen.";
+          return;
         }
+        const filename = getExportFilename(state, extension);
+        if (destinationDirectoryHandle) {
+          try {
+            await saveBlobToDirectory(
+              blob,
+              filename,
+              destinationDirectoryHandle,
+            );
+            statusEl.textContent = `Archivo guardado en la carpeta seleccionada: ${filename}.`;
+            return;
+          } catch (error) {
+            destinationDirectoryHandle = null;
+            errorEl.textContent =
+              "No se pudo escribir en la carpeta seleccionada. Se descargará el archivo con el navegador.";
+            statusEl.textContent =
+              "Permiso de carpeta perdido o cancelado. Selecciona una carpeta de nuevo si quieres guardar directamente.";
+          }
+        }
+        downloadBlob(blob, filename);
       }
       // ============ INICIALIZACIÓN / EVENT LISTENERS ============
       images.forEach(createImageEditor);
