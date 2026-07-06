@@ -462,7 +462,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 .retrato img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: var(--radio);
   box-shadow: var(--sombra-lg);
@@ -555,7 +555,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .section--tinta .superman__tags li { background: #fff; }
 
 .superman__retrato img {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 2 / 3;
   border-radius: var(--radio);
 }
 .superman__retrato::after { border-color: var(--human-naranja); }
