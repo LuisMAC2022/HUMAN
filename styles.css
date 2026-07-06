@@ -702,9 +702,14 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .equipos-colaboradores__item img {
   display: block;
   width: 100%;
-  aspect-ratio: 3408 / 1576;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
+}
+.equipos-colaboradores__item--panoramica img {
+  aspect-ratio: 16 / 9;
+}
+.equipos-colaboradores__item--vertical img {
+  aspect-ratio: 2 / 3;
 }
 .equipos-colaboradores__item figcaption {
   padding: 16px 18px 18px;
