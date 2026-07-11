@@ -7,6 +7,7 @@
   <title>Human STEM — Ciencia y tecnología con impacto social</title>
   <link rel="icon" href="assets/human_stem.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
+  <script src="components/member-card/member-card.js" defer></script>
 </head>
 <body>
 
@@ -90,29 +91,20 @@
     </section>
 
     <!-- ============ QUIÉNES SOMOS ============ -->
-    <section class="section quienes" id="quienes-somos" aria-labelledby="titulo-quienes-somos">
+    <section class="section quienes" id="quienes-somos" aria-label="Quiénes somos: Iñaki Moreno">
       <div class="contenedor">
-        <div class="quienes__grid">
-          <!-- Orden de lectura: identidad primero, textos después; CSS coloca la foto a la izquierda en pantallas amplias. -->
-          <figure class="retrato">
-            <img src="assets/founders/jair-4x5.webp"
-                 alt="Retrato de Iñaki Moreno, fundador de Human STEM"
-                 width="1200" height="1500" loading="lazy">
-            <figcaption>Iñaki Moreno, fundador</figcaption>
-          </figure>
-
-          <div class="quienes__bio">
-            <p class="eyebrow">Quiénes somos</p>
-            <h2 class="section-title" id="titulo-quienes-somos">Iñaki Moreno</h2>
-            <p class="quienes__resumen">22 años, último semestre de la Licenciatura en Física y Matemáticas, involucrado en causas sociales desde los 15.</p>
-            <p>En la ONG SELIDER Estado de México dirigió y participó en proyectos asistencialistas.</p>
-
-            <section class="aprendizaje-card" aria-labelledby="titulo-aprendizaje">
-              <h3 id="titulo-aprendizaje">Aprendizaje central</h3>
-              <p>El asistencialismo nace de intenciones nobles y puede impactar vidas, pero no resuelve los problemas de una sociedad: los insumos se acaban, las donaciones son finitas, hay problemas imposibles de resolver en un día e incluso puede causar efectos negativos en la comunidad que pretende beneficiar.</p>
-            </section>
-          </div>
-        </div>
+        <member-card
+          name="Iñaki Moreno"
+          eyebrow="Quiénes somos"
+          photo-src="assets/founders/jair-4x5.webp"
+          photo-alt="Retrato de Iñaki Moreno, fundador de Human STEM"
+          caption="Iñaki Moreno, fundador"
+          heading-level="2">
+          <p slot="summary">22 años, último semestre de la Licenciatura en Física y Matemáticas, involucrado en causas sociales desde los 15.</p>
+          <p>En la ONG SELIDER Estado de México dirigió y participó en proyectos asistencialistas.</p>
+          <h3 slot="highlight-title">Aprendizaje central</h3>
+          <p slot="highlight">El asistencialismo nace de intenciones nobles y puede impactar vidas, pero no resuelve los problemas de una sociedad: los insumos se acaban, las donaciones son finitas, hay problemas imposibles de resolver en un día e incluso puede causar efectos negativos en la comunidad que pretende beneficiar.</p>
+        </member-card>
       </div>
     </section>
 
