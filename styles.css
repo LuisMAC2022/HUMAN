@@ -646,9 +646,21 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 .section--tinta .superman__tags li { background: var(--human-blanco); }
 
-.superman__retrato img {
-  aspect-ratio: 1 / 1;
+.superman__director {
+  --mc-text: var(--human-blanco);
+  --mc-text-muted: rgba(255,255,255,0.76);
+  --mc-accent: var(--human-naranja);
+  --mc-surface: rgba(255,255,255,0.06);
+  --mc-highlight-surface: rgba(255,255,255,0.12);
+  --mc-radius: var(--radio);
+  --mc-gap: clamp(20px, 3vw, 32px);
+  --mc-font-display: var(--font-display);
+  --mc-font-body: var(--font-body);
+  padding: clamp(18px, 3vw, 28px);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-top: 3px solid var(--human-naranja);
   border-radius: var(--radio);
+  box-shadow: var(--sombra-lg);
 }
 
 /* Patrocinadores */
