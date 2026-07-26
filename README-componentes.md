@@ -31,7 +31,7 @@ En lugar de `style="--acento: …"` en el HTML, se fija con un modificador:
 ```html
 <p class="eyebrow eyebrow--dot acento-naranja">Proyecto piloto</p>
 <article class="mv-card acento-verde">…</article>
-<figure class="retrato superman__retrato acento-naranja">…</figure>
+<figure class="retrato acento-naranja">…</figure>
 ```
 
 Modificadores disponibles: `.acento-cyan` (por defecto), `.acento-verde`,
@@ -49,7 +49,8 @@ Modificadores disponibles: `.acento-cyan` (por defecto), `.acento-verde`,
 | `.mv-card` | `article` + `h3` | Tarjeta de misión/visión; acento vía API |
 | `<member-card>` | custom element | Ficha exclusiva de una persona; no representa proyectos ni sustituye el encabezado de una sección |
 | `.aprendizaje-card` | `section` + `h3` | Callout con borde de acento fijo cyan |
-| `.retrato` | `figure` + `figcaption` | Modificador `.superman__retrato` (16:9); círculo decorativo vía `--acento` |
+| `.retrato` | `figure` + `figcaption` | Círculo decorativo vía `--acento` |
+| `.superman__reel` | `aside` + `blockquote` | Reel oficial de Instagram con enlace de respaldo accesible; el script externo se carga de forma asíncrona |
 | `.sub-head` | `div` + `h3` | La línea decorativa ahora es `::after` (antes un `<span>` en el HTML) |
 | `.patro-card` | `article` + `h4` | El `h4` (`.patro-card__nombre`) envuelve el logo-enlace; `.patro-card__logo` normaliza la altura a 44px para futuros patrocinadores |
 | `.colaborador` | `li` > `figure` / `a` > `figure` | Ficha circular; si una persona se asocia a un proyecto, la ficha usa un enlace nativo con destino, texto visible y foco visible |
