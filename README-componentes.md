@@ -47,11 +47,12 @@ Modificadores disponibles: `.acento-cyan` (por defecto), `.acento-verde`,
 | `.eyebrow` | `p` (o `h3` si titula una tarjeta) | `--dot` (punto de color vía `--acento`) |
 | `.btn` | `a` / `button` | `--primario`, `--oscuro`, `--contorno`, `--verde`; estado `[aria-disabled="true"]` |
 | `.mv-card` | `article` + `h3` | Tarjeta de misión/visión; acento vía API |
+| `<member-card>` | custom element | Ficha exclusiva de una persona; no representa proyectos ni sustituye el encabezado de una sección |
 | `.aprendizaje-card` | `section` + `h3` | Callout con borde de acento fijo cyan |
-| `.retrato` | `figure` + `figcaption` | Modificador `.superman__retrato` (1:1); círculo decorativo vía `--acento` |
+| `.retrato` | `figure` + `figcaption` | Modificador `.superman__retrato` (16:9); círculo decorativo vía `--acento` |
 | `.sub-head` | `div` + `h3` | La línea decorativa ahora es `::after` (antes un `<span>` en el HTML) |
 | `.patro-card` | `article` + `h4` | El `h4` (`.patro-card__nombre`) envuelve el logo-enlace; `.patro-card__logo` normaliza la altura a 44px para futuros patrocinadores |
-| `.colaborador` | `li` > `figure` | Ficha circular de la marquesina |
+| `.colaborador` | `li` > `figure` / `a` > `figure` | Ficha circular; si una persona se asocia a un proyecto, la ficha usa un enlace nativo con destino, texto visible y foco visible |
 | `.marquesina` | `section` desplazable | Ver estados abajo; filas `.marquesina__fila--izq/--der` |
 | `.equipos-colaboradores` | `ul` > `li` > `figure` | `__item--panoramica` (16:9), `__item--vertical` (2:3) |
 | `.dona-card` | `article` + `h3.eyebrow` | Tarjeta de contacto para donativos |
@@ -78,6 +79,11 @@ enfocable ni activable con teclado (el patrón anterior, `href` +
    `aria-hidden="true"`), añade `.marquesina--animada` (activa animación,
    máscara lateral y `overflow: hidden`) y retira el `tabindex`.
 
+Las relaciones entre personas y proyectos se comunican con enlaces HTML
+nativos. En particular, las fichas de Jair enlazan a `#proyecto-superman`
+con un nombre accesible y una llamada a la acción visible; nunca se reutiliza
+`member-card` como contenedor de la sección del proyecto.
+
 Antes, los 12 clones estaban duplicados a mano en el HTML (y con movimiento
 reducido el visitante veía a cada persona dos veces). Para añadir una persona
 ahora basta un solo `<li class="colaborador">`.
@@ -93,6 +99,10 @@ elegir destino. `.nav-cta` ya no usa `!important`: el selector compuesto
   etiquetados; toda `section` con nombre accesible (`aria-labelledby` /
   `aria-label`).
 - Jerarquía de encabezados verificada: un `h1`, sin saltos de nivel.
+- `#quienes-somos` tiene un `h2` visible que la nombra y contiene las fichas
+  personales de Iñaki y Jair, seguidas por la subsección de talento humano.
+- `#proyecto-superman` es una sección hermana, con su propio `h2`, cabecera
+  semántica y contenido exclusivamente relativo al proyecto.
 - `role="list"` en los `<ul>` con `list-style: none` — redundante según la
   especificación, pero necesario: Safari/VoiceOver elimina la semántica de
   lista al quitar los marcadores.

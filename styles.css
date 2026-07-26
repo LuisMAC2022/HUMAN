@@ -532,6 +532,12 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .quienes {
   background: linear-gradient(180deg, var(--human-blanco) 0%, var(--human-gris-suave) 100%);
 }
+.quienes member-card + member-card {
+  margin-top: clamp(40px, 6vw, 72px);
+}
+.talento-humano {
+  margin-top: clamp(56px, 8vw, 96px);
+}
 
 .quienes__grid {
   display: grid;
@@ -647,7 +653,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .section--tinta .superman__tags li { background: var(--human-blanco); }
 
 .superman__retrato img {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 16 / 9;
   border-radius: var(--radio);
 }
 
@@ -724,6 +730,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .marquesina--animada .marquesina__fila--izq { animation: scroll-izq 46s linear infinite; }
 .marquesina--animada .marquesina__fila--der { animation: scroll-der 52s linear infinite; }
 .marquesina--animada:hover .marquesina__fila { animation-play-state: paused; }
+.marquesina--animada:focus-within .marquesina__fila { animation-play-state: paused; }
 
 @keyframes scroll-izq {
   from { transform: translateX(0); }
@@ -741,6 +748,20 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   width: 150px;
   flex-shrink: 0;
   text-align: center;
+}
+.colaborador a {
+  display: block;
+  min-height: 44px;
+  padding: 6px;
+  color: var(--human-azul-medio);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  border-radius: var(--radio-sm);
+}
+.colaborador a:focus-visible {
+  outline: 3px solid var(--human-azul-oscuro);
+  outline-offset: 3px;
 }
 .colaborador figure { margin: 0; }
 .colaborador img {
@@ -763,6 +784,13 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   font-weight: bold;
   color: var(--human-azul-oscuro);
   line-height: 1.3;
+}
+.colaborador figcaption span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  font-weight: normal;
+  color: var(--human-azul-medio);
 }
 .colaborador figcaption .familia {
   display: block;
