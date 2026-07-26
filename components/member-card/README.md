@@ -1,7 +1,12 @@
 # member-card
 
 ## Propósito
-Tarjeta de presentación de un miembro: retrato 4:5, eyebrow, nombre, resumen, bio y un bloque destacado opcional ("Aprendizaje central"). Reemplaza la maqueta de la sección "Quiénes somos" con un componente reutilizable para N miembros.
+Tarjeta de presentación de una persona: retrato 4:5, eyebrow, nombre, resumen, bio y un bloque destacado opcional ("Aprendizaje central"). El componente representa exclusivamente personas y permite crear fichas reutilizables para N miembros; no debe usarse como cabecera, descripción ni contenedor de un proyecto.
+
+Cuando una persona esté asociada a un proyecto, expresa esa relación mediante
+un enlace nativo hacia la sección correspondiente, con texto visible y un
+nombre accesible claro. Mantén la sección del proyecto como contenido
+semántico independiente.
 
 ## Uso
 ```html
@@ -56,7 +61,9 @@ Usa container queries: si la tarjeta mide ≥ 40rem, foto a la izquierda y texto
 ## Integración en el index
 1. Copia la carpeta `member-card/` a tu proyecto.
 2. Carga el script una vez con `defer`.
-3. Sustituye la sección maquetada por la etiqueta con tus datos. La `<section id="quienes-somos">` externa con su `aria-labelledby` puede conservarse como envoltorio de página; con un solo miembro, usa `heading-level="2"` y omite el `h2` externo duplicado.
+3. Conserva una `<section id="quienes-somos" aria-labelledby="…">` externa y un `h2` visible que nombre al equipo.
+4. Inserta una tarjeta por persona con `heading-level="3"`, debajo de ese `h2`.
+5. Para relacionar a alguien con un proyecto, añade un enlace nativo hacia la sección del proyecto fuera de `member-card`; no conviertas la tarjeta en la propia sección del proyecto.
 
 ## Limitaciones conocidas
 - Sin Shadow DOM off: los estilos internos están encapsulados; personaliza solo vía tokens.
