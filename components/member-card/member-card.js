@@ -8,6 +8,7 @@
  *   photo-alt  (req)  Texto alternativo de la imagen.
  *   caption    (opc)  Pie de foto. Ej: "Iñaki Moreno, fundador".
  *   heading-level (opc) 2|3|4 — nivel del heading del nombre. Default: 2.
+ *   photo-ratio (opc) Proporción CSS de la foto. Ej: "1 / 1". Default: 4 / 5.
  *
  * Slots:
  *   summary          Resumen destacado (1 párrafo).
@@ -20,7 +21,7 @@
  *   --mc-radius, --mc-gap, --mc-highlight-surface, --mc-font-display
  */
 class MemberCard extends HTMLElement {
-  static observedAttributes = ["name", "eyebrow", "photo-src", "photo-alt", "caption", "heading-level"];
+  static observedAttributes = ["name", "eyebrow", "photo-src", "photo-alt", "caption", "heading-level", "photo-ratio"];
 
   #initialized = false;
 
@@ -42,6 +43,11 @@ class MemberCard extends HTMLElement {
     const photoSrc = this.getAttribute("photo-src") ?? "";
     const photoAlt = this.getAttribute("photo-alt") ?? "";
     const caption = this.getAttribute("caption") ?? "";
+    const requestedPhotoRatio = this.getAttribute("photo-ratio") ?? "";
+    const ratioParts = requestedPhotoRatio.match(/^\s*(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)\s*$/);
+    const photoRatio = ratioParts && Number(ratioParts[1]) > 0 && Number(ratioParts[2]) > 0
+      ? `${Number(ratioParts[1])} / ${Number(ratioParts[2])}`
+      : "4 / 5";
     const level = ["2", "3", "4"].includes(this.getAttribute("heading-level"))
       ? this.getAttribute("heading-level")
       : "2";
@@ -69,7 +75,7 @@ class MemberCard extends HTMLElement {
           display: block;
           inline-size: 100%;
           block-size: auto;
-          aspect-ratio: 4 / 5;
+          aspect-ratio: ${photoRatio};
           object-fit: cover;
           border-radius: var(--mc-radius, 0);
         }
