@@ -29,6 +29,7 @@ Tarjeta de presentación de un miembro: retrato 4:5, eyebrow, nombre, resumen, b
 | `eyebrow` | string | — | Kicker sobre el nombre. |
 | `caption` | string | — | Pie de foto (`figcaption`). |
 | `heading-level` | `2\|3\|4` | `2` | Nivel del heading, para respetar la jerarquía de la página anfitriona. |
+| `photo-ratio` | proporción CSS | `4 / 5` | Relación de aspecto de la foto, por ejemplo `1 / 1`; los valores no válidos usan el valor predeterminado. |
 
 | Slot | Descripción |
 |---|---|
