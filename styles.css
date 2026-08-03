@@ -652,9 +652,20 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 .section--tinta .superman__tags li { background: var(--human-blanco); }
 
-.superman__retrato img {
-  aspect-ratio: 16 / 9;
+.superman__reel {
+  width: 100%;
+  max-width: 540px;
+  min-width: 0;
+  margin-inline: auto;
+}
+.superman__reel .instagram-media {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  background: var(--human-blanco);
+  border: 0;
   border-radius: var(--radio);
+  box-shadow: var(--sombra-lg);
 }
 
 /* Patrocinadores */
@@ -996,7 +1007,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
     grid-template-columns: minmax(0, 1fr);
   }
   .retrato { max-width: 460px; }
-  .superman__retrato { max-width: 420px; }
+  .superman__reel { max-width: 540px; }
 }
 
 @media (max-width: 560px) {
