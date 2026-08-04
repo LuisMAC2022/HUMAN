@@ -2,26 +2,34 @@
  * <member-card> — Tarjeta de presentación de un miembro.
  *
  * Atributos:
- *   name       (req)  Nombre de la persona. Se usa como <h2>.
- *   eyebrow    (opc)  Texto pequeño sobre el nombre. Ej: "Quiénes somos".
- *   photo-src  (req)  Ruta de la imagen (idealmente 4:5).
- *   photo-alt  (req)  Texto alternativo de la imagen.
- *   caption    (opc)  Pie de foto. Ej: "Iñaki Moreno, fundador".
+ *   name          (req) Nombre de la persona.
+ *   eyebrow       (opc) Texto pequeño sobre el nombre.
+ *   photo-src     (req) Ruta de la imagen (idealmente 4:5).
+ *   photo-alt     (req) Texto alternativo de la imagen.
+ *   caption       (opc) Pie de foto.
  *   heading-level (opc) 2|3|4 — nivel del heading del nombre. Default: 2.
- *   photo-ratio (opc) Proporción CSS de la foto. Ej: "1 / 1". Default: 4 / 5.
+ *   photo-ratio   (opc) Proporción CSS de la foto. Default: 4 / 5.
+ *   action-href   (opc) Destino del botón de acción.
+ *   action-label  (opc) Texto del botón. Default: "Conocer más".
  *
  * Slots:
  *   summary          Resumen destacado (1 párrafo).
  *   (default)        Párrafos de bio.
- *   highlight-title  Título del bloque destacado ("Aprendizaje central").
+ *   highlight-title  Título del bloque destacado.
  *   highlight        Contenido del bloque destacado.
- *
- * Theming (CSS custom properties, con fallbacks):
- *   --mc-surface, --mc-text, --mc-text-muted, --mc-accent,
- *   --mc-radius, --mc-gap, --mc-highlight-surface, --mc-font-display
  */
 class MemberCard extends HTMLElement {
-  static observedAttributes = ["name", "eyebrow", "photo-src", "photo-alt", "caption", "heading-level", "photo-ratio"];
+  static observedAttributes = [
+    "name",
+    "eyebrow",
+    "photo-src",
+    "photo-alt",
+    "caption",
+    "heading-level",
+    "photo-ratio",
+    "action-href",
+    "action-label"
+  ];
 
   #initialized = false;
 
@@ -43,6 +51,8 @@ class MemberCard extends HTMLElement {
     const photoSrc = this.getAttribute("photo-src") ?? "";
     const photoAlt = this.getAttribute("photo-alt") ?? "";
     const caption = this.getAttribute("caption") ?? "";
+    const actionHref = this.getAttribute("action-href") ?? "";
+    const actionLabel = this.getAttribute("action-label") ?? "Conocer más";
     const requestedPhotoRatio = this.getAttribute("photo-ratio") ?? "";
     const ratioParts = requestedPhotoRatio.match(/^\s*(\d+(?:\.\d+)?)\s*\/\s*(\d+(?:\.\d+)?)\s*$/);
     const photoRatio = ratioParts && Number(ratioParts[1]) > 0 && Number(ratioParts[2]) > 0
@@ -66,7 +76,6 @@ class MemberCard extends HTMLElement {
           background: var(--mc-surface, transparent);
           border-radius: var(--mc-radius, 0);
         }
-        /* Foto a la izquierda cuando la tarjeta es ancha */
         @container (min-width: 40rem) {
           article { grid-template-columns: minmax(14rem, 2fr) 3fr; align-items: start; }
         }
@@ -89,7 +98,7 @@ class MemberCard extends HTMLElement {
           font-size: 0.8125rem;
           letter-spacing: 0.08em;
           text-transform: uppercase;
-          color: var(--mc-accent, #5b5b5b);
+          color: var(--mc-accent, #38548c);
         }
         .name {
           margin: 0.25rem 0 0.75rem;
@@ -102,6 +111,22 @@ class MemberCard extends HTMLElement {
           font-size: 1.125rem;
           font-weight: 500;
         }
+        .action {
+          display: inline-flex;
+          align-items: center;
+          gap: 0.65rem;
+          margin-block-start: 0.5rem;
+          padding: 0.75rem 1.1rem;
+          border-radius: 999px;
+          background: var(--mc-accent, #1c2448);
+          color: #fff;
+          font-weight: 700;
+          line-height: 1.2;
+          text-decoration: none;
+          transition: transform 180ms ease, filter 180ms ease;
+        }
+        .action:hover { filter: brightness(1.12); transform: translateY(-1px); }
+        .action:focus-visible { outline: 3px solid #33ccff; outline-offset: 3px; }
         .highlight {
           margin-block-start: 1rem;
           padding: 1.25rem 1.5rem;
@@ -126,6 +151,7 @@ class MemberCard extends HTMLElement {
           <h${level} class="name">${name}</h${level}>
           <slot name="summary"></slot>
           <slot></slot>
+          ${actionHref ? `<a class="action" href="${actionHref}">${actionLabel}<span aria-hidden="true">→</span></a>` : ""}
           <section class="highlight" aria-labelledby="mc-highlight-title" hidden>
             <slot name="highlight-title" id="mc-highlight-title"></slot>
             <slot name="highlight"></slot>
@@ -134,7 +160,6 @@ class MemberCard extends HTMLElement {
       </article>
     `;
 
-    // El bloque destacado solo aparece si el consumidor pasó contenido.
     const highlight = this.shadowRoot.querySelector(".highlight");
     const hasHighlight = this.querySelector('[slot="highlight"], [slot="highlight-title"]');
     highlight.hidden = !hasHighlight;
