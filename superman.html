@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Proyecto Superman de Human STEM: prótesis de mano mioeléctricas con electrónica y manufactura aditiva.">
+  <title>Proyecto Superman — Human STEM</title>
+  <link rel="icon" href="assets/human_stem.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+  <header class="site-header">
+    <div class="contenedor site-header__inner">
+      <a class="site-logo" href="index.html#inicio" aria-label="Human STEM, ir al inicio"><img src="assets/human_stem_logo_vectorizado_transparente.svg" alt="Human STEM" width="1494" height="383" fetchpriority="high"></a>
+      <nav class="main-nav" aria-label="Navegación principal" data-open="false">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list"><span class="nav-toggle__bars" aria-hidden="true"></span><span>Menú</span></button>
+        <ul class="nav-list" id="nav-list" role="list">
+          <li><a href="index.html#inicio">Inicio</a></li><li><a href="index.html#mision-vision">Misión y visión</a></li><li><a href="index.html#quienes-somos">Quiénes somos</a></li><li><a href="talento_human.html">Talento humano</a></li><li><a href="superman.html" aria-current="page">Proyecto Superman</a></li><li><a href="miltli.html">Miltli</a></li><li><a class="nav-cta" href="index.html#donaciones">Donar</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+    <section class="section section--tinta" id="proyecto-superman" aria-labelledby="titulo-proyecto-superman">
+      <div class="contenedor">
+        <header class="superman__head">
+          <div class="superman__intro">
+            <p class="eyebrow eyebrow--dot acento-naranja">Proyecto piloto</p>
+            <h1 class="section-title" id="titulo-proyecto-superman">Proyecto Superman</h1>
+            <p>Prótesis de mano mioeléctricas: una iniciativa que une electrónica, manufactura aditiva y diseño centrado en las personas.</p>
+            <ul class="superman__tags" role="list" aria-label="Áreas de Proyecto Superman"><li>Electrónica</li><li>Manufactura aditiva</li><li>Diseño centrado en las personas</li></ul>
+          </div>
+          <aside class="superman__reel" aria-label="Reel de Proyecto Superman en Instagram">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DYN5lJItlNd/" data-instgrm-version="14">
+              <p><a href="https://www.instagram.com/reel/DYN5lJItlNd/" rel="external noopener" target="_blank">Ver reel de Proyecto Superman en Instagram</a></p>
+            </blockquote>
+          </aside>
+        </header>
+        <section aria-labelledby="titulo-patrocinadores">
+          <div class="sub-head"><h2 id="titulo-patrocinadores">Patrocinadores</h2></div>
+          <ul class="patrocinadores" role="list">
+            <li><article class="patro-card"><h3 class="patro-card__nombre"><a href="https://www.ktronix.com/" rel="external noopener"><img class="patro-card__logo" src="assets/sponsors/ktronix-logo.svg" alt="Ktronix" width="200" height="68" loading="lazy"></a></h3><p>Brinda los componentes electrónicos del proyecto.</p></article></li>
+          </ul>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="contenedor"><div class="site-footer__top"><a class="site-footer__logo" href="index.html#inicio" aria-label="Human STEM, ir al inicio"><img src="assets/human_stem_logo_vectorizado_transparente.svg" alt="Human STEM" width="1494" height="383"></a><nav aria-label="Redes sociales"><ul class="site-footer__redes" role="list"><li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li><li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li></ul></nav></div><div class="site-footer__bottom"><p><small>© 2026 Human STEM. Todos los derechos reservados.</small></p><p class="lema">Ciencia y tecnología con impacto social.</p></div></div></footer>
+
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <script>
+    (function () { var nav = document.querySelector('.main-nav'); var toggle = nav && nav.querySelector('.nav-toggle'); if (!nav || !toggle) return; function setOpen(open) { nav.setAttribute('data-open', String(open)); toggle.setAttribute('aria-expanded', String(open)); } toggle.addEventListener('click', function () { setOpen(nav.getAttribute('data-open') !== 'true'); }); nav.querySelectorAll('.nav-list a').forEach(function (link) { link.addEventListener('click', function () { setOpen(false); }); }); document.addEventListener('keydown', function (event) { if (event.key === 'Escape') setOpen(false); }); })();
+  </script>
+</body>
+</html>
