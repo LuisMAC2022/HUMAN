@@ -138,7 +138,13 @@ class MemberCard extends HTMLElement {
           margin: 0 0 0.5rem;
           font-size: 1rem;
         }
-        .highlight ::slotted([slot="highlight"]) { margin: 0; line-height: 1.6; }
+        .highlight ::slotted([slot="highlight"]) {
+          margin: 0;
+          padding-inline-start: 1rem;
+          border-inline-start: 0.25rem solid var(--mc-accent, #38548c);
+          font-style: italic;
+          line-height: 1.6;
+        }
       </style>
 
       <article>
@@ -151,11 +157,11 @@ class MemberCard extends HTMLElement {
           <h${level} class="name">${name}</h${level}>
           <slot name="summary"></slot>
           <slot></slot>
-          ${actionHref ? `<a class="action" href="${actionHref}">${actionLabel}<span aria-hidden="true">→</span></a>` : ""}
           <section class="highlight" aria-labelledby="mc-highlight-title" hidden>
             <slot name="highlight-title" id="mc-highlight-title"></slot>
             <slot name="highlight"></slot>
           </section>
+          ${actionHref ? `<a class="action" href="${actionHref}">${actionLabel}<span aria-hidden="true">→</span></a>` : ""}
         </div>
       </article>
     `;
