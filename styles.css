@@ -906,11 +906,36 @@ p { margin: 0 0 1em; text-wrap: pretty; }
    ===================================================================== */
 .colaboraciones__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
-  gap: clamp(32px, 5vw, 72px);
+  grid-template-columns: minmax(0, 0.72fr) minmax(200px, 0.72fr) minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 56px);
   align-items: center;
 }
 .colaboraciones__intro .section-title { max-width: 16ch; }
+.colaboraciones__imagen {
+  position: relative;
+  width: min(100%, 320px);
+  margin: 0 auto;
+  padding: 8px;
+  background: var(--human-blanco);
+  border-radius: calc(var(--radio) + 2px);
+  box-shadow: var(--sombra-lg);
+  transform: rotate(-1.5deg);
+}
+.colaboraciones__imagen::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(51, 204, 255, 0.45);
+  border-radius: var(--radio-sm);
+  pointer-events: none;
+}
+.colaboraciones__imagen img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: var(--radio-sm);
+}
 .colabora-card {
   background: var(--human-azul-oscuro);
   color: var(--human-blanco);
@@ -1138,6 +1163,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   }
   .retrato { max-width: 460px; }
   .superman__reel { max-width: 540px; }
+  .colaboraciones__imagen { width: min(100%, 360px); }
 }
 
 @media (max-width: 560px) {
