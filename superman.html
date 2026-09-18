@@ -3,11 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dos músculos, una intención</title>
+<meta name="description" content="Proyecto Superman: cómo un par de músculos antagonistas gobierna una prótesis de mano mioeléctrica.">
+<title>Dos músculos, una intención — Human STEM</title>
+<link rel="icon" href="assets/human-stem-isotipo.svg" type="image/svg+xml">
+<!-- La hoja del sitio va ANTES del <style> de la página: aporta la cabecera
+     y el pie comunes, y el bloque de abajo conserva la tipografía propia. -->
+<link rel="stylesheet" href="styles.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
+/* De styles.css sólo queremos .site-header y .site-footer. Sus reglas de
+   elemento (h1-h4 en azul institucional, p con margen inferior, escala
+   tipográfica del body) se devuelven aquí a los valores por omisión del
+   navegador, que son con los que se diseñó esta página. Va al principio
+   del bloque a propósito: así las reglas propias de más abajo siguen
+   mandando sobre ella. La cabecera y el pie no usan h1-h4 y todo su texto
+   va por clase, de modo que no les afecta. */
+body{font-size:16px}
+h1,h2,h3,h4{color:inherit;font-weight:bold;line-height:inherit;text-wrap:inherit}
+p{margin:0;text-wrap:inherit}
+/* A la inversa: la cabecera y el pie heredan del body, que aquí es serif,
+   ligero y con interlínea propia. Se les devuelve la tipografía del sitio
+   para que se lean igual que en el resto de las páginas. */
+.site-header,.site-footer{font-family:var(--font-body);font-weight:400;line-height:1.6}
+
 :root{
   --ocre:#b08a4a;--ocre-claro:#cdab6e;--gris:#6f6a61;--gris-osc:#3a3833;
   --marron:#5a4631;--papel:#e4ddd0;--papel-osc:#d2c9b7;--tinta:#26241f;
@@ -25,7 +45,7 @@ body{
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative}
 
 /* HERO */
-.hero{position:relative;min-height:98vh;display:flex;flex-direction:column;justify-content:center;padding:90px 0 70px;overflow:hidden}
+.sup-hero{position:relative;min-height:98vh;display:flex;flex-direction:column;justify-content:center;padding:90px 0 70px;overflow:hidden}
 .facetas{position:absolute;inset:0;pointer-events:none;z-index:0}
 .faceta{position:absolute;font-family:'Archivo Black',sans-serif;text-transform:uppercase;line-height:.82;letter-spacing:-.04em;user-select:none}
 .f1{top:5%;left:-3%;font-size:clamp(58px,14vw,192px);color:var(--flex);opacity:.14;transform:skewX(-9deg)}
@@ -39,15 +59,15 @@ body{
 .plano-geo{position:absolute;border:1px solid var(--linea)}
 .pg1{top:12%;right:6%;width:250px;height:310px;transform:rotate(11deg);background:linear-gradient(135deg,rgba(168,71,46,.08),transparent 60%)}
 .pg2{top:32%;right:15%;width:150px;height:210px;transform:rotate(-7deg);background:linear-gradient(135deg,rgba(109,122,58,.09),transparent 70%)}
-.eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--flex);position:relative;z-index:2;margin-bottom:26px;display:flex;align-items:center;gap:14px}
-.eyebrow::before{content:"";width:54px;height:1px;background:var(--flex)}
-.hero h1{position:relative;z-index:2;font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(34px,7.4vw,102px);line-height:.92;letter-spacing:-.035em;max-width:17ch}
-.hero h1 .corte{display:inline-block;color:var(--ext);position:relative}
-.hero h1 .corte::after{content:"";position:absolute;left:-6%;top:46%;width:112%;height:2px;background:var(--tinta);transform:rotate(-3deg)}
-.hero .sub{position:relative;z-index:2;margin-top:34px;max-width:54ch;font-size:clamp(17px,2.1vw,21px);font-weight:400;color:var(--gris-osc)}
-.hero .sub em{font-style:italic;color:var(--marron)}
-.hero .sub .cf{color:var(--flex);font-style:normal;font-weight:600}
-.hero .sub .ce{color:var(--ext);font-style:normal;font-weight:600}
+.sup-eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--flex);position:relative;z-index:2;margin-bottom:26px;display:flex;align-items:center;gap:14px}
+.sup-eyebrow::before{content:"";width:54px;height:1px;background:var(--flex)}
+.sup-hero h1{position:relative;z-index:2;font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(34px,7.4vw,102px);line-height:.92;letter-spacing:-.035em;max-width:17ch}
+.sup-hero h1 .corte{display:inline-block;color:var(--ext);position:relative}
+.sup-hero h1 .corte::after{content:"";position:absolute;left:-6%;top:46%;width:112%;height:2px;background:var(--tinta);transform:rotate(-3deg)}
+.sup-hero .sub{position:relative;z-index:2;margin-top:34px;max-width:54ch;font-size:clamp(17px,2.1vw,21px);font-weight:400;color:var(--gris-osc)}
+.sup-hero .sub em{font-style:italic;color:var(--marron)}
+.sup-hero .sub .cf{color:var(--flex);font-style:normal;font-weight:600}
+.sup-hero .sub .ce{color:var(--ext);font-style:normal;font-weight:600}
 .scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gris);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
 .scroll-cue span{display:block;width:1px;height:38px;background:var(--gris);animation:drop 2.4s ease-in-out infinite}
 @keyframes drop{0%,100%{transform:scaleY(.3);transform-origin:top;opacity:.3}50%{transform:scaleY(1);opacity:1}}
@@ -168,11 +188,27 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
   .emg-hero path{stroke-dashoffset:0}
   .r{opacity:1;transform:none;transition:none}
 }
+
 </style>
 </head>
 <body>
 
-<header class="hero">
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+<header class="site-header">
+  <div class="contenedor site-header__inner">
+    <a class="site-logo" href="index.html#inicio" aria-label="Human STEM, ir al inicio"><img src="assets/human_stem_logo_vectorizado_transparente.svg" alt="Human STEM" width="1494" height="383" fetchpriority="high"></a>
+    <nav class="main-nav" aria-label="Navegación principal" data-open="false">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list"><span class="nav-toggle__bars" aria-hidden="true"></span><span>Menú</span></button>
+      <ul class="nav-list" id="nav-list" role="list">
+        <li><a href="index.html#inicio">Inicio</a></li><li><a href="index.html#mision-vision">Misión y visión</a></li><li><a href="index.html#quienes-somos">Quiénes somos</a></li><li><a href="talento_human.html">Talento humano</a></li><li><a href="superman.html" aria-current="page">Proyecto Superman</a></li><li><a href="miltli.html">Miltli</a></li><li><a class="nav-cta" href="index.html#colaboraciones">Colabora</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido-principal">
+
+<section class="sup-hero">
   <div class="facetas" aria-hidden="true">
     <div class="faceta f1">Cerrar</div>
     <div class="faceta f2">Abrir</div>
@@ -185,14 +221,12 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
     <path class="b" d="M-20,470 L320,470 L346,590 L368,360 L392,540 L420,470 L780,470 L806,560 L828,400 L852,540 L880,470 L1240,470"/>
   </svg>
   <div class="wrap">
-    <div class="eyebrow">Prótesis mioeléctrica · El par antagonista</div>
+    <div class="sup-eyebrow">Prótesis mioeléctrica · El par antagonista</div>
     <h1>Dos músculos, una <span class="corte">intención</span></h1>
     <p class="sub">Una mano real no se controla con una sola señal. Un par de músculos opuestos la gobierna: los <span class="cf">flexores</span> que cierran y los <span class="ce">extensores</span> que abren. La prótesis escucha ambos a la vez sobre el mismo muñón — y de su <em>equilibrio</em>, no de una orden única, nace el movimiento. Acciona los dos y míralo.</p>
   </div>
   <div class="scroll-cue" aria-hidden="true">Accionar<span></span></div>
-</header>
-
-<main>
+</section>
 
   <section class="seccion">
     <div class="wrap">
@@ -323,6 +357,12 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
   </section>
 
 </main>
+
+<footer class="site-footer"><div class="contenedor"><div class="site-footer__top"><a class="site-footer__logo" href="index.html#inicio" aria-label="Human STEM, ir al inicio"><img src="assets/human_stem_logo_vectorizado_transparente.svg" alt="Human STEM" width="1494" height="383"></a><nav aria-label="Redes sociales"><ul class="site-footer__redes" role="list"><li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li><li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li></ul></nav></div><div class="site-footer__bottom"><p class="site-footer__ia"><small>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso_responsable_ia.html">Conoce más acerca de nuestra política de uso responsable</a>.</small></p><p class="lema">Ciencia y tecnología con impacto social.</p></div></div></footer>
+
+<script>
+(function () { var nav = document.querySelector('.main-nav'); var toggle = nav && nav.querySelector('.nav-toggle'); if (!nav || !toggle) return; function setOpen(open) { nav.setAttribute('data-open', String(open)); toggle.setAttribute('aria-expanded', String(open)); } toggle.addEventListener('click', function () { setOpen(nav.getAttribute('data-open') !== 'true'); }); nav.querySelectorAll('.nav-list a').forEach(function (link) { link.addEventListener('click', function () { setOpen(false); }); }); document.addEventListener('keydown', function (event) { if (event.key === 'Escape') setOpen(false); }); })();
+</script>
 
 <script>
 const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
