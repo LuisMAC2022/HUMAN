@@ -18,10 +18,10 @@ semántico independiente.
   photo-src="assets/founders/jair-4x5.webp"
   photo-alt="Retrato de Iñaki Moreno, fundador de Human STEM"
   caption="Iñaki Moreno, fundador">
-  <p slot="summary">22 años, último semestre de la Licenciatura…</p>
-  <p>En la ONG SELIDER Estado de México dirigió…</p>
+  <p slot="summary">Tiene 23 años y es graduado de la carrera de Física y Matemáticas.</p>
+  <p>Desde hace más de siete años se formó y participó en proyectos a través de <a href="https://www.selider.net/">SELIDER</a>.</p>
   <h3 slot="highlight-title">Aprendizaje central</h3>
-  <p slot="highlight">El asistencialismo nace de intenciones nobles…</p>
+  <blockquote slot="highlight">El asistencialismo nace de intenciones nobles…</blockquote>
 </member-card>
 ```
 
@@ -41,7 +41,7 @@ semántico independiente.
 | `summary` | Párrafo de resumen destacado. |
 | (default) | Párrafos de bio. |
 | `highlight-title` | Título del bloque destacado. |
-| `highlight` | Contenido del bloque. El bloque solo aparece si hay contenido. |
+| `highlight` | Cita destacada (`blockquote` recomendado). El bloque solo aparece si hay contenido. |
 
 ## Theming
 Variables leídas por el componente (todas con fallback):
@@ -56,6 +56,7 @@ Usa container queries: si la tarjeta mide ≥ 40rem, foto a la izquierda y texto
 - Heading real (`h2`–`h4` según `heading-level`) para navegación por lectores.
 - `figure`/`figcaption` para el retrato.
 - El bloque destacado es un `<section>` nombrado por su título; oculto si no hay contenido.
+- La cita de aprendizaje usa `<blockquote>` y la acción se presenta después de ella en el orden de lectura.
 - Imagen con `width`/`height` intrínsecos y `loading="lazy"` (evita layout shift).
 
 ## Integración en el index
