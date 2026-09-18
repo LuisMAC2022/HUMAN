@@ -937,6 +937,124 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .colabora-card__correo:hover { color: var(--human-cyan); }
 
 /* =====================================================================
+   POLÍTICA DE USO RESPONSABLE DE IA
+   ===================================================================== */
+.politica-intro {
+  position: relative;
+  background: var(--human-azul-oscuro);
+  color: var(--human-blanco);
+  overflow: hidden;
+  isolation: isolate;
+}
+/* Retícula de puntos + resplandor azul medio: el mismo motivo geométrico
+   del hero, para que la página se lea como parte del sistema */
+.politica-intro::before {
+  content: "";
+  position: absolute; inset: 0;
+  z-index: -2;
+  background-image: radial-gradient(rgba(255,255,255,0.10) 1.4px, transparent 1.6px);
+  background-size: 26px 26px;
+  background-position: -8px -8px;
+  mask-image: linear-gradient(180deg, #000 10%, transparent 92%);
+  -webkit-mask-image: linear-gradient(180deg, #000 10%, transparent 92%);
+}
+.politica-intro::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 55vw; height: 55vw;
+  max-width: 620px; max-height: 620px;
+  right: -10vw; top: -18vw;
+  background: radial-gradient(circle, rgba(56,84,140,0.55), transparent 62%);
+  filter: blur(6px);
+}
+.politica-intro__inner {
+  padding-block: clamp(56px, 9vw, 112px);
+  max-width: 900px;
+}
+.politica-intro .eyebrow { color: var(--human-cyan); }
+.politica-intro .section-title {
+  color: var(--human-blanco);
+  font-size: clamp(1.8rem, 3.6vw, 2.9rem);
+  max-width: 24ch;
+}
+.politica-intro__sub {
+  margin: 0;
+  font-size: clamp(1.02rem, 1.4vw, 1.2rem);
+  color: var(--texto-sobre-oscuro);
+  max-width: 62ch;
+}
+
+/* Bloque de lectura: el contenedor conserva su ancho (los títulos quedan
+   alineados con el resto del sitio); la medida corta se aplica al texto */
+.politica__titulo { font-size: clamp(1.7rem, 3vw, 2.4rem); }
+.politica__subtitulo { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+.politica p { color: var(--human-gris-texto); max-width: 72ch; }
+.politica p + p { margin-top: 1em; }
+
+.politica__lista {
+  max-width: 72ch;
+  margin: 0 0 1em;
+  padding-left: 1.25em;
+  color: var(--human-gris-texto);
+  display: grid;
+  gap: 8px;
+}
+.politica__lista li::marker { color: var(--acento); }
+
+/* Los cuatro compromisos: tarjetas numeradas, una por color secundario */
+.compromisos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(18px, 2.4vw, 26px);
+  /* 420px como mínimo deja dos columnas en escritorio: los cuatro
+     compromisos se leen como una retícula 2 x 2 */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+}
+.compromisos > li { display: grid; }
+.compromiso {
+  height: 100%;
+  background: var(--human-blanco);
+  border: 1px solid var(--human-gris-borde);
+  border-top: 4px solid var(--acento);
+  border-radius: var(--radio);
+  padding: clamp(24px, 3vw, 34px);
+  box-shadow: var(--sombra-sm);
+  transition: var(--transicion);
+}
+.compromiso:hover { box-shadow: var(--sombra-md); transform: translateY(-3px); }
+.compromiso__num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px; height: 38px;
+  margin: 0 0 16px;
+  font-family: var(--font-technical);
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: var(--human-azul-oscuro);
+  border: 2px solid var(--acento);
+  border-radius: 50%;
+}
+.compromiso h3 {
+  font-size: clamp(1.12rem, 1.7vw, 1.3rem);
+  margin: 0 0 0.6em;
+}
+.compromiso p { color: var(--human-gris-texto); margin: 0 0 1em; }
+.compromiso__clave {
+  margin: 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--human-gris-borde);
+  font-family: var(--font-technical);
+  color: var(--human-azul-oscuro);
+}
+
+.politica .aprendizaje-card { margin-top: 32px; max-width: 72ch; }
+.politica__contacto { max-width: 620px; }
+
+/* =====================================================================
    PIE DE PÁGINA
    ===================================================================== */
 .site-footer {
@@ -992,6 +1110,18 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   font-size: 0.85rem;
 }
 .site-footer__bottom p { margin: 0; }
+.site-footer__ia {
+  flex: 1 1 420px;
+  max-width: 68ch;
+  line-height: 1.6;
+}
+.site-footer__ia a {
+  color: var(--human-blanco);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: var(--transicion);
+}
+.site-footer__ia a:hover { color: var(--human-cyan); }
 .site-footer__bottom .lema {
   font-family: var(--font-technical);
   letter-spacing: 0.02em;

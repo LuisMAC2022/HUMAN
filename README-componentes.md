@@ -58,6 +58,10 @@ Modificadores disponibles: `.acento-cyan` (por defecto), `.acento-verde`,
 | `.equipos-colaboradores` | `ul` > `li` > `figure` | `__item--panoramica` (16:9), `__item--vertical` (2:3) |
 | `.colabora-card` | `article` + `h3.eyebrow` | Tarjeta de contacto para colaboraciones |
 | `.huertos__badge` / `.huertos__nota` | `span` / `p` | Sustituyen los estilos en línea |
+| `.politica-intro` | `section` + `h1` | Cabecera oscura de `uso_responsable_ia.html`; reutiliza la retícula de puntos y el resplandor del hero |
+| `.politica` | `div` (dentro de `.contenedor`) | Bloque de lectura: el contenedor conserva su ancho y la medida de 72ch se aplica a párrafos, listas y callouts |
+| `.compromisos` / `.compromiso` | `ol` > `li` > `article` | Los cuatro compromisos de la política de IA; cada tarjeta fija su acento (`.acento-verde`, `-cyan`, `-naranja`, `-rojo`) y numera con `.compromiso__num` |
+| `.site-footer__ia` | `p` + `small` + `a` | Aviso de uso de herramientas generativas en el pie; enlaza a la política. Sustituye al antiguo aviso de copyright |
 
 Clases reservadas (definidas, aún sin instancia en la página): `.btn--oscuro`,
 `.section-lead`, `.colaboradores__nota`, `.familia` (subtítulo de equipo en
@@ -116,10 +120,14 @@ elegir destino. `.nav-cta` ya no usa `!important`: el selector compuesto
 
 ## Excepciones de linter (intencionales)
 
-`html-validate` reporta dos reglas que se dejan a propósito:
-`no-redundant-role` (los `role="list"` explicados arriba) y `valid-id` sobre
+`html-validate` reporta tres reglas que se dejan a propósito:
+`no-redundant-role` (los `role="list"` explicados arriba), `valid-id` sobre
 `#__bundler_thumbnail` (plantilla generada por herramientas, presente en el
-archivo original; se conserva textual por si el pipeline la consume).
+archivo original; se conserva textual por si el pipeline la consume) y
+`prefer-native-element` sobre `<ol class="compromisos" role="list">`: la
+lista es ordenada a propósito (los compromisos están numerados) y el
+`role="list"` es el mismo paliativo de Safari/VoiceOver, no un intento de
+emular un `<ul>`.
 
 ## Pruebas realizadas y plan
 
@@ -157,3 +165,26 @@ imágenes reales de `assets/`.
 Moreno apunta a `assets/founders/jair-4x5.webp` y la del director Jair
 Álvarez a `assets/founders/alvarez-4x5.webp` — conviene confirmar que los
 archivos no están intercambiados.
+
+## Política de uso responsable de IA (`uso_responsable_ia.html`)
+
+El pie de todas las páginas sustituye el aviso de copyright —la asociación
+no reclama derechos reservados sobre el sitio— por la declaración de uso de
+herramientas generativas, que enlaza a `uso_responsable_ia.html`.
+
+La página no se añade al menú principal (reservado a secciones y proyectos);
+vive en el pie, que es donde se esperan los avisos legales y de
+transparencia. Reutiliza el sistema existente: `.section`, `.section--tinta`,
+`.eyebrow`, `.section-title`, `.aprendizaje-card` (callout de "cuándo un
+resultado está listo") y `.colabora-card` (tarjeta de contacto). Lo único nuevo
+es el bloque `POLÍTICA DE USO RESPONSABLE DE IA` de `styles.css`.
+
+Estructura semántica: un `h1` (el título de la política), un `h2` por
+apartado y un `h3` por compromiso; cada `section` con `aria-labelledby`; los
+cuatro compromisos en un `<ol>` porque están numerados, con la tarjeta como
+`<article>` (contenido autónomo) y el ordinal en `.compromiso__num`
+(`aria-hidden`, porque el encabezado ya nombra el compromiso).
+
+Verificado en Chromium (1280px y 390px): sin errores de consola, sin
+desbordamiento horizontal, retícula 2 x 2 de compromisos en escritorio y una
+columna en móvil.
