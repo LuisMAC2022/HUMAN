@@ -80,14 +80,17 @@ enfocable ni activable con teclado (el patrón anterior, `href` +
 1. *Base (sin JS):* región estática desplazable — `<section tabindex="0"
    aria-label>` con `overflow-x: auto`, operable con teclado. Sin duplicados.
 2. *`prefers-reduced-motion`:* el script no clona; queda como la base.
-3. *Mejorado:* el script clona cada fila una vez (clones con
-   `aria-hidden="true"`), añade `.marquesina--animada` (activa animación,
-   máscara lateral y `overflow: hidden`) y retira el `tabindex`.
+3. *Mejorado:* el script clona cada fila (clones con `aria-hidden="true"`)
+   un número **par** de veces — las necesarias para cubrir el doble del
+   ancho visible, porque la animación desplaza `-50%` —, añade
+   `.marquesina--animada` (activa animación, máscara lateral y
+   `overflow: hidden`) y retira el `tabindex`.
 
 Las relaciones entre personas y proyectos se comunican con enlaces HTML
-nativos. En particular, las fichas de Jair enlazan a `#proyecto-superman`
-con un nombre accesible y una llamada a la acción visible; nunca se reutiliza
-`member-card` como contenedor de la sección del proyecto.
+nativos. En particular, la ficha de Jair enlaza a `superman.html` con un
+nombre accesible (`aria-label`) y el subrayado propio de `.colaborador a`
+como señal visible; nunca se reutiliza `member-card` como contenedor de la
+sección del proyecto.
 
 Antes, los 12 clones estaban duplicados a mano en el HTML (y con movimiento
 reducido el visitante veía a cada persona dos veces). Para añadir una persona
@@ -188,3 +191,13 @@ cuatro compromisos en un `<ol>` porque están numerados, con la tarjeta como
 Verificado en Chromium (1280px y 390px): sin errores de consola, sin
 desbordamiento horizontal, retícula 2 x 2 de compromisos en escritorio y una
 columna en móvil.
+
+## Talento humano: correcciones de contenido
+
+La marquesina conserva una sola fila, la de los retratos de `assets/human/`;
+se retiró la segunda fila (`assets/stem/`). Los archivos de `assets/stem/`
+siguen en el repositorio por si vuelven a usarse. Otros ajustes: *Boi* pasa a
+llamarse **Jony**, *Jainaki* a **Iñaki**, se eliminó a *Gal* (ficha e
+imágenes `gal_h.*` y `gal_s.*`) y la ficha de Jair ya no muestra el texto
+«Ver Proyecto Superman» bajo la foto: el enlace se mantiene y su nombre
+accesible sigue en el `aria-label`.
