@@ -904,17 +904,28 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 /* =====================================================================
    COLABORACIONES
    ===================================================================== */
+/* En escritorio el texto ocupa una sola columna y la tarjeta de contacto
+   se apila debajo: así el titular deja de competir con el marco de la
+   imagen y el hueco que quedaba bajo el párrafo se llena. La imagen pasa
+   a una columna propia, lo bastante ancha para que el encuadre se lea. */
 .colaboraciones__grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.72fr) minmax(200px, 0.72fr) minmax(0, 1fr);
-  gap: clamp(28px, 4vw, 56px);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 400px);
+  grid-template-areas:
+    "intro   imagen"
+    "tarjeta imagen";
+  column-gap: clamp(28px, 4vw, 56px);
+  row-gap: clamp(24px, 3vw, 36px);
+  align-items: start;
 }
+.colaboraciones__intro { grid-area: intro; }
+.colaboraciones__imagen { grid-area: imagen; align-self: center; }
+.colabora-card { grid-area: tarjeta; }
 .colaboraciones__intro .section-title { max-width: 16ch; }
 .colaboraciones__imagen {
   position: relative;
-  width: min(100%, 320px);
-  margin: 0 auto;
+  width: 100%;
+  margin: 0;
   padding: 8px;
   background: var(--human-blanco);
   border-radius: calc(var(--radio) + 2px);
@@ -929,11 +940,17 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   border-radius: var(--radio-sm);
   pointer-events: none;
 }
+/* El original es 2:3 con mucho aire sobre la garra. En pantallas grandes
+   ese formato se lee alargado y medio vacío, así que se encuadra en 3:4
+   recortando sólo por arriba (object-position: bottom), que es donde está
+   el brazo: el QR nunca se toca y la foto llega hasta el borde del marco. */
 .colaboraciones__imagen img {
+  display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 2 / 3;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
+  object-position: center bottom;
   border-radius: var(--radio-sm);
 }
 .colabora-card {
@@ -1163,7 +1180,23 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   }
   .retrato { max-width: 460px; }
   .superman__reel { max-width: 540px; }
-  .colaboraciones__imagen { width: min(100%, 360px); }
+  /* Móvil: se vuelve a la pila intro → imagen → tarjeta y al 2:3 original,
+     que a ancho completo ya encaja bien con el marco. */
+  .colaboraciones__grid {
+    grid-template-areas:
+      "intro"
+      "imagen"
+      "tarjeta";
+    gap: clamp(28px, 4vw, 56px);
+  }
+  .colaboraciones__imagen {
+    width: min(100%, 360px);
+    margin: 0 auto;
+  }
+  .colaboraciones__imagen img {
+    aspect-ratio: 2 / 3;
+    object-position: center;
+  }
 }
 
 @media (max-width: 560px) {
