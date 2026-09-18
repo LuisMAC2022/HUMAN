@@ -157,6 +157,22 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
 .electrodo{grid-column:11/13;align-self:stretch;min-height:150px;background:radial-gradient(circle at 30% 32%,var(--flex) 0 6px,transparent 7px),radial-gradient(circle at 68% 64%,var(--ext) 0 6px,transparent 7px),repeating-linear-gradient(0deg,var(--gris-osc) 0 2px,var(--papel-osc) 2px 9px);border:1px solid var(--tinta);transform:rotate(2deg);position:relative}
 .electrodo::after{content:"par antagonista";position:absolute;bottom:-22px;right:0;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gris)}
 
+/* REEL · styles.css ya define .superman__reel con los tokens del sitio
+   (blanco, radio, sombra). Aquí se reescribe con la paleta de papel de esta
+   página: la tarjeta de Instagram queda montada sobre el mismo marco que el
+   lienzo, con su pie en la tipografía monoespaciada de las secciones. */
+.reel-marco{max-width:540px;margin:0 auto;border:1px solid var(--linea);background:rgba(228,221,208,.45);padding:16px}
+.superman__reel{margin:0;max-width:none}
+/* Antes de que responda embed.js el blockquote solo contiene el enlace de
+   respaldo; se le da cuerpo para que el hueco no se lea como un fallo. */
+.superman__reel .instagram-media{background:transparent;border:0;border-radius:0;box-shadow:none}
+.superman__reel .instagram-media p{padding:56px 20px;text-align:center}
+.superman__reel .instagram-media a{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--flex);text-decoration:none;border-bottom:1px solid var(--flex);padding-bottom:5px}
+.superman__reel .instagram-media a:hover{color:var(--tinta);border-bottom-color:var(--tinta)}
+.reel-pie{max-width:540px;margin:14px auto 0;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.reel-pie a{color:var(--marron);text-decoration:none;border-bottom:1px solid var(--linea)}
+.reel-pie a:hover{color:var(--flex);border-bottom-color:var(--flex)}
+
 /* cierre */
 .cierre{padding:90px 0 100px}
 .cierre .ancla{font-family:'Spectral',serif;font-style:italic;font-weight:300;font-size:clamp(22px,4vw,40px);line-height:1.28;max-width:26ch;color:var(--tinta)}
@@ -348,9 +364,28 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
     </div>
   </section>
 
+  <section class="seccion reel">
+    <div class="wrap">
+      <div class="marca r"><b>03</b> Fuera del papel <span class="rule"></span> Instagram</div>
+      <h2 class="r">El esquema, <span class="oe">grabado</span></h2>
+      <div class="cuerpo r" style="margin-bottom:30px">
+        <p>Hasta aquí todo han sido planos, umbrales y dos señales que se pesan. El reel del proyecto enseña la otra mitad: el prototipo fuera del diagrama. Si Instagram no carga —bloqueadores, conexión, sin JavaScript— queda el enlace a la publicación.</p>
+      </div>
+
+      <div class="reel-marco r">
+        <aside class="superman__reel" aria-label="Reel de Proyecto Superman en Instagram">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DYN5lJItlNd/" data-instgrm-version="14">
+            <p><a href="https://www.instagram.com/reel/DYN5lJItlNd/" rel="external noopener" target="_blank">Ver reel de Proyecto Superman en Instagram</a></p>
+          </blockquote>
+        </aside>
+      </div>
+      <p class="reel-pie r"><span>Proyecto Superman · Reel</span> <a href="https://www.instagram.com/humanstem/" rel="external noopener" target="_blank">@humanstem</a></p>
+    </div>
+  </section>
+
   <section class="cierre">
     <div class="wrap">
-      <div class="marca r"><b>03</b> La lección <span class="rule"></span> Abstracción con ancla</div>
+      <div class="marca r"><b>04</b> La lección <span class="rule"></span> Abstracción con ancla</div>
       <p class="ancla r">Descompón la mano en dos señales que se pesan, un umbral y un juego de motores todo lo que quieras. Pero deja siempre el <b>asidero</b>: al final hay un puño que se cierra, una voluntad humana que el ojo —y el cuerpo— reconstruyen.</p>
       <div class="firma r"><span class="dot"></span> Flexor <span class="dot e"></span> Extensor <span class="dot"></span> Δ <span class="dot e"></span> Co-contracción <span class="dot"></span> La mano como se conoce</div>
     </div>
@@ -501,6 +536,28 @@ capas.forEach(c=>{
 });
 
 requestAnimationFrame(frame);
+
+/* El script de Instagram es de terceros y pesa: se pide una sola vez, y solo
+   cuando el reel se acerca al viewport. Si ya estuviera cargado basta con
+   pedirle que reprocese el blockquote. Sin IntersectionObserver se carga de
+   inmediato: el reel se ve igual, solo se pierde el aplazamiento. */
+(function(){
+  var reel=document.querySelector('.superman__reel');
+  if(!reel)return;
+  var pedido=false;
+  function cargar(){
+    if(pedido)return;pedido=true;
+    if(window.instgrm&&window.instgrm.Embeds){window.instgrm.Embeds.process();return}
+    var s=document.createElement('script');
+    s.async=true;s.src='https://www.instagram.com/embed.js';
+    document.body.appendChild(s);
+  }
+  if(!('IntersectionObserver' in window)){cargar();return}
+  var obs=new IntersectionObserver(function(entradas){
+    entradas.forEach(function(e){if(e.isIntersecting){obs.disconnect();cargar()}});
+  },{rootMargin:'400px'});
+  obs.observe(reel);
+})();
 </script>
 </body>
 </html>

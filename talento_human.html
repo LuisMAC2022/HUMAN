@@ -42,30 +42,16 @@
         <p class="colaboradores__intro">El músculo técnico y organizacional de Human STEM: quienes hacen que las cosas sucedan y transforman las buenas ideas en un impacto real medible.</p>
 
         <section class="marquesina" tabindex="0" aria-label="Galería del equipo HUMAN STEM">
-          <ul class="marquesina__fila marquesina__fila--izq" role="list" aria-label="Colaboradores human, primera fila">
-            <li class="colaborador"><figure><img src="assets/human/boi_h-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Boi</figcaption></figure></li>
-            <li class="colaborador"><figure><img src="assets/human/gal_h-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Gal</figcaption></figure></li>
-            <li class="colaborador"><figure><img src="assets/human/jainaki_h-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Jainaki</figcaption></figure></li>
+          <ul class="marquesina__fila marquesina__fila--izq" role="list" aria-label="Colaboradores de HUMAN STEM">
+            <li class="colaborador"><figure><img src="assets/human/boi_h-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Jony</figcaption></figure></li>
+            <li class="colaborador"><figure><img src="assets/human/jainaki_h-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Iñaki</figcaption></figure></li>
             <li class="colaborador">
               <a href="superman.html" aria-label="Jair Álvarez — director de Proyecto Superman">
-                <figure><img src="assets/human/jair_h-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Jair <span>Ver Proyecto Superman</span></figcaption></figure>
+                <figure><img src="assets/human/jair_h-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Jair</figcaption></figure>
               </a>
             </li>
             <li class="colaborador"><figure><img src="assets/human/rich_h-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Rich</figcaption></figure></li>
             <li class="colaborador"><figure><img src="assets/human/sofi_h-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Sofi</figcaption></figure></li>
-          </ul>
-
-          <ul class="marquesina__fila marquesina__fila--der" role="list" aria-label="Colaboradores STEM, segunda fila">
-            <li class="colaborador"><figure><img src="assets/stem/alva_s-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Alva</figcaption></figure></li>
-            <li class="colaborador"><figure><img src="assets/stem/boy_s-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Boy</figcaption></figure></li>
-            <li class="colaborador"><figure><img src="assets/stem/gal_s-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Gal</figcaption></figure></li>
-            <li class="colaborador">
-              <a href="superman.html" aria-label="Jair Álvarez — director de Proyecto Superman">
-                <figure><img src="assets/stem/jair_s-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Jair <span>Ver Proyecto Superman</span></figcaption></figure>
-              </a>
-            </li>
-            <li class="colaborador"><figure><img src="assets/stem/rich_s-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Rich</figcaption></figure></li>
-            <li class="colaborador"><figure><img src="assets/stem/sofi-99x132.webp" alt="" width="200" height="200" loading="lazy"><figcaption>Sofi</figcaption></figure></li>
           </ul>
         </section>
 
@@ -114,11 +100,23 @@
       var marquesina = document.querySelector('.marquesina');
       if (!marquesina || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       marquesina.querySelectorAll('.marquesina__fila').forEach(function (fila) {
-        Array.prototype.slice.call(fila.children).forEach(function (item) {
-          var clon = item.cloneNode(true);
-          clon.setAttribute('aria-hidden', 'true');
-          fila.appendChild(clon);
-        });
+        var grupo = Array.prototype.slice.call(fila.children);
+        if (!grupo.length) return;
+        function clonar(items) {
+          items.forEach(function (item) {
+            var clon = item.cloneNode(true);
+            clon.setAttribute('aria-hidden', 'true');
+            fila.appendChild(clon);
+          });
+        }
+        // La animación desplaza la fila un 50 % de su ancho, de modo que el
+        // bucle solo es continuo si media fila cubre ya el ancho visible.
+        // Con pocas fichas se repite el grupo las veces necesarias y después
+        // se duplica el conjunto entero, que es la mitad que se desplaza.
+        var anchoGrupo = fila.scrollWidth;
+        var repeticiones = anchoGrupo > 0 ? Math.ceil(marquesina.clientWidth / anchoGrupo) : 1;
+        for (var i = 1; i < repeticiones; i++) clonar(grupo);
+        clonar(Array.prototype.slice.call(fila.children));
       });
       marquesina.classList.add('marquesina--animada');
       marquesina.removeAttribute('tabindex');

@@ -50,44 +50,50 @@ Modificadores disponibles: `.acento-cyan` (por defecto), `.acento-verde`,
 | `<member-card>` | custom element | Ficha exclusiva de una persona; no representa proyectos ni sustituye el encabezado de una sección |
 | `.aprendizaje-card` | `section` + `h3` | Callout con borde de acento fijo cyan |
 | `.retrato` | `figure` + `figcaption` | Círculo decorativo vía `--acento` |
-| `.superman__reel` | `aside` + `blockquote` | Reel oficial de Instagram con enlace de respaldo accesible; el script externo se carga de forma asíncrona |
+| `.superman__reel` / `.reel-marco` / `.reel-pie` | `aside` + `blockquote` | Reel oficial de Instagram en `superman.html` con enlace de respaldo accesible; el marco y el pie usan la paleta de papel de esa página y el script externo se pide al acercarse el reel al viewport |
 | `.sub-head` | `div` + `h3` | La línea decorativa ahora es `::after` (antes un `<span>` en el HTML) |
 | `.patro-card` | `article` + `h4` | El `h4` (`.patro-card__nombre`) envuelve el logo-enlace; `.patro-card__logo` normaliza la altura a 44px para futuros patrocinadores |
-| `.colaborador` | `li` > `figure` / `a` > `figure` | Ficha circular; si una persona se asocia a un proyecto, la ficha usa un enlace nativo con destino, texto visible y foco visible |
+| `.colaborador` | `li` > `figure` / `a` > `figure` | Ficha circular; si una persona se asocia a un proyecto, la ficha usa un enlace nativo con destino y foco visible, y el nombre accesible del enlace dice a dónde lleva |
 | `.marquesina` | `section` desplazable | Ver estados abajo; filas `.marquesina__fila--izq/--der` |
 | `.equipos-colaboradores` | `ul` > `li` > `figure` | `__item--panoramica` (16:9), `__item--vertical` (2:3) |
 | `.colabora-card` | `article` + `h3.eyebrow` | Tarjeta de contacto para colaboraciones |
-| `.huertos__badge` / `.huertos__nota` | `span` / `p` | Sustituyen los estilos en línea |
+| `.huertos__badge` | `span` | Sustituye los estilos en línea |
 | `.politica-intro` | `section` + `h1` | Cabecera oscura de `uso_responsable_ia.html`; reutiliza la retícula de puntos y el resplandor del hero |
 | `.politica` | `div` (dentro de `.contenedor`) | Bloque de lectura: el contenedor conserva su ancho y la medida de 72ch se aplica a párrafos, listas y callouts |
 | `.compromisos` / `.compromiso` | `ol` > `li` > `article` | Los cuatro compromisos de la política de IA; cada tarjeta fija su acento (`.acento-verde`, `-cyan`, `-naranja`, `-rojo`) y numera con `.compromiso__num` |
 | `.site-footer__ia` | `p` + `small` + `a` | Aviso de uso de herramientas generativas en el pie; enlaza a la política. Sustituye al antiguo aviso de copyright |
 
 Clases reservadas (definidas, aún sin instancia en la página): `.btn--oscuro`,
-`.section-lead`, `.colaboradores__nota`, `.familia` (subtítulo de equipo en
-`figcaption` de `.colaborador`), `.sr-only`.
+`.section-lead`, `.colaboradores__nota`, `.huertos__nota`, `.marquesina__fila--der`,
+`.familia` (subtítulo de equipo en `figcaption` de `.colaborador`), `.sr-only`.
 
 ## Estados y comportamiento
 
-**Botón deshabilitado.** El CTA "Únete al equipo" es un *enlace marcador de
-posición*: `<a>` sin `href` + `aria-disabled="true"`. Sin `href` no es
-enfocable ni activable con teclado (el patrón anterior, `href` +
-`aria-disabled`, seguía navegando con Enter). Para habilitarlo: restaurar
-`href="huerto_urbano.html"` y quitar `aria-disabled`.
+**Botón deshabilitado.** `.btn[aria-disabled="true"]` sigue definido como
+estado reutilizable, pero ya no tiene instancia: el CTA "Únete al equipo" de
+`miltli.html` apunta al formulario de inscripción (Google Forms, `rel="external
+noopener"`). Para volver a deshabilitar un CTA: quitar el `href` y añadir
+`aria-disabled="true"` — sin `href` no es enfocable ni activable con teclado
+(el patrón anterior, `href` + `aria-disabled`, seguía navegando con Enter).
 
 **Marquesina (mejora progresiva, tres estados explícitos):**
 
 1. *Base (sin JS):* región estática desplazable — `<section tabindex="0"
    aria-label>` con `overflow-x: auto`, operable con teclado. Sin duplicados.
 2. *`prefers-reduced-motion`:* el script no clona; queda como la base.
-3. *Mejorado:* el script clona cada fila una vez (clones con
-   `aria-hidden="true"`), añade `.marquesina--animada` (activa animación,
-   máscara lateral y `overflow: hidden`) y retira el `tabindex`.
+3. *Mejorado:* el script repite el grupo de fichas hasta cubrir el ancho
+   visible y después duplica la fila entera —la animación desplaza un 50 %,
+   así que media fila debe bastar para llenar la vista o el bucle deja un
+   hueco—, marca los clones con `aria-hidden="true"`, añade
+   `.marquesina--animada` (activa animación, máscara lateral y
+   `overflow: hidden`) y retira el `tabindex`.
 
 Las relaciones entre personas y proyectos se comunican con enlaces HTML
-nativos. En particular, las fichas de Jair enlazan a `#proyecto-superman`
-con un nombre accesible y una llamada a la acción visible; nunca se reutiliza
-`member-card` como contenedor de la sección del proyecto.
+nativos. En particular, la ficha de Jair enlaza a `superman.html`; el
+`figcaption` solo lleva el nombre y es el `aria-label` del enlace el que
+anuncia el destino, de modo que todas las fichas de la marquesina miden y
+se leen igual. Nunca se reutiliza `member-card` como contenedor de la
+sección del proyecto.
 
 Antes, los 12 clones estaban duplicados a mano en el HTML (y con movimiento
 reducido el visitante veía a cada persona dos veces). Para añadir una persona
