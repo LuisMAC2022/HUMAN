@@ -56,7 +56,7 @@ Modificadores disponibles: `.acento-cyan` (por defecto), `.acento-verde`,
 | `.colaborador` | `li` > `figure` / `a` > `figure` | Ficha circular; si una persona se asocia a un proyecto, la ficha usa un enlace nativo con destino, texto visible y foco visible |
 | `.marquesina` | `section` desplazable | Ver estados abajo; filas `.marquesina__fila--izq/--der` |
 | `.equipos-colaboradores` | `ul` > `li` > `figure` | `__item--panoramica` (16:9), `__item--vertical` (2:3) |
-| `.dona-card` | `article` + `h3.eyebrow` | Tarjeta de contacto para donativos |
+| `.colabora-card` | `article` + `h3.eyebrow` | Tarjeta de contacto para colaboraciones |
 | `.huertos__badge` / `.huertos__nota` | `span` / `p` | Sustituyen los estilos en línea |
 
 Clases reservadas (definidas, aún sin instancia en la página): `.btn--oscuro`,

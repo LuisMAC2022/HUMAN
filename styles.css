@@ -902,25 +902,25 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 
 /* =====================================================================
-   DONACIONES
+   COLABORACIONES
    ===================================================================== */
-.donaciones__grid {
+.colaboraciones__grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
   gap: clamp(32px, 5vw, 72px);
   align-items: center;
 }
-.donaciones__intro .section-title { max-width: 16ch; }
-.dona-card {
+.colaboraciones__intro .section-title { max-width: 16ch; }
+.colabora-card {
   background: var(--human-azul-oscuro);
   color: var(--human-blanco);
   border-radius: var(--radio);
   padding: clamp(30px, 4vw, 48px);
   box-shadow: var(--sombra-lg);
 }
-.dona-card .eyebrow { color: var(--human-cyan); }
-.dona-card p { color: var(--texto-sobre-oscuro); }
-.dona-card__correo {
+.colabora-card .eyebrow { color: var(--human-cyan); }
+.colabora-card p { color: var(--texto-sobre-oscuro); }
+.colabora-card__correo {
   display: inline-flex;
   align-items: center;
   gap: 12px;
@@ -934,7 +934,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   padding-bottom: 4px;
   word-break: break-word;
 }
-.dona-card__correo:hover { color: var(--human-cyan); }
+.colabora-card__correo:hover { color: var(--human-cyan); }
 
 /* =====================================================================
    PIE DE PÁGINA
@@ -1003,7 +1003,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 @media (max-width: 900px) {
   .quienes__grid,
   .superman__head,
-  .donaciones__grid {
+  .colaboraciones__grid {
     grid-template-columns: minmax(0, 1fr);
   }
   .retrato { max-width: 460px; }
