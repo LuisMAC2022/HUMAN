@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Isotipo Human STEM</title>
+  <desc id="desc">Dos figuras humanas estilizadas forman una letra M.</desc>
+  <g>
+    <circle cx="142" cy="112" r="26" fill="#0A1235"/>
+    <path fill="#0A1235" d="M116 156h52l88 114v78l-88-114v210h-52V156z"/>
+    <circle cx="370" cy="112" r="26" fill="#5F6479"/>
+    <path fill="#5F6479" d="M256 270l88-114h52v288h-52V234l-88 114v-78z"/>
+  </g>
+</svg>
