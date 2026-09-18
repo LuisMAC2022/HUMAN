@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Proyecto Superman: cómo un par de músculos antagonistas gobierna una prótesis de mano mioeléctrica.">
+<title>Dos músculos, una intención — Human STEM</title>
+<link rel="icon" href="assets/human-stem-isotipo.svg" type="image/svg+xml">
+<!-- La hoja del sitio va ANTES del <style> de la página: aporta la cabecera
+     y el pie comunes, y el bloque de abajo conserva la tipografía propia. -->
+<link rel="stylesheet" href="styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* De styles.css sólo queremos .site-header y .site-footer. Sus reglas de
+   elemento (h1-h4 en azul institucional, p con margen inferior, escala
+   tipográfica del body) se devuelven aquí a los valores por omisión del
+   navegador, que son con los que se diseñó esta página. Va al principio
+   del bloque a propósito: así las reglas propias de más abajo siguen
+   mandando sobre ella. La cabecera y el pie no usan h1-h4 y todo su texto
+   va por clase, de modo que no les afecta. */
+body{font-size:16px}
+h1,h2,h3,h4{color:inherit;font-weight:bold;line-height:inherit;text-wrap:inherit}
+p{margin:0;text-wrap:inherit}
+/* A la inversa: la cabecera y el pie heredan del body, que aquí es serif,
+   ligero y con interlínea propia. Se les devuelve la tipografía del sitio
+   para que se lean igual que en el resto de las páginas. */
+.site-header,.site-footer{font-family:var(--font-body);font-weight:400;line-height:1.6}
+
+:root{
+  --ocre:#b08a4a;--ocre-claro:#cdab6e;--gris:#6f6a61;--gris-osc:#3a3833;
+  --marron:#5a4631;--papel:#e4ddd0;--papel-osc:#d2c9b7;--tinta:#26241f;
+  --flex:#a8472e;        /* flexores: cerrar */
+  --ext:#6d7a3a;         /* extensores: abrir */
+  --linea:rgba(38,36,31,.32);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--papel);color:var(--tinta);
+  font-family:'Spectral',Georgia,serif;font-weight:300;line-height:1.62;overflow-x:hidden;
+  background-image:repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(38,36,31,.045) 79px,rgba(38,36,31,.045) 80px);
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative}
+
+/* HERO */
+.sup-hero{position:relative;min-height:98vh;display:flex;flex-direction:column;justify-content:center;padding:90px 0 70px;overflow:hidden}
+.facetas{position:absolute;inset:0;pointer-events:none;z-index:0}
+.faceta{position:absolute;font-family:'Archivo Black',sans-serif;text-transform:uppercase;line-height:.82;letter-spacing:-.04em;user-select:none}
+.f1{top:5%;left:-3%;font-size:clamp(58px,14vw,192px);color:var(--flex);opacity:.14;transform:skewX(-9deg)}
+.f2{top:20%;left:1%;font-size:clamp(58px,14vw,192px);color:var(--ext);opacity:.15;transform:skewX(8deg) scaleX(.92)}
+.f3{bottom:7%;right:-4%;font-size:clamp(52px,12vw,168px);color:var(--gris-osc);opacity:.1;transform:rotate(-4deg)}
+.emg-hero{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.emg-hero path{fill:none;stroke-width:2;stroke-dasharray:1500;stroke-dashoffset:1500}
+.emg-hero .a{stroke:var(--flex);opacity:.38;animation:trazar 4.6s ease-out forwards .3s}
+.emg-hero .b{stroke:var(--ext);opacity:.32;animation:trazar 4.6s ease-out forwards .8s}
+@keyframes trazar{to{stroke-dashoffset:0}}
+.plano-geo{position:absolute;border:1px solid var(--linea)}
+.pg1{top:12%;right:6%;width:250px;height:310px;transform:rotate(11deg);background:linear-gradient(135deg,rgba(168,71,46,.08),transparent 60%)}
+.pg2{top:32%;right:15%;width:150px;height:210px;transform:rotate(-7deg);background:linear-gradient(135deg,rgba(109,122,58,.09),transparent 70%)}
+.sup-eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--flex);position:relative;z-index:2;margin-bottom:26px;display:flex;align-items:center;gap:14px}
+.sup-eyebrow::before{content:"";width:54px;height:1px;background:var(--flex)}
+.sup-hero h1{position:relative;z-index:2;font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(34px,7.4vw,102px);line-height:.92;letter-spacing:-.035em;max-width:17ch}
+.sup-hero h1 .corte{display:inline-block;color:var(--ext);position:relative}
+.sup-hero h1 .corte::after{content:"";position:absolute;left:-6%;top:46%;width:112%;height:2px;background:var(--tinta);transform:rotate(-3deg)}
+.sup-hero .sub{position:relative;z-index:2;margin-top:34px;max-width:54ch;font-size:clamp(17px,2.1vw,21px);font-weight:400;color:var(--gris-osc)}
+.sup-hero .sub em{font-style:italic;color:var(--marron)}
+.sup-hero .sub .cf{color:var(--flex);font-style:normal;font-weight:600}
+.sup-hero .sub .ce{color:var(--ext);font-style:normal;font-weight:600}
+.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gris);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scroll-cue span{display:block;width:1px;height:38px;background:var(--gris);animation:drop 2.4s ease-in-out infinite}
+@keyframes drop{0%,100%{transform:scaleY(.3);transform-origin:top;opacity:.3}50%{transform:scaleY(1);opacity:1}}
+
+/* secciones */
+.seccion{padding:78px 0;position:relative}
+.marca{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--flex);display:flex;align-items:baseline;gap:16px;margin-bottom:30px}
+.marca b{font-family:'Archivo Black',sans-serif;font-size:15px;color:var(--tinta)}
+.marca .rule{flex:1;height:1px;background:var(--linea)}
+h2{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(28px,5vw,58px);line-height:.96;letter-spacing:-.03em;margin-bottom:34px;max-width:20ch}
+h2 .of{color:var(--flex)}h2 .oe{color:var(--ext)}
+.cuerpo{max-width:66ch;font-size:clamp(16px,1.9vw,18.5px)}
+.cuerpo p{margin-bottom:20px}
+.cuerpo em{font-style:italic;color:var(--gris-osc)}
+.term{font-family:'Space Mono',monospace;font-size:.82em;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--marron);background:rgba(176,138,74,.16);padding:1px 6px;border-radius:1px}
+
+/* LIENZO interpenetrado */
+.lienzo{position:relative;margin-top:20px;border:1px solid var(--linea);background:rgba(228,221,208,.4);overflow:hidden}
+.lienzo-svg{display:block;width:100%;height:auto}
+.lienzo-svg .plate{transition:opacity .45s ease}
+.lienzo-svg[data-focus] .plate{opacity:.2}
+.lienzo-svg[data-focus="1"] #plate-1,
+.lienzo-svg[data-focus="2"] #plate-2,
+.lienzo-svg[data-focus="3"] #plate-3,
+.lienzo-svg[data-focus="4"] #plate-4{opacity:1}
+
+/* consola de dos antagonistas */
+.consola{margin-top:14px;border:1px solid var(--tinta);display:grid;grid-template-columns:1fr 1fr;gap:0}
+.canal{padding:20px 24px;display:flex;flex-direction:column;gap:12px;border-bottom:1px solid var(--tinta)}
+.canal:nth-child(1){border-right:1px solid var(--tinta)}
+.canal-top{display:flex;align-items:center;justify-content:space-between}
+.canal h4{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:-.01em}
+.canal.flex h4{color:var(--flex)}.canal.ext h4{color:var(--ext)}
+.canal .uv{font-family:'Archivo Black',sans-serif;font-size:20px}
+.canal.flex .uv{color:var(--flex)}.canal.ext .uv{color:var(--ext)}
+.barra{height:13px;border:1px solid var(--tinta);background:var(--papel);position:relative;overflow:hidden}
+.barra-fill{position:absolute;inset:0;width:0%}
+.canal.flex .barra-fill{background:linear-gradient(90deg,var(--ocre),var(--flex))}
+.canal.ext .barra-fill{background:linear-gradient(90deg,var(--ocre-claro),var(--ext))}
+.barra-thr{position:absolute;top:-3px;bottom:-3px;left:30%;width:2px;background:var(--tinta)}
+.btnm{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:-.01em;color:var(--papel);border:none;padding:14px 18px;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:none;transition:transform .08s,filter .12s;line-height:1.1;text-align:left}
+.btnm small{display:block;font-family:'Space Mono',monospace;font-size:9.5px;font-weight:400;letter-spacing:.16em;opacity:.85;margin-top:5px}
+.canal.flex .btnm{background:var(--flex)}.canal.ext .btnm{background:var(--ext)}
+.btnm.activo{transform:scale(.98);filter:brightness(.82)}
+.btnm:focus-visible{outline:3px solid var(--ocre);outline-offset:3px}
+.slider-wrap{display:flex;align-items:center;gap:9px}
+.slider-wrap label{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);white-space:nowrap}
+input[type=range]{flex:1;height:16px;cursor:pointer}
+.canal.flex input[type=range]{accent-color:var(--flex)}.canal.ext input[type=range]{accent-color:var(--ext)}
+.tablero{grid-column:1/3;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+.tab{padding:16px 22px;border-right:1px solid var(--tinta)}
+.tab:last-child{border-right:none}
+.tab .lbl{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris);margin-bottom:7px;display:block}
+.tab .val{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:16px;line-height:1.05;letter-spacing:-.02em;color:var(--tinta);transition:color .2s}
+.tab .val.on{color:var(--flex)}
+.tab .val.mode{color:var(--ext)}
+.hint{margin-top:12px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--gris)}
+.hint b{color:var(--marron)}
+.hint .cf{color:var(--flex)}.hint .ce{color:var(--ext)}
+
+.leyenda{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:34px}
+.capa{border:1px solid var(--linea);padding:22px 20px 24px;background:rgba(228,221,208,.5);position:relative;cursor:pointer;transition:transform .4s cubic-bezier(.2,.8,.2,1),background .4s,border-color .3s,box-shadow .3s}
+.capa:hover{transform:translateY(-5px) rotate(-.5deg);background:var(--papel-osc)}
+.capa:focus-visible{outline:3px solid var(--ocre);outline-offset:3px}
+.capa.activa{border-color:var(--flex);background:rgba(168,71,46,.09);box-shadow:0 0 0 1px var(--flex) inset}
+.capa.sel{transform:translateY(-5px);border-color:var(--tinta);background:var(--papel-osc)}
+.capa .ix{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--flex);position:absolute;top:14px;right:16px;transition:transform .3s}
+.capa.activa .ix{transform:scale(1.5)}
+.capa h3{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:17px;letter-spacing:-.02em;margin-bottom:10px;color:var(--tinta)}
+.capa p{font-size:14.5px;line-height:1.5;color:var(--gris-osc)}
+.capa .micro{display:block;margin-top:12px;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--marron)}
+.k1{grid-column:1/6;transform:rotate(-1deg)}
+.k2{grid-column:5/9;margin-top:30px;border-color:rgba(168,71,46,.5);background:rgba(168,71,46,.06)}
+.k3{grid-column:8/13;transform:rotate(.7deg)}
+.k4{grid-column:3/11;margin-top:-8px;border-color:rgba(109,122,58,.5);background:rgba(109,122,58,.07)}
+
+/* collage */
+.collage{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);padding:64px 0;margin-top:8px}
+.collage-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0;align-items:center}
+.frag{padding:26px}
+.frag-tipo{grid-column:1/6;font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(30px,7.4vw,96px);line-height:.78;letter-spacing:-.04em;color:var(--tinta);border-right:2px solid var(--tinta)}
+.frag-tipo .a{color:var(--flex);display:block;transform:skewX(-6deg)}
+.frag-tipo .b{color:var(--ext);display:block;margin-left:.3em}
+.frag-tipo .c{color:var(--gris);display:block;font-size:.32em;letter-spacing:.04em;margin-top:.3em}
+.frag-txt{grid-column:6/11;font-size:clamp(15px,1.9vw,18px);font-weight:400;color:var(--gris-osc)}
+.frag-txt strong{color:var(--marron);font-weight:600}
+.electrodo{grid-column:11/13;align-self:stretch;min-height:150px;background:radial-gradient(circle at 30% 32%,var(--flex) 0 6px,transparent 7px),radial-gradient(circle at 68% 64%,var(--ext) 0 6px,transparent 7px),repeating-linear-gradient(0deg,var(--gris-osc) 0 2px,var(--papel-osc) 2px 9px);border:1px solid var(--tinta);transform:rotate(2deg);position:relative}
+.electrodo::after{content:"par antagonista";position:absolute;bottom:-22px;right:0;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gris)}
+
+/* cierre */
+.cierre{padding:90px 0 100px}
+.cierre .ancla{font-family:'Spectral',serif;font-style:italic;font-weight:300;font-size:clamp(22px,4vw,40px);line-height:1.28;max-width:26ch;color:var(--tinta)}
+.cierre .ancla b{font-style:normal;font-family:'Archivo Black',sans-serif;text-transform:uppercase;color:var(--ext);font-size:.92em}
+.firma{margin-top:54px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gris);display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.firma .dot{width:5px;height:5px;background:var(--flex);transform:rotate(45deg)}
+.firma .dot.e{background:var(--ext)}
+
+.r{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.r.in{opacity:1;transform:none}
+
+@media (max-width:820px){
+  .consola{grid-template-columns:1fr}
+  .canal:nth-child(1){border-right:none}
+  .tablero{grid-column:1;grid-template-columns:1fr}
+  .tab{border-right:none;border-bottom:1px solid var(--tinta)}
+  .tab:last-child{border-bottom:none}
+}
+@media (max-width:760px){
+  body{background-image:none}
+  .leyenda,.collage-grid{display:flex;flex-direction:column;gap:14px}
+  .capa,.k1,.k2,.k3,.k4{grid-column:auto !important;transform:none !important;margin:0 !important;width:100%}
+  .frag-tipo{border-right:0;border-bottom:2px solid var(--tinta)}
+  .electrodo{transform:none;min-height:90px}
+  .plano-geo{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .faceta,.plano-geo,.scroll-cue span{animation:none !important}
+  .emg-hero path{stroke-dashoffset:0}
+  .r{opacity:1;transform:none;transition:none}
+}
+
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+<header class="site-header">
+  <div class="contenedor site-header__inner">
+    <a class="site-logo" href="index.html#inicio" aria-label="Human STEM, ir al inicio"><img src="assets/human_stem_logo_vectorizado_transparente.svg" alt="Human STEM" width="1494" height="383" fetchpriority="high"></a>
+    <nav class="main-nav" aria-label="Navegación principal" data-open="false">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list"><span class="nav-toggle__bars" aria-hidden="true"></span><span>Menú</span></button>
+      <ul class="nav-list" id="nav-list" role="list">
+        <li><a href="index.html#inicio">Inicio</a></li><li><a href="index.html#mision-vision">Misión y visión</a></li><li><a href="index.html#quienes-somos">Quiénes somos</a></li><li><a href="talento_human.html">Talento humano</a></li><li><a href="superman.html" aria-current="page">Proyecto Superman</a></li><li><a href="miltli.html">Miltli</a></li><li><a class="nav-cta" href="index.html#colaboraciones">Colabora</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido-principal">
+
+<section class="sup-hero">
+  <div class="facetas" aria-hidden="true">
+    <div class="faceta f1">Cerrar</div>
+    <div class="faceta f2">Abrir</div>
+    <div class="faceta f3">Decidir</div>
+    <div class="plano-geo pg1"></div>
+    <div class="plano-geo pg2"></div>
+  </div>
+  <svg class="emg-hero" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
+    <path class="a" d="M-20,360 L200,360 L228,220 L250,500 L272,300 L300,360 L640,360 L668,240 L690,480 L712,300 L740,360 L1240,360"/>
+    <path class="b" d="M-20,470 L320,470 L346,590 L368,360 L392,540 L420,470 L780,470 L806,560 L828,400 L852,540 L880,470 L1240,470"/>
+  </svg>
+  <div class="wrap">
+    <div class="sup-eyebrow">Prótesis mioeléctrica · El par antagonista</div>
+    <h1>Dos músculos, una <span class="corte">intención</span></h1>
+    <p class="sub">Una mano real no se controla con una sola señal. Un par de músculos opuestos la gobierna: los <span class="cf">flexores</span> que cierran y los <span class="ce">extensores</span> que abren. La prótesis escucha ambos a la vez sobre el mismo muñón — y de su <em>equilibrio</em>, no de una orden única, nace el movimiento. Acciona los dos y míralo.</p>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">Accionar<span></span></div>
+</section>
+
+  <section class="seccion">
+    <div class="wrap">
+      <div class="marca r"><b>01</b> Los planos se interpenetran <span class="rule"></span> Flexor ⇄ Extensor</div>
+      <h2 class="r">El <span class="of">cierre</span> y la <span class="oe">apertura</span> sobre una misma superficie</h2>
+      <div class="cuerpo r" style="margin-bottom:30px">
+        <p>Mantén presionado cada canal (teclas <span class="term">F</span> y <span class="term">J</span>). Dos señales EMG antagonistas cruzan el lienzo; su diferencia decide la prensión y su fuerza, la intensidad. Y si <em>co-contraes</em> ambos con fuerza —tensar los dos a la vez—, el controlador lo lee como un gesto deliberado y <span class="term">cambia de agarre</span>: puño, pinza, señalar. Toca una capa para aislar esa faceta.</p>
+      </div>
+
+      <div class="lienzo r">
+        <svg class="lienzo-svg" id="lienzo" viewBox="0 0 1180 520" role="img"
+          aria-label="Lienzo interpenetrado: sobre el antebrazo, un par de electrodos capta dos señales EMG antagonistas —flexores y extensores. El controlador compara ambas: su diferencia cierra o abre la mano, y su co-contracción cambia el tipo de agarre. Las dos señales, roja y verde, atraviesan los planos superpuestos.">
+          <!-- armadura deformada compartida -->
+          <g stroke="rgba(38,36,31,.13)" stroke-width="1" fill="none">
+            <path d="M300,0 L250,520"/><path d="M600,-0 L650,520"/><path d="M880,0 L840,520"/><path d="M0,250 L1180,228"/><path d="M0,120 L1180,140"/>
+          </g>
+
+          <!-- PLATE 1 · ANTEBRAZO (rot -4) -->
+          <g id="plate-1" class="plate" transform="rotate(-4 230 250)">
+            <polygon points="30,150 240,120 300,290 70,340" fill="rgba(90,70,49,.12)" stroke="var(--marron)" stroke-width="1.5"/>
+            <path id="fibF" d="M70,205 Q160,168 250,200" stroke="var(--flex)" stroke-width="1.5" fill="none" opacity=".6"/>
+            <path id="fibE" d="M78,258 Q168,292 258,262" stroke="var(--ext)" stroke-width="1.5" fill="none" opacity=".6"/>
+            <text x="44" y="372" font-family="'Archivo Black',sans-serif" font-size="19" fill="var(--tinta)">ANTEBRAZO</text>
+            <text x="44" y="394" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris)">PAR ANTAGONISTA</text>
+            <circle id="elF" cx="250" cy="200" r="9" fill="none" stroke="var(--flex)" stroke-width="2"/><circle cx="250" cy="200" r="3.5" fill="var(--flex)"/>
+            <circle id="elE" cx="258" cy="262" r="9" fill="none" stroke="var(--ext)" stroke-width="2"/><circle cx="258" cy="262" r="3.5" fill="var(--ext)"/>
+          </g>
+
+          <!-- PLATE 2 · EMG doble (rot 3), solapa con plate 1 y 3 -->
+          <g id="plate-2" class="plate" transform="rotate(3 470 250)">
+            <rect x="330" y="150" width="230" height="200" fill="rgba(168,71,46,.04)" stroke="var(--linea)" stroke-width="1"/>
+            <line x1="335" y1="205" x2="555" y2="205" stroke="rgba(168,71,46,.3)" stroke-width="1" stroke-dasharray="3 4"/>
+            <line x1="335" y1="298" x2="555" y2="298" stroke="rgba(109,122,58,.35)" stroke-width="1" stroke-dasharray="3 4"/>
+            <path id="emgF" d="M337,205 L553,205" fill="none" stroke="var(--flex)" stroke-width="2.4" stroke-linejoin="round"/>
+            <path id="emgE" d="M337,298 L553,298" fill="none" stroke="var(--ext)" stroke-width="2.4" stroke-linejoin="round"/>
+            <text x="334" y="376" font-family="'Archivo Black',sans-serif" font-size="19" fill="var(--tinta)">SEÑAL EMG ×2</text>
+            <text x="334" y="398" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris)">FLEXOR / EXTENSOR</text>
+          </g>
+
+          <!-- PLATE 3 · CONTROLADOR (rot -2), balanza -->
+          <g id="plate-3" class="plate" transform="rotate(-2 720 250)">
+            <polygon points="620,130 850,130 850,330 620,330" fill="rgba(176,138,74,.08)" stroke="var(--marron)" stroke-width="1.5"/>
+            <path d="M620,180 L850,180 M620,280 L850,280 M690,130 L690,330 M780,130 L780,330" stroke="rgba(38,36,31,.18)" stroke-width="1" fill="none"/>
+            <!-- balanza: fiel al centro que se inclina con la diferencia -->
+            <line x1="640" y1="230" x2="830" y2="230" stroke="rgba(38,36,31,.25)" stroke-width="1"/>
+            <g id="balanza">
+              <line x1="700" y1="230" x2="770" y2="230" stroke="var(--tinta)" stroke-width="3"/>
+              <circle cx="700" cy="230" r="6" fill="var(--flex)"/>
+              <circle cx="770" cy="230" r="6" fill="var(--ext)"/>
+            </g>
+            <circle cx="735" cy="230" r="4" fill="var(--tinta)"/>
+            <rect id="intent" x="628" y="300" width="214" height="22" fill="var(--flex)" opacity="0"/>
+            <text x="620" y="360" font-family="'Archivo Black',sans-serif" font-size="19" fill="var(--tinta)">CONTROLADOR</text>
+            <text x="620" y="382" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris)">Δ → INTENCIÓN · CO → MODO</text>
+          </g>
+
+          <!-- PLATE 4 · MANO exploded multi-vista (rot 2) -->
+          <g id="plate-4" class="plate" transform="rotate(2 1010 240)">
+            <polygon points="905,150 1015,132 1038,262 940,312" fill="rgba(90,70,49,.1)" stroke="var(--marron)" stroke-width="1.5"/>
+            <!-- vista de canto, fantasma: simultaneidad de puntos de vista -->
+            <polygon points="905,150 940,312 918,318 892,168" fill="rgba(38,36,31,.05)" stroke="rgba(38,36,31,.25)" stroke-width="1"/>
+            <line id="f-0" x1="1015" y1="150" x2="1096" y2="134" stroke="var(--gris-osc)" stroke-width="6" stroke-linecap="round"/>
+            <line id="f-1" x1="1018" y1="176" x2="1106" y2="166" stroke="var(--gris-osc)" stroke-width="6" stroke-linecap="round"/>
+            <line id="f-2" x1="1020" y1="202" x2="1106" y2="200" stroke="var(--gris-osc)" stroke-width="6" stroke-linecap="round"/>
+            <line id="f-3" x1="1018" y1="228" x2="1098" y2="240" stroke="var(--gris-osc)" stroke-width="6" stroke-linecap="round"/>
+            <line id="thumb" x1="932" y1="205" x2="906" y2="258" stroke="var(--gris-osc)" stroke-width="6" stroke-linecap="round"/>
+            <text x="905" y="360" font-family="'Archivo Black',sans-serif" font-size="19" fill="var(--tinta)">MANO</text>
+            <text x="905" y="382" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris)">SERVOS · PRENSIÓN</text>
+          </g>
+
+          <!-- dos hilos que tejen los planos -->
+          <path id="hiloF" d="M252,198 C300,196 300,205 337,205 M553,203 C585,201 600,225 630,232 M842,214 C868,210 878,190 905,178"
+                fill="none" stroke="var(--flex)" stroke-width="2" stroke-dasharray="6 6" opacity=".5"/>
+          <path id="hiloE" d="M260,262 C305,268 305,298 337,298 M553,300 C588,304 600,240 632,236 M844,246 C870,258 880,278 906,268"
+                fill="none" stroke="var(--ext)" stroke-width="2" stroke-dasharray="6 6" opacity=".45"/>
+        </svg>
+      </div>
+
+      <div class="consola r" role="group" aria-label="Control de dos electrodos antagonistas">
+        <div class="canal flex">
+          <div class="canal-top"><h4>Flexores · cerrar</h4><span class="uv"><span id="uvF">0</span> μV</span></div>
+          <div class="barra"><div class="barra-fill" id="fillF"></div><div class="barra-thr"></div></div>
+          <button id="btnF" class="btnm" aria-pressed="false">Contraer flexores<small>mantener · tecla F</small></button>
+          <div class="slider-wrap"><label for="sldF">basal</label><input id="sldF" type="range" min="0" max="100" value="0" aria-label="Tono basal de flexores"></div>
+        </div>
+        <div class="canal ext">
+          <div class="canal-top"><h4>Extensores · abrir</h4><span class="uv"><span id="uvE">0</span> μV</span></div>
+          <div class="barra"><div class="barra-fill" id="fillE"></div><div class="barra-thr"></div></div>
+          <button id="btnE" class="btnm" aria-pressed="false">Contraer extensores<small>mantener · tecla J</small></button>
+          <div class="slider-wrap"><label for="sldE">basal</label><input id="sldE" type="range" min="0" max="100" value="0" aria-label="Tono basal de extensores"></div>
+        </div>
+        <div class="tablero">
+          <div class="tab"><span class="lbl">Diferencia Δ</span><span class="val" id="delta">equilibrio</span></div>
+          <div class="tab"><span class="lbl">Agarre activo</span><span class="val mode" id="grip">Puño</span></div>
+          <div class="tab"><span class="lbl">Estado</span><span class="val" id="estado">En reposo</span></div>
+        </div>
+      </div>
+      <p class="hint r">La <span class="cf">flexión</span> menos la <span class="ce">extensión</span> gobierna la prensión; superar el umbral cierra la mano en el agarre activo. Tensar <b>ambos a la vez</b> (co-contracción) cicla el agarre — el truco real con que muchas prótesis cambian de gesto sin más sensores.</p>
+
+      <div class="leyenda r" role="list" aria-label="Las cuatro facetas del sistema">
+        <article class="capa k1" role="button" tabindex="0" data-stage="1"><span class="ix">i</span><h3>Antebrazo</h3><p>Dos músculos opuestos en el muñón: los flexores tiran para cerrar, los extensores para abrir. Ambos siguen respondiendo a la intención aunque la mano no esté.</p><span class="micro">origen · voluntad</span></article>
+        <article class="capa k2" role="button" tabindex="0" data-stage="2"><span class="ix">ii</span><h3>Electrodos + EMG</h3><p>Un electrodo sobre cada músculo capta su voltaje. Dos canales de electromiografía, leídos en paralelo sobre la misma piel.</p><span class="micro">captura · μV ×2</span></article>
+        <article class="capa k3" role="button" tabindex="0" data-stage="3"><span class="ix">iii</span><h3>Controlador</h3><p>Pesa una señal contra la otra como una balanza. La diferencia decide abrir o cerrar; la co-contracción, un gesto aparte, conmuta el tipo de agarre.</p><span class="micro">decisión · balance</span></article>
+        <article class="capa k4" role="button" tabindex="0" data-stage="4"><span class="ix">iv</span><h3>Mano + motores</h3><p>Los servos ejecutan el agarre elegido —puño, pinza o señalar— tensando los dedos. El mismo mecanismo, muchas formas.</p><span class="micro">acción · prensión</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="collage">
+    <div class="wrap">
+      <div class="marca r"><b>02</b> El lazo cerrado <span class="rule"></span> El cuerpo dentro del sistema</div>
+      <div class="collage-grid">
+        <div class="frag frag-tipo r" aria-hidden="true"><span class="a">Tira</span><span class="b">afloja</span><span class="c">dos fuerzas opuestas, un solo gesto</span></div>
+        <div class="frag frag-txt r">
+          El control no es una orden, es una <strong>tensión entre opuestos</strong> —como el cuerpo mueve cualquier articulación, con músculos que se contrarrestan. La prótesis no reemplaza esa lógica: la extiende. Persona y máquina comparten el mismo tira y afloja, y en el <em>collage</em> de músculo, electrodo, código y motor la pregunta de dónde acaba uno y empieza el otro queda <strong>deliberadamente abierta</strong>.
+        </div>
+        <div class="electrodo r" aria-label="Textura cruda del par de electrodos antagonistas"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cierre">
+    <div class="wrap">
+      <div class="marca r"><b>03</b> La lección <span class="rule"></span> Abstracción con ancla</div>
+      <p class="ancla r">Descompón la mano en dos señales que se pesan, un umbral y un juego de motores todo lo que quieras. Pero deja siempre el <b>asidero</b>: al final hay un puño que se cierra, una voluntad humana que el ojo —y el cuerpo— reconstruyen.</p>
+      <div class="firma r"><span class="dot"></span> Flexor <span class="dot e"></span> Extensor <span class="dot"></span> Δ <span class="dot e"></span> Co-contracción <span class="dot"></span> La mano como se conoce</div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer"><div class="contenedor"><div class="site-footer__top"><a class="site-footer__logo" href="index.html#inicio" aria-label="Human STEM, ir al inicio"><img src="assets/human_stem_logo_vectorizado_transparente.svg" alt="Human STEM" width="1494" height="383"></a><nav aria-label="Redes sociales"><ul class="site-footer__redes" role="list"><li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li><li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li></ul></nav></div><div class="site-footer__bottom"><p class="site-footer__ia"><small>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso_responsable_ia.html">Conoce más acerca de nuestra política de uso responsable</a>.</small></p><p class="lema">Ciencia y tecnología con impacto social.</p></div></div></footer>
+
+<script>
+(function () { var nav = document.querySelector('.main-nav'); var toggle = nav && nav.querySelector('.nav-toggle'); if (!nav || !toggle) return; function setOpen(open) { nav.setAttribute('data-open', String(open)); toggle.setAttribute('aria-expanded', String(open)); } toggle.addEventListener('click', function () { setOpen(nav.getAttribute('data-open') !== 'true'); }); nav.querySelectorAll('.nav-list a').forEach(function (link) { link.addEventListener('click', function () { setOpen(false); }); }); document.addEventListener('keydown', function (event) { if (event.key === 'Escape') setOpen(false); }); })();
+</script>
+
+<script>
+const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.16});
+document.querySelectorAll('.r').forEach(el=>io.observe(el));
+const facetas=document.querySelectorAll('.faceta,.plano-geo');
+let ticking=false;
+window.addEventListener('scroll',()=>{if(reduce)return;if(!ticking){requestAnimationFrame(()=>{const y=window.scrollY;facetas.forEach((f,i)=>{const d=(i%3+1)*0.06;f.style.transform=f.style.transform.replace(/ translateY\([^)]*\)/,'')+` translateY(${y*d}px)`;});ticking=false;});ticking=true;}},{passive:true});
+
+/* ---------- prótesis: dos antagonistas ---------- */
+const $=id=>document.getElementById(id);
+const btnF=$('btnF'),btnE=$('btnE'),sldF=$('sldF'),sldE=$('sldE');
+const uvF=$('uvF'),uvE=$('uvE'),fillF=$('fillF'),fillE=$('fillE');
+const emgF=$('emgF'),emgE=$('emgE'),elF=$('elF'),elE=$('elE'),fibF=$('fibF'),fibE=$('fibE');
+const intent=$('intent'),balanza=$('balanza'),hiloF=$('hiloF'),hiloE=$('hiloE');
+const deltaEl=$('delta'),gripEl=$('grip'),estadoEl=$('estado');
+const capas=[...document.querySelectorAll('.capa')];
+const svg=$('lienzo');
+
+const THR=0.30, MAXUV=480, MAXANG=80;
+const GRIPS=['Puño','Pinza','Señalar'];
+// fracción de cierre por dedo [idx,med,anu,men] y pulgar, por agarre
+const SHAPE={
+  Puño:   {f:[1,1,1,1], t:-0.55},
+  Pinza:  {f:[0.5,1.15,1.2,1.2], t:-0.8},
+  Señalar:{f:[0,1.1,1.15,1.15], t:-0.45}
+};
+let F=0,Ft=0, E=0,Et=0, hold={F:false,E:false};
+let ang=0, grip=0, coLatch=false, dashF=0,dashE=0;
+
+function setHold(ch,on){hold[ch]=on;const b=ch==='F'?btnF:btnE;b.classList.toggle('activo',on);b.setAttribute('aria-pressed',on)}
+btnF.addEventListener('pointerdown',e=>{e.preventDefault();setHold('F',true)});
+btnE.addEventListener('pointerdown',e=>{e.preventDefault();setHold('E',true)});
+window.addEventListener('pointerup',()=>{setHold('F',false);setHold('E',false)});
+addEventListener('keydown',e=>{if(e.repeat)return;if(e.code==='KeyF'){setHold('F',true)}if(e.code==='KeyJ'){setHold('E',true)}});
+addEventListener('keyup',e=>{if(e.code==='KeyF')setHold('F',false);if(e.code==='KeyJ')setHold('E',false)});
+btnF.addEventListener('keydown',e=>{if(e.code==='Space'||e.code==='Enter'){e.preventDefault();setHold('F',true)}});
+btnF.addEventListener('keyup',e=>{if(e.code==='Space'||e.code==='Enter'){setHold('F',false)}});
+btnE.addEventListener('keydown',e=>{if(e.code==='Space'||e.code==='Enter'){e.preventDefault();setHold('E',true)}});
+btnE.addEventListener('keyup',e=>{if(e.code==='Space'||e.code==='Enter'){setHold('E',false)}});
+sldF.addEventListener('input',()=>setHold('F',false));
+sldE.addEventListener('input',()=>setHold('E',false));
+
+function buildEMG(y0,amp,seed){
+  const x0=339,x1=551,n=40;let d=`M${x0},${y0}`;
+  for(let i=1;i<=n;i++){const x=x0+(x1-x0)*i/n;let v;
+    if(reduce){v=Math.sin(i*1.4+seed)*0.45+Math.sin(i*0.6)*0.5;}
+    else{v=(Math.random()*2-1)*(0.4+0.6*Math.abs(Math.sin(i*1.7+seed)));}
+    let y=y0-v*amp*42;y=Math.max(y0-46,Math.min(y0+46,y));d+=` L${x.toFixed(1)},${y.toFixed(1)}`;}
+  return d;
+}
+
+let selected=null;
+function frame(){
+  Ft=hold.F?1:(sldF.value/100); Et=hold.E?1:(sldE.value/100);
+  F+=(Ft-F)*((Ft>F)?0.22:0.10); E+=(Et-E)*((Et>E)?0.22:0.10);
+  if(F<0.001)F=0; if(E<0.001)E=0;
+
+  uvF.textContent=Math.round(F*MAXUV); uvE.textContent=Math.round(E*MAXUV);
+  fillF.style.width=(F*100)+'%'; fillE.style.width=(E*100)+'%';
+  emgF.setAttribute('d',buildEMG(205,F,0)); emgE.setAttribute('d',buildEMG(298,E,2.1));
+
+  const rF=9+F*7,rE=9+E*7;
+  elF.setAttribute('r',rF);elE.setAttribute('r',rE);
+  elF.style.opacity=0.5+F*0.5;elE.style.opacity=0.5+E*0.5;
+  if(fibF)fibF.setAttribute('stroke-width',(1.5+F*3).toFixed(1));
+  if(fibE)fibE.setAttribute('stroke-width',(1.5+E*3).toFixed(1));
+
+  // co-contracción → cambia agarre (una vez por evento)
+  const co=Math.min(F,E);
+  if(co>0.45&&!coLatch){grip=(grip+1)%GRIPS.length;coLatch=true;}
+  if(co<0.18)coLatch=false;
+  const gname=GRIPS[grip];
+  gripEl.textContent=gname;
+
+  // diferencia gobierna cierre
+  const diff=F-0.9*E;
+  const eff=Math.max(0,Math.min(1,diff));
+  const open=Math.max(0,Math.min(1,-diff));
+  const supra=eff>THR && co<0.45;
+
+  // balanza se inclina con la diferencia
+  const tilt=Math.max(-14,Math.min(14,(F-E)*20));
+  balanza.setAttribute('transform',`rotate(${tilt.toFixed(1)} 735 230)`);
+  deltaEl.textContent = co>0.45?'co-contracción':(Math.abs(F-E)<0.05?'equilibrio':(F>E?'cierre +':'apertura −'));
+  deltaEl.classList.toggle('on',supra);
+
+  intent.setAttribute('opacity',supra?(0.35+(eff-THR)/(1-THR)*0.55).toFixed(2):0);
+  intent.setAttribute('fill',diff>=0?'var(--flex)':'var(--ext)');
+
+  hiloF.setAttribute('opacity',(0.4+F*0.55).toFixed(2)); hiloF.setAttribute('stroke-width',(2+F*2).toFixed(1));
+  hiloE.setAttribute('opacity',(0.35+E*0.55).toFixed(2)); hiloE.setAttribute('stroke-width',(2+E*2).toFixed(1));
+  if(!reduce){dashF-=2+F*10;dashE-=2+E*10;hiloF.setAttribute('stroke-dashoffset',dashF);hiloE.setAttribute('stroke-dashoffset',dashE);}
+
+  // mano: agarre activo escalado por cierre efectivo; extensión abre (ángulo leve negativo)
+  const closeT = supra ? (eff-THR)/(1-THR) : 0;
+  const sh=SHAPE[gname];
+  const targetAng = closeT*MAXANG;
+  ang += (targetAng-ang)*0.16;
+  const spread = -open*10; // apertura activa
+  for(let i=0;i<4;i++){
+    const base=[[1016,150],[1019,176],[1021,202],[1019,228]][i];
+    const a = ang*sh.f[i] + (ang<2?spread:0);
+    rot('f-'+i,base[0],base[1],a);
+  }
+  rot('thumb',932,205, ang*sh.t + (ang<2?-spread*0.5:0));
+
+  // estado + cascada
+  let txt,on=false;
+  if(F<0.02&&E<0.02){txt='En reposo';}
+  else if(co>0.45){txt='Cambio de modo →';on=true;}
+  else if(open>0.15&&eff<THR){txt='Abriendo';}
+  else if(!supra){txt='Captando señal…';}
+  else if(closeT<0.85){txt='Cerrando · '+gname;on=true;}
+  else{txt='Prensión completa';on=true;}
+  estadoEl.textContent=txt; estadoEl.classList.toggle('on',on);
+
+  act(0,(F>0.02||E>0.02));
+  act(1,(F>0.08||E>0.08));
+  act(2,supra||co>0.45);
+  act(3,ang>3);
+
+  requestAnimationFrame(frame);
+}
+function rot(id,cx,cy,deg){$(id).setAttribute('transform',`rotate(${deg.toFixed(2)} ${cx} ${cy})`)}
+function act(i,on){if(capas[i])capas[i].classList.toggle('activa',on&&selected===null)}
+
+function selectStage(s){
+  if(selected===s){selected=null;svg.removeAttribute('data-focus');}
+  else{selected=s;svg.setAttribute('data-focus',s);}
+  capas.forEach(c=>c.classList.toggle('sel',selected!==null&&c.dataset.stage==selected));
+}
+capas.forEach(c=>{
+  c.addEventListener('click',()=>selectStage(c.dataset.stage));
+  c.addEventListener('keydown',e=>{if(e.code==='Enter'||e.code==='Space'){e.preventDefault();selectStage(c.dataset.stage)}});
+});
+
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>

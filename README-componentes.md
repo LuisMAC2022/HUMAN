@@ -31,7 +31,7 @@ En lugar de `style="--acento: …"` en el HTML, se fija con un modificador:
 ```html
 <p class="eyebrow eyebrow--dot acento-naranja">Proyecto piloto</p>
 <article class="mv-card acento-verde">…</article>
-<figure class="retrato superman__retrato acento-naranja">…</figure>
+<figure class="retrato acento-naranja">…</figure>
 ```
 
 Modificadores disponibles: `.acento-cyan` (por defecto), `.acento-verde`,
@@ -47,15 +47,21 @@ Modificadores disponibles: `.acento-cyan` (por defecto), `.acento-verde`,
 | `.eyebrow` | `p` (o `h3` si titula una tarjeta) | `--dot` (punto de color vía `--acento`) |
 | `.btn` | `a` / `button` | `--primario`, `--oscuro`, `--contorno`, `--verde`; estado `[aria-disabled="true"]` |
 | `.mv-card` | `article` + `h3` | Tarjeta de misión/visión; acento vía API |
+| `<member-card>` | custom element | Ficha exclusiva de una persona; no representa proyectos ni sustituye el encabezado de una sección |
 | `.aprendizaje-card` | `section` + `h3` | Callout con borde de acento fijo cyan |
-| `.retrato` | `figure` + `figcaption` | Modificador `.superman__retrato` (1:1); círculo decorativo vía `--acento` |
+| `.retrato` | `figure` + `figcaption` | Círculo decorativo vía `--acento` |
+| `.superman__reel` | `aside` + `blockquote` | Reel oficial de Instagram con enlace de respaldo accesible; el script externo se carga de forma asíncrona |
 | `.sub-head` | `div` + `h3` | La línea decorativa ahora es `::after` (antes un `<span>` en el HTML) |
 | `.patro-card` | `article` + `h4` | El `h4` (`.patro-card__nombre`) envuelve el logo-enlace; `.patro-card__logo` normaliza la altura a 44px para futuros patrocinadores |
-| `.colaborador` | `li` > `figure` | Ficha circular de la marquesina |
+| `.colaborador` | `li` > `figure` / `a` > `figure` | Ficha circular; si una persona se asocia a un proyecto, la ficha usa un enlace nativo con destino, texto visible y foco visible |
 | `.marquesina` | `section` desplazable | Ver estados abajo; filas `.marquesina__fila--izq/--der` |
 | `.equipos-colaboradores` | `ul` > `li` > `figure` | `__item--panoramica` (16:9), `__item--vertical` (2:3) |
-| `.dona-card` | `article` + `h3.eyebrow` | Tarjeta de contacto para donativos |
+| `.colabora-card` | `article` + `h3.eyebrow` | Tarjeta de contacto para colaboraciones |
 | `.huertos__badge` / `.huertos__nota` | `span` / `p` | Sustituyen los estilos en línea |
+| `.politica-intro` | `section` + `h1` | Cabecera oscura de `uso_responsable_ia.html`; reutiliza la retícula de puntos y el resplandor del hero |
+| `.politica` | `div` (dentro de `.contenedor`) | Bloque de lectura: el contenedor conserva su ancho y la medida de 72ch se aplica a párrafos, listas y callouts |
+| `.compromisos` / `.compromiso` | `ol` > `li` > `article` | Los cuatro compromisos de la política de IA; cada tarjeta fija su acento (`.acento-verde`, `-cyan`, `-naranja`, `-rojo`) y numera con `.compromiso__num` |
+| `.site-footer__ia` | `p` + `small` + `a` | Aviso de uso de herramientas generativas en el pie; enlaza a la política. Sustituye al antiguo aviso de copyright |
 
 Clases reservadas (definidas, aún sin instancia en la página): `.btn--oscuro`,
 `.section-lead`, `.colaboradores__nota`, `.familia` (subtítulo de equipo en
@@ -74,9 +80,17 @@ enfocable ni activable con teclado (el patrón anterior, `href` +
 1. *Base (sin JS):* región estática desplazable — `<section tabindex="0"
    aria-label>` con `overflow-x: auto`, operable con teclado. Sin duplicados.
 2. *`prefers-reduced-motion`:* el script no clona; queda como la base.
-3. *Mejorado:* el script clona cada fila una vez (clones con
-   `aria-hidden="true"`), añade `.marquesina--animada` (activa animación,
-   máscara lateral y `overflow: hidden`) y retira el `tabindex`.
+3. *Mejorado:* el script clona cada fila (clones con `aria-hidden="true"`)
+   un número **par** de veces — las necesarias para cubrir el doble del
+   ancho visible, porque la animación desplaza `-50%` —, añade
+   `.marquesina--animada` (activa animación, máscara lateral y
+   `overflow: hidden`) y retira el `tabindex`.
+
+Las relaciones entre personas y proyectos se comunican con enlaces HTML
+nativos. En particular, la ficha de Jair enlaza a `superman.html` con un
+nombre accesible (`aria-label`) y el subrayado propio de `.colaborador a`
+como señal visible; nunca se reutiliza `member-card` como contenedor de la
+sección del proyecto.
 
 Antes, los 12 clones estaban duplicados a mano en el HTML (y con movimiento
 reducido el visitante veía a cada persona dos veces). Para añadir una persona
@@ -93,6 +107,10 @@ elegir destino. `.nav-cta` ya no usa `!important`: el selector compuesto
   etiquetados; toda `section` con nombre accesible (`aria-labelledby` /
   `aria-label`).
 - Jerarquía de encabezados verificada: un `h1`, sin saltos de nivel.
+- `#quienes-somos` tiene un `h2` visible que la nombra y contiene las fichas
+  personales de Iñaki y Jair, seguidas por la subsección de talento humano.
+- `#proyecto-superman` es una sección hermana, con su propio `h2`, cabecera
+  semántica y contenido exclusivamente relativo al proyecto.
 - `role="list"` en los `<ul>` con `list-style: none` — redundante según la
   especificación, pero necesario: Safari/VoiceOver elimina la semántica de
   lista al quitar los marcadores.
@@ -105,10 +123,14 @@ elegir destino. `.nav-cta` ya no usa `!important`: el selector compuesto
 
 ## Excepciones de linter (intencionales)
 
-`html-validate` reporta dos reglas que se dejan a propósito:
-`no-redundant-role` (los `role="list"` explicados arriba) y `valid-id` sobre
+`html-validate` reporta tres reglas que se dejan a propósito:
+`no-redundant-role` (los `role="list"` explicados arriba), `valid-id` sobre
 `#__bundler_thumbnail` (plantilla generada por herramientas, presente en el
-archivo original; se conserva textual por si el pipeline la consume).
+archivo original; se conserva textual por si el pipeline la consume) y
+`prefer-native-element` sobre `<ol class="compromisos" role="list">`: la
+lista es ordenada a propósito (los compromisos están numerados) y el
+`role="list"` es el mismo paliativo de Safari/VoiceOver, no un intento de
+emular un `<ul>`.
 
 ## Pruebas realizadas y plan
 
@@ -146,3 +168,36 @@ imágenes reales de `assets/`.
 Moreno apunta a `assets/founders/jair-4x5.webp` y la del director Jair
 Álvarez a `assets/founders/alvarez-4x5.webp` — conviene confirmar que los
 archivos no están intercambiados.
+
+## Política de uso responsable de IA (`uso_responsable_ia.html`)
+
+El pie de todas las páginas sustituye el aviso de copyright —la asociación
+no reclama derechos reservados sobre el sitio— por la declaración de uso de
+herramientas generativas, que enlaza a `uso_responsable_ia.html`.
+
+La página no se añade al menú principal (reservado a secciones y proyectos);
+vive en el pie, que es donde se esperan los avisos legales y de
+transparencia. Reutiliza el sistema existente: `.section`, `.section--tinta`,
+`.eyebrow`, `.section-title`, `.aprendizaje-card` (callout de "cuándo un
+resultado está listo") y `.colabora-card` (tarjeta de contacto). Lo único nuevo
+es el bloque `POLÍTICA DE USO RESPONSABLE DE IA` de `styles.css`.
+
+Estructura semántica: un `h1` (el título de la política), un `h2` por
+apartado y un `h3` por compromiso; cada `section` con `aria-labelledby`; los
+cuatro compromisos en un `<ol>` porque están numerados, con la tarjeta como
+`<article>` (contenido autónomo) y el ordinal en `.compromiso__num`
+(`aria-hidden`, porque el encabezado ya nombra el compromiso).
+
+Verificado en Chromium (1280px y 390px): sin errores de consola, sin
+desbordamiento horizontal, retícula 2 x 2 de compromisos en escritorio y una
+columna en móvil.
+
+## Talento humano: correcciones de contenido
+
+La marquesina conserva una sola fila, la de los retratos de `assets/human/`;
+se retiró la segunda fila (`assets/stem/`). Los archivos de `assets/stem/`
+siguen en el repositorio por si vuelven a usarse. Otros ajustes: *Boi* pasa a
+llamarse **Jony**, *Jainaki* a **Iñaki**, se eliminó a *Gal* (ficha e
+imágenes `gal_h.*` y `gal_s.*`) y la ficha de Jair ya no muestra el texto
+«Ver Proyecto Superman» bajo la foto: el enlace se mantiene y su nombre
+accesible sigue en el `aria-label`.
