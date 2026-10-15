@@ -216,7 +216,7 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
     <nav class="main-nav" aria-label="Navegación principal" data-open="false">
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list"><span class="nav-toggle__bars" aria-hidden="true"></span><span>Menú</span></button>
       <ul class="nav-list" id="nav-list" role="list">
-        <li><a href="index.html#inicio">Inicio</a></li><li><a href="index.html#mision-vision">Misión y visión</a></li><li><a href="index.html#quienes-somos">Quiénes somos</a></li><li><a href="talento_human.html">Talento humano</a></li><li><a href="superman.html" aria-current="page">Proyecto Superman</a></li><li><a href="miltli.html">Miltli</a></li><li><a class="nav-cta" href="index.html#colaboraciones">Colabora</a></li>
+        <li><a href="superman.html" aria-current="page">Proyecto Superman</a></li><li><a href="miltli.html">Miltli</a></li><li><a class="nav-cta" href="index.html#colaboraciones">Colabora</a></li>
       </ul>
     </nav>
   </div>
@@ -369,12 +369,12 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
       <div class="marca r"><b>03</b> Fuera del papel <span class="rule"></span> Instagram</div>
       <h2 class="r">El esquema, <span class="oe">grabado</span></h2>
       <div class="cuerpo r" style="margin-bottom:30px">
-        <p>Hasta aquí todo han sido planos, umbrales y dos señales que se pesan. El reel del proyecto enseña la otra mitad: el prototipo fuera del diagrama. Si Instagram no carga —bloqueadores, conexión, sin JavaScript— queda el enlace a la publicación.</p>
+        <p>Hasta aquí todo han sido planos, umbrales y dos señales que se pesan. El reel del proyecto enseña la otra mitad: el prototipo fuera del diagrama.</p>
       </div>
 
       <div class="reel-marco r">
         <aside class="superman__reel" aria-label="Reel de Proyecto Superman en Instagram">
-          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DYN5lJItlNd/" data-instgrm-version="14">
+          <blockquote class="instagram-media">
             <p><a href="https://www.instagram.com/reel/DYN5lJItlNd/" rel="external noopener" target="_blank">Ver reel de Proyecto Superman en Instagram</a></p>
           </blockquote>
         </aside>
@@ -536,28 +536,6 @@ capas.forEach(c=>{
 });
 
 requestAnimationFrame(frame);
-
-/* El script de Instagram es de terceros y pesa: se pide una sola vez, y solo
-   cuando el reel se acerca al viewport. Si ya estuviera cargado basta con
-   pedirle que reprocese el blockquote. Sin IntersectionObserver se carga de
-   inmediato: el reel se ve igual, solo se pierde el aplazamiento. */
-(function(){
-  var reel=document.querySelector('.superman__reel');
-  if(!reel)return;
-  var pedido=false;
-  function cargar(){
-    if(pedido)return;pedido=true;
-    if(window.instgrm&&window.instgrm.Embeds){window.instgrm.Embeds.process();return}
-    var s=document.createElement('script');
-    s.async=true;s.src='https://www.instagram.com/embed.js';
-    document.body.appendChild(s);
-  }
-  if(!('IntersectionObserver' in window)){cargar();return}
-  var obs=new IntersectionObserver(function(entradas){
-    entradas.forEach(function(e){if(e.isIntersecting){obs.disconnect();cargar()}});
-  },{rootMargin:'400px'});
-  obs.observe(reel);
-})();
 </script>
 </body>
 </html>
