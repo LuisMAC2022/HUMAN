@@ -1,0 +1,6 @@
+# GitHub Pages (Jekyll) no publica estos archivos; siguen en el repositorio.
+exclude:
+  - README-componentes.md
+  - identidad.md
+  - components/member-card/README.md
+  - components/member-slideshow/README.md
