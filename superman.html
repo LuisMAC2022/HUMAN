@@ -80,6 +80,7 @@ body{
 
 /* secciones */
 .seccion{padding:78px 0;position:relative}
+.cuerpo--separado{margin-bottom:30px}
 .marca{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--flex);display:flex;align-items:baseline;gap:16px;margin-bottom:30px}
 .marca b{font-family:'Archivo Black',sans-serif;font-size:15px;color:var(--tinta)}
 .marca .rule{flex:1;height:1px;background:var(--linea)}
@@ -105,8 +106,8 @@ h2 .of{color:var(--flex)}h2 .oe{color:var(--ext)}
 .canal{padding:20px 24px;display:flex;flex-direction:column;gap:12px;border-bottom:1px solid var(--tinta)}
 .canal:nth-child(1){border-right:1px solid var(--tinta)}
 .canal-top{display:flex;align-items:center;justify-content:space-between}
-.canal h4{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:-.01em}
-.canal.flex h4{color:var(--flex)}.canal.ext h4{color:var(--ext)}
+.canal h3{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:-.01em}
+.canal.flex h3{color:var(--flex)}.canal.ext h3{color:var(--ext)}
 .canal .uv{font-family:'Archivo Black',sans-serif;font-size:20px}
 .canal.flex .uv{color:var(--flex)}.canal.ext .uv{color:var(--ext)}
 .barra{height:13px;border:1px solid var(--tinta);background:var(--papel);position:relative;overflow:hidden}
@@ -134,10 +135,13 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
 .hint b{color:var(--marron)}
 .hint .cf{color:var(--flex)}.hint .ce{color:var(--ext)}
 
-.leyenda{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:34px}
+.leyenda{list-style:none;display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:34px}
 .capa{border:1px solid var(--linea);padding:22px 20px 24px;background:rgba(228,221,208,.5);position:relative;cursor:pointer;transition:transform .4s cubic-bezier(.2,.8,.2,1),background .4s,border-color .3s,box-shadow .3s}
 .capa:hover{transform:translateY(-5px) rotate(-.5deg);background:var(--papel-osc)}
-.capa:focus-visible{outline:3px solid var(--ocre);outline-offset:3px}
+.capa__btn{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;text-align:inherit;background:none;border:0;padding:0;cursor:pointer}
+.capa__btn::after{content:"";position:absolute;inset:0}
+.capa__btn:focus-visible{outline:none}
+.capa__btn:focus-visible::after{outline:3px solid var(--ocre);outline-offset:3px}
 .capa.activa{border-color:var(--flex);background:rgba(168,71,46,.09);box-shadow:0 0 0 1px var(--flex) inset}
 .capa.sel{transform:translateY(-5px);border-color:var(--tinta);background:var(--papel-osc)}
 .capa .ix{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--flex);position:absolute;top:14px;right:16px;transition:transform .3s}
@@ -171,10 +175,9 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
 .superman__reel{margin:0;max-width:none}
 /* Antes de que responda embed.js el blockquote solo contiene el enlace de
    respaldo; se le da cuerpo para que el hueco no se lea como un fallo. */
-.superman__reel .instagram-media{background:transparent;border:0;border-radius:0;box-shadow:none}
-.superman__reel .instagram-media p{padding:56px 20px;text-align:center}
-.superman__reel .instagram-media a{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--flex);text-decoration:none;border-bottom:1px solid var(--flex);padding-bottom:5px}
-.superman__reel .instagram-media a:hover{color:var(--tinta);border-bottom-color:var(--tinta)}
+.reel-enlace{padding:56px 20px;text-align:center}
+.reel-enlace a{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--flex);text-decoration:none;border-bottom:1px solid var(--flex);padding-bottom:5px}
+.reel-enlace a:hover{color:var(--tinta);border-bottom-color:var(--tinta)}
 .reel-pie{max-width:540px;margin:14px auto 0;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .reel-pie a{color:var(--marron);text-decoration:none;border-bottom:1px solid var(--linea)}
 .reel-pie a:hover{color:var(--flex);border-bottom-color:var(--flex)}
@@ -260,7 +263,7 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
     <div class="wrap">
       <div class="marca r"><b>01</b> Los planos se interpenetran <span class="rule"></span> Flexor ⇄ Extensor</div>
       <h2 class="r">El <span class="of">cierre</span> y la <span class="oe">apertura</span> sobre una misma superficie</h2>
-      <div class="cuerpo r" style="margin-bottom:30px">
+      <div class="cuerpo cuerpo--separado r">
         <p>Mantén presionado cada canal (teclas <span class="term">F</span> y <span class="term">J</span>). Dos señales EMG antagonistas cruzan el lienzo; su diferencia decide la prensión y su fuerza, la intensidad. Y si <em>co-contraes</em> ambos con fuerza —tensar los dos a la vez—, el controlador lo lee como un gesto deliberado y <span class="term">cambia de agarre</span>: puño, pinza, señalar. Toca una capa para aislar esa faceta.</p>
       </div>
 
@@ -335,13 +338,13 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
 
       <div class="consola r" role="group" aria-label="Control de dos electrodos antagonistas">
         <div class="canal flex">
-          <div class="canal-top"><h4>Flexores · cerrar</h4><span class="uv"><span id="uvF">0</span> μV</span></div>
+          <div class="canal-top"><h3>Flexores · cerrar</h3><span class="uv"><span id="uvF">0</span> μV</span></div>
           <div class="barra"><div class="barra-fill" id="fillF"></div><div class="barra-thr"></div></div>
           <button id="btnF" class="btnm" aria-pressed="false">Contraer flexores<small>mantener · tecla F</small></button>
           <div class="slider-wrap"><label for="sldF">basal</label><input id="sldF" type="range" min="0" max="100" value="0" aria-label="Tono basal de flexores"></div>
         </div>
         <div class="canal ext">
-          <div class="canal-top"><h4>Extensores · abrir</h4><span class="uv"><span id="uvE">0</span> μV</span></div>
+          <div class="canal-top"><h3>Extensores · abrir</h3><span class="uv"><span id="uvE">0</span> μV</span></div>
           <div class="barra"><div class="barra-fill" id="fillE"></div><div class="barra-thr"></div></div>
           <button id="btnE" class="btnm" aria-pressed="false">Contraer extensores<small>mantener · tecla J</small></button>
           <div class="slider-wrap"><label for="sldE">basal</label><input id="sldE" type="range" min="0" max="100" value="0" aria-label="Tono basal de extensores"></div>
@@ -354,12 +357,12 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
       </div>
       <p class="hint r">La <span class="cf">flexión</span> menos la <span class="ce">extensión</span> gobierna la prensión; superar el umbral cierra la mano en el agarre activo. Tensar <b>ambos a la vez</b> (co-contracción) cicla el agarre — el truco real con que muchas prótesis cambian de gesto sin más sensores.</p>
 
-      <div class="leyenda r" role="list" aria-label="Las cuatro facetas del sistema">
-        <article class="capa k1" role="button" tabindex="0" data-stage="1"><span class="ix">i</span><h3>Antebrazo</h3><p>Dos músculos opuestos en el muñón: los flexores tiran para cerrar, los extensores para abrir. Ambos siguen respondiendo a la intención aunque la mano no esté.</p><span class="micro">origen · voluntad</span></article>
-        <article class="capa k2" role="button" tabindex="0" data-stage="2"><span class="ix">ii</span><h3>Electrodos + EMG</h3><p>Un electrodo sobre cada músculo capta su voltaje. Dos canales de electromiografía, leídos en paralelo sobre la misma piel.</p><span class="micro">captura · μV ×2</span></article>
-        <article class="capa k3" role="button" tabindex="0" data-stage="3"><span class="ix">iii</span><h3>Controlador</h3><p>Pesa una señal contra la otra como una balanza. La diferencia decide abrir o cerrar; la co-contracción, un gesto aparte, conmuta el tipo de agarre.</p><span class="micro">decisión · balance</span></article>
-        <article class="capa k4" role="button" tabindex="0" data-stage="4"><span class="ix">iv</span><h3>Mano + motores</h3><p>Los servos ejecutan el agarre elegido —puño, pinza o señalar— tensando los dedos. El mismo mecanismo, muchas formas.</p><span class="micro">acción · prensión</span></article>
-      </div>
+      <ul class="leyenda r" aria-label="Las cuatro facetas del sistema">
+        <li class="capa k1" data-stage="1"><span class="ix">i</span><h3><button type="button" class="capa__btn" aria-pressed="false">Antebrazo</button></h3><p>Dos músculos opuestos en el muñón: los flexores tiran para cerrar, los extensores para abrir. Ambos siguen respondiendo a la intención aunque la mano no esté.</p><span class="micro">origen · voluntad</span></li>
+        <li class="capa k2" data-stage="2"><span class="ix">ii</span><h3><button type="button" class="capa__btn" aria-pressed="false">Electrodos + EMG</button></h3><p>Un electrodo sobre cada músculo capta su voltaje. Dos canales de electromiografía, leídos en paralelo sobre la misma piel.</p><span class="micro">captura · μV ×2</span></li>
+        <li class="capa k3" data-stage="3"><span class="ix">iii</span><h3><button type="button" class="capa__btn" aria-pressed="false">Controlador</button></h3><p>Pesa una señal contra la otra como una balanza. La diferencia decide abrir o cerrar; la co-contracción, un gesto aparte, conmuta el tipo de agarre.</p><span class="micro">decisión · balance</span></li>
+        <li class="capa k4" data-stage="4"><span class="ix">iv</span><h3><button type="button" class="capa__btn" aria-pressed="false">Mano + motores</button></h3><p>Los servos ejecutan el agarre elegido —puño, pinza o señalar— tensando los dedos. El mismo mecanismo, muchas formas.</p><span class="micro">acción · prensión</span></li>
+      </ul>
     </div>
   </section>
 
@@ -371,7 +374,7 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
         <div class="frag frag-txt r">
           El control no es una orden, es una <strong>tensión entre opuestos</strong> —como el cuerpo mueve cualquier articulación, con músculos que se contrarrestan. La prótesis no reemplaza esa lógica: la extiende. Persona y máquina comparten el mismo tira y afloja, y en el <em>collage</em> de músculo, electrodo, código y motor la pregunta de dónde acaba uno y empieza el otro queda <strong>deliberadamente abierta</strong>.
         </div>
-        <div class="electrodo r" aria-label="Textura cruda del par de electrodos antagonistas"></div>
+        <div class="electrodo r" aria-hidden="true"></div>
       </div>
     </div>
   </section>
@@ -380,15 +383,13 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
     <div class="wrap">
       <div class="marca r"><b>03</b> Fuera del papel <span class="rule"></span> Instagram</div>
       <h2 class="r">El esquema, <span class="oe">grabado</span></h2>
-      <div class="cuerpo r" style="margin-bottom:30px">
+      <div class="cuerpo cuerpo--separado r">
         <p>Hasta aquí todo han sido planos, umbrales y dos señales que se pesan. El reel del proyecto enseña la otra mitad: el prototipo fuera del diagrama.</p>
       </div>
 
       <div class="reel-marco r">
         <aside class="superman__reel" aria-label="Reel de Proyecto Superman en Instagram">
-          <blockquote class="instagram-media">
-            <p><a href="https://www.instagram.com/reel/DYN5lJItlNd/" rel="external noopener" target="_blank">Ver reel de Proyecto Superman en Instagram</a></p>
-          </blockquote>
+          <p class="reel-enlace"><a href="https://www.instagram.com/reel/DYN5lJItlNd/" rel="external noopener" target="_blank">Ver reel de Proyecto Superman en Instagram</a></p>
         </aside>
       </div>
       <p class="reel-pie r"><span>Proyecto Superman · Reel</span> <a href="https://www.instagram.com/humanstem/" rel="external noopener" target="_blank">@humanstem</a></p>
@@ -558,11 +559,14 @@ function act(i,on){if(capas[i])capas[i].classList.toggle('activa',on&&selected==
 function selectStage(s){
   if(selected===s){selected=null;svg.removeAttribute('data-focus');}
   else{selected=s;svg.setAttribute('data-focus',s);}
-  capas.forEach(c=>c.classList.toggle('sel',selected!==null&&c.dataset.stage==selected));
+  capas.forEach(c=>{
+    const on=selected!==null&&c.dataset.stage==selected;
+    c.classList.toggle('sel',on);
+    c.querySelector('.capa__btn').setAttribute('aria-pressed',String(on));
+  });
 }
 capas.forEach(c=>{
-  c.addEventListener('click',()=>selectStage(c.dataset.stage));
-  c.addEventListener('keydown',e=>{if(e.code==='Enter'||e.code==='Space'){e.preventDefault();selectStage(c.dataset.stage)}});
+  c.querySelector('.capa__btn').addEventListener('click',()=>selectStage(c.dataset.stage));
 });
 
 requestAnimationFrame(frame);
