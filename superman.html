@@ -35,7 +35,7 @@ p{margin:0;text-wrap:inherit}
 .site-header,.site-footer{font-family:var(--font-body);font-weight:400;line-height:1.6}
 
 :root{
-  --ocre:#b08a4a;--ocre-claro:#cdab6e;--gris:#6f6a61;--gris-osc:#3a3833;
+  --ocre:#b08a4a;--ocre-claro:#cdab6e;--gris:#6f6a61;--gris-texto:#57534c;--flex-texto:#8c3b26;--ext-texto:#4f582a;--gris-osc:#3a3833;
   --marron:#5a4631;--papel:#e4ddd0;--papel-osc:#d2c9b7;--tinta:#26241f;
   --flex:#a8472e;        /* flexores: cerrar */
   --ext:#6d7a3a;         /* extensores: abrir */
@@ -65,23 +65,23 @@ body{
 .plano-geo{position:absolute;border:1px solid var(--linea)}
 .pg1{top:12%;right:6%;width:250px;height:310px;transform:rotate(11deg);background:linear-gradient(135deg,rgba(168,71,46,.08),transparent 60%)}
 .pg2{top:32%;right:15%;width:150px;height:210px;transform:rotate(-7deg);background:linear-gradient(135deg,rgba(109,122,58,.09),transparent 70%)}
-.sup-eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--flex);position:relative;z-index:2;margin-bottom:26px;display:flex;align-items:center;gap:14px}
+.sup-eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--flex-texto);position:relative;z-index:2;margin-bottom:26px;display:flex;align-items:center;gap:14px}
 .sup-eyebrow::before{content:"";width:54px;height:1px;background:var(--flex)}
 .sup-hero h1{position:relative;z-index:2;font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(34px,7.4vw,102px);line-height:.92;letter-spacing:-.035em;max-width:17ch}
 .sup-hero h1 .corte{display:inline-block;color:var(--ext);position:relative}
 .sup-hero h1 .corte::after{content:"";position:absolute;left:-6%;top:46%;width:112%;height:2px;background:var(--tinta);transform:rotate(-3deg)}
 .sup-hero .sub{position:relative;z-index:2;margin-top:34px;max-width:54ch;font-size:clamp(17px,2.1vw,21px);font-weight:400;color:var(--gris-osc)}
 .sup-hero .sub em{font-style:italic;color:var(--marron)}
-.sup-hero .sub .cf{color:var(--flex);font-style:normal;font-weight:600}
-.sup-hero .sub .ce{color:var(--ext);font-style:normal;font-weight:600}
-.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gris);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
+.sup-hero .sub .cf{color:var(--flex-texto);font-style:normal;font-weight:600}
+.sup-hero .sub .ce{color:var(--ext-texto);font-style:normal;font-weight:600}
+.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gris-texto);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
 .scroll-cue span{display:block;width:1px;height:38px;background:var(--gris);animation:drop 2.4s ease-in-out infinite}
 @keyframes drop{0%,100%{transform:scaleY(.3);transform-origin:top;opacity:.3}50%{transform:scaleY(1);opacity:1}}
 
 /* secciones */
 .seccion{padding:78px 0;position:relative}
 .cuerpo--separado{margin-bottom:30px}
-.marca{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--flex);display:flex;align-items:baseline;gap:16px;margin-bottom:30px}
+.marca{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--flex-texto);display:flex;align-items:baseline;gap:16px;margin-bottom:30px}
 .marca b{font-family:'Archivo Black',sans-serif;font-size:15px;color:var(--tinta)}
 .marca .rule{flex:1;height:1px;background:var(--linea)}
 h2{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(28px,5vw,58px);line-height:.96;letter-spacing:-.03em;margin-bottom:34px;max-width:20ch}
@@ -107,9 +107,9 @@ h2 .of{color:var(--flex)}h2 .oe{color:var(--ext)}
 .canal:nth-child(1){border-right:1px solid var(--tinta)}
 .canal-top{display:flex;align-items:center;justify-content:space-between}
 .canal h3{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:-.01em}
-.canal.flex h3{color:var(--flex)}.canal.ext h3{color:var(--ext)}
+.canal.flex h3{color:var(--flex-texto)}.canal.ext h3{color:var(--ext-texto)}
 .canal .uv{font-family:'Archivo Black',sans-serif;font-size:20px}
-.canal.flex .uv{color:var(--flex)}.canal.ext .uv{color:var(--ext)}
+.canal.flex .uv{color:var(--flex-texto)}.canal.ext .uv{color:var(--ext-texto)}
 .barra{height:13px;border:1px solid var(--tinta);background:var(--papel);position:relative;overflow:hidden}
 .barra-fill{position:absolute;inset:0;width:0%}
 .canal.flex .barra-fill{background:linear-gradient(90deg,var(--ocre),var(--flex))}
@@ -117,23 +117,23 @@ h2 .of{color:var(--flex)}h2 .oe{color:var(--ext)}
 .barra-thr{position:absolute;top:-3px;bottom:-3px;left:30%;width:2px;background:var(--tinta)}
 .btnm{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:-.01em;color:var(--papel);border:none;padding:14px 18px;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:none;transition:transform .08s,filter .12s;line-height:1.1;text-align:left}
 .btnm small{display:block;font-family:'Space Mono',monospace;font-size:9.5px;font-weight:400;letter-spacing:.16em;opacity:.85;margin-top:5px}
-.canal.flex .btnm{background:var(--flex)}.canal.ext .btnm{background:var(--ext)}
+.canal.flex .btnm{background:var(--flex-texto)}.canal.ext .btnm{background:var(--ext-texto)}
 .btnm.activo{transform:scale(.98);filter:brightness(.82)}
 .btnm:focus-visible{outline:3px solid var(--ocre);outline-offset:3px}
 .slider-wrap{display:flex;align-items:center;gap:9px}
-.slider-wrap label{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris);white-space:nowrap}
+.slider-wrap label{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris-texto);white-space:nowrap}
 input[type=range]{flex:1;height:16px;cursor:pointer}
 .canal.flex input[type=range]{accent-color:var(--flex)}.canal.ext input[type=range]{accent-color:var(--ext)}
 .tablero{grid-column:1/3;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
 .tab{padding:16px 22px;border-right:1px solid var(--tinta)}
 .tab:last-child{border-right:none}
-.tab .lbl{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris);margin-bottom:7px;display:block}
+.tab .lbl{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris-texto);margin-bottom:7px;display:block}
 .tab .val{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:16px;line-height:1.05;letter-spacing:-.02em;color:var(--tinta);transition:color .2s}
-.tab .val.on{color:var(--flex)}
-.tab .val.mode{color:var(--ext)}
-.hint{margin-top:12px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--gris)}
+.tab .val.on{color:var(--flex-texto)}
+.tab .val.mode{color:var(--ext-texto)}
+.hint{margin-top:12px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--gris-texto)}
 .hint b{color:var(--marron)}
-.hint .cf{color:var(--flex)}.hint .ce{color:var(--ext)}
+.hint .cf{color:var(--flex-texto)}.hint .ce{color:var(--ext-texto)}
 
 .leyenda{list-style:none;display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:34px}
 .capa{border:1px solid var(--linea);padding:22px 20px 24px;background:rgba(228,221,208,.5);position:relative;cursor:pointer;transition:transform .4s cubic-bezier(.2,.8,.2,1),background .4s,border-color .3s,box-shadow .3s}
@@ -144,7 +144,7 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
 .capa__btn:focus-visible::after{outline:3px solid var(--ocre);outline-offset:3px}
 .capa.activa{border-color:var(--flex);background:rgba(168,71,46,.09);box-shadow:0 0 0 1px var(--flex) inset}
 .capa.sel{transform:translateY(-5px);border-color:var(--tinta);background:var(--papel-osc)}
-.capa .ix{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--flex);position:absolute;top:14px;right:16px;transition:transform .3s}
+.capa .ix{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--flex-texto);position:absolute;top:14px;right:16px;transition:transform .3s}
 .capa.activa .ix{transform:scale(1.5)}
 .capa h3{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:17px;letter-spacing:-.02em;margin-bottom:10px;color:var(--tinta)}
 .capa p{font-size:14.5px;line-height:1.5;color:var(--gris-osc)}
@@ -165,7 +165,7 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
 .frag-txt{grid-column:6/11;font-size:clamp(15px,1.9vw,18px);font-weight:400;color:var(--gris-osc)}
 .frag-txt strong{color:var(--marron);font-weight:600}
 .electrodo{grid-column:11/13;align-self:stretch;min-height:150px;background:radial-gradient(circle at 30% 32%,var(--flex) 0 6px,transparent 7px),radial-gradient(circle at 68% 64%,var(--ext) 0 6px,transparent 7px),repeating-linear-gradient(0deg,var(--gris-osc) 0 2px,var(--papel-osc) 2px 9px);border:1px solid var(--tinta);transform:rotate(2deg);position:relative}
-.electrodo::after{content:"par antagonista";position:absolute;bottom:-22px;right:0;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gris)}
+.electrodo::after{content:"par antagonista";position:absolute;bottom:-22px;right:0;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gris-texto)}
 
 /* REEL · styles.css ya define .superman__reel con los tokens del sitio
    (blanco, radio, sombra). Aquí se reescribe con la paleta de papel de esta
@@ -176,17 +176,17 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
 /* Antes de que responda embed.js el blockquote solo contiene el enlace de
    respaldo; se le da cuerpo para que el hueco no se lea como un fallo. */
 .reel-enlace{padding:56px 20px;text-align:center}
-.reel-enlace a{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--flex);text-decoration:none;border-bottom:1px solid var(--flex);padding-bottom:5px}
+.reel-enlace a{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--flex-texto);text-decoration:none;border-bottom:1px solid var(--flex);padding-bottom:5px}
 .reel-enlace a:hover{color:var(--tinta);border-bottom-color:var(--tinta)}
-.reel-pie{max-width:540px;margin:14px auto 0;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.reel-pie{max-width:540px;margin:14px auto 0;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris-texto);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .reel-pie a{color:var(--marron);text-decoration:none;border-bottom:1px solid var(--linea)}
-.reel-pie a:hover{color:var(--flex);border-bottom-color:var(--flex)}
+.reel-pie a:hover{color:var(--flex-texto);border-bottom-color:var(--flex)}
 
 /* cierre */
 .cierre{padding:90px 0 100px}
 .cierre .ancla{font-family:'Spectral',serif;font-style:italic;font-weight:300;font-size:clamp(22px,4vw,40px);line-height:1.28;max-width:26ch;color:var(--tinta)}
-.cierre .ancla b{font-style:normal;font-family:'Archivo Black',sans-serif;text-transform:uppercase;color:var(--ext);font-size:.92em}
-.firma{margin-top:54px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gris);display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.cierre .ancla b{font-style:normal;font-family:'Archivo Black',sans-serif;text-transform:uppercase;color:var(--ext-texto);font-size:.92em}
+.firma{margin-top:54px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gris-texto);display:flex;gap:18px;flex-wrap:wrap;align-items:center}
 .firma .dot{width:5px;height:5px;background:var(--flex);transform:rotate(45deg)}
 .firma .dot.e{background:var(--ext)}
 
@@ -281,7 +281,7 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
             <path id="fibF" d="M70,205 Q160,168 250,200" stroke="var(--flex)" stroke-width="1.5" fill="none" opacity=".6"/>
             <path id="fibE" d="M78,258 Q168,292 258,262" stroke="var(--ext)" stroke-width="1.5" fill="none" opacity=".6"/>
             <text x="44" y="372" font-family="'Archivo Black',sans-serif" font-size="19" fill="var(--tinta)">ANTEBRAZO</text>
-            <text x="44" y="394" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris)">PAR ANTAGONISTA</text>
+            <text x="44" y="394" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris-texto)">PAR ANTAGONISTA</text>
             <circle id="elF" cx="250" cy="200" r="9" fill="none" stroke="var(--flex)" stroke-width="2"/><circle cx="250" cy="200" r="3.5" fill="var(--flex)"/>
             <circle id="elE" cx="258" cy="262" r="9" fill="none" stroke="var(--ext)" stroke-width="2"/><circle cx="258" cy="262" r="3.5" fill="var(--ext)"/>
           </g>
@@ -294,7 +294,7 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
             <path id="emgF" d="M337,205 L553,205" fill="none" stroke="var(--flex)" stroke-width="2.4" stroke-linejoin="round"/>
             <path id="emgE" d="M337,298 L553,298" fill="none" stroke="var(--ext)" stroke-width="2.4" stroke-linejoin="round"/>
             <text x="334" y="376" font-family="'Archivo Black',sans-serif" font-size="19" fill="var(--tinta)">SEÑAL EMG ×2</text>
-            <text x="334" y="398" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris)">FLEXOR / EXTENSOR</text>
+            <text x="334" y="398" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris-texto)">FLEXOR / EXTENSOR</text>
           </g>
 
           <!-- PLATE 3 · CONTROLADOR (rot -2), balanza -->
@@ -311,7 +311,7 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
             <circle cx="735" cy="230" r="4" fill="var(--tinta)"/>
             <rect id="intent" x="628" y="300" width="214" height="22" fill="var(--flex)" opacity="0"/>
             <text x="620" y="360" font-family="'Archivo Black',sans-serif" font-size="19" fill="var(--tinta)">CONTROLADOR</text>
-            <text x="620" y="382" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris)">Δ → INTENCIÓN · CO → MODO</text>
+            <text x="620" y="382" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris-texto)">Δ → INTENCIÓN · CO → MODO</text>
           </g>
 
           <!-- PLATE 4 · MANO exploded multi-vista (rot 2) -->
@@ -325,7 +325,7 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
             <line id="f-3" x1="1018" y1="228" x2="1098" y2="240" stroke="var(--gris-osc)" stroke-width="6" stroke-linecap="round"/>
             <line id="thumb" x1="932" y1="205" x2="906" y2="258" stroke="var(--gris-osc)" stroke-width="6" stroke-linecap="round"/>
             <text x="905" y="360" font-family="'Archivo Black',sans-serif" font-size="19" fill="var(--tinta)">MANO</text>
-            <text x="905" y="382" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris)">SERVOS · PRENSIÓN</text>
+            <text x="905" y="382" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris-texto)">SERVOS · PRENSIÓN</text>
           </g>
 
           <!-- dos hilos que tejen los planos -->
