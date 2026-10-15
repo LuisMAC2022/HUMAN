@@ -9,10 +9,16 @@
 <!-- La hoja del sitio va ANTES del <style> de la página: aporta la cabecera
      y el pie comunes, y el bloque de abajo conserva la tipografía propia. -->
 <link rel="stylesheet" href="styles.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Spectral:ital,wght@0,300;0,400;0,600;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
+/* Tipografía propia de la página, servida desde assets/fonts (subconjunto
+   latino de Fontsource, licencia OFL). Sin peticiones a otros dominios. */
+@font-face{font-family:'Archivo Black';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/archivo-black/archivo-black-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Spectral';font-style:normal;font-weight:300;font-display:swap;src:url('assets/fonts/spectral/spectral-latin-300-normal.woff2') format('woff2')}
+@font-face{font-family:'Spectral';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/spectral/spectral-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Spectral';font-style:italic;font-weight:400;font-display:swap;src:url('assets/fonts/spectral/spectral-latin-400-italic.woff2') format('woff2')}
+@font-face{font-family:'Spectral';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/spectral/spectral-latin-600-normal.woff2') format('woff2')}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/space-mono/space-mono-latin-400-normal.woff2') format('woff2')}
+@font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/space-mono/space-mono-latin-700-normal.woff2') format('woff2')}
 /* De styles.css sólo queremos .site-header y .site-footer. Sus reglas de
    elemento (h1-h4 en azul institucional, p con margen inferior, escala
    tipográfica del body) se devuelven aquí a los valores por omisión del
