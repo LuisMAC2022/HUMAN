@@ -378,20 +378,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .hero__inner {
   padding-block: clamp(72px, 12vw, 150px);
 }
-.hero__kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-family: var(--font-technical);
-  font-size: 0.82rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--texto-sobre-oscuro);
-  padding: 8px 16px;
-  border: 1px solid rgba(255,255,255,0.22);
-  border-radius: 999px;
-  margin-bottom: 28px;
-}
+
 .hero h1 {
   color: var(--human-blanco);
   font-size: clamp(2.1rem, 5.2vw, 4rem);
@@ -415,36 +402,6 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   flex-wrap: wrap;
   gap: 14px;
 }
-
-/* Tira de disciplinas STEM (los 4 colores secundarios = los íconos del logo) */
-.stem-strip {
-  margin: clamp(44px, 6vw, 72px) 0 0;
-  padding: 28px 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px 28px;
-  list-style: none;
-  border-top: 1px solid rgba(255,255,255,0.14);
-}
-.stem-strip li {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  font-family: var(--font-technical);
-  font-size: 0.92rem;
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.92);
-}
-.stem-dot {
-  width: 13px; height: 13px;
-  border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: 0 0 0 4px rgba(255,255,255,0.08);
-}
-.stem-dot--ciencia    { background: var(--human-verde); }
-.stem-dot--tecnologia { background: var(--human-cyan); }
-.stem-dot--ingenieria { background: var(--human-naranja); }
-.stem-dot--matematicas{ background: var(--human-rojo); }
 
 /* =====================================================================
    Botones
@@ -470,26 +427,9 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   color: var(--human-azul-oscuro);
 }
 .btn--primario:hover { background: var(--human-blanco); transform: translateY(-2px); }
-.btn--oscuro {
-  background: var(--human-azul-oscuro);
-  color: var(--human-blanco);
-}
-.btn--oscuro:hover { background: var(--human-azul-medio); transform: translateY(-2px); }
-.btn--contorno {
-  background: transparent;
-  color: var(--human-blanco);
-  border-color: rgba(255,255,255,0.4);
-}
-.btn--contorno:hover { border-color: var(--human-blanco); background: rgba(255,255,255,0.08); }
+
 .btn--verde { background: var(--human-verde); color: var(--human-verde-tinta); }
 .btn--verde:hover { filter: brightness(1.06); transform: translateY(-2px); }
-/* Estado deshabilitado: en el HTML, el <a> además pierde su href
-   (enlace marcador de posición) para no ser enfocable ni activable */
-.btn[aria-disabled="true"] {
-  opacity: 0.55;
-  cursor: not-allowed;
-  pointer-events: none;
-}
 .btn__arrow { transition: transform var(--transicion); }
 .btn:hover .btn__arrow { transform: translateX(3px); }
 
@@ -535,29 +475,6 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .quienes member-card + member-card {
   margin-top: clamp(40px, 6vw, 72px);
 }
-.talento-humano {
-  margin-top: clamp(56px, 8vw, 96px);
-}
-
-.quienes__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
-  gap: clamp(32px, 5vw, 72px);
-  align-items: center;
-}
-
-.quienes__bio {
-  max-width: 62ch;
-}
-
-.quienes__bio .section-title {
-  margin-bottom: 0.35em;
-}
-
-.quienes__resumen {
-  font-size: clamp(1.08rem, 1.5vw, 1.28rem);
-  color: var(--human-azul-oscuro);
-}
 
 .aprendizaje-card {
   position: relative;
@@ -579,279 +496,15 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   margin: 0;
 }
 
-/* Retrato con marco geométrico; el círculo lee --acento (cyan por
-   defecto, .acento-naranja en Proyecto Superman) */
-.retrato {
-  margin: 0;
-  position: relative;
-}
-.retrato img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  border-radius: var(--radio);
-  box-shadow: var(--sombra-lg);
-  background: var(--human-gris-suave);
-}
-.retrato figcaption {
-  position: absolute;
-  left: 18px; bottom: 18px;
-  background: rgba(28,36,72,0.92);
-  color: var(--human-blanco);
-  font-family: var(--font-technical);
-  font-size: 0.9rem;
-  letter-spacing: 0.02em;
-  padding: 9px 16px;
-  border-radius: 999px;
-  backdrop-filter: blur(4px);
-}
-/* Marco geométrico: dos círculos = el motivo de la M */
-.retrato::after {
-  content: "";
-  position: absolute;
-  right: -16px; top: -16px;
-  width: 84px; height: 84px;
-  border: 2px solid var(--acento);
-  border-radius: 50%;
-  z-index: -1;
-}
-
 /* =====================================================================
    PROYECTO SUPERMAN
    ===================================================================== */
-.superman__head {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: clamp(32px, 5vw, 64px);
-  align-items: center;
-  margin-bottom: clamp(48px, 6vw, 88px);
-}
-.superman__intro .section-title { margin-bottom: 0.4em; }
-.superman__intro p {
-  font-size: clamp(1.08rem, 1.5vw, 1.32rem);
-  color: var(--human-gris-texto);
-  max-width: 48ch;
-}
-.superman__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 26px;
-  padding: 0;
-  list-style: none;
-}
-.superman__tags li {
-  font-family: var(--font-technical);
-  font-size: 0.84rem;
-  letter-spacing: 0.03em;
-  color: var(--human-azul-oscuro);
-  background: var(--human-gris-suave);
-  border: 1px solid var(--human-gris-borde);
-  border-radius: 999px;
-  padding: 8px 16px;
-}
-.section--tinta .superman__tags li { background: var(--human-blanco); }
 
 .superman__reel {
   width: 100%;
   max-width: 540px;
   min-width: 0;
   margin-inline: auto;
-}
-.superman__reel .instagram-media {
-  width: 100% !important;
-  min-width: 0 !important;
-  margin: 0 !important;
-  background: var(--human-blanco);
-  border: 0;
-  border-radius: var(--radio);
-  box-shadow: var(--sombra-lg);
-}
-
-/* Patrocinadores */
-.patrocinadores {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
-  list-style: none;
-  margin: 0 0 clamp(56px, 7vw, 96px);
-  padding: 0;
-}
-.patro-card {
-  background: var(--human-blanco);
-  border: 1px solid var(--human-gris-borde);
-  border-top: 3px solid var(--human-naranja);
-  border-radius: var(--radio);
-  padding: 28px;
-  box-shadow: var(--sombra-sm);
-}
-.patro-card h4 {
-  font-size: 1.4rem;
-  font-family: var(--font-display);
-  margin-bottom: 0.4em;
-}
-.patro-card__nombre a {
-  display: inline-block;
-  border-radius: var(--radio-sm);
-}
-.patro-card__logo {
-  height: 44px;
-  width: auto;
-}
-.patro-card p { margin: 0; font-size: 0.98rem; }
-
-/* Colaboradores */
-.colaboradores__intro {
-  max-width: 62ch;
-  margin-bottom: 12px;
-}
-.colaboradores__nota {
-  font-size: 0.92rem;
-  color: var(--human-gris-medio);
-  font-style: italic;
-  max-width: 62ch;
-  margin-bottom: 36px;
-}
-
-/* Marquesina de colaboradores — tres estados explícitos:
-   1) Base (sin JS): filas estáticas desplazables con teclado.
-   2) prefers-reduced-motion: igual que la base; el script no clona.
-   3) Mejorado (.marquesina--animada, lo añade el script tras clonar
-      las filas): bucle infinito con desvanecido lateral. */
-.marquesina {
-  position: relative;
-  display: grid;
-  gap: 24px;
-  overflow-x: auto;
-}
-.marquesina--animada {
-  overflow: hidden;
-  /* desvanecido lateral */
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
-}
-.marquesina__fila {
-  display: flex;
-  width: max-content;
-  gap: 22px;
-  margin: 0;
-  padding: 6px 0;
-  list-style: none;
-}
-.marquesina--animada .marquesina__fila--izq { animation: scroll-izq 46s linear infinite; }
-.marquesina--animada .marquesina__fila--der { animation: scroll-der 52s linear infinite; }
-.marquesina--animada:hover .marquesina__fila { animation-play-state: paused; }
-.marquesina--animada:focus-within .marquesina__fila { animation-play-state: paused; }
-
-@keyframes scroll-izq {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-@keyframes scroll-der {
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquesina__fila { animation: none !important; }
-}
-
-.colaborador {
-  width: 150px;
-  flex-shrink: 0;
-  text-align: center;
-}
-.colaborador a {
-  display: block;
-  min-height: 44px;
-  padding: 6px;
-  color: var(--human-azul-medio);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-  border-radius: var(--radio-sm);
-}
-.colaborador a:focus-visible {
-  outline: 3px solid var(--human-azul-oscuro);
-  outline-offset: 3px;
-}
-.colaborador figure { margin: 0; }
-.colaborador img {
-  width: 132px;
-  height: 132px;
-  margin-inline: auto;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--human-blanco);
-  box-shadow: 0 4px 16px rgba(28,36,72,0.14), 0 0 0 1px var(--human-gris-borde);
-  transition: var(--transicion);
-}
-.colaborador:hover img {
-  box-shadow: 0 8px 22px rgba(28,36,72,0.22), 0 0 0 3px var(--human-cyan);
-}
-.colaborador figcaption {
-  margin-top: 14px;
-  font-family: var(--font-technical);
-  font-size: 0.92rem;
-  font-weight: bold;
-  color: var(--human-azul-oscuro);
-  line-height: 1.3;
-}
-.colaborador figcaption span {
-  display: block;
-  margin-top: 4px;
-  font-size: 0.78rem;
-  font-weight: normal;
-  color: var(--human-azul-medio);
-}
-.colaborador figcaption .familia {
-  display: block;
-  font-weight: normal;
-  font-size: 0.82rem;
-  color: var(--human-gris-medio);
-  letter-spacing: 0.02em;
-}
-
-.equipos-colaboradores {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(18px, 4vw, 32px);
-  margin: 36px 0 0;
-  padding: 0;
-  list-style: none;
-}
-.equipos-colaboradores__item {
-  margin: 0;
-  overflow: hidden;
-  border: 1px solid var(--human-gris-borde);
-  border-radius: var(--radio);
-  background: var(--human-blanco);
-  box-shadow: var(--sombra-sm);
-}
-.equipos-colaboradores__item img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-.equipos-colaboradores__item--panoramica img {
-  aspect-ratio: 16 / 9;
-}
-.equipos-colaboradores__item--vertical img {
-  aspect-ratio: 2 / 3;
-}
-.equipos-colaboradores__item figcaption {
-  padding: 16px 18px 18px;
-  font-family: var(--font-technical);
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.35;
-  color: var(--human-azul-oscuro);
-}
-
-@media (max-width: 760px) {
-  .equipos-colaboradores {
-    grid-template-columns: 1fr;
-  }
 }
 
 /* =====================================================================
@@ -876,83 +529,27 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   gap: 28px;
   max-width: 760px;
 }
-.huertos .eyebrow { color: var(--human-verde); }
 .huertos .section-title { color: var(--human-blanco); max-width: 18ch; }
 .huertos p { color: var(--texto-sobre-oscuro); font-size: clamp(1.05rem, 1.5vw, 1.25rem); max-width: 52ch; }
-.huertos__badge {
-  align-self: start;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: var(--font-technical);
-  font-size: 0.8rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--human-verde);
-  border: 1px solid rgba(102,204,51,0.5);
-  border-radius: 999px;
-  padding: 7px 15px;
-}
-/* Nota bajo el botón deshabilitado; el selector compuesto supera a
-   `.huertos p` sin recurrir a !important */
-.huertos .huertos__nota {
-  font-size: 0.85rem;
-  color: var(--texto-sobre-oscuro-suave);
-  margin: 0;
-}
 
 /* =====================================================================
    COLABORACIONES
    ===================================================================== */
-/* En escritorio el texto ocupa una sola columna y la tarjeta de contacto
-   se apila debajo: así el titular deja de competir con el marco de la
-   imagen y el hueco que quedaba bajo el párrafo se llena. La imagen pasa
-   a una columna propia, lo bastante ancha para que el encuadre se lea. */
+/* El texto y la tarjeta de contacto comparten una columna de lectura:
+   el titular arriba y la tarjeta debajo, sin columna lateral vacía. */
 .colaboraciones__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 400px);
+  grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
-    "intro   imagen"
-    "tarjeta imagen";
-  column-gap: clamp(28px, 4vw, 56px);
+    "intro"
+    "tarjeta";
   row-gap: clamp(24px, 3vw, 36px);
   align-items: start;
 }
 .colaboraciones__intro { grid-area: intro; }
-.colaboraciones__imagen { grid-area: imagen; align-self: center; }
 .colabora-card { grid-area: tarjeta; }
 .colaboraciones__intro .section-title { max-width: 16ch; }
-.colaboraciones__imagen {
-  position: relative;
-  width: 100%;
-  margin: 0;
-  padding: 8px;
-  background: var(--human-blanco);
-  border-radius: calc(var(--radio) + 2px);
-  box-shadow: var(--sombra-lg);
-  transform: rotate(-1.5deg);
-}
-.colaboraciones__imagen::after {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  border: 1px solid rgba(51, 204, 255, 0.45);
-  border-radius: var(--radio-sm);
-  pointer-events: none;
-}
-/* El original es 2:3 con mucho aire sobre la garra. En pantallas grandes
-   ese formato se lee alargado y medio vacío, así que se encuadra en 3:4
-   recortando sólo por arriba (object-position: bottom), que es donde está
-   el brazo: el QR nunca se toca y la foto llega hasta el borde del marco. */
-.colaboraciones__imagen img {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: center bottom;
-  border-radius: var(--radio-sm);
-}
+
 .colabora-card {
   background: var(--human-azul-oscuro);
   color: var(--human-blanco);
@@ -1173,35 +770,9 @@ p { margin: 0 0 1em; text-wrap: pretty; }
    Responsivo
    ===================================================================== */
 @media (max-width: 900px) {
-  .quienes__grid,
-  .superman__head,
-  .colaboraciones__grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .retrato { max-width: 460px; }
   .superman__reel { max-width: 540px; }
-  /* Móvil: se vuelve a la pila intro → imagen → tarjeta y al 2:3 original,
-     que a ancho completo ya encaja bien con el marco. */
-  .colaboraciones__grid {
-    grid-template-areas:
-      "intro"
-      "imagen"
-      "tarjeta";
-    gap: clamp(28px, 4vw, 56px);
-  }
-  .colaboraciones__imagen {
-    width: min(100%, 360px);
-    margin: 0 auto;
-  }
-  .colaboraciones__imagen img {
-    aspect-ratio: 2 / 3;
-    object-position: center;
-  }
 }
 
 @media (max-width: 560px) {
-  .retrato::after { width: 60px; height: 60px; right: -10px; top: -10px; }
-  .colaborador { width: 128px; }
-  .colaborador img { width: 112px; height: 112px; }
   .site-footer__top { flex-direction: column; align-items: flex-start; }
 }

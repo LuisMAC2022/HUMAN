@@ -31,12 +31,11 @@ En lugar de `style="--acento: …"` en el HTML, se fija con un modificador:
 ```html
 <p class="eyebrow eyebrow--dot acento-naranja">Proyecto piloto</p>
 <article class="mv-card acento-verde">…</article>
-<figure class="retrato acento-naranja">…</figure>
 ```
 
 Modificadores disponibles: `.acento-cyan` (por defecto), `.acento-verde`,
 `.acento-naranja`, `.acento-rojo`. Consumidores actuales de `--acento`:
-`.eyebrow--dot::before`, `.mv-card h3::before`, `.retrato::after`.
+`.eyebrow--dot::before`, `.mv-card h3::before`.
 
 ## Inventario de componentes
 
@@ -45,59 +44,28 @@ Modificadores disponibles: `.acento-cyan` (por defecto), `.acento-verde`,
 | `.contenedor` | `div` | Ancho máximo + gutters; se conserva porque las secciones tienen fondo *full-width* con contenido acotado |
 | `.section` | `section` | `--tinta` (fondo gris suave); siempre con `aria-labelledby` |
 | `.eyebrow` | `p` (o `h3` si titula una tarjeta) | `--dot` (punto de color vía `--acento`) |
-| `.btn` | `a` / `button` | `--primario`, `--oscuro`, `--contorno`, `--verde`; estado `[aria-disabled="true"]` |
+| `.btn` | `a` / `button` | `--primario`, `--verde` |
 | `.mv-card` | `article` + `h3` | Tarjeta de misión/visión; acento vía API |
 | `<member-card>` | custom element | Ficha exclusiva de una persona; no representa proyectos ni sustituye el encabezado de una sección |
 | `.aprendizaje-card` | `section` + `h3` | Callout con borde de acento fijo cyan |
-| `.retrato` | `figure` + `figcaption` | Círculo decorativo vía `--acento` |
-| `.superman__reel` / `.reel-marco` / `.reel-pie` | `aside` + `blockquote` | Reel oficial de Instagram en `superman.html` con enlace de respaldo accesible; el marco y el pie usan la paleta de papel de esa página y el script externo se pide al acercarse el reel al viewport |
+| `.superman__reel` / `.reel-marco` / `.reel-enlace` / `.reel-pie` | `aside` + `p` + `a` | Enlace al reel de Instagram en `superman.html`. Es un enlace simple: la página no carga el script de Instagram ni nada de otro dominio, así que funciona sin conexión y con bloqueadores. El marco y el pie usan la paleta de papel de esa página |
 | `.sub-head` | `div` + `h3` | La línea decorativa ahora es `::after` (antes un `<span>` en el HTML) |
-| `.patro-card` | `article` + `h4` | El `h4` (`.patro-card__nombre`) envuelve el logo-enlace; `.patro-card__logo` normaliza la altura a 44px para futuros patrocinadores |
-| `.colaborador` | `li` > `figure` / `a` > `figure` | Ficha circular; si una persona se asocia a un proyecto, la ficha usa un enlace nativo con destino y foco visible, y el nombre accesible del enlace dice a dónde lleva |
-| `.marquesina` | `section` desplazable | Ver estados abajo; filas `.marquesina__fila--izq/--der` |
-| `.equipos-colaboradores` | `ul` > `li` > `figure` | `__item--panoramica` (16:9), `__item--vertical` (2:3) |
 | `.colabora-card` | `article` + `h3.eyebrow` | Tarjeta de contacto para colaboraciones |
-| `.huertos__badge` | `span` | Sustituye los estilos en línea |
 | `.politica-intro` | `section` + `h1` | Cabecera oscura de `uso_responsable_ia.html`; reutiliza la retícula de puntos y el resplandor del hero |
 | `.politica` | `div` (dentro de `.contenedor`) | Bloque de lectura: el contenedor conserva su ancho y la medida de 72ch se aplica a párrafos, listas y callouts |
 | `.compromisos` / `.compromiso` | `ol` > `li` > `article` | Los cuatro compromisos de la política de IA; cada tarjeta fija su acento (`.acento-verde`, `-cyan`, `-naranja`, `-rojo`) y numera con `.compromiso__num` |
 | `.site-footer__ia` | `p` + `small` + `a` | Aviso de uso de herramientas generativas en el pie; enlaza a la política. Sustituye al antiguo aviso de copyright |
 
-Clases reservadas (definidas, aún sin instancia en la página): `.btn--oscuro`,
-`.section-lead`, `.colaboradores__nota`, `.huertos__nota`, `.marquesina__fila--der`,
-`.familia` (subtítulo de equipo en `figcaption` de `.colaborador`), `.sr-only`.
+Clases de utilidad sin instancia fija: `.section-lead`, `.sr-only`. Las clases
+de la versión completa del sitio (patrocinadores, marquesina de colaboradores,
+retratos, talento humano, botones `--oscuro` y `--contorno`) se retiraron del
+micrositio y siguen en el historial de git.
 
 ## Estados y comportamiento
 
-**Botón deshabilitado.** `.btn[aria-disabled="true"]` sigue definido como
-estado reutilizable, pero ya no tiene instancia: el CTA "Únete al equipo" de
-`miltli.html` apunta al formulario de inscripción (Google Forms, `rel="external
-noopener"`). Para volver a deshabilitar un CTA: quitar el `href` y añadir
-`aria-disabled="true"` — sin `href` no es enfocable ni activable con teclado
-(el patrón anterior, `href` + `aria-disabled`, seguía navegando con Enter).
-
-**Marquesina (mejora progresiva, tres estados explícitos):**
-
-1. *Base (sin JS):* región estática desplazable — `<section tabindex="0"
-   aria-label>` con `overflow-x: auto`, operable con teclado. Sin duplicados.
-2. *`prefers-reduced-motion`:* el script no clona; queda como la base.
-3. *Mejorado:* el script repite el grupo de fichas hasta cubrir el ancho
-   visible y después duplica la fila entera —la animación desplaza un 50 %,
-   así que media fila debe bastar para llenar la vista o el bucle deja un
-   hueco—, marca los clones con `aria-hidden="true"`, añade
-   `.marquesina--animada` (activa animación, máscara lateral y
-   `overflow: hidden`) y retira el `tabindex`.
-
-Las relaciones entre personas y proyectos se comunican con enlaces HTML
-nativos. En particular, la ficha de Jair enlaza a `superman.html`; el
-`figcaption` solo lleva el nombre y es el `aria-label` del enlace el que
-anuncia el destino, de modo que todas las fichas de la marquesina miden y
-se leen igual. Nunca se reutiliza `member-card` como contenedor de la
-sección del proyecto.
-
-Antes, los 12 clones estaban duplicados a mano en el HTML (y con movimiento
-reducido el visitante veía a cada persona dos veces). Para añadir una persona
-ahora basta un solo `<li class="colaborador">`.
+**Llamadas a la acción.** No hay botones deshabilitados ni marcadores: si un
+destino no está listo, el botón no se publica. El enlace al formulario de
+reclutamiento vuelve cuando exista un aviso de privacidad publicado.
 
 **Navegación móvil.** `button.nav-toggle` con `aria-expanded` +
 `aria-controls`; estado en `data-open` del `nav`; cierre con Escape o al
@@ -111,18 +79,14 @@ elegir destino. `.nav-cta` ya no usa `!important`: el selector compuesto
   `aria-label`).
 - Jerarquía de encabezados verificada: un `h1`, sin saltos de nivel.
 - `#quienes-somos` tiene un `h2` visible que la nombra y contiene las fichas
-  personales de Iñaki y Jair, seguidas por la subsección de talento humano.
+  personales de Iñaki y Jair.
 - `#proyecto-superman` es una sección hermana, con su propio `h2`, cabecera
   semántica y contenido exclusivamente relativo al proyecto.
 - `role="list"` en los `<ul>` con `list-style: none` — redundante según la
   especificación, pero necesario: Safari/VoiceOver elimina la semántica de
   lista al quitar los marcadores.
-- Retratos de la marquesina con `alt=""`: el `figcaption` ya nombra a la
-  persona; el `alt` anterior duplicaba el anuncio ×12. Los retratos de
-  fundadores y las fotos grupales conservan `alt` descriptivo porque aportan
-  información más allá del pie.
-- Se mantienen: skip link, `:focus-visible` global, pausa de la marquesina
-  al hover, bloque global de `prefers-reduced-motion`.
+- Se mantienen: skip link, `:focus-visible` global y bloque global de
+  `prefers-reduced-motion`.
 
 ## Excepciones de linter (intencionales)
 
@@ -143,10 +107,8 @@ Verificado en este refactor: balance de etiquetas y anidación de secciones
 balance de llaves del CSS, cero estilos en línea, cero hex fuera de `:root`,
 y `html-validate` sin errores fuera de las excepciones documentadas.
 
-Pendiente de probar en navegador real: bucle de la marquesina (con y sin
-`prefers-reduced-motion`, con JS deshabilitado), menú móvil ≤860px con
-teclado, contraste del texto atenuado sobre azul oscuro, y render con las
-imágenes reales de `assets/`.
+Pendiente de probar en navegador real: menú móvil ≤860px con teclado y
+contraste del texto atenuado sobre azul oscuro.
 
 ## Cambios estructurales respecto a la versión anterior
 
