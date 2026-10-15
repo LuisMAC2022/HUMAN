@@ -4,8 +4,10 @@
  * Atributos:
  *   name          (req) Nombre de la persona.
  *   eyebrow       (opc) Texto pequeño sobre el nombre.
- *   photo-src     (req) Ruta de la imagen (idealmente 4:5).
- *   photo-alt     (req) Texto alternativo de la imagen.
+ *   photo-src     (opc) Ruta de la imagen (idealmente 4:5). Sin ella no se
+ *                 dibuja la figura: así se publica una tarjeta sin retrato
+ *                 cuando no hay consentimiento para mostrar la foto.
+ *   photo-alt     (opc) Texto alternativo de la imagen; requerido con photo-src.
  *   caption       (opc) Pie de foto.
  *   heading-level (opc) 2|3|4 — nivel del heading del nombre. Default: 2.
  *   photo-ratio   (opc) Proporción CSS de la foto. Default: 4 / 5.
@@ -78,6 +80,7 @@ class MemberCard extends HTMLElement {
         }
         @container (min-width: 40rem) {
           article { grid-template-columns: minmax(14rem, 2fr) 3fr; align-items: start; }
+          article.sin-foto { grid-template-columns: 1fr; }
         }
         figure { margin: 0; }
         img {
@@ -147,11 +150,11 @@ class MemberCard extends HTMLElement {
         }
       </style>
 
-      <article>
-        <figure>
-          <img src="${photoSrc}" alt="${photoAlt}" width="1200" height="1500" loading="lazy">
+      <article${photoSrc ? "" : ' class="sin-foto"'}>
+        ${photoSrc ? `<figure>
+          <img src="${photoSrc}" alt="${photoAlt}" width="800" height="1000" loading="lazy">
           ${caption ? `<figcaption>${caption}</figcaption>` : ""}
-        </figure>
+        </figure>` : ""}
         <div>
           ${eyebrow ? `<p class="eyebrow">${eyebrow}</p>` : ""}
           <h${level} class="name">${name}</h${level}>

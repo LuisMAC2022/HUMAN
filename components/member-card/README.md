@@ -16,7 +16,7 @@ semántico independiente.
   name="Iñaki Moreno"
   eyebrow="Quiénes somos"
   photo-src="assets/founders/jair-4x5.webp"
-  photo-alt="Retrato de Iñaki Moreno, fundador de Human STEM"
+  photo-alt="Retrato de Iñaki Moreno, fundador de HUMAN STEM"
   caption="Iñaki Moreno, fundador">
   <p slot="summary">Tiene 23 años y es graduado de la carrera de Física y Matemáticas.</p>
   <p>Desde hace más de siete años se formó y participó en proyectos a través de <a href="https://www.selider.net/">SELIDER</a>.</p>
@@ -29,10 +29,10 @@ semántico independiente.
 | Atributo | Tipo | Default | Descripción |
 |---|---|---|---|
 | `name` | string | — (req) | Nombre; se renderiza como heading. |
-| `photo-src` | string | — (req) | Ruta de la imagen (4:5 recomendado). |
-| `photo-alt` | string | — (req) | Alt de la imagen. |
+| `photo-src` | string | — | Ruta de la imagen (4:5 recomendado). Si falta, la tarjeta no dibuja `figure` ni `figcaption` y el texto ocupa todo el ancho; úsalo así cuando no haya consentimiento para publicar el retrato. |
+| `photo-alt` | string | — | Alt de la imagen; requerido si hay `photo-src`. |
 | `eyebrow` | string | — | Kicker sobre el nombre. |
-| `caption` | string | — | Pie de foto (`figcaption`). |
+| `caption` | string | — | Pie de foto (`figcaption`); solo aparece con `photo-src`. |
 | `heading-level` | `2\|3\|4` | `2` | Nivel del heading, para respetar la jerarquía de la página anfitriona. |
 | `photo-ratio` | proporción CSS | `4 / 5` | Relación de aspecto de la foto, por ejemplo `1 / 1`; los valores no válidos usan el valor predeterminado. |
 
@@ -54,10 +54,10 @@ Usa container queries: si la tarjeta mide ≥ 40rem, foto a la izquierda y texto
 
 ## Accesibilidad
 - Heading real (`h2`–`h4` según `heading-level`) para navegación por lectores.
-- `figure`/`figcaption` para el retrato.
+- `figure`/`figcaption` para el retrato, solo cuando hay `photo-src`.
 - El bloque destacado es un `<section>` nombrado por su título; oculto si no hay contenido.
 - La cita de aprendizaje usa `<blockquote>` y la acción se presenta después de ella en el orden de lectura.
-- Imagen con `width`/`height` intrínsecos y `loading="lazy"` (evita layout shift).
+- Imagen con `width`/`height` intrínsecos (800×1000) y `loading="lazy"` (evita layout shift).
 
 ## Integración en el index
 1. Copia la carpeta `member-card/` a tu proyecto.
