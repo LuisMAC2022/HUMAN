@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Miltli, el proyecto de huertos urbanos de Human STEM.">
-  <title>Miltli — Human STEM</title>
+  <meta name="description" content="Programa Miltli de HUMAN STEM: programa socioambiental cuyo objetivo es la transformación de espacios urbanos y la gestión adecuada de los residuos orgánicos.">
+  <title>Programa Miltli — HUMAN STEM</title>
   <link rel="icon" href="assets/human-stem-isotipo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,11 +12,17 @@
   <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
   <header class="site-header">
     <div class="contenedor site-header__inner">
-      <a class="site-logo" href="index.html#inicio" aria-label="Human STEM, ir al inicio"><img src="assets/human_stem_logo_vectorizado_transparente.svg" alt="Human STEM" width="1494" height="383" fetchpriority="high"></a>
+      <a class="site-logo" href="index.html#inicio" aria-label="HUMAN STEM, ir al inicio">
+        <img src="assets/human_stem_logo_vectorizado_transparente.svg" alt="HUMAN STEM" width="1494" height="383" fetchpriority="high">
+      </a>
       <nav class="main-nav" aria-label="Navegación principal" data-open="false">
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list"><span class="nav-toggle__bars" aria-hidden="true"></span><span>Menú</span></button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
+          <span class="nav-toggle__bars" aria-hidden="true"></span><span>Menú</span>
+        </button>
         <ul class="nav-list" id="nav-list" role="list">
-          <li><a href="superman.html">Proyecto Superman</a></li><li><a href="miltli.html" aria-current="page">Miltli</a></li><li><a class="nav-cta" href="index.html#colaboraciones">Colabora</a></li>
+          <li><a href="superman.html">Proyecto Superman</a></li>
+          <li><a href="miltli.html" aria-current="page">Programa Miltli</a></li>
+          <li><a class="nav-cta" href="index.html#colaboraciones">Colabora</a></li>
         </ul>
       </nav>
     </div>
@@ -25,14 +31,31 @@
   <main id="contenido-principal">
     <section class="section huertos" id="miltli" aria-labelledby="titulo-miltli">
       <div class="contenedor huertos__inner">
-        <p class="eyebrow eyebrow--dot acento-verde">Huertos urbanos · Segundo proyecto</p>
-        <h1 class="section-title" id="titulo-miltli">Miltli</h1>
-        <p>Nuestro segundo proyecto llevará la agricultura a los espacios de la ciudad.</p>
+        <h1 class="section-title" id="titulo-miltli">Programa Miltli</h1>
+        <p>Programa socioambiental cuyo objetivo es la transformación de espacios urbanos y la gestión adecuada de los residuos orgánicos.</p>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer"><div class="contenedor"><div class="site-footer__top"><a class="site-footer__logo" href="index.html#inicio" aria-label="Human STEM, ir al inicio"><img src="assets/human_stem_logo_vectorizado_transparente.svg" alt="Human STEM" width="1494" height="383"></a><nav aria-label="Redes sociales"><ul class="site-footer__redes" role="list"><li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li><li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li></ul></nav></div><div class="site-footer__bottom"><p class="site-footer__ia"><small>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso_responsable_ia.html">Conoce más acerca de nuestra política de uso responsable</a>.</small></p><p class="lema">Ciencia y tecnología con impacto social.</p></div></div></footer>
+  <footer class="site-footer">
+    <div class="contenedor">
+      <div class="site-footer__top">
+        <a class="site-footer__logo" href="index.html#inicio" aria-label="HUMAN STEM, ir al inicio">
+          <img src="assets/human_stem_logo_vectorizado_transparente.svg" alt="HUMAN STEM" width="1494" height="383">
+        </a>
+        <nav aria-label="Redes sociales">
+          <ul class="site-footer__redes" role="list">
+            <li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__ia"><small>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso_responsable_ia.html">Conoce más acerca de nuestra política de uso responsable</a>.</small></p>
+        <p class="lema">Ciencia y tecnología con impacto social.</p>
+      </div>
+    </div>
+  </footer>
 
   <script>
     (function () { var nav = document.querySelector('.main-nav'); var toggle = nav && nav.querySelector('.nav-toggle'); if (!nav || !toggle) return; function setOpen(open) { nav.setAttribute('data-open', String(open)); toggle.setAttribute('aria-expanded', String(open)); } toggle.addEventListener('click', function () { setOpen(nav.getAttribute('data-open') !== 'true'); }); nav.querySelectorAll('.nav-list a').forEach(function (link) { link.addEventListener('click', function () { setOpen(false); }); }); document.addEventListener('keydown', function (event) { if (event.key === 'Escape') setOpen(false); }); })();

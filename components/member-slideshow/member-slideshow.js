@@ -239,7 +239,7 @@ class MemberSlideshow extends HTMLElement {
         class="carousel"
         role="region"
         aria-roledescription="carrusel"
-        aria-label="Miembros de Human STEM"
+        aria-label="Miembros de HUMAN STEM"
         tabindex="0">
         <div class="viewport">
           <div class="track"><slot name="slide"></slot></div>
@@ -334,7 +334,7 @@ class MemberSlideshow extends HTMLElement {
     });
 
     const label = this.getAttribute("aria-label")?.trim();
-    this.#carousel.setAttribute("aria-label", label || "Miembros de Human STEM");
+    this.#carousel.setAttribute("aria-label", label || "Miembros de HUMAN STEM");
     this.#updateCarousel(false);
   }
 
