@@ -333,7 +333,7 @@ class MemberSlideshow extends HTMLElement {
       this.#indicators.append(indicator);
     });
 
-    const label = this.getAttribute("aria-label")?.trim();
+    const label = (this.dataset.label || this.getAttribute("aria-label"))?.trim();
     this.#carousel.setAttribute("aria-label", label || "Miembros de HUMAN STEM");
     this.#updateCarousel(false);
   }

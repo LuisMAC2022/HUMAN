@@ -51,7 +51,7 @@ Modificadores disponibles: `.acento-cyan` (por defecto), `.acento-verde`,
 | `.superman__reel` / `.reel-marco` / `.reel-enlace` / `.reel-pie` | `aside` + `p` + `a` | Enlace al reel de Instagram en `superman.html`. Es un enlace simple: la página no carga el script de Instagram ni nada de otro dominio, así que funciona sin conexión y con bloqueadores. El marco y el pie usan la paleta de papel de esa página |
 | `.sub-head` | `div` + `h3` | La línea decorativa ahora es `::after` (antes un `<span>` en el HTML) |
 | `.colabora-card` | `article` + `h3.eyebrow` | Tarjeta de contacto para colaboraciones |
-| `.politica-intro` | `section` + `h1` | Cabecera oscura de `uso_responsable_ia.html`; reutiliza la retícula de puntos y el resplandor del hero |
+| `.politica-intro` | `section` + `h1` | Cabecera oscura de `uso-responsable-ia.html`; reutiliza la retícula de puntos y el resplandor del hero |
 | `.politica` | `div` (dentro de `.contenedor`) | Bloque de lectura: el contenedor conserva su ancho y la medida de 72ch se aplica a párrafos, listas y callouts |
 | `.compromisos` / `.compromiso` | `ol` > `li` > `article` | Los cuatro compromisos de la política de IA; cada tarjeta fija su acento (`.acento-verde`, `-cyan`, `-naranja`, `-rojo`) y numera con `.compromiso__num` |
 | `.site-footer__ia` | `p` + `small` + `a` | Aviso de uso de herramientas generativas en el pie; enlaza a la política. Sustituye al antiguo aviso de copyright |
@@ -134,11 +134,11 @@ Moreno apunta a `assets/founders/jair-4x5.webp` y la del director Jair
 Álvarez a `assets/founders/alvarez-4x5.webp` — conviene confirmar que los
 archivos no están intercambiados.
 
-## Política de uso responsable de IA (`uso_responsable_ia.html`)
+## Política de uso responsable de IA (`uso-responsable-ia.html`)
 
 El pie de todas las páginas sustituye el aviso de copyright —la asociación
 no reclama derechos reservados sobre el sitio— por la declaración de uso de
-herramientas generativas, que enlaza a `uso_responsable_ia.html`.
+herramientas generativas, que enlaza a `uso-responsable-ia.html`.
 
 La página no se añade al menú principal (reservado a secciones y proyectos);
 vive en el pie, que es donde se esperan los avisos legales y de

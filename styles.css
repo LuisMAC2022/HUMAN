@@ -776,3 +776,24 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 @media (max-width: 560px) {
   .site-footer__top { flex-direction: column; align-items: flex-start; }
 }
+
+/* =====================================================================
+   ENLACES VISITADOS E IMPRESIÓN (auditoría CATIC 2016)
+   ===================================================================== */
+/* Los enlaces visitados cambian de color (CLA-04). */
+main a:not([class]):visited { color: #6B3F86; }
+.colabora-card__correo:visited,
+.site-footer__ia a:visited { color: #D9C2F0; }
+
+/* Versión para imprimir: el contenido sin menús ni decoración (FUN-06). */
+@media print {
+  @page { margin: 16mm; }
+  body { background: #fff !important; color: #000 !important; font-size: 11pt; }
+  .skip-link, .main-nav, .nav-toggle, .hero__actions, .site-footer nav { display: none !important; }
+  .site-header { position: static; box-shadow: none; border-bottom: 1px solid #000; }
+  .hero, .colabora-card, .site-footer { background: #fff !important; color: #000 !important; }
+  .hero h1, .hero__sub, .colabora-card p, .colabora-card__correo,
+  .site-footer, .site-footer a, .site-footer__ia a { color: #000 !important; }
+  section { break-inside: avoid-page; }
+  main a[href^="http"]::after, main a[href^="mailto:"]::after { content: " (" attr(href) ")"; font-size: 9pt; }
+}

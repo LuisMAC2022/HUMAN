@@ -8,7 +8,7 @@ Carrusel manual y accesible para presentar varias instancias de `<member-card>` 
 <script src="components/member-card/member-card.js" defer></script>
 <script src="components/member-slideshow/member-slideshow.js" defer></script>
 
-<member-slideshow aria-label="Miembros de Human STEM">
+<member-slideshow data-label="Miembros de Human STEM">
   <div slot="slide">
     <member-card name="Nombre" ...>...</member-card>
   </div>
