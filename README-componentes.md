@@ -48,10 +48,10 @@ Modificadores disponibles: `.acento-cyan` (por defecto), `.acento-verde`,
 | `.mv-card` | `article` + `h3` | Tarjeta de misión/visión; acento vía API |
 | `<member-card>` | custom element | Ficha exclusiva de una persona; no representa proyectos ni sustituye el encabezado de una sección |
 | `.aprendizaje-card` | `section` + `h3` | Callout con borde de acento fijo cyan |
-| `.superman__reel` / `.reel-marco` / `.reel-enlace` / `.reel-pie` | `aside` + `p` + `a` | Enlace al reel de Instagram en `superman.html`. Es un enlace simple: la página no carga el script de Instagram ni nada de otro dominio, así que funciona sin conexión y con bloqueadores. El marco y el pie usan la paleta de papel de esa página |
+| `.superman__reel` / `.reel-marco` / `.reel-enlace` / `.reel-pie` | `aside` + `p` + `a` | Enlace a la entrevista (reel de Instagram) en `superman.html`. Es un enlace simple: la página no carga el script de Instagram ni nada de otro dominio, así que funciona sin conexión y con bloqueadores. El marco y el pie usan la paleta de papel de esa página |
 | `.sub-head` | `div` + `h3` | La línea decorativa ahora es `::after` (antes un `<span>` en el HTML) |
-| `.colabora-card` | `article` + `h3.eyebrow` | Tarjeta de contacto para colaboraciones |
-| `.politica-intro` | `section` + `h1` | Cabecera oscura de `uso-responsable-ia.html`; reutiliza la retícula de puntos y el resplandor del hero |
+| `.colabora-card` | `article` + `h2.eyebrow` | Tarjeta de contacto en `colabora.html` (`--sola`: una columna de lectura) y en `404.html` |
+| `.politica-intro` | `section` + `h1` | Cabecera oscura de `uso-responsable-ia.html`, `quienes-somos.html` y `colabora.html`; reutiliza la retícula de puntos y el resplandor del hero |
 | `.politica` | `div` (dentro de `.contenedor`) | Bloque de lectura: el contenedor conserva su ancho y la medida de 72ch se aplica a párrafos, listas y callouts |
 | `.compromisos` / `.compromiso` | `ol` > `li` > `article` | Los cuatro compromisos de la política de IA; cada tarjeta fija su acento (`.acento-verde`, `-cyan`, `-naranja`, `-rojo`) y numera con `.compromiso__num` |
 | `.site-footer__ia` | `p` + `small` + `a` | Aviso de uso de herramientas generativas en el pie; enlaza a la política. Sustituye al antiguo aviso de copyright |
@@ -78,8 +78,10 @@ elegir destino. `.nav-cta` ya no usa `!important`: el selector compuesto
   etiquetados; toda `section` con nombre accesible (`aria-labelledby` /
   `aria-label`).
 - Jerarquía de encabezados verificada: un `h1`, sin saltos de nivel.
-- `#quienes-somos` tiene un `h2` visible que la nombra y contiene las fichas
-  personales de Iñaki y Jair.
+- `quienes-somos.html` reúne misión, visión y el equipo; la sección
+  `#quienes-somos` tiene un `h2` visible («Nuestro equipo») y contiene las
+  fichas personales de Iñaki y Jair. La portada solo conserva el hero para
+  caber en una pantalla de 1024×768.
 - `#proyecto-superman` es una sección hermana, con su propio `h2`, cabecera
   semántica y contenido exclusivamente relativo al proyecto.
 - `role="list"` en los `<ul>` con `list-style: none` — redundante según la

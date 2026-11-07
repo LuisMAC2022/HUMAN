@@ -143,18 +143,6 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
 .k3{grid-column:8/13;transform:rotate(.7deg)}
 .k4{grid-column:3/11;margin-top:-8px;border-color:rgba(109,122,58,.5);background:rgba(109,122,58,.07)}
 
-/* collage */
-.collage{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);padding:64px 0;margin-top:8px}
-.collage-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0;align-items:center}
-.frag{padding:26px}
-.frag-tipo{grid-column:1/6;font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(30px,7.4vw,96px);line-height:.78;letter-spacing:-.04em;color:var(--tinta);border-right:2px solid var(--tinta)}
-.frag-tipo .a{color:var(--flex);display:block;transform:skewX(-6deg)}
-.frag-tipo .b{color:var(--ext);display:block;margin-left:.3em}
-.frag-tipo .c{color:var(--gris);display:block;font-size:.32em;letter-spacing:.04em;margin-top:.3em}
-.frag-txt{grid-column:6/11;font-size:clamp(15px,1.9vw,18px);font-weight:400;color:var(--gris-osc)}
-.frag-txt strong{color:var(--marron);font-weight:600}
-.electrodo{grid-column:11/13;align-self:stretch;min-height:150px;background:radial-gradient(circle at 30% 32%,var(--flex) 0 6px,transparent 7px),radial-gradient(circle at 68% 64%,var(--ext) 0 6px,transparent 7px),repeating-linear-gradient(0deg,var(--gris-osc) 0 2px,var(--papel-osc) 2px 9px);border:1px solid var(--tinta);transform:rotate(2deg);position:relative}
-.electrodo::after{content:"par antagonista";position:absolute;bottom:-22px;right:0;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gris-texto)}
 
 /* REEL · styles.css ya define .superman__reel con los tokens del sitio
    (blanco, radio, sombra). Aquí se reescribe con la paleta de papel de esta
@@ -171,13 +159,6 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
 .reel-pie a{color:var(--marron);text-decoration:underline;text-underline-offset:4px}
 .reel-pie a:hover{color:var(--flex-texto);border-bottom-color:var(--flex)}
 
-/* cierre */
-.cierre{padding:90px 0 100px}
-.cierre .ancla{font-family:'Spectral',serif;font-style:italic;font-weight:300;font-size:clamp(22px,4vw,40px);line-height:1.28;max-width:26ch;color:var(--tinta)}
-.cierre .ancla b{font-style:normal;font-family:'Archivo Black',sans-serif;text-transform:uppercase;color:var(--ext-texto);font-size:.92em}
-.firma{margin-top:54px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--gris-texto);display:flex;gap:18px;flex-wrap:wrap;align-items:center}
-.firma .dot{width:5px;height:5px;background:var(--flex);transform:rotate(45deg)}
-.firma .dot.e{background:var(--ext)}
 
 .r{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
 .r.in{opacity:1;transform:none}
@@ -191,10 +172,8 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
 }
 @media (max-width:760px){
   body{background-image:none}
-  .leyenda,.collage-grid{display:flex;flex-direction:column;gap:14px}
+  .leyenda{display:flex;flex-direction:column;gap:14px}
   .capa,.k1,.k2,.k3,.k4{grid-column:auto !important;transform:none !important;margin:0 !important;width:100%}
-  .frag-tipo{border-right:0;border-bottom:2px solid var(--tinta)}
-  .electrodo{transform:none;min-height:90px}
   .plano-geo{display:none}
 }
 @media (prefers-reduced-motion:reduce){
@@ -207,12 +186,11 @@ input[type=range]{flex:1;height:16px;cursor:pointer}
 /* Ajustes de lineamientos (auditoría CATIC 2016). */
 .reel-enlace a:visited,.reel-pie a:visited{color:#6B3F86}
 .sup-mision{position:relative;z-index:2;margin-top:28px;max-width:54ch;font-size:clamp(18px,2.2vw,22px);font-weight:400;color:var(--tinta);border-left:3px solid var(--flex);padding-left:16px}
-.glosario{max-width:760px}
-.glosario dl{margin:18px 0 0;display:grid;gap:14px}
+.glosario dl{max-width:760px;margin:18px 0 0;display:grid;gap:14px}
 .glosario dt{font-weight:600;color:var(--tinta)}
 .glosario dd{margin:2px 0 0}
 @media print{
-  .facetas,.emg-hero,.scroll-cue,.plano-geo,.collage{display:none!important}
+  .facetas,.emg-hero,.scroll-cue,.plano-geo{display:none!important}
   .sup-hero{min-height:0;padding:0 0 18pt}
   .r{opacity:1!important;transform:none!important}
   body{background-image:none!important}

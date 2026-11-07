@@ -153,7 +153,7 @@ body.below-ground .exploration-tools{opacity:1;visibility:visible}
 @media(max-width:380px){.site-header{padding:20px}.brand{font-size:10px;gap:7px}.brand-subtitle{font-size:5px}.concept-tag{font-size:7px;padding:7px}.hero-copy{padding-left:18px;padding-right:18px}.hero .eyebrow{font-size:7px}h1{font-size:52px}.hero-description{font-size:11px}.layer-inner{width:calc(100% - 45px);margin-left:20px}.chapter-art{height:355px}.layer{min-height:910px}.chapter-copy h2{font-size:35px}.chapter-plaque{scale:.78}.hand-note{font-size:13px;left:5px}.hand-note svg{left:132px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}.js-enabled .reveal:not(.visible){opacity:1;translate:none}}
 
-/* Programa Miltli: the infographic becomes four illustrated stops. */
+/* Programa Miltli: la guía se recorre en cuatro paradas ilustradas. */
 .underground{background:linear-gradient(180deg,#a16c45 0px,#93603f var(--stratum-1,1120px),#765138 var(--stratum-2,2100px),#574333 var(--stratum-3,3220px),#303b31 var(--stratum-4,4200px),#252d28 100%)}
 .concept-tag{transition:background .2s}.concept-tag:hover{background:#cdd9bc66}
 .concept-tag>span{font-size:13px;margin-left:3px}

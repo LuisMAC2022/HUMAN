@@ -35,9 +35,10 @@
           <span class="nav-toggle__bars" aria-hidden="true"></span><span>Menú</span>
         </button>
         <ul class="nav-list" id="nav-list" role="list">
+          <li><a href="quienes-somos.html">Quiénes somos</a></li>
           <li><a href="superman.html" aria-current="page">Proyecto Superman</a></li>
           <li><a href="miltli.html">Programa Miltli</a></li>
-          <li><a class="nav-cta" href="index.html#colaboraciones">Colabora</a></li>
+          <li><a class="nav-cta" href="colabora.html">Colabora</a></li>
         </ul>
       </nav>
     </div>
@@ -68,7 +69,7 @@
 
   <section class="seccion">
     <div class="wrap">
-      <div class="marca r"><b>01</b> Los planos se interpenetran <span class="rule"></span> Flexor ⇄ Extensor</div>
+      <div class="marca r"><b>01</b> ¿Qué es? <span class="rule"></span> Flexor ⇄ Extensor</div>
       <h2 class="r">El <span class="of">cierre</span> y la <span class="oe">apertura</span> sobre una misma superficie</h2>
       <div class="cuerpo cuerpo--separado r">
         <p>Mantén presionado cada canal (teclas <span class="term">F</span> y <span class="term">J</span>). Dos señales EMG antagonistas cruzan el lienzo; su diferencia decide la prensión y su fuerza, la intensidad. Y si <em>co-contraes</em> ambos con fuerza —tensar los dos a la vez—, el controlador lo lee como un gesto deliberado y <span class="term">cambia de agarre</span>: puño, pinza, señalar. Toca una capa para aislar esa faceta.</p>
@@ -147,22 +148,22 @@
         <div class="canal flex">
           <div class="canal-top"><h3>Flexores · cerrar</h3><span class="uv"><span id="uvF">0</span> μV</span></div>
           <div class="barra"><div class="barra-fill" id="fillF"></div><div class="barra-thr"></div></div>
-          <button id="btnF" class="btnm" aria-pressed="false">Contraer flexores<small>mantener · tecla F</small></button>
+          <button id="btnF" class="btnm" type="button" aria-pressed="false">Contraer flexores<small>mantener · tecla F</small></button>
           <div class="slider-wrap"><label for="sldF">basal</label><input id="sldF" type="range" min="0" max="100" value="0" aria-label="Tono basal de flexores"></div>
         </div>
         <div class="canal ext">
           <div class="canal-top"><h3>Extensores · abrir</h3><span class="uv"><span id="uvE">0</span> μV</span></div>
           <div class="barra"><div class="barra-fill" id="fillE"></div><div class="barra-thr"></div></div>
-          <button id="btnE" class="btnm" aria-pressed="false">Contraer extensores<small>mantener · tecla J</small></button>
+          <button id="btnE" class="btnm" type="button" aria-pressed="false">Contraer extensores<small>mantener · tecla J</small></button>
           <div class="slider-wrap"><label for="sldE">basal</label><input id="sldE" type="range" min="0" max="100" value="0" aria-label="Tono basal de extensores"></div>
         </div>
         <div class="tablero">
           <div class="tab"><span class="lbl">Diferencia Δ</span><span class="val" id="delta">equilibrio</span></div>
-          <div class="tab"><span class="lbl">Agarre activo</span><span class="val mode" id="grip">Puño</span></div>
-          <div class="tab"><span class="lbl">Estado</span><span class="val" id="estado">En reposo</span></div>
+          <div class="tab"><span class="lbl">Agarre activo</span><span class="val mode" id="grip" aria-live="polite">Puño</span></div>
+          <div class="tab"><span class="lbl">Estado</span><span class="val" id="estado" aria-live="polite">En reposo</span></div>
         </div>
       </div>
-      <p class="hint r">La <span class="cf">flexión</span> menos la <span class="ce">extensión</span> gobierna la prensión; superar el umbral cierra la mano en el agarre activo. Tensar <b>ambos a la vez</b> (co-contracción) cicla el agarre — el truco real con que muchas prótesis cambian de gesto sin más sensores.</p>
+      <p class="hint r">La <span class="cf">flexión</span> menos la <span class="ce">extensión</span> gobierna el movimiento: por encima del umbral, los flexores cierran la mano en el agarre activo y los extensores la abren, más rápido cuanto más fuerte es la señal; sin señal, la mano conserva su posición. Tensar <b>ambos a la vez</b> (co-contracción) cicla el agarre — el truco real con que muchas prótesis cambian de gesto sin más sensores.</p>
 
       <ul class="leyenda r" aria-label="Las cuatro facetas del sistema">
         <li class="capa k1" data-stage="1"><span class="ix">i</span><h3><button type="button" class="capa__btn" aria-pressed="false">Antebrazo</button></h3><p>Dos músculos opuestos en el muñón: los flexores tiran para cerrar, los extensores para abrir. Ambos siguen respondiendo a la intención aunque la mano no esté.</p><span class="micro">origen · voluntad</span></li>
@@ -173,43 +174,24 @@
     </div>
   </section>
 
-  <section class="collage">
-    <div class="wrap">
-      <div class="marca r"><b>02</b> El lazo cerrado <span class="rule"></span> El cuerpo dentro del sistema</div>
-      <div class="collage-grid">
-        <div class="frag frag-tipo r" aria-hidden="true"><span class="a">Tira</span><span class="b">afloja</span><span class="c">dos fuerzas opuestas, un solo gesto</span></div>
-        <div class="frag frag-txt r">
-          El control no es una orden, es una <strong>tensión entre opuestos</strong> —como el cuerpo mueve cualquier articulación, con músculos que se contrarrestan. La prótesis no reemplaza esa lógica: la extiende. Persona y máquina comparten el mismo tira y afloja, y en el <em>collage</em> de músculo, electrodo, código y motor la pregunta de dónde acaba uno y empieza el otro queda <strong>deliberadamente abierta</strong>.
-        </div>
-        <div class="electrodo r" aria-hidden="true"></div>
-      </div>
-    </div>
-  </section>
 
   <section class="seccion reel">
     <div class="wrap">
-      <div class="marca r"><b>03</b> Fuera del papel <span class="rule"></span> Instagram</div>
-      <h2 class="r">El esquema, <span class="oe">grabado</span></h2>
+      <div class="marca r"><b>02</b> ¿Por qué? <span class="rule"></span> Entrevista</div>
+      <h2 class="r">¿Por qué <span class="oe">Proyecto Superman</span>?</h2>
       <div class="cuerpo cuerpo--separado r">
-        <p>Hasta aquí todo han sido planos, umbrales y dos señales que se pesan. El reel del proyecto enseña la otra mitad: el prototipo fuera del diagrama.</p>
+        <p>En esta entrevista, el equipo de HUMAN STEM cuenta por qué nació Proyecto Superman y a quién busca llegar.</p>
       </div>
 
       <div class="reel-marco r">
-        <aside class="superman__reel" aria-label="Reel de Proyecto Superman en Instagram">
-          <p class="reel-enlace"><a href="https://www.instagram.com/reel/DYN5lJItlNd/" rel="external noopener" target="_blank">Ver reel de Proyecto Superman en Instagram</a></p>
+        <aside class="superman__reel" aria-label="Entrevista de Proyecto Superman en Instagram">
+          <p class="reel-enlace"><a href="https://www.instagram.com/reel/DYN5lJItlNd/" rel="external noopener" target="_blank">Ver la entrevista de Proyecto Superman en Instagram</a></p>
         </aside>
       </div>
-      <p class="reel-pie r"><span>Proyecto Superman · Reel</span> <a href="https://www.instagram.com/humanstem/" rel="external noopener" target="_blank">@humanstem</a></p>
+      <p class="reel-pie r"><span>Proyecto Superman · Entrevista</span> <a href="https://www.instagram.com/humanstem/" rel="external noopener" target="_blank">@humanstem</a></p>
     </div>
   </section>
 
-  <section class="cierre">
-    <div class="wrap">
-      <div class="marca r"><b>04</b> La lección <span class="rule"></span> Abstracción con ancla</div>
-      <p class="ancla r">Descompón la mano en dos señales que se pesan, un umbral y un juego de motores todo lo que quieras. Pero deja siempre el <b>asidero</b>: al final hay un puño que se cierra, una voluntad humana que el ojo —y el cuerpo— reconstruyen.</p>
-      <div class="firma r"><span class="dot"></span> Flexor <span class="dot e"></span> Extensor <span class="dot"></span> Δ <span class="dot e"></span> Co-contracción <span class="dot"></span> La mano como se conoce</div>
-    </div>
-  </section>
 
   <section class="seccion glosario-seccion" aria-labelledby="titulo-glosario">
     <div class="wrap glosario">
@@ -276,19 +258,27 @@ const svg=$('lienzo');
 const THR=0.30, MAXUV=480, MAXANG=80;
 const GRIPS=['Puño','Pinza','Señalar'];
 // fracción de cierre por dedo [idx,med,anu,men] y pulgar, por agarre
+// (máximo 1: un dedo no se dobla más allá de la palma)
 const SHAPE={
   Puño:   {f:[1,1,1,1], t:-0.55},
-  Pinza:  {f:[0.5,1.15,1.2,1.2], t:-0.8},
-  Señalar:{f:[0,1.1,1.15,1.15], t:-0.45}
+  Pinza:  {f:[0.7,1,1,1], t:-0.8},
+  Señalar:{f:[0,1,1,1], t:-0.45}
 };
+// Control proporcional de dos sitios, como en las prótesis mioeléctricas reales:
+// por encima del umbral, los flexores cierran y los extensores abren a una velocidad
+// proporcional a la señal; sin señal, los motores se detienen y la mano conserva su posición.
+const VMAX=1.6; // fracción del recorrido por segundo con la señal al máximo
 let F=0,Ft=0, E=0,Et=0, hold={F:false,E:false};
-let ang=0, grip=0, coLatch=false, dashF=0,dashE=0;
+let pos=0, ang=0, grip=0, coLatch=false, dashF=0,dashE=0, last=0;
 
 function setHold(ch,on){hold[ch]=on;const b=ch==='F'?btnF:btnE;b.classList.toggle('activo',on);b.setAttribute('aria-pressed',on)}
 btnF.addEventListener('pointerdown',e=>{e.preventDefault();setHold('F',true)});
 btnE.addEventListener('pointerdown',e=>{e.preventDefault();setHold('E',true)});
 window.addEventListener('pointerup',()=>{setHold('F',false);setHold('E',false)});
-addEventListener('keydown',e=>{if(e.repeat)return;if(e.code==='KeyF'){setHold('F',true)}if(e.code==='KeyJ'){setHold('E',true)}});
+addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;if(e.target.closest&&e.target.closest('input,textarea,select,[contenteditable]'))return;if(e.code==='KeyF'){setHold('F',true)}if(e.code==='KeyJ'){setHold('E',true)}});
+// Si la ventana pierde el foco (o el gesto se cancela), no queda ningún canal "pegado".
+window.addEventListener('blur',()=>{setHold('F',false);setHold('E',false)});
+window.addEventListener('pointercancel',()=>{setHold('F',false);setHold('E',false)});
 addEventListener('keyup',e=>{if(e.code==='KeyF')setHold('F',false);if(e.code==='KeyJ')setHold('E',false)});
 btnF.addEventListener('keydown',e=>{if(e.code==='Space'||e.code==='Enter'){e.preventDefault();setHold('F',true)}});
 btnF.addEventListener('keyup',e=>{if(e.code==='Space'||e.code==='Enter'){setHold('F',false)}});
@@ -307,7 +297,9 @@ function buildEMG(y0,amp,seed){
 }
 
 let selected=null;
-function frame(){
+function setText(el,t){if(el.textContent!==t)el.textContent=t}
+function frame(now){
+  const dt=last?Math.min(0.05,(now-last)/1000):0; last=now;
   Ft=hold.F?1:(sldF.value/100); Et=hold.E?1:(sldE.value/100);
   F+=(Ft-F)*((Ft>F)?0.22:0.10); E+=(Et-E)*((Et>E)?0.22:0.10);
   if(F<0.001)F=0; if(E<0.001)E=0;
@@ -323,22 +315,25 @@ function frame(){
   if(fibE)fibE.setAttribute('stroke-width',(1.5+E*3).toFixed(1));
 
   // co-contracción → cambia agarre (una vez por evento)
-  const co=Math.min(F,E);
+  // Solo cuenta como co-contracción si ambos canales se están contrayendo a la vez;
+  // así, pasar de cerrar a abrir (una señal baja mientras la otra sube) no cambia el agarre.
+  const co=Math.min(F,E)>0.45&&Math.min(Ft,Et)>0.45?Math.min(F,E):Math.min(F,E,0.44);
   if(co>0.45&&!coLatch){grip=(grip+1)%GRIPS.length;coLatch=true;}
   if(co<0.18)coLatch=false;
   const gname=GRIPS[grip];
-  gripEl.textContent=gname;
+  setText(gripEl,gname);
 
   // diferencia gobierna cierre
   const diff=F-0.9*E;
   const eff=Math.max(0,Math.min(1,diff));
   const open=Math.max(0,Math.min(1,-diff));
-  const supra=eff>THR && co<0.45;
+  const supra=eff>THR && co<0.45;          // cierre por encima del umbral
+  const opening=open>THR && co<0.45;       // apertura por encima del umbral
 
   // balanza se inclina con la diferencia
   const tilt=Math.max(-14,Math.min(14,(F-E)*20));
   balanza.setAttribute('transform',`rotate(${tilt.toFixed(1)} 735 230)`);
-  deltaEl.textContent = co>0.45?'co-contracción':(Math.abs(F-E)<0.05?'equilibrio':(F>E?'cierre +':'apertura −'));
+  setText(deltaEl, co>0.45?'co-contracción':(Math.abs(F-E)<0.05?'equilibrio':(F>E?'cierre +':'apertura −')));
   deltaEl.classList.toggle('on',supra);
 
   intent.setAttribute('opacity',supra?(0.35+(eff-THR)/(1-THR)*0.55).toFixed(2):0);
@@ -349,13 +344,13 @@ function frame(){
   if(!reduce){dashF-=2+F*10;dashE-=2+E*10;hiloF.setAttribute('stroke-dashoffset',dashF);hiloE.setAttribute('stroke-dashoffset',dashE);}
 
   // mano: agarre activo escalado por cierre efectivo; extensión abre (ángulo leve negativo)
-  const closeT = supra ? (eff-THR)/(1-THR) : 0;
+  if(supra)  pos=Math.min(1,pos+VMAX*(eff-THR)/(1-THR)*dt);
+  if(opening)pos=Math.max(0,pos-VMAX*(open-THR)/(1-THR)*dt);
   const sh=SHAPE[gname];
-  const targetAng = closeT*MAXANG;
-  ang += (targetAng-ang)*0.16;
+  ang += (pos*MAXANG-ang)*0.35;
   const spread = -open*10; // apertura activa
   for(let i=0;i<4;i++){
-    const base=[[1016,150],[1019,176],[1021,202],[1019,228]][i];
+    const base=[[1015,150],[1018,176],[1020,202],[1018,228]][i];
     const a = ang*sh.f[i] + (ang<2?spread:0);
     rot('f-'+i,base[0],base[1],a);
   }
@@ -363,20 +358,19 @@ function frame(){
 
   // estado + cascada
   let txt,on=false;
-  if(F<0.02&&E<0.02){txt='En reposo';}
-  else if(co>0.45){txt='Cambio de modo →';on=true;}
-  else if(open>0.15&&eff<THR){txt='Abriendo';}
-  else if(!supra){txt='Captando señal…';}
-  else if(closeT<0.85){txt='Cerrando · '+gname;on=true;}
-  else{txt='Prensión completa';on=true;}
-  estadoEl.textContent=txt; estadoEl.classList.toggle('on',on);
+  if(co>0.45){txt='Cambio de modo →';on=true;}
+  else if(supra){txt=pos<0.99?'Cerrando · '+gname:'Prensión completa';on=true;}
+  else if(opening){txt=pos>0.01?'Abriendo':'Mano abierta';}
+  else if(F<0.02&&E<0.02){txt=pos>0.01?'Sosteniendo · '+gname:'En reposo';}
+  else{txt='Captando señal…';}
+  setText(estadoEl,txt); estadoEl.classList.toggle('on',on);
 
   act(0,(F>0.02||E>0.02));
   act(1,(F>0.08||E>0.08));
-  act(2,supra||co>0.45);
+  act(2,supra||opening||co>0.45);
   act(3,ang>3);
 
-  requestAnimationFrame(frame);
+  if(visible)requestAnimationFrame(frame);else{running=false;last=0;}
 }
 function rot(id,cx,cy,deg){$(id).setAttribute('transform',`rotate(${deg.toFixed(2)} ${cx} ${cy})`)}
 function act(i,on){if(capas[i])capas[i].classList.toggle('activa',on&&selected===null)}
@@ -394,7 +388,9 @@ capas.forEach(c=>{
   c.querySelector('.capa__btn').addEventListener('click',()=>selectStage(c.dataset.stage));
 });
 
-requestAnimationFrame(frame);
+// La simulación solo se calcula mientras el lienzo está en pantalla.
+let visible=true,running=false;
+new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible&&!running){running=true;requestAnimationFrame(frame);}}).observe(document.querySelector('.consola'));
 </script>
 </body>
 </html>

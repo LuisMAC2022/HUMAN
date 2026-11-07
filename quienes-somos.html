@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Quiénes somos en HUMAN STEM: misión, visión y equipo de la asociación civil.">
+  <title>Quiénes somos — HUMAN STEM</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HUMAN STEM">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:title" content="Quiénes somos — HUMAN STEM">
+  <meta property="og:description" content="Quiénes somos en HUMAN STEM: misión, visión y equipo de la asociación civil.">
+  <meta property="og:url" content="https://luismac2022.github.io/HUMAN/quienes-somos.html">
+  <meta property="og:image" content="https://luismac2022.github.io/HUMAN/assets/og/human-stem.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logotipo de HUMAN STEM">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/human-stem-isotipo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="components/member-card/member-card.js" defer></script>
+  <script src="components/member-slideshow/member-slideshow.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="contenedor site-header__inner">
+      <a class="site-logo" href="index.html#inicio" aria-label="HUMAN STEM, ir al inicio">
+        <img src="assets/human-stem-logo.svg" alt="HUMAN STEM" width="1494" height="383" fetchpriority="high">
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal" data-open="false">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
+          <span class="nav-toggle__bars" aria-hidden="true"></span><span>Menú</span>
+        </button>
+        <ul class="nav-list" id="nav-list" role="list">
+          <li><a href="quienes-somos.html" aria-current="page">Quiénes somos</a></li>
+          <li><a href="superman.html">Proyecto Superman</a></li>
+          <li><a href="miltli.html">Programa Miltli</a></li>
+          <li><a class="nav-cta" href="colabora.html">Colabora</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+    <section class="politica-intro" aria-labelledby="titulo-pagina">
+      <div class="contenedor politica-intro__inner">
+        <p class="eyebrow eyebrow--dot acento-cyan">Nosotros</p>
+        <h1 class="section-title" id="titulo-pagina">Quiénes somos</h1>
+        <p class="politica-intro__sub">HUMAN STEM es una asociación civil, laica, apartidista y sin fines de lucro que desarrolla proyectos sociales, ambientales y culturales de alto impacto con una perspectiva científica y tecnológica.</p>
+      </div>
+    </section>
+
+    <section class="section" id="mision-vision" aria-labelledby="titulo-mision-vision">
+      <div class="contenedor">
+        <p class="eyebrow">Misión y visión</p>
+        <h2 class="section-title" id="titulo-mision-vision">Conocimiento al servicio de la comunidad</h2>
+        <div class="mv-cards">
+          <article class="mv-card acento-cyan" aria-labelledby="titulo-mision">
+            <h3 id="titulo-mision">Misión</h3>
+            <p>Poner el conocimiento científico y tecnológico al servicio de la comunidad, afrontando desafíos ambientales, sociales y culturales.</p>
+          </article>
+          <article class="mv-card acento-verde" aria-labelledby="titulo-vision">
+            <h3 id="titulo-vision">Visión</h3>
+            <p>Desarrollar soluciones sostenibles a largo plazo con alto impacto en el país y sus comunidades.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section quienes" id="quienes-somos" aria-labelledby="titulo-quienes-somos">
+      <div class="contenedor">
+        <h2 class="section-title" id="titulo-quienes-somos">Nuestro equipo</h2>
+
+        <member-slideshow data-label="Miembros de HUMAN STEM">
+          <div slot="slide">
+            <member-card
+              name="Iñaki Moreno"
+              eyebrow="Fundador de HUMAN STEM"
+              heading-level="3">
+              <p slot="summary"> Graduado de la carrera de Física y Matemáticas.</p>
+              <p>Desde hace más de siete años se formó y participó en proyectos a través de <a href="https://www.selider.net/">SELIDER</a>.</p>
+              <h3 slot="highlight-title">Aprendizaje central</h3>
+              <blockquote slot="highlight">El asistencialismo nace de intenciones nobles y cambia vidas, pero no resuelve los problemas de una sociedad: los insumos se acaban, los apoyos puntuales son finitos, hay problemas imposibles de resolver en un día e incluso puede causar efectos negativos en la comunidad que pretende beneficiar.</blockquote>
+            </member-card>
+          </div>
+
+          <div slot="slide">
+            <member-card
+              name="Jair Álvarez"
+              eyebrow="Director de Proyecto Superman"
+              heading-level="3"
+              action-href="superman.html"
+              action-label="Conoce Proyecto Superman">
+              <p slot="summary">Director de Proyecto Superman y miembro de HUMAN STEM.</p>
+            </member-card>
+          </div>
+        </member-slideshow>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor">
+      <div class="site-footer__top">
+        <a class="site-footer__logo" href="index.html#inicio" aria-label="HUMAN STEM, ir al inicio">
+          <img src="assets/human-stem-logo.svg" alt="HUMAN STEM" width="1494" height="383">
+        </a>
+        <nav aria-label="Redes sociales">
+          <ul class="site-footer__redes" role="list">
+            <li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li>
+            <li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__ia"><small>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso-responsable-ia.html">Conoce más acerca de nuestra política de uso responsable</a>.</small></p>
+        <p class="lema">Ciencia y tecnología con impacto social.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var nav = document.querySelector('.main-nav');
+      var toggle = nav && nav.querySelector('.nav-toggle');
+      if (!nav || !toggle) return;
+      function setOpen(open) {
+        nav.setAttribute('data-open', String(open));
+        toggle.setAttribute('aria-expanded', String(open));
+      }
+      toggle.addEventListener('click', function () { setOpen(nav.getAttribute('data-open') !== 'true'); });
+      nav.querySelectorAll('.nav-list a').forEach(function (link) {
+        link.addEventListener('click', function () { setOpen(false); });
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') setOpen(false);
+      });
+    })();
+  </script>
+</body>
+</html>

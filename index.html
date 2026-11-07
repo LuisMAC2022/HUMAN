@@ -18,10 +18,15 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/human-stem-isotipo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
-  <script src="components/member-card/member-card.js" defer></script>
-  <script src="components/member-slideshow/member-slideshow.js" defer></script>
+  <script>
+    /* Las secciones que vivían en la portada ahora tienen página propia. */
+    (function () {
+      var destinos = { '#colaboraciones': 'colabora.html', '#quienes-somos': 'quienes-somos.html', '#mision-vision': 'quienes-somos.html' };
+      if (destinos[location.hash]) location.replace(destinos[location.hash]);
+    })();
+  </script>
 </head>
-<body>
+<body class="portada">
   <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
 
   <header class="site-header">
@@ -34,9 +39,10 @@
           <span class="nav-toggle__bars" aria-hidden="true"></span><span>Menú</span>
         </button>
         <ul class="nav-list" id="nav-list" role="list">
+          <li><a href="quienes-somos.html">Quiénes somos</a></li>
           <li><a href="superman.html">Proyecto Superman</a></li>
           <li><a href="miltli.html">Programa Miltli</a></li>
-          <li><a class="nav-cta" href="index.html#colaboraciones">Colabora</a></li>
+          <li><a class="nav-cta" href="colabora.html">Colabora</a></li>
         </ul>
       </nav>
     </div>
@@ -50,71 +56,6 @@
         <div class="hero__actions">
           <a class="btn btn--primario" href="superman.html">Conoce el Proyecto Superman <span class="btn__arrow" aria-hidden="true">→</span></a>
           <a class="btn btn--verde" href="miltli.html">Conoce el Programa Miltli <span class="btn__arrow" aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="mision-vision" aria-labelledby="titulo-mision-vision">
-      <div class="contenedor">
-        <p class="eyebrow">Misión y visión</p>
-        <h2 class="section-title" id="titulo-mision-vision">Conocimiento al servicio de la comunidad</h2>
-        <div class="mv-cards">
-          <article class="mv-card acento-cyan" aria-labelledby="titulo-mision">
-            <h3 id="titulo-mision">Misión</h3>
-            <p>Poner el conocimiento científico y tecnológico al servicio de la comunidad, afrontando desafíos ambientales, sociales y culturales.</p>
-          </article>
-          <article class="mv-card acento-verde" aria-labelledby="titulo-vision">
-            <h3 id="titulo-vision">Visión</h3>
-            <p>Desarrollar soluciones sostenibles a largo plazo con alto impacto en el país y sus comunidades.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section quienes" id="quienes-somos" aria-labelledby="titulo-quienes-somos">
-      <div class="contenedor">
-        <h2 class="section-title" id="titulo-quienes-somos">Quiénes somos</h2>
-
-        <member-slideshow data-label="Miembros de HUMAN STEM">
-          <div slot="slide">
-            <member-card
-              name="Iñaki Moreno"
-              eyebrow="Fundador de HUMAN STEM"
-              heading-level="3">
-              <p slot="summary"> Graduado de la carrera de Física y Matemáticas.</p>
-              <p>Desde hace más de siete años se formó y participó en proyectos a través de <a href="https://www.selider.net/">SELIDER</a>.</p>
-              <h3 slot="highlight-title">Aprendizaje central</h3>
-              <blockquote slot="highlight">El asistencialismo nace de intenciones nobles y cambia vidas, pero no resuelve los problemas de una sociedad: los insumos se acaban, los apoyos puntuales son finitos, hay problemas imposibles de resolver en un día e incluso puede causar efectos negativos en la comunidad que pretende beneficiar.</blockquote>
-            </member-card>
-          </div>
-
-          <div slot="slide">
-            <member-card
-              name="Jair Álvarez"
-              eyebrow="Director de Proyecto Superman"
-              heading-level="3"
-              action-href="superman.html"
-              action-label="Conoce Proyecto Superman">
-              <p slot="summary">Director de Proyecto Superman y miembro de HUMAN STEM.</p>
-            </member-card>
-          </div>
-        </member-slideshow>
-      </div>
-    </section>
-
-    <section class="section section--tinta" id="colaboraciones" aria-labelledby="titulo-colaboraciones">
-      <div class="contenedor">
-        <div class="colaboraciones__grid">
-          <div class="colaboraciones__intro">
-            <p class="eyebrow eyebrow--dot acento-rojo">Súmate</p>
-            <h2 class="section-title" id="titulo-colaboraciones">Colaboraciones</h2>
-            <p>Tu apoyo hace posible el desarrollo de este ecosistema de ciencia, tecnología e impacto social.</p>
-          </div>
-          <article class="colabora-card" aria-labelledby="titulo-contacto-colaboraciones">
-            <h3 class="eyebrow" id="titulo-contacto-colaboraciones">Contacto para colaboraciones</h3>
-            <p>Para colaborar con nosotros, por favor escríbenos. Te responderemos con los datos necesarios.</p>
-            <a class="colabora-card__correo" href="mailto:human.stem.org@gmail.com">human.stem.org@gmail.com</a>
-          </article>
         </div>
       </div>
     </section>

@@ -535,20 +535,8 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 /* =====================================================================
    COLABORACIONES
    ===================================================================== */
-/* El texto y la tarjeta de contacto comparten una columna de lectura:
-   el titular arriba y la tarjeta debajo, sin columna lateral vacía. */
-.colaboraciones__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr);
-  grid-template-areas:
-    "intro"
-    "tarjeta";
-  row-gap: clamp(24px, 3vw, 36px);
-  align-items: start;
-}
-.colaboraciones__intro { grid-area: intro; }
-.colabora-card { grid-area: tarjeta; }
-.colaboraciones__intro .section-title { max-width: 16ch; }
+/* La página Colabora muestra la tarjeta de contacto sola, en una columna de lectura. */
+.colabora-card--sola { max-width: 640px; }
 
 .colabora-card {
   background: var(--human-azul-oscuro);
@@ -797,3 +785,25 @@ main a:not([class]):visited { color: #6B3F86; }
   section { break-inside: avoid-page; }
   main a[href^="http"]::after, main a[href^="mailto:"]::after { content: " (" attr(href) ")"; font-size: 9pt; }
 }
+
+/* =====================================================================
+   PORTADA EN UNA SOLA PANTALLA (CLA-11)
+   La portada solo presenta a la asociación y sus dos proyectos; el hero
+   ocupa el alto disponible entre la cabecera y el pie, sin desplazamiento
+   a 1024×768. El resto del contenido vive en sus propias páginas.
+   ===================================================================== */
+.portada {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+.portada main { flex: 1; display: flex; }
+.portada .hero { flex: 1; display: flex; align-items: center; }
+.portada .hero__inner { padding-block: clamp(32px, 5vh, 64px); width: 100%; }
+.portada .hero h1 { font-size: clamp(2rem, 4.4vw, 3.6rem); }
+.portada .hero__sub { margin-top: 20px; }
+.portada .hero__actions { margin-top: 28px; }
+.portada .site-footer { padding-block: 22px; }
+.portada .site-footer__top { padding-bottom: 16px; }
+.portada .site-footer__bottom { margin-top: 14px; }
