@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mapa del sitio y búsqueda — HUMAN STEM</title>
+  <meta name="description" content="Todas las secciones de HUMAN STEM, Proyecto Superman y Programa Miltli en una lista, con buscador.">
+  <meta name="keywords" content="mapa del sitio, búsqueda, HUMAN STEM, Proyecto Superman, Programa Miltli">
+  <meta name="theme-color" content="#0a141d">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HUMAN STEM">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:title" content="Mapa del sitio y búsqueda — HUMAN STEM">
+  <meta property="og:description" content="Todas las secciones de HUMAN STEM, Proyecto Superman y Programa Miltli en una lista, con buscador.">
+  <meta property="og:url" content="https://human-stem-feria-2026.laexrana.chatgpt.site/mapa-del-sitio.html">
+  <meta property="og:image" content="https://human-stem-feria-2026.laexrana.chatgpt.site/assets/og/human-stem.png">
+  <meta property="og:image:alt" content="Logotipo de HUMAN STEM">
+  <link rel="icon" href="assets/human-stem-isotipo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="comun.css">
+  <link rel="stylesheet" href="atlas.css">
+  <script src="js/planos.js"></script>
+</head>
+<body>
+  <a class="salto" href="#contenido">Saltar al contenido principal</a>
+
+  <header class="cabecera">
+    <a class="marca" href="index.html"><img src="assets/human-stem-logo.svg" alt="HUMAN STEM, inicio" width="1494" height="383"></a>
+    <nav class="menu" aria-label="Navegación principal">
+      <button class="menu__boton" type="button" aria-expanded="false" aria-controls="menu-lista">Menú</button>
+      <ul class="menu__lista" id="menu-lista">
+        <li><a href="index.html#quienes-somos">Quiénes somos</a></li>
+        <li><a href="superman.html">Proyecto Superman</a></li>
+        <li><a href="miltli.html">Programa Miltli</a></li>
+        <li><a class="menu__cta" href="index.html#colabora">Colabora</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="documento" id="contenido">
+    <nav class="ruta" aria-label="Ruta de navegación">
+      <ol>
+        <li><a href="index.html">Inicio</a></li>
+        <li><span aria-current="page">Mapa del sitio</span></li>
+      </ol>
+    </nav>
+
+    <h1>Mapa del sitio</h1>
+    <form class="buscador mapa__buscador" id="mapa-formulario" action="mapa-del-sitio.html" method="get" role="search">
+      <label for="consulta">Busca una sección
+        <input id="consulta" name="q" type="search" autocomplete="off">
+      </label>
+      <button type="submit">Buscar</button>
+    </form>
+    <p class="mapa__estado" id="mapa-estado" role="status"></p>
+    <div class="tarjeta" id="mapa-vacio" hidden>
+      <p>Prueba con otra palabra, por ejemplo «composta», «prótesis» o «equipo», o revisa la lista completa borrando la búsqueda. Si no encuentras lo que necesitas, escríbenos a <a href="mailto:human.stem.org@gmail.com">human.stem.org@gmail.com</a>.</p>
+    </div>
+
+      <section class="mapa__grupo" aria-labelledby="mapa-horizonte">
+        <h2 id="mapa-horizonte">Horizonte: HUMAN STEM</h2>
+        <ul class="sin-vinetas">
+          <li data-busca="portada home principal asociacion civil incubadora"><a href="index.html">Inicio</a> <span class="mapa__que">La organización: una asociación civil que incuba proyectos con perspectiva científica y tecnológica.</span></li>
+          <li data-busca="nosotros organizacion acerca"><a href="index.html#quienes-somos">Quiénes somos</a> <span class="mapa__que">Asociación civil, laica, apartidista y sin fines de lucro.</span></li>
+          <li data-busca="objetivo proposito"><a href="index.html#mision">Misión</a> <span class="mapa__que">Conocimiento científico y tecnológico al servicio de la comunidad.</span></li>
+          <li data-busca="futuro"><a href="index.html#vision">Visión</a> <span class="mapa__que">Soluciones sostenibles a largo plazo con alto impacto.</span></li>
+          <li data-busca="personas integrantes fundador director miembros"><a href="index.html#equipo">Equipo</a> <span class="mapa__que">Iñaki Moreno, fundador, y Jair Álvarez, director de Proyecto Superman.</span></li>
+          <li data-busca="contacto colaboraciones apoyo donar voluntariado reclutamiento sumate unirse correo email"><a href="index.html#colabora">Colabora</a> <span class="mapa__que">Correo de contacto y formulario de reclutamiento.</span></li>
+        </ul>
+      </section>
+      <section class="mapa__grupo" aria-labelledby="mapa-cielo">
+        <h2 id="mapa-cielo">Cielo: Proyecto Superman</h2>
+        <ul class="sin-vinetas">
+          <li data-busca="protesis mano mioelectrica constelacion"><a href="superman.html">Proyecto Superman</a> <span class="mapa__que">Prótesis de grado médico accesibles. La constelación del puño reúne sus secciones.</span></li>
+          <li data-busca="objetivo mision protesis accesibles"><a href="superman.html#proposito">Propósito</a> <span class="mapa__que">A quién busca llegar el proyecto.</span></li>
+          <li data-busca="simulador interactivo flexores extensores electrodos emg electromiografia controlador servos agarre puno pinza senalar como funciona"><a href="superman.html#funcionamiento">Funcionamiento</a> <span class="mapa__que">Simulador: dos músculos antagonistas gobiernan la mano.</span></li>
+          <li data-busca="video instagram reel por que"><a href="superman.html#entrevista">Entrevista</a> <span class="mapa__que">Por qué nació el proyecto, en video.</span></li>
+          <li data-busca="definiciones terminos electromiografia cocontraccion"><a href="superman.html#glosario">Glosario</a> <span class="mapa__que">Prótesis mioeléctrica, EMG, músculos antagonistas, co-contracción y umbral.</span></li>
+          <li data-busca="colabora director jair alvarez apoyo"><a href="superman.html#sumate">Súmate</a> <span class="mapa__que">Dirección del proyecto y cómo apoyarlo.</span></li>
+        </ul>
+      </section>
+      <section class="mapa__grupo" aria-labelledby="mapa-tierra">
+        <h2 id="mapa-tierra">Tierra: Programa Miltli</h2>
+        <ul class="sin-vinetas">
+          <li data-busca="composta compostaje residuos cultivos urbanos huertos"><a href="miltli.html">Programa Miltli</a> <span class="mapa__que">Guía ilustrada para aprender a compostar en casa, en cuatro paradas bajo la superficie.</span></li>
+          <li data-busca="compostera recipiente materiales tierra"><a href="miltli.html#raices">Material previo</a> <span class="mapa__que">El recipiente y los materiales secos y verdes.</span></li>
+          <li data-busca="frutas verduras papel carton cafe cascaras huevo evitar"><a href="miltli.html#vida">Qué se puede compostar</a> <span class="mapa__que">Lo que sí se puede compostar y lo que conviene dejar fuera.</span></li>
+          <li data-busca="proceso humedad riego mezclar capas cuidado"><a href="miltli.html#huellas">Paso a paso</a> <span class="mapa__que">Capas, humedad, mezcla y continuidad.</span></li>
+          <li data-busca="participar reclutamiento formulario comunidad"><a href="miltli.html#profundidad">Participa</a> <span class="mapa__que">Composta y cultivos urbanos en comunidad; formulario para participar.</span></li>
+          <li data-busca="descargar pdf imprimir guia"><a href="assets/pdf/guia-compostaje-miltli.pdf">Guía de compostaje en PDF</a> <span class="mapa__que">La guía para leer sin conexión o imprimir.</span></li>
+        </ul>
+      </section>
+      <section class="mapa__grupo" aria-labelledby="mapa-sobre-este-sitio">
+        <h2 id="mapa-sobre-este-sitio">Sobre este sitio</h2>
+        <ul class="sin-vinetas">
+          <li data-busca="autores licencias fuentes tipografias"><a href="creditos.html">Créditos</a> <span class="mapa__que">Administración, tipografías, ilustraciones y herramientas.</span></li>
+          <li data-busca="inteligencia artificial politica transparencia codex claude"><a href="uso-responsable-ia.html">Uso responsable de IA generativa</a> <span class="mapa__que">La política con la que se construyó este sitio.</span></li>
+          <li data-busca="ingles english idioma traduccion"><a href="en/index.html" lang="en" hreflang="en">English version</a> <span class="mapa__que">La portada del sitio en inglés.</span></li>
+        </ul>
+      </section>
+  </main>
+
+  <footer class="pie">
+    <div class="pie__fila">
+      <nav aria-label="Enlaces del pie">
+        <ul class="pie__enlaces">
+          <li><a href="mapa-del-sitio.html" aria-current="page">Mapa del sitio</a></li>
+          <li><a href="creditos.html">Créditos</a></li>
+          <li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li>
+          <li><a href="en/index.html" lang="en" hreflang="en">English</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p>© 2026 HUMAN STEM. Sitio web administrado por: HUMAN STEM. <a href="mailto:human.stem.org@gmail.com">human.stem.org@gmail.com</a>. Última actualización: <time datetime="2026-11-10">10 de noviembre de 2026</time>.</p>
+    <p>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso-responsable-ia.html">Política de uso responsable de IA</a>.</p>
+    <p class="pie__feria">Presentado en la Feria de la Red de Responsabilidad Social, <a href="https://www.acatlan.unam.mx/" rel="external noopener">FES Acatlán</a>, <a href="https://www.unam.mx/" rel="external noopener">UNAM</a>.</p>
+  </footer>
+
+  <script src="js/mapa.js" defer></script>
+</body>
+</html>

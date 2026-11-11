@@ -1,0 +1,34 @@
+Chromium 153.0.8010.0 · 390×780 · CPU 4× · primera carga
+Bytes sin comprimir. Prefetch y prerender figuran aparte.
+index.html · 100106 B · 14 solicitudes · anticipadas 2 (60426 B)
+  DOMContentLoaded 536 ms · carga 560 ms · CLS 0.0000
+  assets/fonts/spectral/spectral-latin-400-normal.woff2 19468 B · comun.css 17499 B · horizonte.css 12947 B · index.html 11242 B · js/tour.js 11067 B
+  Otros orígenes · 0
+en/index.html · 100259 B · 14 solicitudes · anticipadas 2 (60426 B)
+  DOMContentLoaded 217 ms · carga 236 ms · CLS 0.0000
+  assets/fonts/spectral/spectral-latin-400-normal.woff2 19468 B · comun.css 17499 B · horizonte.css 12947 B · en/index.html 11395 B · js/tour.js 11067 B
+  Otros orígenes · 0
+superman.html · 142205 B · 10 solicitudes · anticipadas 2 (46057 B)
+  DOMContentLoaded 251 ms · carga 292 ms · CLS 0.0000
+  superman.html 25611 B · assets/fonts/spectral/spectral-latin-600-normal.woff2 20600 B · assets/fonts/spectral/spectral-latin-400-normal.woff2 19468 B · comun.css 17499 B · js/superman.js 17359 B
+  Otros orígenes · 0
+miltli.html · 147693 B · 10 solicitudes · anticipadas 2 (36853 B)
+  DOMContentLoaded 187 ms · carga 189 ms · CLS 0.0000
+  miltli.css 41712 B · miltli.html 34815 B · assets/fonts/spectral/spectral-latin-400-normal.woff2 19468 B · comun.css 17499 B · js/tour.js 11067 B
+  Otros orígenes · 0
+mapa-del-sitio.html · 57599 B · 7 solicitudes · anticipadas 0 (0 B)
+  DOMContentLoaded 68 ms · carga 140 ms · CLS 0.0525
+  assets/fonts/spectral/spectral-latin-400-normal.woff2 19468 B · comun.css 17499 B · mapa-del-sitio.html 9762 B · assets/human-stem-logo.svg 3954 B · atlas.css 2824 B
+  Otros orígenes · 0
+creditos.html · 51257 B · 6 solicitudes · anticipadas 0 (0 B)
+  DOMContentLoaded 74 ms · carga 164 ms · CLS 0.0169
+  assets/fonts/spectral/spectral-latin-400-normal.woff2 19468 B · comun.css 17499 B · creditos.html 5138 B · assets/human-stem-logo.svg 3954 B · atlas.css 2824 B
+  Otros orígenes · 0
+uso-responsable-ia.html · 96709 B · 8 solicitudes · anticipadas 0 (0 B)
+  DOMContentLoaded 143 ms · carga 150 ms · CLS 0.0000
+  assets/fonts/spectral/spectral-latin-600-normal.woff2 20600 B · assets/fonts/spectral/spectral-latin-400-italic.woff2 20348 B · assets/fonts/spectral/spectral-latin-400-normal.woff2 19468 B · comun.css 17499 B · uso-responsable-ia.html 9642 B
+  Otros orígenes · 0
+404.html · 50741 B · 6 solicitudes · anticipadas 0 (0 B)
+  DOMContentLoaded 43 ms · carga 97 ms · CLS 0.2562
+  assets/fonts/spectral/spectral-latin-400-normal.woff2 19468 B · comun.css 17499 B · 404.html 4622 B · assets/human-stem-logo.svg 3954 B · atlas.css 2824 B
+  Otros orígenes · 0

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luismac2022.github.io/HUMAN/sitemap.xml

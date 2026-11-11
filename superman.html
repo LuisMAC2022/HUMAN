@@ -1,396 +1,409 @@
 <!DOCTYPE html>
 <html lang="es-MX">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Proyecto Superman: cómo un par de músculos antagonistas gobierna una prótesis de mano mioeléctrica.">
-<title>Proyecto Superman — HUMAN STEM</title>
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="HUMAN STEM">
-<meta property="og:locale" content="es_MX">
-<meta property="og:title" content="Proyecto Superman">
-<meta property="og:description" content="Proyecto Superman: cómo un par de músculos antagonistas gobierna una prótesis de mano mioeléctrica.">
-<meta property="og:url" content="https://luismac2022.github.io/HUMAN/superman.html">
-<meta property="og:image" content="https://luismac2022.github.io/HUMAN/assets/og/human-stem.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Logotipo de HUMAN STEM">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/human-stem-isotipo.svg" type="image/svg+xml">
-<!-- La hoja del sitio va ANTES de superman.css: aporta la cabecera
-     y el pie comunes, y superman.css conserva la tipografía propia. -->
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="superman.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Proyecto Superman — HUMAN STEM</title>
+  <meta name="description" content="Proyecto Superman busca brindar prótesis de grado médico accesibles. Explora su constelación: propósito, funcionamiento de la prótesis mioeléctrica, entrevista y glosario.">
+  <meta name="keywords" content="Proyecto Superman, prótesis mioeléctrica, prótesis de mano, electromiografía, EMG, músculos antagonistas, co-contracción, HUMAN STEM">
+  <meta name="theme-color" content="#0a141d">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HUMAN STEM">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:title" content="Proyecto Superman — HUMAN STEM">
+  <meta property="og:description" content="Prótesis de grado médico accesibles: propósito, funcionamiento, entrevista y glosario del proyecto.">
+  <meta property="og:url" content="https://human-stem-feria-2026.laexrana.chatgpt.site/superman.html">
+  <meta property="og:image" content="https://human-stem-feria-2026.laexrana.chatgpt.site/assets/og/human-stem.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Logotipo de HUMAN STEM">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/human-stem-isotipo.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/spectral/spectral-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="comun.css">
+  <link rel="stylesheet" href="superman.css">
+  <link rel="prefetch" href="index.html">
+  <link rel="prefetch" href="miltli.html">
+  <script type="speculationrules">
+    {"prerender": [{"source": "list", "urls": ["index.html", "miltli.html"], "eagerness": "moderate"}]}
+  </script>
+  <script src="js/planos.js"></script>
 </head>
-<body>
+<body data-plano="cielo">
+  <div class="capa-cielo" aria-hidden="true"></div>
+  <a class="salto" href="#contenido">Saltar al contenido principal</a>
 
-<a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
-<header class="site-header">
-    <div class="contenedor site-header__inner">
-      <a class="site-logo" href="index.html#inicio" aria-label="HUMAN STEM, ir al inicio">
-        <img src="assets/human-stem-logo.svg" alt="HUMAN STEM" width="1494" height="383" fetchpriority="high">
+  <header class="cabecera">
+    <a class="marca" href="index.html"><img src="assets/human-stem-logo.svg" alt="HUMAN STEM, inicio" width="1494" height="383"></a>
+    <nav class="menu" aria-label="Navegación principal">
+      <button class="menu__boton" type="button" aria-expanded="false" aria-controls="menu-lista">Menú</button>
+      <ul class="menu__lista" id="menu-lista">
+        <li><a href="index.html#quienes-somos">Quiénes somos</a></li>
+        <li><a href="superman.html" aria-current="page">Proyecto Superman</a></li>
+        <li><a href="miltli.html">Programa Miltli</a></li>
+        <li><a class="menu__cta" href="index.html#colabora">Colabora</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="firmamento capa-contenido" id="contenido" tabindex="-1">
+    <nav class="ruta" aria-label="Ruta de navegación">
+      <ol>
+        <li><a href="index.html">Inicio</a></li>
+        <li><span aria-current="page">Proyecto Superman</span></li>
+      </ol>
+    </nav>
+
+    <section class="estrella estrella--primera" id="proposito" aria-labelledby="titulo-proposito">
+      <p class="rotulo estrella__marca">Estrella 01 · Propósito</p>
+      <h1 id="titulo-proposito">Proyecto Superman</h1>
+      <p class="estrella__entrada">Un proyecto social que busca brindar prótesis de grado médico accesibles a personas que no poseen los recursos para mejorar su calidad de vida.</p>
+    </section>
+
+    <!-- La constelación es el índice de la página: cada estrella enlaza a una
+         sección u objetivo. Para añadir una, agrega un <li> con las
+         coordenadas de posición (x, y) de un nudo del puño y su <section> abajo. -->
+    <nav class="carta" id="carta" aria-labelledby="titulo-carta">
+      <div class="carta__lienzo">
+        <svg viewBox="0 0 760 490" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <defs>
+            <radialGradient id="halo-cielo">
+              <stop stop-color="#3b768b" stop-opacity=".33"/>
+              <stop offset="1" stop-color="#193749" stop-opacity="0"/>
+            </radialGradient>
+            <path id="puno-1" pathLength="1" d="M449 416H311l-1-55-36-29"/>
+            <path id="puno-2" pathLength="1" d="m274 332-43-42-27-51 4-41 19-31 27-7 30 12"/>
+            <path id="puno-3" pathLength="1" d="m227 167 8-39 15-26 22-6 22 14-8 29-2 33 30 20"/>
+            <path id="puno-4" pathLength="1" d="m294 110 17-26 23-8 21 10 13 12 16-22 23 2m-39 20-9 27-5 36-19 16-21-3m40-13 15 12 27 6 23-21"/>
+            <path id="puno-5" pathLength="1" d="m407 78 22 18 25-5 22 18 13 29 15 30 9 39-7 61-21 49-34 39-2 60m-20-320-5 27-5 35 10 31 23 5 24-23 13-33"/>
+            <path id="puno-6" pathLength="1" d="m314 192 51 26 9 22-15 22-35 5-32-11-24-24m-37 58 33-11 28-23m73-38 36-10 40 2 25 21m-54 51 26-17 17-26"/>
+          </defs>
+          <ellipse cx="368" cy="244" rx="319" ry="244" fill="url(#halo-cielo)"/>
+          <g class="carta__reticula">
+            <path d="M368 27v435M70 244h594" stroke-dasharray="2 8"/>
+            <ellipse cx="368" cy="244" rx="258" ry="186"/>
+            <ellipse cx="368" cy="244" rx="211" ry="152"/>
+            <ellipse cx="368" cy="244" rx="144" ry="103"/>
+            <ellipse cx="368" cy="244" rx="285" ry="100" transform="rotate(-17 368 244)" stroke-dasharray="3 7"/>
+          </g>
+          <path class="carta__campo" d="m311 416-1-55-36-29-43-42-27-51 4-41 19-31 8-39 15-26 22-6 22 14 17-26 23-8 21 10 13 12 16-22 23 2 22 18 25-5 22 18 13 29 15 30 9 39-7 61-21 49-34 39-2 60Z"/>
+          <g class="carta__base">
+            <use href="#puno-1"/><use href="#puno-2"/><use href="#puno-3"/>
+            <use href="#puno-4"/><use href="#puno-5"/><use href="#puno-6"/>
+          </g>
+          <g class="carta__luz">
+            <use href="#puno-1" data-traza="1"/><use href="#puno-2" data-traza="2"/>
+            <use href="#puno-3" data-traza="3"/><use href="#puno-4" data-traza="4"/>
+            <use href="#puno-5" data-traza="5"/><use href="#puno-6" data-traza="fin"/>
+          </g>
+          <g class="carta__nudos">
+            <circle cx="310" cy="361" r="2.2" data-traza="1"/><circle cx="449" cy="416" r="2.2" data-traza="1"/><circle cx="274" cy="332" r="2.2" data-traza="1"/>
+            <circle cx="231" cy="290" r="2.2" data-traza="2"/><circle cx="208" cy="198" r="2.2" data-traza="2"/><circle cx="227" cy="167" r="2.2" data-traza="2"/><circle cx="254" cy="160" r="2.2" data-traza="2"/>
+            <circle cx="235" cy="128" r="2.2" data-traza="3"/><circle cx="294" cy="110" r="2.2" data-traza="3"/><circle cx="284" cy="172" r="2.2" data-traza="3"/><circle cx="314" cy="192" r="2.2" data-traza="3"/>
+            <circle cx="334" cy="76" r="2.2" data-traza="4"/><circle cx="368" cy="98" r="2.2" data-traza="4"/><circle cx="354" cy="161" r="2.2" data-traza="4"/><circle cx="396" cy="179" r="2.2" data-traza="4"/>
+            <circle cx="429" cy="96" r="2.2" data-traza="5"/><circle cx="476" cy="109" r="2.2" data-traza="5"/><circle cx="489" cy="138" r="2.2" data-traza="5"/><circle cx="506" cy="268" r="2.2" data-traza="5"/><circle cx="485" cy="317" r="2.2" data-traza="5"/><circle cx="451" cy="356" r="2.2" data-traza="5"/>
+            <circle cx="365" cy="218" r="2.2" data-traza="fin"/><circle cx="359" cy="262" r="2.2" data-traza="fin"/><circle cx="324" cy="267" r="2.2" data-traza="fin"/><circle cx="292" cy="256" r="2.2" data-traza="fin"/><circle cx="441" cy="210" r="2.2" data-traza="fin"/><circle cx="466" cy="231" r="2.2" data-traza="fin"/>
+          </g>
+        </svg>
+      </div>
+      <h2 class="rotulo carta__titulo" id="titulo-carta">Constelación del puño</h2>
+      <ol class="carta__estrellas">
+        <li><a href="#proposito" style="--x:311;--y:416" data-estrella="1"><span class="astro astro--izq" aria-hidden="true"><b>01</b></span><span class="carta__num" aria-hidden="true">01</span> Propósito</a></li>
+        <li><a href="#funcionamiento" style="--x:204;--y:239" data-estrella="2"><span class="astro astro--izq" aria-hidden="true"><b>02</b></span><span class="carta__num" aria-hidden="true">02</span> Funcionamiento</a></li>
+        <li><a href="#entrevista" style="--x:272;--y:96" data-estrella="3"><span class="astro astro--izq" aria-hidden="true"><b>03</b></span><span class="carta__num" aria-hidden="true">03</span> Entrevista</a></li>
+        <li><a href="#glosario" style="--x:407;--y:78" data-estrella="4"><span class="astro" aria-hidden="true"><b>04</b></span><span class="carta__num" aria-hidden="true">04</span> Glosario</a></li>
+        <li><a href="#sumate" style="--x:513;--y:207" data-estrella="5"><span class="astro" aria-hidden="true"><b>05</b></span><span class="carta__num" aria-hidden="true">05</span> Súmate</a></li>
+      </ol>
+      <p class="carta__avance" id="carta-avance" hidden></p>
+    </nav>
+
+    <section class="estrella" id="funcionamiento" aria-labelledby="titulo-funcionamiento">
+      <p class="rotulo estrella__marca">Estrella 02 · Funcionamiento</p>
+      <h2 id="titulo-funcionamiento">Dos músculos, una intención</h2>
+      <p class="estrella__entrada">Una mano real no se controla con una sola señal: la gobierna un par de músculos opuestos, los flexores que cierran y los extensores que abren.</p>
+
+      <div class="simulador" id="simulador">
+        <figure class="sim">
+          <svg class="sim__lienzo" id="sim" viewBox="0 0 372 300" role="img" aria-labelledby="sim-titulo sim-desc">
+            <title id="sim-titulo">Esquema de la prótesis mioeléctrica</title>
+            <desc id="sim-desc">Sobre el antebrazo, dos electrodos captan la señal de los flexores y la de los extensores. El controlador las compara como una balanza: la diferencia cierra o abre la mano, vista de perfil, y la contracción simultánea cambia el agarre entre puño, pinza y señalar con el índice.</desc>
+
+            <!-- 2 · sondas de los electrodos (pasan por detrás del brazo) -->
+            <g data-capa="2">
+              <path class="hilo hilo--flex" id="sonda-f" d="M70 250V274H10V30H22"/>
+              <path class="hilo hilo--ext" id="sonda-e" d="M98 204V112"/>
+            </g>
+
+            <!-- 1 · antebrazo: dos músculos opuestos -->
+            <g data-capa="1">
+              <path class="piel" d="M0 196C52 196 104 202 142 207Q160 210 160 226Q160 242 142 245C104 250 52 256 0 256Z"/>
+              <path class="fibra fibra--ext" id="fibra-e" d="M6 211C50 207 100 212 138 218"/>
+              <path class="fibra fibra--flex" id="fibra-f" d="M6 241C50 245 100 240 138 234"/>
+            </g>
+
+            <!-- 4 · encaje de la prótesis sobre el muñón -->
+            <g data-capa="4">
+              <path class="encaje" d="M56 190L176 199Q192 201 194 214V238Q192 251 176 253L56 262Z"/>
+            </g>
+
+            <!-- 2 · electrodos y sus dos canales de electromiografía -->
+            <g data-capa="2">
+              <circle class="aro aro--ext" id="aro-e" cx="98" cy="204" r="6"/><circle class="polo polo--ext" cx="98" cy="204" r="3"/>
+              <circle class="aro aro--flex" id="aro-f" cx="70" cy="250" r="6"/><circle class="polo polo--flex" cx="70" cy="250" r="3"/>
+              <rect class="pantalla" x="22" y="14" width="156" height="46"/>
+              <rect class="pantalla" x="22" y="66" width="156" height="46"/>
+              <path class="traza traza--flex" id="emg-f" d="M24 30H176"/>
+              <path class="traza traza--ext" id="emg-e" d="M24 82H176"/>
+              <text class="sim__rotulo sim__rotulo--flex" x="28" y="55">Flexores</text>
+              <text class="sim__rotulo sim__rotulo--ext" x="28" y="107">Extensores</text>
+              <path class="hilo hilo--flex" id="cable-f" d="M178 30H198"/>
+              <path class="hilo hilo--ext" id="cable-e" d="M178 82H198"/>
+            </g>
+
+            <!-- 3 · controlador: pesa una señal contra la otra -->
+            <g data-capa="3">
+              <rect class="pantalla" x="198" y="14" width="160" height="98"/>
+              <path class="fiel" d="M278 48V84M260 84H296"/>
+              <g id="balanza">
+                <path class="astil" d="M234 48H322"/>
+                <circle class="pesa pesa--flex" id="pesa-f" cx="234" cy="48" r="5"/>
+                <circle class="pesa pesa--ext" id="pesa-e" cx="322" cy="48" r="5"/>
+              </g>
+              <circle class="eje" cx="278" cy="48" r="3.2"/>
+              <text class="sim__rotulo sim__rotulo--flex" x="234" y="104" text-anchor="middle">Cerrar</text>
+              <text class="sim__rotulo sim__rotulo--ext" x="322" y="104" text-anchor="middle">Abrir</text>
+              <rect class="decision" id="decision" x="269" y="94" width="18" height="7" rx="3.5"/>
+              <path class="guia" d="M222 112L180 212"/>
+              <rect class="chip" x="166" y="214" width="16" height="16" rx="2"/>
+            </g>
+
+            <!-- 4 · mano y motores -->
+            <g data-capa="4">
+              <rect class="muneca" x="194" y="207" width="8" height="38" rx="3"/>
+              <path class="hilo hilo--orden" id="orden" d="M184 224H216"/>
+              <path class="palma" d="M202 209L246 203Q258 203 260 214V237Q258 249 246 249L212 251Q202 249 202 241Z"/>
+              <g class="servo" transform="translate(226 226)">
+                <circle r="9"/>
+                <path id="servo-aguja" d="M0 0V-7"/>
+              </g>
+              <path class="blanco" id="blanco" d="M358 203l1.8 6.2 6.2 1.8-6.2 1.8-1.8 6.2-1.8-6.2-6.2-1.8 6.2-1.8Z"/>
+              <g id="mano">
+                <g class="dedo dedo--menique" transform="translate(247 236)">
+                  <g id="menique-1" transform="rotate(9)">
+                    <rect x="-5.25" y="-5.25" width="39.5" height="10.5" rx="5.25"/>
+                    <g transform="translate(29 0)">
+                      <g id="menique-2" transform="rotate(6)">
+                        <rect x="-4.75" y="-4.75" width="28.5" height="9.5" rx="4.75"/>
+                        <g transform="translate(19 0)">
+                          <g id="menique-3" transform="rotate(5)">
+                            <rect x="-4.25" y="-4.25" width="19.25" height="8.5" rx="4.25"/>
+                          </g>
+                        </g>
+                        <circle class="nudo" cx="19" r="1.8"/>
+                      </g>
+                    </g>
+                    <circle class="nudo" cx="29" r="1.8"/>
+                  </g>
+                  <circle class="nudo" r="2.3"/>
+                </g>
+                <g class="dedo dedo--anular" transform="translate(250 230)">
+                  <g id="anular-1" transform="rotate(4)">
+                    <rect x="-6" y="-6" width="49" height="12" rx="6"/>
+                    <g transform="translate(37 0)">
+                      <g id="anular-2" transform="rotate(6)">
+                        <rect x="-5.5" y="-5.5" width="35" height="11" rx="5.5"/>
+                        <g transform="translate(24 0)">
+                          <g id="anular-3" transform="rotate(5)">
+                            <rect x="-4.75" y="-4.75" width="22.75" height="9.5" rx="4.75"/>
+                          </g>
+                        </g>
+                        <circle class="nudo" cx="24" r="1.8"/>
+                      </g>
+                    </g>
+                    <circle class="nudo" cx="37" r="1.8"/>
+                  </g>
+                  <circle class="nudo" r="2.3"/>
+                </g>
+                <g class="dedo dedo--medio" transform="translate(252 224)">
+                  <g id="medio-1" transform="rotate(-1)">
+                    <rect x="-6.25" y="-6.25" width="52.5" height="12.5" rx="6.25"/>
+                    <g transform="translate(40 0)">
+                      <g id="medio-2" transform="rotate(6)">
+                        <rect x="-5.75" y="-5.75" width="37.5" height="11.5" rx="5.75"/>
+                        <g transform="translate(26 0)">
+                          <g id="medio-3" transform="rotate(5)">
+                            <rect x="-5" y="-5" width="24" height="10" rx="5"/>
+                          </g>
+                        </g>
+                        <circle class="nudo" cx="26" r="1.8"/>
+                      </g>
+                    </g>
+                    <circle class="nudo" cx="40" r="1.8"/>
+                  </g>
+                  <circle class="nudo" r="2.3"/>
+                </g>
+                <g class="dedo dedo--indice" transform="translate(254 217)">
+                  <g id="indice-1" transform="rotate(-6)">
+                    <rect x="-6.5" y="-6.5" width="51" height="13" rx="6.5"/>
+                    <g transform="translate(38 0)">
+                      <g id="indice-2" transform="rotate(5)">
+                        <rect x="-6" y="-6" width="37" height="12" rx="6"/>
+                        <g transform="translate(25 0)">
+                          <g id="indice-3" transform="rotate(4)">
+                            <rect x="-5.25" y="-5.25" width="24.25" height="10.5" rx="5.25"/>
+                          </g>
+                        </g>
+                        <circle class="nudo" cx="25" r="1.8"/>
+                      </g>
+                    </g>
+                    <circle class="nudo" cx="38" r="1.8"/>
+                  </g>
+                  <circle class="nudo" r="2.3"/>
+                </g>
+                <g class="dedo dedo--pulgar" transform="translate(222 244)">
+                  <g id="pulgar-1" transform="rotate(30)">
+                    <rect x="-6.75" y="-6.75" width="41.5" height="13.5" rx="6.75"/>
+                    <g transform="translate(28 0)">
+                      <g id="pulgar-2" transform="rotate(8)">
+                        <rect x="-5.75" y="-5.75" width="27.75" height="11.5" rx="5.75"/>
+                      </g>
+                    </g>
+                    <circle class="nudo" cx="28" r="1.8"/>
+                  </g>
+                  <circle class="nudo" r="2.3"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </figure>
+
+        <div class="tablero">
+          <ol class="agarres" id="agarres" aria-label="Agarres disponibles">
+            <li aria-current="true">Puño</li>
+            <li>Pinza</li>
+            <li>Señalar</li>
+          </ol>
+          <output class="tablero__estado" id="estado">En reposo</output>
+        </div>
+
+        <form class="consola" id="consola" aria-label="Controles del simulador">
+          <p class="consola__ayuda" id="consola-ayuda">Mantén presionado un músculo para mover la mano. Los dos a la vez cambian el agarre.</p>
+          <div class="consola__canales">
+            <fieldset class="canal canal--flex">
+              <legend class="solo-lector">Flexores</legend>
+              <button class="pulsador" id="btn-f" type="button" aria-pressed="false" aria-describedby="consola-ayuda">
+                <span class="pulsador__nombre">Flexores</span>
+                <span class="pulsador__accion">cierran<kbd>F</kbd></span>
+              </button>
+              <p class="canal__lectura"><output id="uv-f">0</output> μV</p>
+              <div class="nivel" aria-hidden="true"><span class="nivel__barra" id="nivel-f"></span></div>
+              <label class="tono">Tono basal <input id="tono-f" type="range" min="0" max="100" value="0"></label>
+            </fieldset>
+            <fieldset class="canal canal--ext">
+              <legend class="solo-lector">Extensores</legend>
+              <button class="pulsador" id="btn-e" type="button" aria-pressed="false" aria-describedby="consola-ayuda">
+                <span class="pulsador__nombre">Extensores</span>
+                <span class="pulsador__accion">abren<kbd>J</kbd></span>
+              </button>
+              <p class="canal__lectura"><output id="uv-e">0</output> μV</p>
+              <div class="nivel" aria-hidden="true"><span class="nivel__barra" id="nivel-e"></span></div>
+              <label class="tono">Tono basal <input id="tono-e" type="range" min="0" max="100" value="0"></label>
+            </fieldset>
+          </div>
+          <p class="consola__umbral">La marca de cada barra es el umbral: por debajo, el controlador no actúa.</p>
+          <button class="boton consola__ambos" id="btn-co" type="button">Contraer ambos: cambiar de agarre</button>
+        </form>
+        <output class="solo-lector" id="agarre-voz"></output>
+      </div>
+
+      <h3 id="titulo-recorrido">El recorrido de la señal</h3>
+      <div class="facetas" id="facetas">
+        <details name="faceta" data-capa="1">
+          <summary><span class="facetas__n" aria-hidden="true">1</span>Antebrazo</summary>
+          <p>Dos músculos opuestos en el muñón: los flexores tiran para cerrar, los extensores para abrir. Ambos siguen respondiendo a la intención aunque la mano no esté.</p>
+        </details>
+        <details name="faceta" data-capa="2">
+          <summary><span class="facetas__n" aria-hidden="true">2</span>Electrodos y EMG</summary>
+          <p>Un electrodo sobre cada músculo capta su voltaje. Dos canales de electromiografía, leídos en paralelo sobre la misma piel.</p>
+        </details>
+        <details name="faceta" data-capa="3">
+          <summary><span class="facetas__n" aria-hidden="true">3</span>Controlador</summary>
+          <p>Pesa una señal contra la otra como una balanza. Por encima del umbral, la diferencia abre o cierra la mano, más rápido cuanto más fuerte es la señal; sin señal, la mano conserva su posición. La co-contracción, un gesto aparte, cambia el tipo de agarre.</p>
+        </details>
+        <details name="faceta" data-capa="4">
+          <summary><span class="facetas__n" aria-hidden="true">4</span>Mano y motores</summary>
+          <p>Los servos ejecutan el agarre elegido —puño, pinza o señalar— tensando los dedos.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="estrella" id="entrevista" aria-labelledby="titulo-entrevista">
+      <p class="rotulo estrella__marca">Estrella 03 · Entrevista</p>
+      <h2 id="titulo-entrevista">¿Por qué Proyecto Superman?</h2>
+      <p><a class="boton" href="https://www.instagram.com/reel/DYN5lJItlNd/" rel="external noopener">Ver la entrevista en Instagram</a></p>
+    </section>
+
+    <section class="estrella" id="glosario" aria-labelledby="titulo-glosario">
+      <p class="rotulo estrella__marca">Estrella 04</p>
+      <h2 id="titulo-glosario">Glosario</h2>
+      <dl class="glosario">
+        <div>
+          <dt>Prótesis mioeléctrica</dt>
+          <dd>Prótesis que se mueve con motores controlados por las señales eléctricas que producen los músculos al contraerse.</dd>
+        </div>
+        <div>
+          <dt>EMG (electromiografía)</dt>
+          <dd>Registro de la actividad eléctrica de un músculo; aquí se capta con electrodos colocados sobre la piel.</dd>
+        </div>
+        <div>
+          <dt>Músculos antagonistas</dt>
+          <dd>Par de músculos que realizan movimientos opuestos: los flexores cierran la mano y los extensores la abren.</dd>
+        </div>
+        <div>
+          <dt>Co-contracción</dt>
+          <dd>Tensar al mismo tiempo los dos músculos del par.</dd>
+        </div>
+        <div>
+          <dt>Umbral</dt>
+          <dd>Nivel mínimo de señal a partir del cual el controlador ejecuta una acción.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="estrella estrella--ultima" id="sumate" aria-labelledby="titulo-sumate">
+      <p class="rotulo estrella__marca">Estrella 05</p>
+      <h2 id="titulo-sumate">Súmate</h2>
+      <p class="estrella__entrada">Dirige el proyecto Jair Álvarez.</p>
+      <a class="descenso" href="index.html#colabora">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg>
+        <span><span class="rotulo">Horizonte</span><strong>Colabora con HUMAN STEM</strong></span>
       </a>
-      <nav class="main-nav" aria-label="Navegación principal" data-open="false">
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
-          <span class="nav-toggle__bars" aria-hidden="true"></span><span>Menú</span>
-        </button>
-        <ul class="nav-list" id="nav-list" role="list">
-          <li><a href="quienes-somos.html">Quiénes somos</a></li>
-          <li><a href="superman.html" aria-current="page">Proyecto Superman</a></li>
-          <li><a href="miltli.html">Programa Miltli</a></li>
-          <li><a class="nav-cta" href="colabora.html">Colabora</a></li>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="pie__fila">
+      <form class="buscador" action="mapa-del-sitio.html" method="get" role="search">
+        <label for="buscar">Buscar en el sitio</label>
+        <input id="buscar" name="q" type="search" autocomplete="off">
+        <button type="submit">Buscar</button>
+      </form>
+      <nav aria-label="Enlaces del pie">
+        <ul class="pie__enlaces">
+          <li><a href="mapa-del-sitio.html">Mapa del sitio</a></li>
+          <li><a href="creditos.html">Créditos</a></li>
+          <li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li>
+          <li><a href="en/index.html" lang="en" hreflang="en">English</a></li>
         </ul>
       </nav>
     </div>
-  </header>
-
-<main id="contenido-principal">
-
-<section class="sup-hero">
-  <div class="facetas" aria-hidden="true">
-    <div class="faceta f1">Cerrar</div>
-    <div class="faceta f2">Abrir</div>
-    <div class="faceta f3">Decidir</div>
-    <div class="plano-geo pg1"></div>
-    <div class="plano-geo pg2"></div>
-  </div>
-  <svg class="emg-hero" viewBox="0 0 1200 800" preserveAspectRatio="none" aria-hidden="true">
-    <path class="a" d="M-20,360 L200,360 L228,220 L250,500 L272,300 L300,360 L640,360 L668,240 L690,480 L712,300 L740,360 L1240,360"/>
-    <path class="b" d="M-20,470 L320,470 L346,590 L368,360 L392,540 L420,470 L780,470 L806,560 L828,400 L852,540 L880,470 L1240,470"/>
-  </svg>
-  <div class="wrap">
-    <div class="sup-eyebrow">Prótesis mioeléctrica · El par antagonista</div>
-    <h1>Dos músculos, una <span class="corte">intención</span></h1>
-    <p class="sup-mision">Es un proyecto social que busca brindar prótesis de grado médico accesibles a personas que no poseen los recursos para mejorar su calidad de vida.</p>
-    <p class="sub">Una mano real no se controla con una sola señal. Un par de músculos opuestos la gobierna: los <span class="cf">flexores</span> que cierran y los <span class="ce">extensores</span> que abren. La prótesis escucha ambos a la vez sobre el mismo muñón — y de su <em>equilibrio</em>, no de una orden única, nace el movimiento. Acciona los dos y míralo.</p>
-  </div>
-  <div class="scroll-cue" aria-hidden="true">Accionar<span></span></div>
-</section>
-
-  <section class="seccion">
-    <div class="wrap">
-      <div class="marca r"><b>01</b> ¿Qué es? <span class="rule"></span> Flexor ⇄ Extensor</div>
-      <h2 class="r">El <span class="of">cierre</span> y la <span class="oe">apertura</span> sobre una misma superficie</h2>
-      <div class="cuerpo cuerpo--separado r">
-        <p>Mantén presionado cada canal (teclas <span class="term">F</span> y <span class="term">J</span>). Dos señales EMG antagonistas cruzan el lienzo; su diferencia decide la prensión y su fuerza, la intensidad. Y si <em>co-contraes</em> ambos con fuerza —tensar los dos a la vez—, el controlador lo lee como un gesto deliberado y <span class="term">cambia de agarre</span>: puño, pinza, señalar. Toca una capa para aislar esa faceta.</p>
-      </div>
-
-      <div class="lienzo r">
-        <svg class="lienzo-svg" id="lienzo" viewBox="0 0 1180 520" role="img"
-          aria-label="Lienzo interpenetrado: sobre el antebrazo, un par de electrodos capta dos señales EMG antagonistas —flexores y extensores. El controlador compara ambas: su diferencia cierra o abre la mano, y su co-contracción cambia el tipo de agarre. Las dos señales, roja y verde, atraviesan los planos superpuestos.">
-          <!-- armadura deformada compartida -->
-          <g stroke="rgba(38,36,31,.13)" stroke-width="1" fill="none">
-            <path d="M300,0 L250,520"/><path d="M600,-0 L650,520"/><path d="M880,0 L840,520"/><path d="M0,250 L1180,228"/><path d="M0,120 L1180,140"/>
-          </g>
-
-          <!-- PLATE 1 · ANTEBRAZO (rot -4) -->
-          <g id="plate-1" class="plate" transform="rotate(-4 230 250)">
-            <polygon points="30,150 240,120 300,290 70,340" fill="rgba(90,70,49,.12)" stroke="var(--marron)" stroke-width="1.5"/>
-            <path id="fibF" d="M70,205 Q160,168 250,200" stroke="var(--flex)" stroke-width="1.5" fill="none" opacity=".6"/>
-            <path id="fibE" d="M78,258 Q168,292 258,262" stroke="var(--ext)" stroke-width="1.5" fill="none" opacity=".6"/>
-            <text x="44" y="372" font-family="'Archivo Black',sans-serif" font-size="19" fill="var(--tinta)">ANTEBRAZO</text>
-            <text x="44" y="394" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris-texto)">PAR ANTAGONISTA</text>
-            <circle id="elF" cx="250" cy="200" r="9" fill="none" stroke="var(--flex)" stroke-width="2"/><circle cx="250" cy="200" r="3.5" fill="var(--flex)"/>
-            <circle id="elE" cx="258" cy="262" r="9" fill="none" stroke="var(--ext)" stroke-width="2"/><circle cx="258" cy="262" r="3.5" fill="var(--ext)"/>
-          </g>
-
-          <!-- PLATE 2 · EMG doble (rot 3), solapa con plate 1 y 3 -->
-          <g id="plate-2" class="plate" transform="rotate(3 470 250)">
-            <rect x="330" y="150" width="230" height="200" fill="rgba(168,71,46,.04)" stroke="var(--linea)" stroke-width="1"/>
-            <line x1="335" y1="205" x2="555" y2="205" stroke="rgba(168,71,46,.3)" stroke-width="1" stroke-dasharray="3 4"/>
-            <line x1="335" y1="298" x2="555" y2="298" stroke="rgba(109,122,58,.35)" stroke-width="1" stroke-dasharray="3 4"/>
-            <path id="emgF" d="M337,205 L553,205" fill="none" stroke="var(--flex)" stroke-width="2.4" stroke-linejoin="round"/>
-            <path id="emgE" d="M337,298 L553,298" fill="none" stroke="var(--ext)" stroke-width="2.4" stroke-linejoin="round"/>
-            <text x="334" y="376" font-family="'Archivo Black',sans-serif" font-size="19" fill="var(--tinta)">SEÑAL EMG ×2</text>
-            <text x="334" y="398" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris-texto)">FLEXOR / EXTENSOR</text>
-          </g>
-
-          <!-- PLATE 3 · CONTROLADOR (rot -2), balanza -->
-          <g id="plate-3" class="plate" transform="rotate(-2 720 250)">
-            <polygon points="620,130 850,130 850,330 620,330" fill="rgba(176,138,74,.08)" stroke="var(--marron)" stroke-width="1.5"/>
-            <path d="M620,180 L850,180 M620,280 L850,280 M690,130 L690,330 M780,130 L780,330" stroke="rgba(38,36,31,.18)" stroke-width="1" fill="none"/>
-            <!-- balanza: fiel al centro que se inclina con la diferencia -->
-            <line x1="640" y1="230" x2="830" y2="230" stroke="rgba(38,36,31,.25)" stroke-width="1"/>
-            <g id="balanza">
-              <line x1="700" y1="230" x2="770" y2="230" stroke="var(--tinta)" stroke-width="3"/>
-              <circle cx="700" cy="230" r="6" fill="var(--flex)"/>
-              <circle cx="770" cy="230" r="6" fill="var(--ext)"/>
-            </g>
-            <circle cx="735" cy="230" r="4" fill="var(--tinta)"/>
-            <rect id="intent" x="628" y="300" width="214" height="22" fill="var(--flex)" opacity="0"/>
-            <text x="620" y="360" font-family="'Archivo Black',sans-serif" font-size="19" fill="var(--tinta)">CONTROLADOR</text>
-            <text x="620" y="382" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris-texto)">Δ → INTENCIÓN · CO → MODO</text>
-          </g>
-
-          <!-- PLATE 4 · MANO exploded multi-vista (rot 2) -->
-          <g id="plate-4" class="plate" transform="rotate(2 1010 240)">
-            <polygon points="905,150 1015,132 1038,262 940,312" fill="rgba(90,70,49,.1)" stroke="var(--marron)" stroke-width="1.5"/>
-            <!-- vista de canto, fantasma: simultaneidad de puntos de vista -->
-            <polygon points="905,150 940,312 918,318 892,168" fill="rgba(38,36,31,.05)" stroke="rgba(38,36,31,.25)" stroke-width="1"/>
-            <line id="f-0" x1="1015" y1="150" x2="1096" y2="134" stroke="var(--gris-osc)" stroke-width="6" stroke-linecap="round"/>
-            <line id="f-1" x1="1018" y1="176" x2="1106" y2="166" stroke="var(--gris-osc)" stroke-width="6" stroke-linecap="round"/>
-            <line id="f-2" x1="1020" y1="202" x2="1106" y2="200" stroke="var(--gris-osc)" stroke-width="6" stroke-linecap="round"/>
-            <line id="f-3" x1="1018" y1="228" x2="1098" y2="240" stroke="var(--gris-osc)" stroke-width="6" stroke-linecap="round"/>
-            <line id="thumb" x1="932" y1="205" x2="906" y2="258" stroke="var(--gris-osc)" stroke-width="6" stroke-linecap="round"/>
-            <text x="905" y="360" font-family="'Archivo Black',sans-serif" font-size="19" fill="var(--tinta)">MANO</text>
-            <text x="905" y="382" font-family="'Space Mono',monospace" font-size="10.5" letter-spacing="2" fill="var(--gris-texto)">SERVOS · PRENSIÓN</text>
-          </g>
-
-          <!-- dos hilos que tejen los planos -->
-          <path id="hiloF" d="M252,198 C300,196 300,205 337,205 M553,203 C585,201 600,225 630,232 M842,214 C868,210 878,190 905,178"
-                fill="none" stroke="var(--flex)" stroke-width="2" stroke-dasharray="6 6" opacity=".5"/>
-          <path id="hiloE" d="M260,262 C305,268 305,298 337,298 M553,300 C588,304 600,240 632,236 M844,246 C870,258 880,278 906,268"
-                fill="none" stroke="var(--ext)" stroke-width="2" stroke-dasharray="6 6" opacity=".45"/>
-        </svg>
-      </div>
-
-      <div class="consola r" role="group" aria-label="Control de dos electrodos antagonistas">
-        <div class="canal flex">
-          <div class="canal-top"><h3>Flexores · cerrar</h3><span class="uv"><span id="uvF">0</span> μV</span></div>
-          <div class="barra"><div class="barra-fill" id="fillF"></div><div class="barra-thr"></div></div>
-          <button id="btnF" class="btnm" type="button" aria-pressed="false">Contraer flexores<small>mantener · tecla F</small></button>
-          <div class="slider-wrap"><label for="sldF">basal</label><input id="sldF" type="range" min="0" max="100" value="0" aria-label="Tono basal de flexores"></div>
-        </div>
-        <div class="canal ext">
-          <div class="canal-top"><h3>Extensores · abrir</h3><span class="uv"><span id="uvE">0</span> μV</span></div>
-          <div class="barra"><div class="barra-fill" id="fillE"></div><div class="barra-thr"></div></div>
-          <button id="btnE" class="btnm" type="button" aria-pressed="false">Contraer extensores<small>mantener · tecla J</small></button>
-          <div class="slider-wrap"><label for="sldE">basal</label><input id="sldE" type="range" min="0" max="100" value="0" aria-label="Tono basal de extensores"></div>
-        </div>
-        <div class="tablero">
-          <div class="tab"><span class="lbl">Diferencia Δ</span><span class="val" id="delta">equilibrio</span></div>
-          <div class="tab"><span class="lbl">Agarre activo</span><span class="val mode" id="grip" aria-live="polite">Puño</span></div>
-          <div class="tab"><span class="lbl">Estado</span><span class="val" id="estado" aria-live="polite">En reposo</span></div>
-        </div>
-      </div>
-      <p class="hint r">La <span class="cf">flexión</span> menos la <span class="ce">extensión</span> gobierna el movimiento: por encima del umbral, los flexores cierran la mano en el agarre activo y los extensores la abren, más rápido cuanto más fuerte es la señal; sin señal, la mano conserva su posición. Tensar <b>ambos a la vez</b> (co-contracción) cicla el agarre — el truco real con que muchas prótesis cambian de gesto sin más sensores.</p>
-
-      <ul class="leyenda r" aria-label="Las cuatro facetas del sistema">
-        <li class="capa k1" data-stage="1"><span class="ix">i</span><h3><button type="button" class="capa__btn" aria-pressed="false">Antebrazo</button></h3><p>Dos músculos opuestos en el muñón: los flexores tiran para cerrar, los extensores para abrir. Ambos siguen respondiendo a la intención aunque la mano no esté.</p><span class="micro">origen · voluntad</span></li>
-        <li class="capa k2" data-stage="2"><span class="ix">ii</span><h3><button type="button" class="capa__btn" aria-pressed="false">Electrodos + EMG</button></h3><p>Un electrodo sobre cada músculo capta su voltaje. Dos canales de electromiografía, leídos en paralelo sobre la misma piel.</p><span class="micro">captura · μV ×2</span></li>
-        <li class="capa k3" data-stage="3"><span class="ix">iii</span><h3><button type="button" class="capa__btn" aria-pressed="false">Controlador</button></h3><p>Pesa una señal contra la otra como una balanza. La diferencia decide abrir o cerrar; la co-contracción, un gesto aparte, conmuta el tipo de agarre.</p><span class="micro">decisión · balance</span></li>
-        <li class="capa k4" data-stage="4"><span class="ix">iv</span><h3><button type="button" class="capa__btn" aria-pressed="false">Mano + motores</button></h3><p>Los servos ejecutan el agarre elegido —puño, pinza o señalar— tensando los dedos. El mismo mecanismo, muchas formas.</p><span class="micro">acción · prensión</span></li>
-      </ul>
-    </div>
-  </section>
-
-
-  <section class="seccion reel">
-    <div class="wrap">
-      <div class="marca r"><b>02</b> ¿Por qué? <span class="rule"></span> Entrevista</div>
-      <h2 class="r">¿Por qué <span class="oe">Proyecto Superman</span>?</h2>
-      <div class="cuerpo cuerpo--separado r">
-        <p>En esta entrevista, el equipo de HUMAN STEM cuenta por qué nació Proyecto Superman y a quién busca llegar.</p>
-      </div>
-
-      <div class="reel-marco r">
-        <aside class="superman__reel" aria-label="Entrevista de Proyecto Superman en Instagram">
-          <p class="reel-enlace"><a href="https://www.instagram.com/reel/DYN5lJItlNd/" rel="external noopener" target="_blank">Ver la entrevista de Proyecto Superman en Instagram</a></p>
-        </aside>
-      </div>
-      <p class="reel-pie r"><span>Proyecto Superman · Entrevista</span> <a href="https://www.instagram.com/humanstem/" rel="external noopener" target="_blank">@humanstem</a></p>
-    </div>
-  </section>
-
-
-  <section class="seccion glosario-seccion" aria-labelledby="titulo-glosario">
-    <div class="wrap glosario">
-      <h2 id="titulo-glosario">Glosario</h2>
-      <dl>
-        <dt>Prótesis mioeléctrica</dt>
-        <dd>Prótesis que se mueve con motores controlados por las señales eléctricas que producen los músculos al contraerse.</dd>
-        <dt>EMG (electromiografía)</dt>
-        <dd>Registro de la actividad eléctrica de un músculo; aquí se capta con electrodos colocados sobre la piel.</dd>
-        <dt>Músculos antagonistas</dt>
-        <dd>Par de músculos que realizan movimientos opuestos: los flexores cierran la mano y los extensores la abren.</dd>
-        <dt>Co-contracción</dt>
-        <dd>Tensar al mismo tiempo los dos músculos del par.</dd>
-        <dt>Umbral</dt>
-        <dd>Nivel mínimo de señal a partir del cual el controlador ejecuta una acción.</dd>
-      </dl>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-    <div class="contenedor">
-      <div class="site-footer__top">
-        <a class="site-footer__logo" href="index.html#inicio" aria-label="HUMAN STEM, ir al inicio">
-          <img src="assets/human-stem-logo.svg" alt="HUMAN STEM" width="1494" height="383">
-        </a>
-        <nav aria-label="Redes sociales">
-          <ul class="site-footer__redes" role="list">
-            <li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li>
-            <li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="site-footer__bottom">
-        <p class="site-footer__ia"><small>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso-responsable-ia.html">Conoce más acerca de nuestra política de uso responsable</a>.</small></p>
-        <p class="lema">Ciencia y tecnología con impacto social.</p>
-      </div>
-    </div>
+    <p>© 2026 HUMAN STEM. Sitio web administrado por: HUMAN STEM. <a href="mailto:human.stem.org@gmail.com">human.stem.org@gmail.com</a>. Última actualización: <time datetime="2026-11-10">10 de noviembre de 2026</time>.</p>
+    <p>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso-responsable-ia.html">Política de uso responsable de IA</a>.</p>
+    <p class="pie__feria">Presentado en la Feria de la Red de Responsabilidad Social, <a href="https://www.acatlan.unam.mx/" rel="external noopener">FES Acatlán</a>, <a href="https://www.unam.mx/" rel="external noopener">UNAM</a>.</p>
   </footer>
 
-<script>
-(function () { var nav = document.querySelector('.main-nav'); var toggle = nav && nav.querySelector('.nav-toggle'); if (!nav || !toggle) return; function setOpen(open) { nav.setAttribute('data-open', String(open)); toggle.setAttribute('aria-expanded', String(open)); } toggle.addEventListener('click', function () { setOpen(nav.getAttribute('data-open') !== 'true'); }); nav.querySelectorAll('.nav-list a').forEach(function (link) { link.addEventListener('click', function () { setOpen(false); }); }); document.addEventListener('keydown', function (event) { if (event.key === 'Escape') setOpen(false); }); })();
-</script>
-
-<script>
-const reduce=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.16});
-document.querySelectorAll('.r').forEach(el=>io.observe(el));
-const facetas=document.querySelectorAll('.faceta,.plano-geo');
-let ticking=false;
-window.addEventListener('scroll',()=>{if(reduce)return;if(!ticking){requestAnimationFrame(()=>{const y=window.scrollY;facetas.forEach((f,i)=>{const d=(i%3+1)*0.06;f.style.transform=f.style.transform.replace(/ translateY\([^)]*\)/,'')+` translateY(${y*d}px)`;});ticking=false;});ticking=true;}},{passive:true});
-
-/* ---------- prótesis: dos antagonistas ---------- */
-const $=id=>document.getElementById(id);
-const btnF=$('btnF'),btnE=$('btnE'),sldF=$('sldF'),sldE=$('sldE');
-const uvF=$('uvF'),uvE=$('uvE'),fillF=$('fillF'),fillE=$('fillE');
-const emgF=$('emgF'),emgE=$('emgE'),elF=$('elF'),elE=$('elE'),fibF=$('fibF'),fibE=$('fibE');
-const intent=$('intent'),balanza=$('balanza'),hiloF=$('hiloF'),hiloE=$('hiloE');
-const deltaEl=$('delta'),gripEl=$('grip'),estadoEl=$('estado');
-const capas=[...document.querySelectorAll('.capa')];
-const svg=$('lienzo');
-
-const THR=0.30, MAXUV=480, MAXANG=80;
-const GRIPS=['Puño','Pinza','Señalar'];
-// fracción de cierre por dedo [idx,med,anu,men] y pulgar, por agarre
-// (máximo 1: un dedo no se dobla más allá de la palma)
-const SHAPE={
-  Puño:   {f:[1,1,1,1], t:-0.55},
-  Pinza:  {f:[0.7,1,1,1], t:-0.8},
-  Señalar:{f:[0,1,1,1], t:-0.45}
-};
-// Control proporcional de dos sitios, como en las prótesis mioeléctricas reales:
-// por encima del umbral, los flexores cierran y los extensores abren a una velocidad
-// proporcional a la señal; sin señal, los motores se detienen y la mano conserva su posición.
-const VMAX=1.6; // fracción del recorrido por segundo con la señal al máximo
-let F=0,Ft=0, E=0,Et=0, hold={F:false,E:false};
-let pos=0, ang=0, grip=0, coLatch=false, dashF=0,dashE=0, last=0;
-
-function setHold(ch,on){hold[ch]=on;const b=ch==='F'?btnF:btnE;b.classList.toggle('activo',on);b.setAttribute('aria-pressed',on)}
-btnF.addEventListener('pointerdown',e=>{e.preventDefault();setHold('F',true)});
-btnE.addEventListener('pointerdown',e=>{e.preventDefault();setHold('E',true)});
-window.addEventListener('pointerup',()=>{setHold('F',false);setHold('E',false)});
-addEventListener('keydown',e=>{if(e.repeat||e.ctrlKey||e.metaKey||e.altKey)return;if(e.target.closest&&e.target.closest('input,textarea,select,[contenteditable]'))return;if(e.code==='KeyF'){setHold('F',true)}if(e.code==='KeyJ'){setHold('E',true)}});
-// Si la ventana pierde el foco (o el gesto se cancela), no queda ningún canal "pegado".
-window.addEventListener('blur',()=>{setHold('F',false);setHold('E',false)});
-window.addEventListener('pointercancel',()=>{setHold('F',false);setHold('E',false)});
-addEventListener('keyup',e=>{if(e.code==='KeyF')setHold('F',false);if(e.code==='KeyJ')setHold('E',false)});
-btnF.addEventListener('keydown',e=>{if(e.code==='Space'||e.code==='Enter'){e.preventDefault();setHold('F',true)}});
-btnF.addEventListener('keyup',e=>{if(e.code==='Space'||e.code==='Enter'){setHold('F',false)}});
-btnE.addEventListener('keydown',e=>{if(e.code==='Space'||e.code==='Enter'){e.preventDefault();setHold('E',true)}});
-btnE.addEventListener('keyup',e=>{if(e.code==='Space'||e.code==='Enter'){setHold('E',false)}});
-sldF.addEventListener('input',()=>setHold('F',false));
-sldE.addEventListener('input',()=>setHold('E',false));
-
-function buildEMG(y0,amp,seed){
-  const x0=339,x1=551,n=40;let d=`M${x0},${y0}`;
-  for(let i=1;i<=n;i++){const x=x0+(x1-x0)*i/n;let v;
-    if(reduce){v=Math.sin(i*1.4+seed)*0.45+Math.sin(i*0.6)*0.5;}
-    else{v=(Math.random()*2-1)*(0.4+0.6*Math.abs(Math.sin(i*1.7+seed)));}
-    let y=y0-v*amp*42;y=Math.max(y0-46,Math.min(y0+46,y));d+=` L${x.toFixed(1)},${y.toFixed(1)}`;}
-  return d;
-}
-
-let selected=null;
-function setText(el,t){if(el.textContent!==t)el.textContent=t}
-function frame(now){
-  const dt=last?Math.min(0.05,(now-last)/1000):0; last=now;
-  Ft=hold.F?1:(sldF.value/100); Et=hold.E?1:(sldE.value/100);
-  F+=(Ft-F)*((Ft>F)?0.22:0.10); E+=(Et-E)*((Et>E)?0.22:0.10);
-  if(F<0.001)F=0; if(E<0.001)E=0;
-
-  uvF.textContent=Math.round(F*MAXUV); uvE.textContent=Math.round(E*MAXUV);
-  fillF.style.width=(F*100)+'%'; fillE.style.width=(E*100)+'%';
-  emgF.setAttribute('d',buildEMG(205,F,0)); emgE.setAttribute('d',buildEMG(298,E,2.1));
-
-  const rF=9+F*7,rE=9+E*7;
-  elF.setAttribute('r',rF);elE.setAttribute('r',rE);
-  elF.style.opacity=0.5+F*0.5;elE.style.opacity=0.5+E*0.5;
-  if(fibF)fibF.setAttribute('stroke-width',(1.5+F*3).toFixed(1));
-  if(fibE)fibE.setAttribute('stroke-width',(1.5+E*3).toFixed(1));
-
-  // co-contracción → cambia agarre (una vez por evento)
-  // Solo cuenta como co-contracción si ambos canales se están contrayendo a la vez;
-  // así, pasar de cerrar a abrir (una señal baja mientras la otra sube) no cambia el agarre.
-  const co=Math.min(F,E)>0.45&&Math.min(Ft,Et)>0.45?Math.min(F,E):Math.min(F,E,0.44);
-  if(co>0.45&&!coLatch){grip=(grip+1)%GRIPS.length;coLatch=true;}
-  if(co<0.18)coLatch=false;
-  const gname=GRIPS[grip];
-  setText(gripEl,gname);
-
-  // diferencia gobierna cierre
-  const diff=F-0.9*E;
-  const eff=Math.max(0,Math.min(1,diff));
-  const open=Math.max(0,Math.min(1,-diff));
-  const supra=eff>THR && co<0.45;          // cierre por encima del umbral
-  const opening=open>THR && co<0.45;       // apertura por encima del umbral
-
-  // balanza se inclina con la diferencia
-  const tilt=Math.max(-14,Math.min(14,(F-E)*20));
-  balanza.setAttribute('transform',`rotate(${tilt.toFixed(1)} 735 230)`);
-  setText(deltaEl, co>0.45?'co-contracción':(Math.abs(F-E)<0.05?'equilibrio':(F>E?'cierre +':'apertura −')));
-  deltaEl.classList.toggle('on',supra);
-
-  intent.setAttribute('opacity',supra?(0.35+(eff-THR)/(1-THR)*0.55).toFixed(2):0);
-  intent.setAttribute('fill',diff>=0?'var(--flex)':'var(--ext)');
-
-  hiloF.setAttribute('opacity',(0.4+F*0.55).toFixed(2)); hiloF.setAttribute('stroke-width',(2+F*2).toFixed(1));
-  hiloE.setAttribute('opacity',(0.35+E*0.55).toFixed(2)); hiloE.setAttribute('stroke-width',(2+E*2).toFixed(1));
-  if(!reduce){dashF-=2+F*10;dashE-=2+E*10;hiloF.setAttribute('stroke-dashoffset',dashF);hiloE.setAttribute('stroke-dashoffset',dashE);}
-
-  // mano: agarre activo escalado por cierre efectivo; extensión abre (ángulo leve negativo)
-  if(supra)  pos=Math.min(1,pos+VMAX*(eff-THR)/(1-THR)*dt);
-  if(opening)pos=Math.max(0,pos-VMAX*(open-THR)/(1-THR)*dt);
-  const sh=SHAPE[gname];
-  ang += (pos*MAXANG-ang)*0.35;
-  const spread = -open*10; // apertura activa
-  for(let i=0;i<4;i++){
-    const base=[[1015,150],[1018,176],[1020,202],[1018,228]][i];
-    const a = ang*sh.f[i] + (ang<2?spread:0);
-    rot('f-'+i,base[0],base[1],a);
-  }
-  rot('thumb',932,205, ang*sh.t + (ang<2?-spread*0.5:0));
-
-  // estado + cascada
-  let txt,on=false;
-  if(co>0.45){txt='Cambio de modo →';on=true;}
-  else if(supra){txt=pos<0.99?'Cerrando · '+gname:'Prensión completa';on=true;}
-  else if(opening){txt=pos>0.01?'Abriendo':'Mano abierta';}
-  else if(F<0.02&&E<0.02){txt=pos>0.01?'Sosteniendo · '+gname:'En reposo';}
-  else{txt='Captando señal…';}
-  setText(estadoEl,txt); estadoEl.classList.toggle('on',on);
-
-  act(0,(F>0.02||E>0.02));
-  act(1,(F>0.08||E>0.08));
-  act(2,supra||opening||co>0.45);
-  act(3,ang>3);
-
-  if(visible)requestAnimationFrame(frame);else{running=false;last=0;}
-}
-function rot(id,cx,cy,deg){$(id).setAttribute('transform',`rotate(${deg.toFixed(2)} ${cx} ${cy})`)}
-function act(i,on){if(capas[i])capas[i].classList.toggle('activa',on&&selected===null)}
-
-function selectStage(s){
-  if(selected===s){selected=null;svg.removeAttribute('data-focus');}
-  else{selected=s;svg.setAttribute('data-focus',s);}
-  capas.forEach(c=>{
-    const on=selected!==null&&c.dataset.stage==selected;
-    c.classList.toggle('sel',on);
-    c.querySelector('.capa__btn').setAttribute('aria-pressed',String(on));
-  });
-}
-capas.forEach(c=>{
-  c.querySelector('.capa__btn').addEventListener('click',()=>selectStage(c.dataset.stage));
-});
-
-// La simulación solo se calcula mientras el lienzo está en pantalla.
-let visible=true,running=false;
-new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible&&!running){running=true;requestAnimationFrame(frame);}}).observe(document.querySelector('.consola'));
-</script>
+  <script src="js/superman.js" defer></script>
+  <script src="js/tour.js" defer></script>
 </body>
 </html>

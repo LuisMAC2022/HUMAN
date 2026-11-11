@@ -3,90 +3,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="La página que buscas no existe en el sitio de HUMAN STEM.">
-  <meta name="robots" content="noindex">
   <title>Página no encontrada — HUMAN STEM</title>
+  <meta name="description" content="La página que buscas no existe o cambió de lugar. Vuelve al inicio de HUMAN STEM o consulta el mapa del sitio.">
+  <meta name="keywords" content="página no encontrada, error 404, HUMAN STEM">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0a141d">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="HUMAN STEM">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:title" content="Página no encontrada — HUMAN STEM">
+  <meta property="og:description" content="La página que buscas no existe o cambió de lugar. Vuelve al inicio de HUMAN STEM o consulta el mapa del sitio.">
+  <meta property="og:url" content="https://human-stem-feria-2026.laexrana.chatgpt.site/404.html">
+  <meta property="og:image" content="https://human-stem-feria-2026.laexrana.chatgpt.site/assets/og/human-stem.png">
+  <meta property="og:image:alt" content="Logotipo de HUMAN STEM">
   <link rel="icon" href="assets/human-stem-isotipo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="comun.css">
+  <link rel="stylesheet" href="atlas.css">
+  <script src="js/planos.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+  <a class="salto" href="#contenido">Saltar al contenido principal</a>
 
-  <header class="site-header">
-    <div class="contenedor site-header__inner">
-      <a class="site-logo" href="index.html#inicio" aria-label="HUMAN STEM, ir al inicio">
-        <img src="assets/human-stem-logo.svg" alt="HUMAN STEM" width="1494" height="383" fetchpriority="high">
-      </a>
-      <nav class="main-nav" aria-label="Navegación principal" data-open="false">
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
-          <span class="nav-toggle__bars" aria-hidden="true"></span><span>Menú</span>
-        </button>
-        <ul class="nav-list" id="nav-list" role="list">
-          <li><a href="quienes-somos.html">Quiénes somos</a></li>
-          <li><a href="superman.html">Proyecto Superman</a></li>
-          <li><a href="miltli.html">Programa Miltli</a></li>
-          <li><a class="nav-cta" href="colabora.html">Colabora</a></li>
-        </ul>
-      </nav>
-    </div>
+  <header class="cabecera">
+    <a class="marca" href="index.html"><img src="assets/human-stem-logo.svg" alt="HUMAN STEM, inicio" width="1494" height="383"></a>
+    <nav class="menu" aria-label="Navegación principal">
+      <button class="menu__boton" type="button" aria-expanded="false" aria-controls="menu-lista">Menú</button>
+      <ul class="menu__lista" id="menu-lista">
+        <li><a href="index.html#quienes-somos">Quiénes somos</a></li>
+        <li><a href="superman.html">Proyecto Superman</a></li>
+        <li><a href="miltli.html">Programa Miltli</a></li>
+        <li><a class="menu__cta" href="index.html#colabora">Colabora</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <main id="contenido-principal">
-    <section class="section" aria-labelledby="titulo-404">
-      <div class="contenedor politica">
-        <p class="eyebrow eyebrow--dot acento-cyan">Error 404</p>
-        <h1 class="section-title" id="titulo-404">No encontramos esta página</h1>
-        <p class="section-lead">Es posible que la dirección esté mal escrita o que la página haya cambiado de lugar.</p>
-        <p>Puedes hacer lo siguiente:</p>
-        <ul>
-          <li>Revisar que la dirección esté bien escrita.</li>
-          <li>Volver a la <a href="index.html">página de inicio de HUMAN STEM</a>.</li>
-          <li>Ir directamente al <a href="superman.html">Proyecto Superman</a> o al <a href="miltli.html">Programa Miltli</a>.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section section--tinta" aria-labelledby="titulo-contacto-404">
-      <div class="contenedor">
-        <article class="colabora-card politica__contacto">
-          <h2 class="eyebrow" id="titulo-contacto-404">¿Necesitas ayuda?</h2>
-          <p>Si llegaste aquí desde un enlace del sitio, avísanos para corregirlo.</p>
-          <a class="colabora-card__correo" href="mailto:human.stem.org@gmail.com">human.stem.org@gmail.com</a>
-        </article>
-      </div>
+  <main class="documento" id="contenido">
+    <p class="rotulo" style="margin-top:28px">Error 404</p>
+    <h1>No encontramos esta página</h1>
+    <p class="entrada">Es posible que la dirección esté mal escrita o que la página haya cambiado de lugar.</p>
+    <p>Puedes hacer lo siguiente:</p>
+    <ul>
+      <li>Revisar que la dirección esté bien escrita.</li>
+      <li>Volver a la <a href="index.html">página de inicio de HUMAN STEM</a>.</li>
+      <li>Ir directamente al <a href="superman.html">Proyecto Superman</a> o al <a href="miltli.html">Programa Miltli</a>.</li>
+      <li>Buscar en el <a href="mapa-del-sitio.html">mapa del sitio</a>.</li>
+    </ul>
+    <section class="tarjeta" aria-labelledby="titulo-ayuda">
+      <h2 id="titulo-ayuda">¿Necesitas ayuda?</h2>
+      <p>Si llegaste aquí desde un enlace del sitio, avísanos para corregirlo: <a href="mailto:human.stem.org@gmail.com">human.stem.org@gmail.com</a>.</p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="contenedor">
-      <div class="site-footer__top">
-        <a class="site-footer__logo" href="index.html#inicio" aria-label="HUMAN STEM, ir al inicio">
-          <img src="assets/human-stem-logo.svg" alt="HUMAN STEM" width="1494" height="383">
-        </a>
-        <nav aria-label="Redes sociales">
-          <ul class="site-footer__redes" role="list">
-            <li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li>
-            <li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="site-footer__bottom">
-        <p class="site-footer__ia"><small>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso-responsable-ia.html">Conoce más acerca de nuestra política de uso responsable</a>.</small></p>
-        <p class="lema">Ciencia y tecnología con impacto social.</p>
-      </div>
+  <footer class="pie">
+    <div class="pie__fila">
+      <form class="buscador" action="mapa-del-sitio.html" method="get" role="search">
+        <label for="buscar">Buscar en el sitio</label>
+        <input id="buscar" name="q" type="search" autocomplete="off">
+        <button type="submit">Buscar</button>
+      </form>
+      <nav aria-label="Enlaces del pie">
+        <ul class="pie__enlaces">
+          <li><a href="mapa-del-sitio.html">Mapa del sitio</a></li>
+          <li><a href="creditos.html">Créditos</a></li>
+          <li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li>
+          <li><a href="en/index.html" lang="en" hreflang="en">English</a></li>
+        </ul>
+      </nav>
     </div>
+    <p>© 2026 HUMAN STEM. Sitio web administrado por: HUMAN STEM. <a href="mailto:human.stem.org@gmail.com">human.stem.org@gmail.com</a>. Última actualización: <time datetime="2026-11-10">10 de noviembre de 2026</time>.</p>
+    <p>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso-responsable-ia.html">Política de uso responsable de IA</a>.</p>
+    <p class="pie__feria">Presentado en la Feria de la Red de Responsabilidad Social, <a href="https://www.acatlan.unam.mx/" rel="external noopener">FES Acatlán</a>, <a href="https://www.unam.mx/" rel="external noopener">UNAM</a>.</p>
   </footer>
-
-  <script>
-    (function () {
-      var nav = document.querySelector('.main-nav');
-      var toggle = nav && nav.querySelector('.nav-toggle');
-      if (!nav || !toggle) return;
-      function setOpen(open) { nav.setAttribute('data-open', String(open)); toggle.setAttribute('aria-expanded', String(open)); }
-      toggle.addEventListener('click', function () { setOpen(nav.getAttribute('data-open') !== 'true'); });
-      nav.querySelectorAll('.nav-list a').forEach(function (link) { link.addEventListener('click', function () { setOpen(false); }); });
-      document.addEventListener('keydown', function (event) { if (event.key === 'Escape') setOpen(false); });
-    })();
-  </script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 120">
+<!-- carga: una compostera y un arbolito -->
+<path d="M30 60V40h34v20Z" fill="#5b4132" stroke="#a08053" stroke-width="2" stroke-linejoin="round"/>
+<path d="M30 47h34M41 40v20m12-20v20" stroke="#a08053" stroke-width="1.4"/>
+<path d="M82 60V34" stroke="#3e6247" stroke-width="2.6" stroke-linecap="round"/>
+<path d="M82 46c-14 1-18-9-16-17 11-1 20 4 16 17Zm0-8c-1-12 8-18 17-16 0 11-6 18-17 16Z" fill="#85a16c" stroke="#3e6247" stroke-width="2" stroke-linejoin="round"/>
+<!-- carrocería -->
+<path d="M14 92V60h96l12-30q2-5 8-5h38q6 0 9 5l18 30h18q9 1 11 11v21h-18a22 22 0 0 0-44 0H80a22 22 0 0 0-44 0Z"
+      fill="#294839" stroke="#1d3328" stroke-width="2.6" stroke-linejoin="round"/>
+<path d="M127 34h20v24h-29Zm27 0h13q3 0 5 3l12 21h-30Z" fill="#cfe0e6" opacity=".88"/>
+<path d="M14 72h100m6-12v32m38-32v32" stroke="#1d3328" stroke-width="1.4" opacity=".6" fill="none"/>
+<path d="M166 68h10" stroke="#1d3328" stroke-width="2.2" stroke-linecap="round"/>
+<rect x="212" y="65" width="12" height="9" rx="2" fill="#ffe9b0"/>
+<rect x="12" y="64" width="6" height="12" rx="1.5" fill="#e0664f"/>
+</svg>

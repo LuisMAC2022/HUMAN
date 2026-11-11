@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+<defs>
+  <radialGradient id="halo"><stop offset=".42" stop-color="#f3e3b8" stop-opacity=".34"/><stop offset="1" stop-color="#f3e3b8" stop-opacity="0"/></radialGradient>
+  <radialGradient id="disco" cx=".4" cy=".36"><stop stop-color="#f7edcf"/><stop offset=".7" stop-color="#e6d5a8"/><stop offset="1" stop-color="#c9b587"/></radialGradient>
+</defs>
+<circle cx="120" cy="120" r="120" fill="url(#halo)"/>
+<circle cx="120" cy="120" r="62" fill="url(#disco)"/>
+<g fill="#b9a67c" opacity=".5">
+  <ellipse cx="100" cy="98" rx="17" ry="13"/><ellipse cx="138" cy="112" rx="12" ry="15"/>
+  <ellipse cx="112" cy="143" rx="15" ry="10"/><circle cx="150" cy="148" r="6"/><circle cx="84" cy="128" r="5"/>
+  <circle cx="134" cy="82" r="4.5"/>
+</g>
+</svg>

@@ -3,101 +3,179 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="HUMAN STEM: desarrollamos proyectos sociales, ambientales y culturales de alto impacto con una perspectiva científica y tecnológica.">
   <title>HUMAN STEM — Ciencia y tecnología con impacto social</title>
+  <meta name="description" content="HUMAN STEM es una asociación civil que incuba proyectos sociales, ambientales y culturales con perspectiva científica y tecnológica: Proyecto Superman y Programa Miltli.">
+  <meta name="keywords" content="HUMAN STEM, asociación civil, incubadora de proyectos, Proyecto Superman, Programa Miltli, prótesis mioeléctrica, composta, ciencia, tecnología, impacto social">
+  <meta name="theme-color" content="#edf2e7">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="HUMAN STEM">
   <meta property="og:locale" content="es_MX">
   <meta property="og:title" content="HUMAN STEM — Ciencia y tecnología con impacto social">
-  <meta property="og:description" content="HUMAN STEM: desarrollamos proyectos sociales, ambientales y culturales de alto impacto con una perspectiva científica y tecnológica.">
-  <meta property="og:url" content="https://luismac2022.github.io/HUMAN/">
-  <meta property="og:image" content="https://luismac2022.github.io/HUMAN/assets/og/human-stem.png">
+  <meta property="og:description" content="Una asociación civil que incuba proyectos sociales, ambientales y culturales con perspectiva científica y tecnológica.">
+  <meta property="og:url" content="https://human-stem-feria-2026.laexrana.chatgpt.site/">
+  <meta property="og:image" content="https://human-stem-feria-2026.laexrana.chatgpt.site/assets/og/human-stem.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Logotipo de HUMAN STEM">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="alternate" hreflang="en" href="en/index.html">
+  <link rel="alternate" hreflang="es-MX" href="index.html">
   <link rel="icon" href="assets/human-stem-isotipo.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
-  <script>
-    /* Las secciones que vivían en la portada ahora tienen página propia. */
-    (function () {
-      var destinos = { '#colaboraciones': 'colabora.html', '#quienes-somos': 'quienes-somos.html', '#mision-vision': 'quienes-somos.html' };
-      if (destinos[location.hash]) location.replace(destinos[location.hash]);
-    })();
+  <link rel="preload" href="assets/fonts/spectral/spectral-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="comun.css">
+  <link rel="stylesheet" href="horizonte.css">
+  <link rel="prefetch" href="superman.html">
+  <link rel="prefetch" href="miltli.html">
+  <script type="speculationrules">
+    {"prerender": [{"source": "list", "urls": ["superman.html", "miltli.html"], "eagerness": "moderate"}]}
   </script>
+  <script src="js/planos.js"></script>
 </head>
-<body class="portada">
-  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+<body data-plano="horizonte" class="portada">
+  <a class="salto" href="#contenido">Saltar al contenido principal</a>
+  <div class="capa-cielo" aria-hidden="true"></div>
 
-  <header class="site-header">
-    <div class="contenedor site-header__inner">
-      <a class="site-logo" href="index.html#inicio" aria-label="HUMAN STEM, ir al inicio">
-        <img src="assets/human-stem-logo.svg" alt="HUMAN STEM" width="1494" height="383" fetchpriority="high">
-      </a>
-      <nav class="main-nav" aria-label="Navegación principal" data-open="false">
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">
-          <span class="nav-toggle__bars" aria-hidden="true"></span><span>Menú</span>
+  <header class="cabecera">
+    <a class="marca" href="index.html"><img src="assets/human-stem-logo.svg" alt="HUMAN STEM, inicio" width="1494" height="383"></a>
+    <nav class="menu" aria-label="Navegación principal">
+      <button class="menu__boton" type="button" aria-expanded="false" aria-controls="menu-lista">Menú</button>
+      <ul class="menu__lista" id="menu-lista">
+        <li><a href="index.html#quienes-somos">Quiénes somos</a></li>
+        <li><a href="superman.html">Proyecto Superman</a></li>
+        <li><a href="miltli.html">Programa Miltli</a></li>
+        <li><a class="menu__cta" href="index.html#colabora">Colabora</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="escena escena--inicio" id="contenido" tabindex="-1">
+    <div class="escena__sierra capa-sierra" aria-hidden="true"></div>
+    <div class="capa-suelo" aria-hidden="true"></div>
+
+    <div class="escena__contenido capa-contenido">
+      <div class="recorrido" id="recorrido">
+        <div class="mundo">
+          <div class="mundo__suelo" aria-hidden="true"></div>
+          <div class="mundo__flora" aria-hidden="true">
+            <img class="mundo__arbol capa-arbol" fetchpriority="high" src="assets/escena/arbol.svg" alt="" width="380" height="1000">
+            <img class="mundo__brote" loading="lazy" decoding="async" src="assets/escena/brote.svg" alt="" width="120" height="200">
+          </div>
+
+          <section class="parada parada--inicio" id="inicio" aria-labelledby="titulo-inicio">
+            <a class="rumbo rumbo--cielo" href="superman.html">
+              <svg class="rumbo__flecha" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20V4m-6 6 6-6 6 6"/></svg>
+              <span class="rumbo__texto">
+                <span class="rotulo">Cielo</span>
+                <strong>Proyecto Superman</strong>
+                <span class="rumbo__que">Prótesis mioeléctricas accesibles.</span>
+              </span>
+            </a>
+
+            <h1 id="titulo-inicio">HUMAN STEM</h1>
+            <p class="parada__entrada">Asociación civil que incuba proyectos sociales, ambientales y culturales.</p>
+
+            <a class="rumbo rumbo--tierra rumbo--en-suelo" href="miltli.html">
+              <svg class="rumbo__flecha" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v16m-6-6 6 6 6-6"/></svg>
+              <span class="rumbo__texto">
+                <span class="rotulo">Tierra</span>
+                <strong>Programa Miltli</strong>
+                <span class="rumbo__que">Composta y cultivos urbanos.</span>
+              </span>
+            </a>
+          </section>
+
+          <section class="parada" id="quienes-somos" aria-labelledby="titulo-quienes">
+            <h2 id="titulo-quienes">Quiénes somos</h2>
+            <p class="parada__entrada">HUMAN STEM es una asociación civil, laica, apartidista y sin fines de lucro. Incubamos proyectos sociales, ambientales y culturales; hoy trabajamos con <a href="superman.html">Proyecto Superman</a> y <a href="miltli.html">Programa Miltli</a>.</p>
+            <div class="identidad" id="mision-vision">
+              <p id="mision"><span class="rotulo">Misión</span>Poner el conocimiento científico y tecnológico al servicio de la comunidad, afrontando desafíos ambientales, sociales y culturales.</p>
+              <p id="vision"><span class="rotulo">Visión</span>Desarrollar soluciones sostenibles a largo plazo con alto impacto en el país y sus comunidades.</p>
+            </div>
+          </section>
+
+          <section class="parada" id="equipo" aria-labelledby="titulo-equipo">
+            <h2 id="titulo-equipo">Equipo</h2>
+            <div class="pareja">
+              <article class="persona" aria-labelledby="persona-inaki">
+                <p class="rotulo">Fundador de HUMAN STEM</p>
+                <h3 id="persona-inaki">Iñaki Moreno</h3>
+                <details>
+                  <summary>Trayectoria</summary>
+                  <p>Graduado de la carrera de Física y Matemáticas. Desde hace más de siete años se formó y participó en proyectos a través de <a href="https://www.selider.net/" rel="external noopener">SELIDER</a>.</p>
+                  <h4>Aprendizaje central</h4>
+                  <blockquote>El asistencialismo nace de intenciones nobles y cambia vidas, pero no resuelve los problemas de una sociedad: los insumos se acaban, los apoyos puntuales son finitos, hay problemas imposibles de resolver en un día e incluso puede causar efectos negativos en la comunidad que pretende beneficiar.</blockquote>
+                </details>
+              </article>
+              <article class="persona" aria-labelledby="persona-jair">
+                <p class="rotulo">Director de Proyecto Superman</p>
+                <h3 id="persona-jair">Jair Álvarez</h3>
+                <p><a href="superman.html">Proyecto Superman</a></p>
+              </article>
+            </div>
+          </section>
+
+          <section class="parada" id="colabora" aria-labelledby="titulo-colabora">
+            <h2 id="titulo-colabora">Colabora</h2>
+            <p class="parada__entrada">Escríbenos y te responderemos con los datos necesarios.</p>
+            <p><a class="boton boton--lleno" href="mailto:human.stem.org@gmail.com">human.stem.org@gmail.com</a></p>
+            <a class="rumbo rumbo--en-suelo" href="https://docs.google.com/forms/d/e/1FAIpQLSdmvbMqbXGZNnqHmvJsmeIXrOZvumeHosot576Vju7E-lCg2A/viewform?usp=send_form" rel="external noopener">
+              <svg class="rumbo__flecha" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+              <span class="rumbo__texto">
+                <strong>Formulario de reclutamiento</strong>
+                <span class="rumbo__que">Convocatoria de septiembre de 2026. Confirma su vigencia por correo.</span>
+              </span>
+            </a>
+          </section>
+        </div>
+      </div>
+
+      <div class="camioneta" aria-hidden="true">
+        <img class="camioneta__caja" src="assets/escena/camioneta.svg" alt="" width="260" height="120">
+        <img class="camioneta__rueda camioneta__rueda--trasera" src="assets/escena/rueda.svg" alt="" width="40" height="40">
+        <img class="camioneta__rueda camioneta__rueda--delantera" src="assets/escena/rueda.svg" alt="" width="40" height="40">
+      </div>
+
+      <nav class="paradas" aria-label="Secciones de HUMAN STEM">
+        <button class="paradas__paso" type="button" data-paso="-1" aria-label="Sección anterior" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12H4m6 6-6-6 6-6"/></svg>
         </button>
-        <ul class="nav-list" id="nav-list" role="list">
-          <li><a href="quienes-somos.html">Quiénes somos</a></li>
-          <li><a href="superman.html">Proyecto Superman</a></li>
-          <li><a href="miltli.html">Programa Miltli</a></li>
-          <li><a class="nav-cta" href="colabora.html">Colabora</a></li>
+        <ol>
+          <li><a href="#inicio" aria-current="true"><span>Inicio</span></a></li>
+          <li><a href="#quienes-somos"><span>Quiénes somos</span></a></li>
+          <li><a href="#equipo"><span>Equipo</span></a></li>
+          <li><a href="#colabora"><span>Colabora</span></a></li>
+        </ol>
+        <button class="paradas__paso paradas__paso--sigue" type="button" data-paso="1" data-sigue="Sección siguiente: " data-vuelve="Volver a: " hidden>
+          <span class="paradas__destino">Quiénes somos</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg>
+        </button>
+      </nav>
+    </div>
+  </main>
+
+  <footer class="pie">
+    <div class="pie__fila">
+      <form class="buscador" action="mapa-del-sitio.html" method="get" role="search">
+        <label for="buscar">Buscar en el sitio</label>
+        <input id="buscar" name="q" type="search" autocomplete="off">
+        <button type="submit">Buscar</button>
+      </form>
+      <nav aria-label="Enlaces del pie">
+        <ul class="pie__enlaces">
+          <li><a href="mapa-del-sitio.html">Mapa del sitio</a></li>
+          <li><a href="creditos.html">Créditos</a></li>
+          <li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li>
+          <li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li>
+          <li><a href="en/index.html" lang="en" hreflang="en">English</a></li>
         </ul>
       </nav>
     </div>
-  </header>
-
-  <main id="contenido-principal">
-    <section class="hero" id="inicio" aria-labelledby="titulo-hero">
-      <div class="contenedor hero__inner">
-         <h1 id="titulo-hero">Proyectos de <em>alto impacto</em> con una perspectiva científica y tecnológica</h1>
-        <p class="hero__sub">HUMAN STEM es una asociación civil, laica, apartidista y sin fines de lucro.</p>
-        <div class="hero__actions">
-          <a class="btn btn--primario" href="superman.html">Conoce el Proyecto Superman <span class="btn__arrow" aria-hidden="true">→</span></a>
-          <a class="btn btn--verde" href="miltli.html">Conoce el Programa Miltli <span class="btn__arrow" aria-hidden="true">→</span></a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="contenedor">
-      <div class="site-footer__top">
-        <a class="site-footer__logo" href="index.html#inicio" aria-label="HUMAN STEM, ir al inicio">
-          <img src="assets/human-stem-logo.svg" alt="HUMAN STEM" width="1494" height="383">
-        </a>
-        <nav aria-label="Redes sociales">
-          <ul class="site-footer__redes" role="list">
-            <li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li>
-            <li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li>
-          </ul>
-        </nav>
-      </div>
-      <div class="site-footer__bottom">
-        <p class="site-footer__ia"><small>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso-responsable-ia.html">Conoce más acerca de nuestra política de uso responsable</a>.</small></p>
-        <p class="lema">Ciencia y tecnología con impacto social.</p>
-      </div>
-    </div>
+    <p>© 2026 HUMAN STEM. Sitio web administrado por: HUMAN STEM. <a href="mailto:human.stem.org@gmail.com">human.stem.org@gmail.com</a>. Última actualización: <time datetime="2026-11-10">10 de noviembre de 2026</time>.</p>
+    <p>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso-responsable-ia.html">Política de uso responsable de IA</a>.</p>
+    <p class="pie__feria">Presentado en la Feria de la Red de Responsabilidad Social, <a href="https://www.acatlan.unam.mx/" rel="external noopener">FES Acatlán</a>, <a href="https://www.unam.mx/" rel="external noopener">UNAM</a>.</p>
   </footer>
 
-  <script>
-    (function () {
-      var nav = document.querySelector('.main-nav');
-      var toggle = nav && nav.querySelector('.nav-toggle');
-      if (!nav || !toggle) return;
-      function setOpen(open) {
-        nav.setAttribute('data-open', String(open));
-        toggle.setAttribute('aria-expanded', String(open));
-      }
-      toggle.addEventListener('click', function () { setOpen(nav.getAttribute('data-open') !== 'true'); });
-      nav.querySelectorAll('.nav-list a').forEach(function (link) {
-        link.addEventListener('click', function () { setOpen(false); });
-      });
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape') setOpen(false);
-      });
-    })();
-  </script>
+  <script src="js/horizonte.js" defer></script>
+  <script src="js/tour.js" defer></script>
 </body>
 </html>

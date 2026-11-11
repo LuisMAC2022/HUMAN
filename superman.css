@@ -1,197 +1,462 @@
-/* Proyecto Superman: hoja de estilos de la página. */
-/* Tipografía propia de la página, servida desde assets/fonts (subconjunto
-   latino de Fontsource, licencia OFL). Sin peticiones a otros dominios. */
-@font-face{font-family:'Archivo Black';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/archivo-black/archivo-black-latin-400-normal.woff2') format('woff2')}
-@font-face{font-family:'Spectral';font-style:normal;font-weight:300;font-display:swap;src:url('assets/fonts/spectral/spectral-latin-300-normal.woff2') format('woff2')}
-@font-face{font-family:'Spectral';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/spectral/spectral-latin-400-normal.woff2') format('woff2')}
-@font-face{font-family:'Spectral';font-style:italic;font-weight:400;font-display:swap;src:url('assets/fonts/spectral/spectral-latin-400-italic.woff2') format('woff2')}
-@font-face{font-family:'Spectral';font-style:normal;font-weight:600;font-display:swap;src:url('assets/fonts/spectral/spectral-latin-600-normal.woff2') format('woff2')}
-@font-face{font-family:'Space Mono';font-style:normal;font-weight:400;font-display:swap;src:url('assets/fonts/space-mono/space-mono-latin-400-normal.woff2') format('woff2')}
-@font-face{font-family:'Space Mono';font-style:normal;font-weight:700;font-display:swap;src:url('assets/fonts/space-mono/space-mono-latin-700-normal.woff2') format('woff2')}
-/* De styles.css sólo queremos .site-header y .site-footer. Sus reglas de
-   elemento (h1-h4 en azul institucional, p con margen inferior, escala
-   tipográfica del body) se devuelven aquí a los valores por omisión del
-   navegador, que son con los que se diseñó esta página. Va al principio
-   del bloque a propósito: así las reglas propias de más abajo siguen
-   mandando sobre ella. La cabecera y el pie no usan h1-h4 y todo su texto
-   va por clase, de modo que no les afecta. */
-body{font-size:16px}
-h1,h2,h3,h4{color:inherit;font-weight:bold;line-height:inherit;text-wrap:inherit}
-p{margin:0;text-wrap:inherit}
-/* A la inversa: la cabecera y el pie heredan del body, que aquí es serif,
-   ligero y con interlínea propia. Se les devuelve la tipografía del sitio
-   para que se lean igual que en el resto de las páginas. */
-.site-header,.site-footer{font-family:var(--font-body);font-weight:400;line-height:1.6}
+/* =====================================================================
+   HUMAN STEM — superman.css
+   Plano superior: el cielo. La constelación del puño es el índice de la
+   página; cada estrella lleva a una sección u objetivo del proyecto.
 
-:root{
-  --ocre:#b08a4a;--ocre-claro:#cdab6e;--gris:#6f6a61;--gris-texto:#57534c;--flex-texto:#8c3b26;--ext-texto:#4f582a;--gris-osc:#3a3833;
-  --marron:#5a4631;--papel:#e4ddd0;--papel-osc:#d2c9b7;--tinta:#26241f;
-  --flex:#a8472e;        /* flexores: cerrar */
-  --ext:#6d7a3a;         /* extensores: abrir */
-  --linea:rgba(38,36,31,.32);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--papel);color:var(--tinta);
-  font-family:'Spectral',Georgia,serif;font-weight:300;line-height:1.62;overflow-x:hidden;
-  background-image:repeating-linear-gradient(90deg,transparent,transparent 79px,rgba(38,36,31,.045) 79px,rgba(38,36,31,.045) 80px);
-}
-.wrap{max-width:1180px;margin:0 auto;padding:0 28px;position:relative}
+   1. Firmamento (retícula de la página)   4. Simulador
+   2. Constelación                          5. Facetas, glosario y cierre
+   3. Secciones                             6. Impresión
+   ===================================================================== */
 
-/* HERO */
-.sup-hero{position:relative;min-height:98vh;display:flex;flex-direction:column;justify-content:center;padding:90px 0 70px;overflow:hidden}
-.facetas{position:absolute;inset:0;pointer-events:none;z-index:0}
-.faceta{position:absolute;font-family:'Archivo Black',sans-serif;text-transform:uppercase;line-height:.82;letter-spacing:-.04em;user-select:none}
-.f1{top:5%;left:-3%;font-size:clamp(58px,14vw,192px);color:var(--flex);opacity:.14;transform:skewX(-9deg)}
-.f2{top:20%;left:1%;font-size:clamp(58px,14vw,192px);color:var(--ext);opacity:.15;transform:skewX(8deg) scaleX(.92)}
-.f3{bottom:7%;right:-4%;font-size:clamp(52px,12vw,168px);color:var(--gris-osc);opacity:.1;transform:rotate(-4deg)}
-.emg-hero{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
-.emg-hero path{fill:none;stroke-width:2;stroke-dasharray:1500;stroke-dashoffset:1500}
-.emg-hero .a{stroke:var(--flex);opacity:.38;animation:trazar 4.6s ease-out forwards .3s}
-.emg-hero .b{stroke:var(--ext);opacity:.32;animation:trazar 4.6s ease-out forwards .8s}
-@keyframes trazar{to{stroke-dashoffset:0}}
-.plano-geo{position:absolute;border:1px solid var(--linea)}
-.pg1{top:12%;right:6%;width:250px;height:310px;transform:rotate(11deg);background:linear-gradient(135deg,rgba(168,71,46,.08),transparent 60%)}
-.pg2{top:32%;right:15%;width:150px;height:210px;transform:rotate(-7deg);background:linear-gradient(135deg,rgba(109,122,58,.09),transparent 70%)}
-.sup-eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.42em;text-transform:uppercase;color:var(--flex-texto);position:relative;z-index:2;margin-bottom:26px;display:flex;align-items:center;gap:14px}
-.sup-eyebrow::before{content:"";width:54px;height:1px;background:var(--flex)}
-.sup-hero h1{position:relative;z-index:2;font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(34px,7.4vw,102px);line-height:.92;letter-spacing:-.035em;max-width:17ch}
-.sup-hero h1 .corte{display:inline-block;color:var(--ext);position:relative}
-.sup-hero h1 .corte::after{content:"";position:absolute;left:-6%;top:46%;width:112%;height:2px;background:var(--tinta);transform:rotate(-3deg)}
-.sup-hero .sub{position:relative;z-index:2;margin-top:34px;max-width:54ch;font-size:clamp(17px,2.1vw,21px);font-weight:400;color:var(--gris-osc)}
-.sup-hero .sub em{font-style:italic;color:var(--marron)}
-.sup-hero .sub .cf{color:var(--flex-texto);font-style:normal;font-weight:600}
-.sup-hero .sub .ce{color:var(--ext-texto);font-style:normal;font-weight:600}
-.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--gris-texto);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px}
-.scroll-cue span{display:block;width:1px;height:38px;background:var(--gris);animation:drop 2.4s ease-in-out 3}
-@keyframes drop{0%,100%{transform:scaleY(.3);transform-origin:top;opacity:.3}50%{transform:scaleY(1);opacity:1}}
-
-/* secciones */
-.seccion{padding:78px 0;position:relative}
-.cuerpo--separado{margin-bottom:30px}
-.marca{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:var(--flex-texto);display:flex;align-items:baseline;gap:16px;margin-bottom:30px}
-.marca b{font-family:'Archivo Black',sans-serif;font-size:15px;color:var(--tinta)}
-.marca .rule{flex:1;height:1px;background:var(--linea)}
-h2{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:clamp(28px,5vw,58px);line-height:.96;letter-spacing:-.03em;margin-bottom:34px;max-width:20ch}
-h2 .of{color:var(--flex)}h2 .oe{color:var(--ext)}
-.cuerpo{max-width:66ch;font-size:clamp(16px,1.9vw,18.5px)}
-.cuerpo p{margin-bottom:20px}
-.cuerpo em{font-style:italic;color:var(--gris-osc)}
-.term{font-family:'Space Mono',monospace;font-size:.82em;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--marron);background:rgba(176,138,74,.16);padding:1px 6px;border-radius:1px}
-
-/* LIENZO interpenetrado */
-.lienzo{position:relative;margin-top:20px;border:1px solid var(--linea);background:rgba(228,221,208,.4);overflow:hidden}
-.lienzo-svg{display:block;width:100%;height:auto}
-.lienzo-svg .plate{transition:opacity .45s ease}
-.lienzo-svg[data-focus] .plate{opacity:.2}
-.lienzo-svg[data-focus="1"] #plate-1,
-.lienzo-svg[data-focus="2"] #plate-2,
-.lienzo-svg[data-focus="3"] #plate-3,
-.lienzo-svg[data-focus="4"] #plate-4{opacity:1}
-
-/* consola de dos antagonistas */
-.consola{margin-top:14px;border:1px solid var(--tinta);display:grid;grid-template-columns:1fr 1fr;gap:0}
-.canal{padding:20px 24px;display:flex;flex-direction:column;gap:12px;border-bottom:1px solid var(--tinta)}
-.canal:nth-child(1){border-right:1px solid var(--tinta)}
-.canal-top{display:flex;align-items:center;justify-content:space-between}
-.canal h3{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:-.01em}
-.canal.flex h3{color:var(--flex-texto)}.canal.ext h3{color:var(--ext-texto)}
-.canal .uv{font-family:'Archivo Black',sans-serif;font-size:20px}
-.canal.flex .uv{color:var(--flex-texto)}.canal.ext .uv{color:var(--ext-texto)}
-.barra{height:13px;border:1px solid var(--tinta);background:var(--papel);position:relative;overflow:hidden}
-.barra-fill{position:absolute;inset:0;width:0%}
-.canal.flex .barra-fill{background:linear-gradient(90deg,var(--ocre),var(--flex))}
-.canal.ext .barra-fill{background:linear-gradient(90deg,var(--ocre-claro),var(--ext))}
-.barra-thr{position:absolute;top:-3px;bottom:-3px;left:30%;width:2px;background:var(--tinta)}
-.btnm{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:14px;letter-spacing:-.01em;color:var(--papel);border:none;padding:14px 18px;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:none;transition:transform .08s,filter .12s;line-height:1.1;text-align:left}
-.btnm small{display:block;font-family:'Space Mono',monospace;font-size:9.5px;font-weight:400;letter-spacing:.16em;opacity:.85;margin-top:5px}
-.canal.flex .btnm{background:var(--flex-texto)}.canal.ext .btnm{background:var(--ext-texto)}
-.btnm.activo{transform:scale(.98);filter:brightness(.82)}
-.btnm:focus-visible{outline:3px solid var(--ocre);outline-offset:3px}
-.slider-wrap{display:flex;align-items:center;gap:9px}
-.slider-wrap label{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gris-texto);white-space:nowrap}
-input[type=range]{flex:1;height:16px;cursor:pointer}
-.canal.flex input[type=range]{accent-color:var(--flex)}.canal.ext input[type=range]{accent-color:var(--ext)}
-.tablero{grid-column:1/3;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
-.tab{padding:16px 22px;border-right:1px solid var(--tinta)}
-.tab:last-child{border-right:none}
-.tab .lbl{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris-texto);margin-bottom:7px;display:block}
-.tab .val{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:16px;line-height:1.05;letter-spacing:-.02em;color:var(--tinta);transition:color .2s}
-.tab .val.on{color:var(--flex-texto)}
-.tab .val.mode{color:var(--ext-texto)}
-.hint{margin-top:12px;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--gris-texto)}
-.hint b{color:var(--marron)}
-.hint .cf{color:var(--flex-texto)}.hint .ce{color:var(--ext-texto)}
-
-.leyenda{list-style:none;display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:34px}
-.capa{border:1px solid var(--linea);padding:22px 20px 24px;background:rgba(228,221,208,.5);position:relative;cursor:pointer;transition:transform .4s cubic-bezier(.2,.8,.2,1),background .4s,border-color .3s,box-shadow .3s}
-.capa:hover{transform:translateY(-5px) rotate(-.5deg);background:var(--papel-osc)}
-.capa__btn{font:inherit;color:inherit;letter-spacing:inherit;text-transform:inherit;text-align:inherit;background:none;border:0;padding:0;cursor:pointer}
-.capa__btn::after{content:"";position:absolute;inset:0}
-.capa__btn:focus-visible{outline:none}
-.capa__btn:focus-visible::after{outline:3px solid var(--ocre);outline-offset:3px}
-.capa.activa{border-color:var(--flex);background:rgba(168,71,46,.09);box-shadow:0 0 0 1px var(--flex) inset}
-.capa.sel{transform:translateY(-5px);border-color:var(--tinta);background:var(--papel-osc)}
-.capa .ix{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--flex-texto);position:absolute;top:14px;right:16px;transition:transform .3s}
-.capa.activa .ix{transform:scale(1.5)}
-.capa h3{font-family:'Archivo Black',sans-serif;text-transform:uppercase;font-size:17px;letter-spacing:-.02em;margin-bottom:10px;color:var(--tinta)}
-.capa p{font-size:14.5px;line-height:1.5;color:var(--gris-osc)}
-.capa .micro{display:block;margin-top:12px;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--marron)}
-.k1{grid-column:1/6;transform:rotate(-1deg)}
-.k2{grid-column:5/9;margin-top:30px;border-color:rgba(168,71,46,.5);background:rgba(168,71,46,.06)}
-.k3{grid-column:8/13;transform:rotate(.7deg)}
-.k4{grid-column:3/11;margin-top:-8px;border-color:rgba(109,122,58,.5);background:rgba(109,122,58,.07)}
-
-
-/* REEL · styles.css ya define .superman__reel con los tokens del sitio
-   (blanco, radio, sombra). Aquí se reescribe con la paleta de papel de esta
-   página: la tarjeta de Instagram queda montada sobre el mismo marco que el
-   lienzo, con su pie en la tipografía monoespaciada de las secciones. */
-.reel-marco{max-width:540px;margin:0 auto;border:1px solid var(--linea);background:rgba(228,221,208,.45);padding:16px}
-.superman__reel{margin:0;max-width:none}
-/* Antes de que responda embed.js el blockquote solo contiene el enlace de
-   respaldo; se le da cuerpo para que el hueco no se lea como un fallo. */
-.reel-enlace{padding:56px 20px;text-align:center}
-.reel-enlace a{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--flex-texto);text-decoration:underline;text-decoration-color:var(--flex);text-underline-offset:6px}
-.reel-enlace a:hover{color:var(--tinta);border-bottom-color:var(--tinta)}
-.reel-pie{max-width:540px;margin:14px auto 0;font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gris-texto);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
-.reel-pie a{color:var(--marron);text-decoration:underline;text-underline-offset:4px}
-.reel-pie a:hover{color:var(--flex-texto);border-bottom-color:var(--flex)}
-
-
-.r{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
-.r.in{opacity:1;transform:none}
-
-@media (max-width:820px){
-  .consola{grid-template-columns:1fr}
-  .canal:nth-child(1){border-right:none}
-  .tablero{grid-column:1;grid-template-columns:1fr}
-  .tab{border-right:none;border-bottom:1px solid var(--tinta)}
-  .tab:last-child{border-bottom:none}
-}
-@media (max-width:760px){
-  body{background-image:none}
-  .leyenda{display:flex;flex-direction:column;gap:14px}
-  .capa,.k1,.k2,.k3,.k4{grid-column:auto !important;transform:none !important;margin:0 !important;width:100%}
-  .plano-geo{display:none}
-}
-@media (prefers-reduced-motion:reduce){
-  .faceta,.plano-geo,.scroll-cue span{animation:none !important}
-  .emg-hero path{stroke-dashoffset:0}
-  .r{opacity:1;transform:none;transition:none}
+:root {
+  --flex: #ffab7a;  /* flexores: cierran */
+  --ext: #7fdcec;   /* extensores: abren */
+  --oro: #ffe7ad;   /* estrellas encendidas */
+  --trazo: #d7e6df;
+  --trazo-suave: #8fb0b8;
+  --placa: #0c1922;
 }
 
+[data-plano="cielo"] .capa-cielo {
+  background:
+    radial-gradient(ellipse 90% 60% at 40% 12%, #173543 0%, transparent 70%),
+    linear-gradient(160deg, var(--noche), #0d1a23 65%, #10222b);
+}
+[data-plano="cielo"] .capa-cielo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/escena/estrellas.svg") 0 0 / 720px 520px;
+  opacity: .5;
+  pointer-events: none;
+}
 
-/* Ajustes de lineamientos (auditoría CATIC 2016). */
-.reel-enlace a:visited,.reel-pie a:visited{color:#6B3F86}
-.sup-mision{position:relative;z-index:2;margin-top:28px;max-width:54ch;font-size:clamp(18px,2.2vw,22px);font-weight:400;color:var(--tinta);border-left:3px solid var(--flex);padding-left:16px}
-.glosario dl{max-width:760px;margin:18px 0 0;display:grid;gap:14px}
-.glosario dt{font-weight:600;color:var(--tinta)}
-.glosario dd{margin:2px 0 0}
-@media print{
-  .facetas,.emg-hero,.scroll-cue,.plano-geo{display:none!important}
-  .sup-hero{min-height:0;padding:0 0 18pt}
-  .r{opacity:1!important;transform:none!important}
-  body{background-image:none!important}
+/* ---------- 1. Firmamento ---------- */
+.firmamento {
+  width: min(100%, 1280px);
+  margin-inline: auto;
+  padding: 0 var(--margen) 8px;
+}
+@media (min-width: 960px) {
+  .firmamento {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    column-gap: clamp(32px, 4vw, 64px);
+    align-items: start;
+  }
+  .ruta { grid-column: 1 / -1; }
+  .carta { grid-column: 1; grid-row: 2 / span 8; }
+  .estrella { grid-column: 2; }
+}
+
+/* ---------- 2. Constelación ----------
+   El dibujo usa un viewBox de 760 × 490. Cada enlace de la lista lleva las
+   coordenadas de su estrella (--x, --y) en esas unidades y su punto se
+   coloca sobre el dibujo: un solo enlace sirve de estrella y de rótulo.
+   --ar es la proporción visible; en móvil se recorta a los lados. */
+.carta {
+  --ar: 1.24;
+  --ancho-visible: calc(490 * var(--ar));
+  position: relative;
+  container-type: inline-size;
+  margin-block: 8px 28px;
+  border: 1px solid var(--filete);
+  border-radius: var(--radio-panel);
+  background: linear-gradient(145deg, #101e29, #0c1920 55%, #0d1b26);
+}
+.carta__lienzo { aspect-ratio: var(--ar); border-bottom: 1px solid var(--filete); }
+.carta__lienzo svg { display: block; width: 100%; height: 100%; }
+.carta__reticula { fill: none; stroke: #8bb5bf; stroke-width: .8; opacity: .3; }
+.carta__campo { fill: rgb(90 179 195 / .08); transition: fill .7s; }
+.carta[data-completa="true"] .carta__campo { fill: rgb(90 179 195 / .17); }
+.carta__base, .carta__luz { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.carta__base { stroke: #78a7b3; stroke-opacity: .6; stroke-width: 1.4; }
+.carta__luz { stroke: #ccefe4; stroke-width: 2;  }
+.carta__nudos circle { fill: #e1f8e9; }
+/* Sin JavaScript todo queda encendido; con él, cada tramo se enciende al
+   llegar a su sección. */
+.js .carta__luz use {
+  opacity: 0;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: opacity .26s, stroke-dashoffset .8s cubic-bezier(.21, .65, .41, 1);
+}
+.js .carta__luz .encendida { opacity: 1; stroke-dashoffset: 0; }
+.js .carta__nudos circle { fill: #94b6ba; opacity: .64; transition: fill .35s, opacity .35s; }
+.js .carta__nudos .encendida { fill: #e1f8e9; opacity: 1; }
+
+.carta__titulo { padding: 12px 14px 0; color: var(--texto-suave); }
+.carta__estrellas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 12px;
+  margin: 0;
+  padding: 4px 14px 8px;
+  list-style: none;
+}
+.carta__estrellas a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  color: var(--texto);
+  font: 400 1rem/1.2 var(--sans);
+  text-decoration: none;
+}
+.carta__estrellas a:visited { color: var(--texto); }
+.carta__num { font: 400 .75rem/1 var(--mono); color: var(--cielo); }
+.carta__estrellas a:hover,
+.carta__estrellas a[aria-current] { color: var(--oro); }
+.carta__estrellas a[aria-current] { text-decoration: underline; text-underline-offset: .3em; }
+.carta__avance {
+  margin: 0;
+  padding: 10px 14px 12px;
+  border-top: 1px solid var(--filete);
+  color: var(--texto-suave);
+  font: 400 .75rem/1.4 var(--mono);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* El astro: área táctil de 44 px colocada sobre el dibujo. */
+.astro {
+  position: absolute;
+  left: calc((var(--x) - (760 - var(--ancho-visible)) / 2) / var(--ancho-visible) * 100cqi);
+  top: calc(var(--y) / 490 * 100cqi / var(--ar));
+  width: 44px;
+  height: 44px;
+  translate: -50% -50%;
+  border-radius: 50%;
+}
+.astro::before, .astro::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  transition: background-color .24s, border-color .24s, box-shadow .24s, scale .24s;
+}
+.astro::before {
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--oro);
+  border-radius: 50%;
+  background: rgb(18 36 48 / .88);
+  box-shadow: 0 0 12px rgb(245 206 123 / .32);
+}
+.astro::after {
+  width: 11px;
+  height: 11px;
+  background: var(--oro);
+  clip-path: polygon(50% 0, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0 50%, 37% 37%);
+}
+/* Número de la estrella junto al astro; coincide con el de la lista. */
+.astro b {
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 15px);
+  translate: 0 -50%;
+  padding: 2px 3px;
+  background: rgb(18 36 44 / .85);
+  color: var(--oro);
+  font: 400 .75rem/1 var(--mono);
+}
+.astro--izq b { left: auto; right: calc(50% + 15px); }
+.js a[data-vista="false"] .astro b { color: #b8d5d6; }
+.js a[data-vista="false"] .astro::before { border-color: #90c4cc; box-shadow: none; }
+.js a[data-vista="false"] .astro::after { background: #b3d2d6; }
+a:hover .astro::before,
+a[aria-current] .astro::before {
+  border-color: #fff3ce;
+  box-shadow: 0 0 0 3px rgb(249 224 173 / .28), 0 0 21px rgb(240 211 159 / .56);
+  scale: 1.1;
+}
+a:hover .astro::after,
+a[aria-current] .astro::after { background: #fff1c8; scale: 1.25; }
+
+/* ---------- 3. Secciones ---------- */
+.estrella {
+  padding-block: 28px 44px;
+  border-top: 1px solid var(--filete);
+  scroll-margin-top: calc(var(--alto-cabecera) + 8px);
+}
+.estrella--primera { padding-block: 6px 14px; border-top: 0; }
+.estrella--ultima { padding-bottom: 56px; }
+.estrella > * { max-width: 40rem; }
+.estrella__marca { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; color: var(--oro); }
+.estrella__marca::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: currentColor;
+  clip-path: polygon(50% 0, 63% 37%, 100% 50%, 63% 63%, 50% 100%, 37% 63%, 0 50%, 37% 37%);
+}
+.estrella h1 { font-size: clamp(2.75rem, 1.6rem + 6vw, 5.25rem); letter-spacing: -.055em; line-height: .92; }
+.estrella h2 { font-size: clamp(2.125rem, 1.5rem + 3vw, 3.25rem); letter-spacing: -.04em; }
+.estrella h3 { margin: 30px 0 10px; font-size: 1.375rem; letter-spacing: -.01em; }
+.estrella__entrada {
+  margin: 16px 0 20px;
+  color: var(--texto-suave);
+  font-size: clamp(1.125rem, 1rem + .5vw, 1.3125rem);
+  line-height: 1.5;
+}
+
+/* ---------- 4. Simulador ---------- */
+.simulador {
+  border-radius: var(--radio-panel); display: grid; gap: 10px; max-width: 30rem; margin-top: 4px; }
+.sim { margin: 0; border: 1px solid var(--filete); background: #0d1a23; }
+.sim__lienzo { display: block; width: 100%; height: auto; }
+
+.sim__lienzo [data-capa] { transition: opacity .25s; }
+.sim__lienzo[data-foco] [data-capa] { opacity: .16; }
+.sim__lienzo[data-foco="1"] [data-capa="1"],
+.sim__lienzo[data-foco="2"] [data-capa="2"],
+.sim__lienzo[data-foco="3"] [data-capa="3"],
+.sim__lienzo[data-foco="4"] [data-capa="4"] { opacity: 1; }
+
+.piel { fill: #1c3646; stroke: #b9d7d6; stroke-width: 1.3; }
+.fibra { fill: none; stroke-width: 2; stroke-linecap: round; opacity: .8; }
+.fibra--flex, .hilo--flex, .traza--flex, .aro--flex { stroke: var(--flex); }
+.fibra--ext, .hilo--ext, .traza--ext, .aro--ext { stroke: var(--ext); }
+.encaje { fill: rgb(215 230 223 / .07); stroke: var(--trazo); stroke-width: 1.3; stroke-linejoin: round; }
+.aro { fill: none; stroke-width: 1.5; }
+.polo--flex, .pesa--flex { fill: var(--flex); }
+.polo--ext, .pesa--ext { fill: var(--ext); }
+.pantalla { fill: var(--placa); stroke: var(--filete); stroke-width: 1; }
+.traza { fill: none; stroke-width: 1.6; stroke-linejoin: round; stroke-linecap: round; }
+.hilo { fill: none; stroke-width: 1.4; stroke-dasharray: 4 4; opacity: .45; }
+.hilo--orden { stroke: var(--oro); }
+.fiel, .astil { fill: none; stroke: var(--trazo); stroke-width: 1.6; stroke-linecap: round; }
+.astil { stroke-width: 2.4; }
+.eje { fill: var(--trazo); }
+.decision { fill: var(--trazo); opacity: .14; }
+.guia { fill: none; stroke: var(--trazo-suave); stroke-width: 1; stroke-dasharray: 2 4; opacity: .8; }
+.chip { fill: var(--placa); stroke: var(--oro); stroke-width: 1.3; }
+.muneca { fill: #22404f; stroke: var(--trazo); stroke-width: 1.2; }
+.palma { fill: #17303e; stroke: var(--trazo); stroke-width: 1.4; stroke-linejoin: round; }
+.servo circle { fill: var(--placa); stroke: var(--oro); stroke-width: 1.3; }
+.servo path { stroke: var(--oro); stroke-width: 1.6; stroke-linecap: round; }
+.blanco { fill: var(--oro); opacity: 0; }
+/* Los dedos del fondo van más apagados: el índice y el pulgar, al frente. */
+.dedo rect { stroke-width: 1.3; }
+.dedo--menique rect { fill: #122733; stroke: #6f929c; }
+.dedo--anular rect { fill: #152d3a; stroke: #87a8b0; }
+.dedo--medio rect { fill: #183442; stroke: #a5c2c5; }
+.dedo--indice rect { fill: #214455; stroke: var(--texto); }
+.dedo--pulgar rect { fill: #264b5c; stroke: var(--texto); }
+.nudo { fill: var(--oro); }
+.dedo--menique .nudo, .dedo--anular .nudo, .dedo--medio .nudo { opacity: .55; }
+.sim__rotulo { font: 400 12px var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+.sim__rotulo--flex { fill: var(--flex); }
+.sim__rotulo--ext { fill: var(--ext); }
+
+.tablero { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 12px; }
+.agarres { display: flex; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.agarres li {
+  padding: 6px 10px;
+  border: 1px solid var(--filete);
+  color: var(--texto-mudo);
+  font: 400 .8125rem/1.2 var(--sans);
+}
+.agarres li[aria-current] { border-color: var(--oro); background: var(--oro); color: var(--noche); font-weight: 600; }
+.tablero__estado { color: var(--texto-suave); font: 400 .875rem/1.3 var(--sans); }
+.tablero__estado.activo { color: var(--oro); }
+
+/* Sin JavaScript no hay simulación: se ocultan los controles y queda el
+   esquema con su explicación. */
+.consola, .tablero { display: none; }
+.js .tablero { display: flex; }
+.js .consola { display: grid; gap: 10px; }
+.consola p { margin: 0; max-width: none; }
+.consola__ayuda { color: var(--texto); font: 400 .9375rem/1.4 var(--sans); }
+.consola__umbral { color: var(--texto-mudo); font: 400 .8125rem/1.4 var(--sans); }
+.consola__canales { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.canal {
+  --tono: var(--flex);
+  position: relative;
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.canal--ext { --tono: var(--ext); }
+/* El pulsador se mantiene presionado: no debe desplazar la página ni
+   seleccionar texto mientras tanto. */
+.pulsador {
+  display: grid;
+  align-content: center;
+  gap: 2px;
+  min-height: 76px;
+  padding: 10px 12px 12px;
+  border: 1.5px solid var(--tono);
+  border-radius: var(--radio-control-alto);
+  background: color-mix(in srgb, var(--tono) 12%, var(--placa));
+  color: var(--texto);
+  text-align: left;
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color .12s, transform .12s;
+}
+.pulsador[aria-pressed="true"] { background: var(--tono); color: var(--noche); transform: translateY(2px); }
+.pulsador__nombre { font: 600 1.0625rem/1.15 var(--sans); }
+.pulsador__accion { display: flex; align-items: center; gap: 8px; font: 400 .875rem/1.2 var(--sans); }
+.pulsador kbd {
+  display: none;
+  min-width: 22px;
+  padding: 2px 5px;
+  border: 1px solid currentColor;
+  border-radius: var(--radio-chico);
+  font: 400 .75rem/1.2 var(--mono);
+  text-align: center;
+}
+@media (hover: hover) and (pointer: fine) {
+  .pulsador kbd { display: inline-block; }
+}
+.canal__lectura {
+  position: absolute;
+  top: 46px;
+  right: 12px;
+  color: var(--tono);
+  font: 400 .75rem/1.3 var(--mono);
+  pointer-events: none;
+}
+.pulsador[aria-pressed="true"] ~ .canal__lectura { color: var(--noche); }
+.nivel {
+  position: relative;
+  height: 8px;
+  border: 1px solid var(--filete);
+  background: var(--placa);
+}
+.nivel::after { /* umbral */
+  content: "";
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  left: 30%;
+  width: 2px;
+  background: var(--texto);
+}
+.nivel__barra { display: block; width: 0; height: 100%; background: var(--tono); }
+.tono { display: grid; gap: 2px; color: var(--texto-suave); font: 400 .8125rem/1.3 var(--sans); }
+.tono input { width: 100%; height: 44px; margin: 0; accent-color: var(--tono); }
+.consola__ambos { --acento: var(--oro); min-height: 48px; }
+
+
+/* ---------- 5. Facetas, glosario y cierre ---------- */
+.facetas { display: grid; gap: 8px; }
+.facetas details { border-radius: var(--radio-panel); border: 1px solid var(--filete); background: rgb(13 26 35 / .7); transition: border-color .2s; }
+.facetas details[open] { border-color: var(--cielo); }
+.facetas details.activa { border-color: var(--oro); }
+.facetas summary {
+  border-radius: var(--radio-control);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 0 14px;
+  font: 400 1rem/1.2 var(--sans);
+  cursor: pointer;
+  list-style: none;
+}
+.facetas summary::-webkit-details-marker { display: none; }
+.facetas summary::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  margin-left: auto;
+  border: solid currentColor;
+  border-width: 0 1.5px 1.5px 0;
+  transform: rotate(45deg);
+  transition: transform .2s;
+}
+.facetas details[open] > summary::after { transform: rotate(-135deg); }
+.facetas__n {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--cielo);
+  border-radius: 50%;
+  color: var(--cielo);
+  font: 400 .75rem/1 var(--mono);
+}
+.facetas details.activa .facetas__n { border-color: var(--oro); background: var(--oro); color: var(--noche); }
+.facetas p { margin: 0; padding: 0 14px 14px 50px; color: var(--texto-suave); font-size: 1rem; line-height: 1.5; }
+
+.glosario { display: grid; gap: 14px; margin: 18px 0 0; }
+.glosario dt { font: 600 1.0625rem/1.3 var(--serif); color: var(--texto); }
+.glosario dd { margin: 2px 0 0; color: var(--texto-suave); }
+
+/* El camino de vuelta al horizonte: el cielo se aclara al bajar. */
+.descenso {
+  border-radius: var(--radio-control-alto);
+  --tono: var(--horizonte);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 62px;
+  padding: 8px 18px 8px 8px;
+  border: 1px solid color-mix(in srgb, var(--tono) 55%, transparent);
+  background: rgb(13 24 33 / .82);
+  color: var(--texto);
+  text-decoration: none;
+  transition: transform .2s, border-color .2s;
+}
+.descenso:visited { color: var(--texto); }
+.descenso:hover { border-color: var(--tono); transform: translateY(3px); }
+.descenso svg {
+  border-radius: var(--radio-control);
+  flex: none;
+  width: 42px;
+  height: 42px;
+  padding: 11px;
+  background: color-mix(in srgb, var(--tono) 13%, transparent);
+  fill: none;
+  stroke: var(--tono);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.descenso span { display: grid; gap: 1px; }
+.descenso .rotulo { color: var(--tono); }
+.descenso strong { font: 400 1.25rem/1.2 var(--serif); }
+.pie { border-top-color: rgb(243 209 160 / .5); box-shadow: 0 -60px 80px -40px rgb(198 141 91 / .28); }
+
+@media (min-width: 960px) {
+  .carta { --ar: 1.32; position: sticky; top: calc(var(--alto-cabecera) + 12px); margin-top: 6px; }
+  .estrella--primera { padding-block: 0 44px; }
+  .facetas { grid-template-columns: 1fr 1fr; align-items: start; max-width: 44rem; }
+  .estrella > .facetas { max-width: 44rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .carta__luz use { transition: none; }
+}
+
+/* ---------- 6. Impresión ---------- */
+@media print {
+  body::before, .carta__lienzo, .astro, .carta__avance, .consola, .tablero, .descenso svg { display: none !important; }
+  body { background: #fff; }
+  .firmamento { display: block; }
+  .carta { position: static; border: 0; background: none; }
+  .carta__estrellas a, .carta__num, .estrella__marca, .glosario dt, .glosario dd, .facetas summary, .facetas p { color: #000; }
+  .sim { border-color: #000; background: #0f1c26; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .sim__lienzo { max-width: 110mm; }
+  .facetas details { border-color: #000; background: none; }
+  .facetas details > p { display: block; }
+  .descenso { border: 0; background: none; padding: 0; }
+  .descenso strong, .descenso .rotulo { color: #000; }
+}
+
+@media screen {
+  .estrella:not(.estrella--primera) {
+    content-visibility: auto;
+    contain-intrinsic-block-size: auto 410px;
+  }
 }

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 40 40">
+<circle r="18.5" fill="#0a141d" stroke="#1d3328" stroke-width="2.4"/>
+<circle r="13" fill="none" stroke="#1d3328" stroke-width="1" opacity=".5"/>
+<g stroke="#1d3328" stroke-width="2.4" stroke-linecap="round"><path d="M0 -6V-13" transform="rotate(0)"/><path d="M0 -6V-13" transform="rotate(72)"/><path d="M0 -6V-13" transform="rotate(144)"/><path d="M0 -6V-13" transform="rotate(216)"/><path d="M0 -6V-13" transform="rotate(288)"/></g>
+<circle r="4" fill="#1d3328"/>
+</svg>
