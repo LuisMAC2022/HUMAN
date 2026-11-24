@@ -1,283 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es-MX">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HUMAN STEM se mudó</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://human-stem.github.io/page/miltli.html">
+  <meta http-equiv="refresh" content="6;url=https://human-stem.github.io/page/miltli.html">
   <meta name="theme-color" content="#edf2e7">
-  <meta name="description" content="Aprende a compostar con Programa Miltli: prepara tus materiales, descubre qué agregar y sigue el proceso en un recorrido ilustrado por el subsuelo.">
-  <title>Programa Miltli: aprendiendo a compostar — HUMAN STEM</title>
-  <meta name="keywords" content="Programa Miltli, composta, compostaje doméstico, residuos orgánicos, cultivos urbanos, guía de compostaje, HUMAN STEM">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="HUMAN STEM">
-  <meta property="og:locale" content="es_MX">
-  <meta property="og:title" content="Programa Miltli — Aprendiendo a compostar">
-  <meta property="og:description" content="Aprende a compostar con Programa Miltli: prepara tus materiales, descubre qué agregar y sigue el proceso en un recorrido ilustrado por el subsuelo.">
-  <meta property="og:url" content="https://human-stem-feria-2026.laexrana.chatgpt.site/miltli.html">
-  <meta property="og:image" content="https://human-stem-feria-2026.laexrana.chatgpt.site/assets/og/human-stem.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Logotipo de HUMAN STEM">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="assets/human-stem-isotipo.svg" type="image/svg+xml">
-  <link rel="preload" href="assets/fonts/spectral/spectral-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="comun.css">
-  <link rel="stylesheet" href="miltli.css">
-  <link rel="prefetch" href="index.html">
-  <link rel="prefetch" href="superman.html">
-  <script type="speculationrules">
-    {"prerender": [{"source": "list", "urls": ["index.html", "superman.html"], "eagerness": "moderate"}]}
-  </script>
-  <script src="js/planos.js"></script>
+  <link rel="icon" href="/HUMAN/assets/human-stem-isotipo.svg" type="image/svg+xml">
+  <style>
+    :root { color-scheme: light; --fondo: #edf2e7; --tinta: #1f2a1c; --acento: #2f5d3a; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 1.5rem;
+           background: var(--fondo); color: var(--tinta);
+           font: 1.0625rem/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+    main { max-width: 34rem; text-align: center; }
+    img { width: 4.5rem; height: auto; }
+    h1 { font-size: 1.6rem; line-height: 1.25; margin: 1rem 0 .75rem; }
+    p { margin: 0 0 1rem; }
+    a.boton { display: inline-block; margin: .5rem 0 1.25rem; padding: .75rem 1.5rem; border-radius: 999px;
+              background: var(--acento); color: #fff; text-decoration: none; font-weight: 600; }
+    a.boton:focus-visible { outline: 3px solid var(--tinta); outline-offset: 3px; }
+    .url { font-size: .95rem; word-break: break-all; }
+  </style>
 </head>
-<body data-plano="tierra">
-  <div class="capa-cielo" aria-hidden="true"></div>
-  <a class="salto" href="#contenido-principal">Saltar al contenido principal</a>
-  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <defs>
-      <symbol id="arrow-down" viewBox="0 0 24 24"><path d="M12 4v15m-6-6 6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-      <symbol id="sprout" viewBox="0 0 40 40"><path d="M20 33V19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M20 23C8 24 6 15 7 10c8-1 16 2 13 13Z" fill="currentColor"/><path d="M20 19C19 8 27 4 34 6c0 9-5 15-14 13Z" fill="currentColor"/></symbol>
-      <symbol id="spark" viewBox="0 0 24 24"><path d="m12 1 2.4 8.6L23 12l-8.6 2.4L12 23l-2.4-8.6L1 12l8.6-2.4Z" fill="currentColor"/></symbol>
-
-      <symbol id="icon-leaf" viewBox="0 0 80 80"><path d="M17 61C3 30 27 13 67 13c-1 39-18 64-50 48Z" fill="#a5ae6b" stroke="#486140" stroke-width="3"/><path d="m15 68 40-41M33 49l-1-15m10 6 14 1" fill="none" stroke="#486140" stroke-width="3" stroke-linecap="round"/></symbol>
-      <symbol id="icon-apple" viewBox="0 0 80 80"><path d="M39 24C14 10 3 33 17 56c9 17 18 12 23 10 10 6 19 1 26-16 10-25-4-37-27-26Z" fill="#d08a62" stroke="#6b5138" stroke-width="3"/><path d="m40 26 2-14" stroke="#6b5138" stroke-width="4" stroke-linecap="round"/><path d="M44 17c0-13 12-13 21-10-1 11-10 15-21 10Z" fill="#82965d" stroke="#526840" stroke-width="2"/><path d="M23 34q-4 10 1 17" stroke="#e5b28a" stroke-width="4" fill="none" stroke-linecap="round"/></symbol>
-      <symbol id="icon-carrot" viewBox="0 0 80 80"><path d="M46 24c-2-7 10-17 11-18m-4 24c6-7 18-7 20-7M47 29c-7-8-9-17-7-24" fill="none" stroke="#6b8b4b" stroke-width="5" stroke-linecap="round"/><path d="M53 28C42 14 31 28 14 68c34-15 59-27 39-40Z" fill="#d9a06b" stroke="#6d5137" stroke-width="3"/><path d="m27 45 7 5m4-17 8 5" fill="none" stroke="#a8784c" stroke-width="3" stroke-linecap="round"/></symbol>
-      <symbol id="icon-paper" viewBox="0 0 80 80"><path d="m17 18 40-7 10 52-42 8Z" fill="#c0a779" stroke="#725a3b" stroke-width="3"/><path d="m12 12 40 1-1 53-40-2Z" fill="#e8d6ad" stroke="#725a3b" stroke-width="3"/><path d="m21 25 21 1m-21 10 21 1m-22 10 17 1" fill="none" stroke="#baa67e" stroke-width="3" stroke-linecap="round"/></symbol>
-      <symbol id="icon-coffee" viewBox="0 0 80 80"><path d="M14 29h42l-3 31c-10 10-23 10-34 0Z" fill="#b1ba92" stroke="#586347" stroke-width="3"/><path d="M56 35c23-4 23 23-2 20" fill="none" stroke="#586347" stroke-width="4"/><ellipse cx="35" cy="29" rx="21" ry="6" fill="#67513b" stroke="#586347" stroke-width="3"/><path d="M28 20c-7-9 5-8 0-17m14 17c-7-9 5-8 0-17" fill="none" stroke="#b8a47e" stroke-width="2" stroke-linecap="round"/><path d="M13 70h47" stroke="#586347" stroke-width="3" stroke-linecap="round"/></symbol>
-      <symbol id="icon-egg" viewBox="0 0 80 80"><path d="m11 29 12 8 8-8 11 8 10-8c9 30-3 43-18 42-17-1-25-13-23-42Z" fill="#e9d8b1" stroke="#78664a" stroke-width="3"/><path d="M35 20c4-17 17-18 23-1L50 25l-7-7-8 6Z" fill="#e9d8b1" stroke="#78664a" stroke-width="3"/><path d="m60 51 9-3 3 11-10 3Z" fill="#d5bf96" stroke="#78664a" stroke-width="2"/></symbol>
-      <symbol id="icon-water" viewBox="0 0 80 80"><path d="M40 8C31 25 16 40 16 52c0 30 48 30 48 0C64 40 49 25 40 8Z" fill="#9ab6b0" stroke="#526c60" stroke-width="3"/><path d="M26 51q-2 13 12 15" fill="none" stroke="#d0d8bb" stroke-width="4" stroke-linecap="round"/></symbol>
-      <symbol id="icon-mix" viewBox="0 0 80 80"><path d="m56 9-30 44" stroke="#9c8157" stroke-width="7" stroke-linecap="round"/><path d="m17 48 17 11-15 17L6 65Z" fill="#a6ad90" stroke="#56644d" stroke-width="3"/><path d="M24 18C4 25 5 44 17 47m-7-12 7 13 6-13m28 30c22-8 24-28 10-33m6 12-6-13-8 10" fill="none" stroke="#c8b386" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-      <symbol id="icon-layers" viewBox="0 0 80 80"><path d="m9 25 31-15 31 15-31 15Zm0 16 31 15 31-15M9 57l31 15 31-15" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/></symbol>
-      <symbol id="compost-box" viewBox="0 0 430 380">
-        <ellipse cx="220" cy="350" rx="162" ry="15" fill="#493d2c" opacity=".18"/>
-        <path d="m72 126 229-35 73 42-222 45Z" fill="#c6a16a" stroke="#5f5034" stroke-width="4" stroke-linejoin="round"/>
-        <path d="m83 131 215-29 58 31-207 39Z" fill="#655138"/>
-        <path d="m152 177 222-44-6 184-220 38Z" fill="#ac8452" stroke="#5f5034" stroke-width="4" stroke-linejoin="round"/>
-        <path d="m72 126 80 51-4 178-76-48Z" fill="#947347" stroke="#5f5034" stroke-width="4" stroke-linejoin="round"/>
-        <path class="soil-band soil-band-bottom" d="m167 287 185-35-1 48-184 33Z" fill="#b99b63" stroke="#725637" stroke-width="2"/>
-        <path class="soil-band soil-band-green" d="m167 239 186-36-1 49-185 35Z" fill="#8b9a61" stroke="#657345" stroke-width="2"/>
-        <path class="soil-band soil-band-top" d="m167 199 187-36-1 40-186 36Z" fill="#c5a36a" stroke="#725637" stroke-width="2"/>
-        <g fill="none" stroke="#ead2a0" stroke-width="3" opacity=".7"><path d="m187 215 13-7m23-2 13-4m24-3 13-4m25-2 13-6m17 1 13-5m-155 129 12-4m26-3 14-5m25-1 13-5m24-3 13-4m15-2 10-4"/></g>
-        <g fill="#c3ce90" stroke="#617348" stroke-width="1.5"><path d="m191 267 4-18 16-3-7 17Zm40-7 4-18 15-3-6 18Zm47-10 3-18 16-3-6 18Zm45-9 2-18 16-3-5 18Z"/></g>
-        <path d="m79 137 14 8-2 160-13-8Zm45 30 15 9-4 160-13-9Zm37 10 12-3-2 169-13 3Zm192-38 13-3-4 171-12 2Z" fill="#c6a16a" stroke="#6c5839" stroke-width="2"/>
-        <path d="m90 318-1 31m249-13-1 19" stroke="#5f5034" stroke-width="9" stroke-linecap="round"/>
-        <g fill="#4e5034"><circle cx="109" cy="204" r="3"/><circle cx="108" cy="237" r="3"/><circle cx="108" cy="273" r="3"/><circle cx="184" cy="329" r="2.5"/><circle cx="222" cy="322" r="2.5"/><circle cx="260" cy="315" r="2.5"/><circle cx="300" cy="308" r="2.5"/></g>
-      </symbol>
-    </defs>
-  </svg>
-
-  <header class="cabecera">
-    <a class="marca" href="index.html"><img src="assets/human-stem-logo.svg" alt="HUMAN STEM, inicio" width="1494" height="383"></a>
-    <nav class="menu" aria-label="Navegación principal">
-      <button class="menu__boton" type="button" aria-expanded="false" aria-controls="menu-lista">Menú</button>
-      <ul class="menu__lista" id="menu-lista">
-        <li><a href="index.html#quienes-somos">Quiénes somos</a></li>
-        <li><a href="superman.html">Proyecto Superman</a></li>
-        <li><a href="miltli.html" aria-current="page">Programa Miltli</a></li>
-        <li><a class="menu__cta" href="index.html#colabora">Colabora</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main class="miltli capa-contenido" id="contenido-principal" tabindex="-1">
-    <nav class="ruta" aria-label="Ruta de navegación">
-      <ol>
-        <li><a href="index.html">Inicio</a></li>
-        <li><span aria-current="page">Programa Miltli</span></li>
-      </ol>
-    </nav>
-    
-    <section class="hero" id="superficie" data-depth="0" data-title="Superficie">
-      <div class="landscape" aria-hidden="true">
-        <div class="capa-sierra"></div>
-        <div class="capa-suelo"></div>
-        <img class="hero-tree capa-arbol" src="assets/escena/arbol.svg" alt="" width="380" height="1000" fetchpriority="high">
-      </div>
-      <div class="hero-copy">
-        <p class="eyebrow">Guía de compostaje doméstico</p>
-        <h1>Programa Miltli</h1>
-        <p class="hero-description">Aprende a compostar, una capa a la vez.</p>
-        <a class="button button-cream" href="#raices">Aprender a compostar <svg aria-hidden="true"><use href="#arrow-down"/></svg></a>
-      </div>
-    </section>
-
-    <div class="underground" id="subsuelo">
-      <div class="earth-texture" aria-hidden="true"></div>
-      <svg class="root-network" viewBox="0 0 1440 3970" preserveAspectRatio="none" aria-hidden="true">
-        <g fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <g stroke="#6c452f" stroke-width="8" opacity=".63">
-            <path d="M180-20q10 130 70 196t-25 164q-67 64-38 170t-41 218l25 188"/><path d="m211 116-75 59-21 66m134-56 69 60 12 64m-119 82-80-1-29 62m83 44 65 53 27 91m-117 8-53 55 6 41"/>
-            <path d="M1165-20q-30 117 32 221t-2 157q-73 74-25 218t-30 239l-7 167"/><path d="m1171 130-69 59-12 72m107-50 74 54 24 82m-115 61-87 34-34 87m109 75 66 57 6 72m-93 71-61 12-16 68"/>
-          </g>
-          <g stroke="#d1a270" stroke-width="3" opacity=".32"><path d="M180-20q10 130 70 196t-25 164q-67 64-38 170t-41 218l25 188"/><path d="M1165-20q-30 117 32 221t-2 157q-73 74-25 218t-30 239l-7 167"/><path d="m213 117-77 58m1067 38 67 53"/></g>
-          <path class="journey-line" d="M720 0C720 170 991 158 984 360S862 637 720 780 375 904 415 1120 616 1380 720 1560 1002 1778 980 1970 765 2177 720 2370 382 2541 430 2770 635 3029 720 3200L720 3760" stroke="#e0b890" stroke-width="2" stroke-dasharray="3 11" opacity=".3"/>
-          <path id="journey-progress" d="M720 0C720 170 991 158 984 360S862 637 720 780 375 904 415 1120 616 1380 720 1560 1002 1778 980 1970 765 2177 720 2370 382 2541 430 2770 635 3029 720 3200L720 3760" stroke="#edd9af" stroke-width="2" opacity=".4"/>
-        </g>
-      </svg>
-      <div class="stones" aria-hidden="true"></div>
-
-      <section class="layer layer-roots content-layer" id="raices" data-depth="0.6" data-title="Material previo">
-        <div class="layer-inner">
-          <div class="chapter-copy reveal">
-            <p class="eyebrow light"><span class="chapter-number">01</span></p>
-            <h2>Material previo</h2>
-            <p>Un recipiente, materiales separados y un poco de tierra. Tu primer paso empieza con lo que ya tienes en casa.</p>
-            <div class="container-note"><span class="note-symbol">↧</span><div><h3>El recipiente</h3><p>Elige uno de plástico del tamaño adecuado para tus residuos. Úsalo sin tapa y hazle perforaciones en la base para que drenen los líquidos.</p></div></div>
-            <div class="material-groups">
-              <div class="material-group dry"><h3><i></i> Materiales secos</h3><ul><li>Hojas y pasto secos.</li><li>Ramas, tallos y palitos en trozos.</li><li>Aserrín de madera sin pintura ni tratamiento.</li></ul></div>
-              <div class="material-group green"><h3><i></i> Materiales verdes</h3><ul><li>Hojas y pasto frescos.</li><li>Restos crudos de frutas y verduras.</li><li>Restos vegetales frescos.</li></ul></div>
-            </div>
-            <p class="soil-note"><strong>La tierra va aparte:</strong> ten un poco a mano; no sustituye la capa de materiales secos.</p>
-            <a class="next-layer" href="#vida">Qué se puede compostar <span aria-hidden="true">↓</span></a>
-          </div>
-          <figure class="chapter-art compost-scene reveal">
-            <svg class="compost-illustration" viewBox="0 0 530 480" role="img" aria-labelledby="bin-title"><title id="bin-title">Compostera con una base seca, residuos verdes y cubierta seca</title>
-              <path d="M94 39c-22 50 15 64-6 101m368-97q-37 39-19 91" fill="none" stroke="#b58c5c" stroke-width="5" stroke-linecap="round" opacity=".5"/>
-              <g transform="translate(35 95)">
-        <ellipse cx="220" cy="350" rx="162" ry="15" fill="#493d2c" opacity=".18"/>
-        <path d="m72 126 229-35 73 42-222 45Z" fill="#c6a16a" stroke="#5f5034" stroke-width="4" stroke-linejoin="round"/>
-        <path d="m83 131 215-29 58 31-207 39Z" fill="#655138"/>
-        <path d="m152 177 222-44-6 184-220 38Z" fill="#ac8452" stroke="#5f5034" stroke-width="4" stroke-linejoin="round"/>
-        <path d="m72 126 80 51-4 178-76-48Z" fill="#947347" stroke="#5f5034" stroke-width="4" stroke-linejoin="round"/>
-        <path class="soil-band soil-band-bottom" d="m167 287 185-35-1 48-184 33Z" fill="#b99b63" stroke="#725637" stroke-width="2"/>
-        <path class="soil-band soil-band-green" d="m167 239 186-36-1 49-185 35Z" fill="#8b9a61" stroke="#657345" stroke-width="2"/>
-        <path class="soil-band soil-band-top" d="m167 199 187-36-1 40-186 36Z" fill="#c5a36a" stroke="#725637" stroke-width="2"/>
-        <g fill="none" stroke="#ead2a0" stroke-width="3" opacity=".7"><path d="m187 215 13-7m23-2 13-4m24-3 13-4m25-2 13-6m17 1 13-5m-155 129 12-4m26-3 14-5m25-1 13-5m24-3 13-4m15-2 10-4"/></g>
-        <g fill="#c3ce90" stroke="#617348" stroke-width="1.5"><path d="m191 267 4-18 16-3-7 17Zm40-7 4-18 15-3-6 18Zm47-10 3-18 16-3-6 18Zm45-9 2-18 16-3-5 18Z"/></g>
-        <path d="m79 137 14 8-2 160-13-8Zm45 30 15 9-4 160-13-9Zm37 10 12-3-2 169-13 3Zm192-38 13-3-4 171-12 2Z" fill="#c6a16a" stroke="#6c5839" stroke-width="2"/>
-        <path d="m90 318-1 31m249-13-1 19" stroke="#5f5034" stroke-width="9" stroke-linecap="round"/>
-        <g fill="#4e5034"><circle cx="109" cy="204" r="3"/><circle cx="108" cy="237" r="3"/><circle cx="108" cy="273" r="3"/><circle cx="184" cy="329" r="2.5"/><circle cx="222" cy="322" r="2.5"/><circle cx="260" cy="315" r="2.5"/><circle cx="300" cy="308" r="2.5"/></g>
-      </g>
-              <g class="bin-callout" data-material="2"><path d="m378 260 65-22"/><circle cx="443" cy="238" r="13"/><text x="443" y="242">3</text></g>
-              <g class="bin-callout" data-material="1"><path d="m373 306 70-17"/><circle cx="443" cy="289" r="13"/><text x="443" y="293">2</text></g>
-              <g class="bin-callout selected" data-material="0"><path d="m370 352 73-12"/><circle cx="443" cy="340" r="13"/><text x="443" y="344">1</text></g>
-              <use href="#icon-leaf" x="54" y="45" width="54" height="54" transform="rotate(-18 81 72)"/>
-              <use href="#icon-carrot" x="341" y="28" width="58" height="58" transform="rotate(13 370 57)"/>
-              <path d="m282 54 1 18m-9-9h18" stroke="#e3c698" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <div class="layer-selector" role="group" aria-label="Explorar las capas de la compostera"><button type="button" data-material-button="0" aria-pressed="true" disabled><span>1</span> Base seca</button><button type="button" data-material-button="1" aria-pressed="false" disabled><span>2</span> Residuos verdes</button><button type="button" data-material-button="2" aria-pressed="false" disabled><span>3</span> Cubierta seca</button></div>
-            <p class="material-caption" id="material-caption" aria-live="polite">Empieza con ramas pequeñas y materiales secos para dejar pasar el aire.</p>
-            <div class="cover-reminder"><svg aria-hidden="true"><use href="#icon-leaf"/></svg><p><strong>Termina siempre con secos.</strong> Cubre los residuos de cocina para ayudar a evitar el mal olor.</p></div>
-          </figure>
-        </div>
-        <span class="stratum-label">PARADA 01 <i></i> PREPARACIÓN</span>
-      </section>
-
-      <section class="layer layer-life content-layer" id="vida" data-depth="1.4" data-title="Qué se puede compostar">
-        <div class="stratum-edge" aria-hidden="true"></div>
-        <div class="layer-inner reverse">
-          <div class="chapter-copy reveal">
-            <p class="eyebrow light"><span class="chapter-number">02</span></p>
-            <h2>Qué se puede compostar</h2>
-            <p>Separa estos materiales antes de tirarlos. Trocea los restos grandes para que sea más fácil incorporarlos.</p>
-            <div class="tip-note"><span>✳</span><p><strong>Secos y verdes se complementan.</strong> El papel y el cartón van con los secos; los restos de cocina y el café usado, con los verdes.</p></div>
-            <div class="avoid-note"><h3>Deja fuera de esta composta</h3><p>Carnes, lácteos, aceites, comida cocinada y materiales pintados o plastificados.</p></div>
-            <a class="next-layer" href="#huellas">Paso a paso <span aria-hidden="true">↓</span></a>
-          </div>
-          <figure class="ingredients-scene reveal">
-            <div class="ingredient-grid">
-              <div class="ingredient"><svg aria-hidden="true"><use href="#icon-apple"/></svg><h3>Frutas</h3><p>Restos y cáscaras<br>sin cocinar.</p><span class="ingredient-type">VERDES</span></div>
-              <div class="ingredient"><svg aria-hidden="true"><use href="#icon-carrot"/></svg><h3>Verduras</h3><p>Recortes y restos<br>sin cocinar.</p><span class="ingredient-type">VERDES</span></div>
-              <div class="ingredient"><svg aria-hidden="true"><use href="#icon-paper"/></svg><h3>Papel y cartón</h3><p>Sin color, recubrimientos<br>ni cinta. En trozos.</p><span class="ingredient-type dry-type">SECOS</span></div>
-              <div class="ingredient"><svg aria-hidden="true"><use href="#icon-coffee"/></svg><h3>Café usado</h3><p>El café molido después<br>de prepararlo.</p><span class="ingredient-type">VERDES</span></div>
-              <div class="ingredient"><svg aria-hidden="true"><use href="#icon-egg"/></svg><h3>Cáscaras de huevo</h3><p>Limpias, secas<br>y trituradas.</p><span class="ingredient-type neutral-type">COMPLEMENTO</span></div>
-              <div class="ingredient"><svg aria-hidden="true"><use href="#icon-leaf"/></svg><h3>Plantas marchitas</h3><p>Sin plagas. Separa las partes<br>secas de las frescas.</p><span class="ingredient-type neutral-type">SEGÚN SU ESTADO</span></div>
-            </div>
-          </figure>
-        </div>
-        <span class="stratum-label">PARADA 02 <i></i> MATERIALES COMPOSTABLES</span>
-      </section>
-
-      <section class="layer layer-memories content-layer" id="huellas" data-depth="2.2" data-title="Paso a paso">
-        <div class="stratum-edge" aria-hidden="true"></div>
-        <div class="layer-inner">
-          <div class="chapter-copy reveal">
-            <p class="eyebrow light"><span class="chapter-number">03</span></p>
-            <h2>Paso a paso</h2>
-            <p>Alterna materiales, cuida la humedad y deja entrar aire. Explora cada paso para ver cómo hacerlo.</p>
-            <ol class="process-steps" aria-label="Los cuatro pasos de la composta">
-              <li><button type="button" class="process-step active" data-step="0" aria-pressed="true" disabled><span class="step-number">01</span><span><strong>Alterna las capas</strong><span>Comienza con secos. Agrega residuos verdes y termina con otra capa seca.</span></span><svg aria-hidden="true"><use href="#icon-layers"/></svg></button></li>
-              <li><button type="button" class="process-step" data-step="1" aria-pressed="false" disabled><span class="step-number">02</span><span><strong>Revisa la humedad cada semana</strong><span>Riega si hace falta: la mezcla debe sentirse húmeda, como una esponja exprimida.</span></span><svg aria-hidden="true"><use href="#icon-water"/></svg></button></li>
-              <li><button type="button" class="process-step" data-step="2" aria-pressed="false" disabled><span class="step-number">03</span><span><strong>Mezcla al menos cada 10 días</strong><span>Revuelve los materiales para que entre aire y se integren.</span></span><svg aria-hidden="true"><use href="#icon-mix"/></svg></button></li>
-              <li><button type="button" class="process-step" data-step="3" aria-pressed="false" disabled><span class="step-number">04</span><span><strong>Continúa, mezcla y cubre</strong><span>Puedes seguir agregando residuos. Mezcla y deja los restos de cocina cubiertos con secos.</span></span><svg aria-hidden="true"><use href="#icon-leaf"/></svg></button></li>
-            </ol>
-            <p class="process-source">Estos intervalos son una referencia: ajusta el riego a la humedad real de tu mezcla.</p>
-          </div>
-          <figure class="chapter-art process-scene reveal" data-current-step="0">
-            <div class="process-stage-label"><span class="stage-dot"></span> TU COMPOSTA, PASO A PASO <span id="stage-count">01 / 04</span></div>
-            <svg class="process-illustration" viewBox="0 0 530 430" role="img" aria-labelledby="process-art-title"><title id="process-art-title">Una compostera y los cuidados que necesita</title><use href="#compost-box" x="44" y="60" width="430" height="380"/>
-              <g class="process-visual process-visual-0"><use href="#icon-leaf" x="143" y="5" width="60" height="60" transform="rotate(-14 173 35)"/><use href="#icon-apple" x="224" y="17" width="55" height="55"/><use href="#icon-paper" x="291" y="2" width="58" height="58"/><path d="M246 83v22m-7-7 7 7 7-7" fill="none" stroke="#e6d0a7" stroke-width="2" stroke-linecap="round"/></g>
-              <g class="process-visual process-visual-1"><use href="#icon-water" x="222" y="-10" width="74" height="74"/><path d="m208 73-5 11m44-13-2 12m39-11 3 12" stroke="#a6c4bc" stroke-width="4" stroke-linecap="round"/></g>
-              <g class="process-visual process-visual-2"><use href="#icon-mix" x="219" y="-7" width="90" height="90"/><path d="M383 180q43 47-5 94m2-18-4 21 21-4" fill="none" stroke="#e0c797" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
-              <g class="process-visual process-visual-3"><use href="#sprout" x="204" y="-7" width="82" height="82" style="color:#b3c48a"/><path d="m144 83 4 12 12 4-12 4-4 12-4-12-12-4 12-4m208-62 3 8 8 3-8 3-3 8-3-8-8-3 8-3" fill="#dfcf9c"/></g>
-            </svg>
-            <div class="process-caption" aria-live="polite"><span id="stage-tag">CAPAS QUE SE COMPLEMENTAN</span><h3 id="stage-title">Secos → verdes → secos.</h3><p id="stage-description">Deja una base que permita circular el aire. Después de los residuos verdes, añade una cubierta seca.</p></div>
-            <div class="process-paging"><span>Selecciona un paso para explorarlo.</span><button type="button" id="next-step" disabled>Siguiente paso <span>→</span></button></div>
-          </figure>
-        </div>
-        <span class="stratum-label">PARADA 03 <i></i> CUIDADO CONTINUO</span>
-      </section>
-
-      <section class="layer layer-deep content-layer" id="profundidad" data-depth="3" data-title="Participa">
-        <div class="stratum-edge" aria-hidden="true"></div>
-        <div class="layer-inner reverse">
-          <div class="chapter-copy reveal">
-            <p class="eyebrow light"><span class="chapter-number">04</span></p>
-            <h2>Participa</h2>
-            <p>En Programa Miltli trabajamos para transformar nuestros residuos y recuperar espacios mediante la composta y los cultivos urbanos.</p>
-            <a class="button button-cream recruitment-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdmvbMqbXGZNnqHmvJsmeIXrOZvumeHosot576Vju7E-lCg2A/viewform?usp=send_form" target="_blank" rel="noopener noreferrer">Formulario de reclutamiento <span aria-hidden="true">↗</span></a>
-            <p class="recruitment-note">El QR lleva al formulario de HUMAN STEM de <strong>septiembre de 2026</strong>. Consulta con el equipo la vigencia de la convocatoria.</p>
-          </div>
-          <figure class="community-scene reveal">
-            <div class="community-glow" aria-hidden="true"></div>
-            <div class="qr-note"><a class="qr-link recruitment-link" href="https://docs.google.com/forms/d/e/1FAIpQLSdmvbMqbXGZNnqHmvJsmeIXrOZvumeHosot576Vju7E-lCg2A/viewform?usp=send_form" target="_blank" rel="noopener noreferrer" aria-label="Abrir el formulario de participación de HUMAN STEM"><svg viewBox="0 0 53 53" width="53" height="53" aria-hidden="true" focusable="false"><path fill="#fff" d="M0 0h53v53H0z"/><path transform="translate(0 .5)" fill="none" stroke="#151b16" d="M4 4h7M13 4h1M16 4h1M18 4h1M20 4h2M23 4h2M26 4h1M29 4h2M33 4h3M40 4h1M42 4h7M4 5h1M10 5h1M16 5h1M20 5h2M24 5h1M26 5h1M29 5h3M33 5h3M39 5h1M42 5h1M48 5h1M4 6h1M6 6h3M10 6h1M15 6h3M22 6h1M24 6h3M32 6h1M34 6h1M36 6h1M39 6h1M42 6h1M44 6h3M48 6h1M4 7h1M6 7h3M10 7h1M13 7h2M16 7h2M19 7h1M21 7h1M24 7h2M28 7h3M33 7h2M39 7h2M42 7h1M44 7h3M48 7h1M4 8h1M6 8h3M10 8h1M14 8h2M20 8h1M24 8h5M30 8h1M33 8h2M36 8h5M42 8h1M44 8h3M48 8h1M4 9h1M10 9h1M12 9h4M17 9h2M20 9h5M28 9h2M31 9h2M34 9h1M36 9h1M42 9h1M48 9h1M4 10h7M12 10h1M14 10h1M16 10h1M18 10h1M20 10h1M22 10h1M24 10h1M26 10h1M28 10h1M30 10h1M32 10h1M34 10h1M36 10h1M38 10h1M40 10h1M42 10h7M13 11h1M18 11h2M21 11h4M28 11h4M35 11h2M38 11h1M4 12h1M7 12h1M9 12h2M12 12h1M14 12h1M16 12h2M19 12h1M24 12h5M30 12h1M32 12h4M38 12h2M41 12h1M43 12h1M5 13h5M11 13h2M14 13h2M18 13h2M21 13h1M24 13h1M26 13h1M33 13h1M36 13h1M41 13h1M44 13h1M46 13h1M48 13h1M5 14h1M9 14h6M16 14h3M20 14h1M22 14h1M24 14h1M28 14h2M31 14h1M33 14h1M38 14h3M45 14h1M48 14h1M4 15h2M7 15h1M13 15h1M15 15h2M21 15h4M27 15h1M30 15h1M32 15h3M37 15h1M39 15h2M42 15h1M44 15h2M47 15h2M4 16h1M6 16h1M10 16h2M14 16h3M18 16h2M22 16h3M26 16h1M28 16h2M31 16h2M35 16h6M43 16h2M5 17h5M12 17h1M15 17h2M19 17h4M27 17h3M35 17h1M38 17h1M41 17h1M45 17h2M48 17h1M7 18h6M14 18h2M19 18h1M21 18h2M28 18h2M31 18h1M33 18h1M35 18h2M38 18h3M43 18h1M46 18h2M4 19h1M6 19h1M8 19h2M12 19h1M14 19h1M16 19h2M22 19h1M26 19h1M31 19h2M34 19h3M39 19h1M41 19h2M4 20h2M7 20h6M14 20h1M18 20h1M20 20h4M27 20h1M30 20h2M33 20h1M36 20h2M41 20h1M43 20h1M45 20h3M4 21h1M6 21h2M9 21h1M11 21h3M15 21h1M19 21h1M22 21h3M27 21h7M35 21h1M39 21h1M42 21h1M44 21h2M47 21h2M4 22h2M7 22h4M13 22h1M18 22h2M21 22h1M24 22h1M27 22h3M31 22h2M35 22h1M38 22h2M41 22h1M43 22h1M45 22h4M4 23h2M7 23h1M9 23h1M13 23h1M15 23h1M17 23h1M19 23h1M22 23h2M26 23h5M32 23h2M36 23h3M40 23h1M43 23h2M47 23h1M4 24h1M8 24h6M22 24h1M24 24h6M31 24h3M35 24h1M37 24h1M40 24h5M47 24h1M8 25h1M12 25h3M20 25h1M22 25h1M24 25h1M28 25h2M31 25h2M36 25h1M40 25h1M44 25h1M47 25h2M8 26h1M10 26h1M12 26h1M17 26h3M22 26h1M24 26h1M26 26h1M28 26h3M34 26h7M42 26h1M44 26h1M46 26h3M5 27h2M8 27h1M12 27h3M16 27h1M19 27h3M23 27h2M28 27h6M35 27h1M38 27h1M40 27h1M44 27h2M47 27h2M4 28h3M8 28h5M14 28h1M17 28h1M19 28h2M22 28h1M24 28h6M31 28h7M39 28h7M47 28h2M4 29h1M6 29h4M12 29h1M15 29h2M23 29h3M28 29h2M31 29h3M35 29h2M38 29h1M40 29h1M42 29h1M44 29h1M48 29h1M4 30h1M7 30h1M9 30h2M12 30h1M14 30h1M16 30h2M19 30h4M27 30h1M30 30h2M40 30h2M43 30h2M46 30h2M7 31h2M13 31h1M21 31h2M25 31h1M27 31h1M29 31h4M35 31h2M38 31h1M40 31h4M45 31h1M4 32h2M7 32h1M9 32h3M13 32h3M17 32h1M21 32h5M27 32h3M31 32h1M34 32h1M36 32h1M41 32h1M43 32h2M47 32h2M4 33h1M6 33h1M8 33h2M11 33h1M13 33h3M17 33h1M19 33h3M23 33h1M25 33h4M30 33h4M35 33h2M40 33h2M46 33h2M6 34h3M10 34h4M15 34h2M22 34h3M26 34h1M28 34h1M30 34h9M42 34h1M44 34h1M46 34h3M4 35h5M11 35h3M15 35h3M19 35h1M22 35h3M28 35h2M32 35h1M34 35h1M36 35h2M40 35h1M42 35h3M48 35h1M4 36h1M6 36h2M10 36h1M13 36h1M15 36h2M18 36h3M23 36h5M29 36h4M38 36h2M47 36h1M4 37h1M8 37h1M12 37h5M21 37h2M25 37h2M28 37h1M31 37h2M36 37h1M39 37h1M47 37h2M8 38h1M10 38h1M12 38h1M15 38h1M18 38h6M29 38h3M35 38h2M38 38h3M42 38h1M44 38h2M48 38h1M5 39h4M15 39h3M19 39h3M29 39h6M37 39h1M39 39h1M41 39h2M45 39h1M48 39h1M4 40h1M7 40h2M10 40h6M19 40h4M24 40h5M30 40h7M38 40h1M40 40h5M47 40h1M12 41h3M16 41h3M20 41h5M28 41h1M32 41h1M35 41h1M37 41h2M40 41h1M44 41h1M48 41h1M4 42h7M18 42h2M22 42h3M26 42h1M28 42h1M32 42h1M35 42h3M40 42h1M42 42h1M44 42h4M4 43h1M10 43h1M12 43h1M14 43h3M19 43h1M22 43h1M24 43h1M28 43h1M30 43h3M36 43h2M40 43h1M44 43h1M48 43h1M4 44h1M6 44h3M10 44h1M18 44h3M22 44h7M31 44h1M33 44h1M36 44h10M4 45h1M6 45h3M10 45h1M12 45h1M15 45h1M19 45h3M24 45h2M27 45h1M30 45h1M32 45h1M39 45h2M42 45h2M45 45h2M4 46h1M6 46h3M10 46h1M13 46h1M16 46h1M18 46h4M23 46h1M25 46h4M31 46h3M35 46h1M37 46h1M40 46h1M43 46h3M47 46h2M4 47h1M10 47h1M13 47h1M16 47h1M18 47h1M20 47h5M27 47h5M34 47h1M36 47h3M41 47h1M43 47h1M45 47h1M4 48h7M12 48h3M17 48h1M19 48h1M23 48h1M25 48h1M28 48h1M30 48h3M35 48h1M37 48h1M41 48h2M44 48h1M47 48h1"/></svg></a><p>Escanea o toca el QR<br>para consultar el formulario.</p><span class="qr-provenance">FORMULARIO DE PARTICIPACIÓN</span></div>
-            <svg class="community-sprout" viewBox="0 0 220 200" aria-hidden="true"><path d="M22 181q87-44 177 0" fill="#786b47" stroke="#46523a" stroke-width="3"/><path d="M111 177V80" stroke="#9daf7b" stroke-width="7" stroke-linecap="round"/><path d="M110 118C41 120 31 79 36 57c47-4 83 16 74 61ZM111 88c-7-51 32-75 77-68-1 44-32 78-77 68Z" fill="#a2b879" stroke="#5b7850" stroke-width="3"/><path d="m62 79 46 35m5-28 49-43" fill="none" stroke="#6b8656" stroke-width="3" stroke-linecap="round"/></svg>
-          </figure>
-        </div>
-        <span class="stratum-label">PARADA 04 <i></i> PROGRAMA MILTLI</span>
-      </section>
-
-      <section class="journey-end" id="final" data-depth="3.5" data-title="Guía en PDF" aria-labelledby="titulo-final">
-        <div class="end-content reveal"><span class="end-sprout"><svg><use href="#sprout"/></svg></span><h2 id="titulo-final">Guía en PDF y más información</h2><a class="button button-cream" href="#superficie">Volver a la superficie <svg><use href="#arrow-down"/></svg></a></div>
-        <div class="partner-signatures"><span class="partner-signature human-signature">HUMAN<span>STEM</span></span><i>×</i><span class="partner-signature miltli-signature"><svg aria-hidden="true"><use href="#sprout"/></svg><span>Miltli<small>PROGRAMA DE COMPOSTAJE</small></span></span></div>
-        <p class="external-guide">¿La quieres a la mano? <a class="text-link" href="assets/pdf/guia-compostaje-miltli.pdf" download>Descarga esta guía en PDF</a> para leerla sin conexión o imprimirla.</p>
-        <p class="external-guide">¿Quieres profundizar? Consulta la <a class="text-link" href="https://www.epa.gov/recycle/composting-home" rel="external noopener noreferrer" target="_blank">guía de compostaje doméstico de la EPA <span aria-hidden="true">↗</span><span class="solo-lector"> (sitio externo en inglés, se abre en otra pestaña)</span></a>.</p>
-        <div class="footer-note"><span>PROGRAMA MILTLI · HUMAN STEM</span><span>Los metros pertenecen al escenario ilustrado.</span><a href="#superficie">Volver a la superficie ↗</a></div>
-      </section>
-    </div>
+<body>
+  <main>
+    <img src="/HUMAN/assets/human-stem-isotipo.svg" alt="HUMAN STEM">
+    <h1>Este sitio ya no se actualiza</h1>
+    <p>La página de HUMAN STEM ahora vive en una nueva dirección, con la información más reciente de Proyecto Superman y Programa Miltli.</p>
+    <p aria-live="polite">Te llevaremos ahí en <strong id="s">6</strong> segundos.</p>
+    <a class="boton" id="destino" href="https://human-stem.github.io/page/miltli.html">Ir al sitio nuevo</a>
+    <p class="url">human-stem.github.io/page/miltli.html</p>
+    <p>Gracias por visitarnos.</p>
   </main>
-
-  <footer class="pie">
-    <div class="pie__fila">
-      <form class="buscador" action="mapa-del-sitio.html" method="get" role="search">
-        <label for="buscar">Buscar en el sitio</label>
-        <input id="buscar" name="q" type="search" autocomplete="off">
-        <button type="submit">Buscar</button>
-      </form>
-      <nav aria-label="Enlaces del pie">
-        <ul class="pie__enlaces">
-          <li><a href="mapa-del-sitio.html">Mapa del sitio</a></li>
-          <li><a href="creditos.html">Créditos</a></li>
-          <li><a href="https://www.instagram.com/humanstem/" rel="external noopener">Instagram</a></li>
-          <li><a href="https://www.tiktok.com/@humanstem" rel="external noopener">TikTok</a></li>
-          <li><a href="en/index.html" lang="en" hreflang="en">English</a></li>
-        </ul>
-      </nav>
-    </div>
-    <p>© 2026 HUMAN STEM. Sitio web administrado por: HUMAN STEM. <a href="mailto:human.stem.org@gmail.com">human.stem.org@gmail.com</a>. Última actualización: <time datetime="2026-11-10">10 de noviembre de 2026</time>.</p>
-    <p>En la creación de este sitio web se utilizaron herramientas generativas (Codex y Claude Code). <a href="uso-responsable-ia.html">Política de uso responsable de IA</a>.</p>
-    <p class="pie__feria">Presentado en la Feria de la Red de Responsabilidad Social, <a href="https://www.acatlan.unam.mx/" rel="external noopener">FES Acatlán</a>, <a href="https://www.unam.mx/" rel="external noopener">UNAM</a>.</p>
-  </footer>
-
-  <aside class="depth-nav" aria-label="Navegación por las paradas de la guía">
-    <div class="depth-readout" title="Profundidad ilustrativa del escenario; no es la profundidad de la compostera"><span>EL DESCENSO</span><strong><span id="depth-value">0.0</span><small> m</small></strong></div>
-    <div class="depth-stops"><span class="depth-track"></span><span class="depth-fill"></span><a href="#superficie" data-stop="0" class="active" aria-label="Superficie" aria-current="location"><i></i><span>Superficie</span></a><a href="#raices" data-stop="1" aria-label="Parada 1: Material previo"><i></i><span>Material previo</span></a><a href="#vida" data-stop="2" aria-label="Parada 2: Qué se puede compostar"><i></i><span>Qué se puede compostar</span></a><a href="#huellas" data-stop="3" aria-label="Parada 3: Paso a paso"><i></i><span>Proceso</span></a><a href="#profundidad" data-stop="4" aria-label="Parada 4: Participa"><i></i><span>Participa</span></a></div>
-    <span class="depth-caption" id="depth-caption">Superficie</span>
-  </aside>
-
-  <div class="exploration-tools"><button class="motion-toggle" type="button" aria-pressed="false" aria-label="Pausar las animaciones decorativas"><svg aria-hidden="true" class="pause-icon" viewBox="0 0 20 20"><path d="M7 5v10m6-10v10"/></svg><svg aria-hidden="true" class="play-icon" viewBox="0 0 20 20"><path d="m7 4 9 6-9 6Z"/></svg><span id="motion-label">Pausar movimiento</span></button></div>
-
-
-  <script src="js/miltli.js" defer></script>
-  <script src="js/tour.js" defer></script>
+  <script>
+    (function () {
+      var destino = "https://human-stem.github.io/page/miltli.html";
+      // Conserva #ancla y ?consulta del enlace original
+      var url = destino + location.search + location.hash;
+      document.getElementById("destino").href = url;
+      var s = 6, el = document.getElementById("s");
+      var t = setInterval(function () {
+        s -= 1; if (el) el.textContent = s;
+        if (s <= 0) { clearInterval(t); location.replace(url); }
+      }, 1000);
+    })();
+  </script>
 </body>
 </html>
